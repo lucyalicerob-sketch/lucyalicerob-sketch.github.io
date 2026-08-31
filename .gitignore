@@ -1,0 +1,18 @@
+# Git Ignore for Lucy Robinson Portfolio Website
+
+# Archives and Backups
+*.zip
+backups/
+
+# Python Cache & Temp
+__pycache__/
+*.pyc
+*.pyo
+.temp/
+test_*.html
+temp_*.js
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+desktop.ini

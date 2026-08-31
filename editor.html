@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>Portfolio Studio &amp; Content Editor | Lucy Robinson</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    .studio-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+    }
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1.5px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .studio-sidebar {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: sticky;
+      top: 24px;
+    }
+    .studio-nav-btn {
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-body);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--transition-fast);
+    }
+    .studio-nav-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--park-copper);
+    }
+    .studio-nav-btn.active {
+      background: var(--park-copper);
+      color: #ffffff;
+    }
+    .studio-main-card {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-subtle);
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .studio-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .studio-input, .studio-textarea, .studio-select {
+      width: 100%;
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color var(--transition-fast);
+    }
+    .studio-input:focus, .studio-textarea:focus, .studio-select:focus {
+      outline: none;
+      border-color: var(--park-copper);
+      background: var(--bg-surface);
+    }
+    .item-list-row {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .pill-tag {
+      background: rgba(194, 94, 46, 0.12);
+      color: var(--park-copper);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px;
+    }
+    .pill-tag-remove {
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .pill-tag-remove:hover {
+      color: var(--coaster-red);
+    }
+    .gallery-fig-item {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 14px;
+      align-items: center;
+    }
+    .lock-screen-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lock-card {
+      max-width: 460px;
+      width: 100%;
+      background: var(--bg-surface);
+      border: 2px solid var(--border-medium);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- ========================================================================
+       LOCK SCREEN (SHOWN WHEN NOT AUTHENTICATED)
+       ======================================================================== -->
+  <div id="studioLockScreen" class="lock-screen-container" style="display: none;">
+    <div class="lock-card">
+      <div style="font-size: 2.8rem; margin-bottom: 12px;">🔐</div>
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Collaborator Studio Login</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">
+        Visual editing workspace for <strong>Lucy Robinson</strong> &amp; <strong>Mat Robinson</strong>. Sign in with your authorized Google account or enter studio passkey.
+      </p>
+
+      <!-- Google Sign In Button -->
+      <button type="button" class="btn btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; font-weight: 600; font-size: 0.95rem; background: var(--bg-surface); border: 1.5px solid var(--border-medium); margin-bottom: 20px; cursor: pointer;" onclick="handleGenericGoogleSignIn()">
+        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z" fill="#4285F4"/>
+          <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
+          <path d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707 0-.59.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.347 2.825.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+          <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z" fill="#EA4335"/>
+        </svg>
+        <span>Sign in with Google</span>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">OR USE PASSKEY</div>
+        <div style="flex: 1; height: 1px; background: var(--border-light);"></div>
+      </div>
+
+      <div style="text-align: left; margin-bottom: 20px;">
+        <label class="studio-label">Enter Passkey</label>
+        <div style="position: relative;">
+          <input type="password" id="editorLockPasskeyInput" class="studio-input" placeholder="Enter passkey..." style="font-size: 1rem; padding-right: 42px;" autocomplete="current-password">
+          <button type="button" onclick="togglePasskeyVisibility('editorLockPasskeyInput', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--text-muted);" title="Show/Hide">👁️</button>
+        </div>
+        <div id="editorLockErrorMsg" style="color: var(--coaster-red); font-size: 0.82rem; margin-top: 8px; font-weight: 600; display: none;">
+          ✕ Incorrect passkey. Please try again.
+        </div>
+      </div>
+
+      <button class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.95rem; padding: 12px;" onclick="handleEditorLogin()">Unlock Studio 🔓</button>
+
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-light); font-size: 0.78rem; text-align: center;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none;">← Back to Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       AUTHENTICATED WORKSPACE
+       ======================================================================== -->
+  <div id="studioWorkspace" style="display: none;">
+    <header class="navbar" style="position: static; margin-bottom: 24px;">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-brand">
+          <div class="brand-logo">LR</div>
+          <div class="brand-text">
+            <span class="brand-name">Lucy Robinson</span>
+            <span class="brand-title">PORTFOLIO STUDIO &amp; CMS</span>
+          </div>
+        </a>
+        <div class="nav-actions">
+          <a href="index.html" class="btn btn-secondary btn-sm">👁️ View Live Site</a>
+          <button class="btn btn-secondary btn-sm" onclick="handleEditorLogout()">🔒 Lock &amp; Sign Out</button>
+          <button class="btn btn-primary btn-sm" onclick="exportPortfolioDataFile()">💾 Download portfolio-data.js</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="studio-container">
+      <div class="studio-header">
+        <div>
+          <h1 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">Visual Portfolio Studio</h1>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Collaborative Studio for <strong>Lucy Robinson</strong> &amp; <strong>Mat Robinson</strong>. Edit every word, manage the central media store, or update builds.
+          </p>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button class="btn btn-secondary" onclick="copyPortfolioDataToClipboard()">📋 Copy Code</button>
+          <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save Changes</button>
+        </div>
+      </div>
+
+      <div class="studio-grid">
+        <!-- Studio Navigation Sidebar -->
+        <aside class="studio-sidebar">
+          <button class="studio-nav-btn active" onclick="showSection('sectionProfile')">👤 Profile &amp; Hero</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionStory')">⚡ Personal Story &amp; Bio</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionProjects')">🚀 CAD &amp; Projects</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionCodeEmbed')">💻 Code &amp; Script Embedder</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionDiary')">📝 Field Notes</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionCoasters')">🎢 Coaster Log</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionSkills')">🛠️ Skills Toolkit</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionCareer')">🎓 Education &amp; Journey</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionMedia')">🖼️ Central Media Store</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionSecurity')">🔐 Security &amp; Access</button>
+          <button class="studio-nav-btn" onclick="showSection('sectionExport')">💾 Save &amp; Export</button>
+        </aside>
+
+        <!-- Main Editor Panes -->
+        <main class="studio-main-card" id="studioEditorContent">
+          <!-- Dynamic Content rendered by editor controller -->
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
+
+  <!-- Scripts -->
+  <script src="scripts/portfolio-data.js?v=20260831_reaching_aid_live"></script>
+  <script src="scripts/cms.js?v=20260831_reaching_aid_live"></script>
+  <script>
+    function formatImageSrc(src) { return src || ""; }
+    function getVal(id, fallback = '') {
+      const el = document.getElementById(id);
+      return el ? el.value : fallback;
+    }
+
+    function getChecked(id, fallback = false) {
+      const el = document.getElementById(id);
+      return el ? el.checked : fallback;
+    }
+
+    let activeSection = 'sectionProfile';
+
+    function initEditorPage() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#edit-diary-')) {
+        const dId = hash.replace('#edit-diary-', '');
+        activeSection = 'sectionDiary';
+        checkAuthAndRender();
+        setTimeout(() => editDiaryItem(dId), 100);
+        return;
+      }
+      if (hash && hash.startsWith('#edit-')) {
+        const pId = hash.replace('#edit-', '');
+        activeSection = 'sectionProjects';
+        checkAuthAndRender();
+        setTimeout(() => editProjectItem(pId), 100);
+        return;
+      }
+      checkAuthAndRender();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initEditorPage);
+    } else {
+      initEditorPage();
+    }
+
+    function checkAuthAndRender() {
+      const lockScreen = document.getElementById('studioLockScreen');
+      const workspace = document.getElementById('studioWorkspace');
+      const passInput = document.getElementById('editorLockPasskeyInput');
+
+      if (!isStudioAuthenticated()) {
+        if (lockScreen) lockScreen.style.display = 'flex';
+        if (workspace) workspace.style.display = 'none';
+        if (passInput) {
+          passInput.value = '';
+          setTimeout(() => passInput.focus(), 150);
+          passInput.onkeydown = (e) => {
+            if (e.key === 'Enter') handleEditorLogin();
+          };
+        }
+      } else {
+        if (lockScreen) lockScreen.style.display = 'none';
+        if (workspace) workspace.style.display = 'block';
+        renderActiveSection();
+      }
+    }
+
+    function handleEditorLogin() {
+      const passInput = document.getElementById('editorLockPasskeyInput');
+      const errorMsg = document.getElementById('editorLockErrorMsg');
+      const key = passInput ? passInput.value.trim() : '';
+
+      if (authenticateStudio(key)) {
+        checkAuthAndRender();
+      } else {
+        if (errorMsg) errorMsg.style.display = 'block';
+        if (passInput) passInput.style.borderColor = 'var(--coaster-red)';
+      }
+    }
+
+    function handleEditorLogout() {
+      lockStudioSession();
+      checkAuthAndRender();
+    }
+
+    function showSection(sectionId) {
+      activeEditingProjectId = null;
+      activeEditingDiaryId = null;
+      activeSection = sectionId;
+      document.querySelectorAll('.studio-nav-btn').forEach(btn => {
+        const onClickAttr = btn.getAttribute('onclick') || '';
+        btn.classList.toggle('active', onClickAttr.includes(sectionId));
+      });
+      renderActiveSection();
+    }
+
+    function renderActiveSection() {
+      const container = document.getElementById('studioEditorContent');
+      const d = currentStudioData;
+      const p = d.profile || {};
+      const soc = p.socials || {};
+      const cStat = p.currentStatus || {};
+      const edu = p.education || {};
+      const gUser = getAuthenticatedGoogleUser();
+
+      if (activeSection === 'sectionProfile') {
+        container.innerHTML = `
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">👤 Engineer Profile, Header &amp; Hero Section</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="studio-label">Full Name</label>
+              <input type="text" id="edName" class="studio-input" value="${p.name || ''}">
+            </div>
+            <div class="form-group">
+              <label class="studio-label">Role Title</label>
+              <input type="text" id="edRole" class="studio-input" value="${p.role || ''}">
+            </div>
+            <div class="form-group">
+              <label class="studio-label">Email Address</label>
+              <input type="email" id="edEmail" class="studio-input" value="${soc.email || ''}">
+            </div>
+            <div class="form-group">
+              <label class="studio-label">Phone Number</label>
+              <input type="text" id="edPhone" class="studio-input" value="${soc.phone || ''}">
+            </div>
+            <div class="form-group">
+              <label class="studio-label">Summer Intern Company</label>
+              <input type="text" id="edCompany" class="studio-input" value="${cStat.company || ''}">
+            </div>
+            <div class="form-group">
+              <label class="studio-label">Summer Intern Division</label>
+              <input type="text" id="edDivision" class="studio-input" value="${cStat.division || ''}">
+            </div>
+          </div>
+
+          <div cl          <div class="form-group">
+            <label class="studio-label">Tagline (Main Hero Headline)</label>
+            <input type="text" id="edTagline" class="studio-input" value="${escapeHTML(p.tagline || '')}">
+          
+            <!-- CV / Resume Document Switcher Card -->
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--park-copper); margin: 20px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
+                <span>📄</span> CV / Resume Document Link &amp; File Switcher
+              </h3>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" id="btnTestCurrentCv" onclick="testActiveCvDocument()" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" title="Test the currently active CV in a new tab">
+                  <span>👁️</span> Test / Open Active CV ↗
+                </button>
+              </div>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+              Easily upload a new PDF from your computer, choose from your saved documents, or paste an external link (e.g. Google Drive / Dropbox). All CV download buttons on your portfolio update instantly.
+            </p>
+
+            <!-- 1. Quick File Switcher Presets -->
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; background: var(--bg-surface); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-medium); margin-bottom: 14px;">
+              <div>
+                <label class="studio-label" style="margin-bottom: 4px;">Choose from Available Documents</label>
+                <select id="edCvPresetSelect" class="studio-select" onchange="switchActiveCvDocument(this.value, this.options[this.selectedIndex].text)">
+                  <option value="assets/documents/Lucy_Robinson_CV.pdf" ${(!p.cvUrl || p.cvUrl === 'assets/documents/Lucy_Robinson_CV.pdf') ? 'selected' : ''}>
+                    Default Local PDF: Lucy_Robinson_CV.pdf
+                  </option>
+                  ${(d.documents || []).map(doc => `
+                    <option value="${doc.url}" ${(p.cvUrl === doc.url) ? 'selected' : ''}>
+                      Uploaded: ${doc.name} (${doc.size || 'PDF'})
+                    </option>
+                  `).join('')}
+                  ${(p.cvUrl && p.cvUrl !== 'assets/documents/Lucy_Robinson_CV.pdf' && !(d.documents || []).some(doc => doc.url === p.cvUrl)) ? `
+                    <option value="${p.cvUrl}" selected>Custom Link: ${p.cvUrl.substring(0, 45)}...</option>
+                  ` : ''}
+                </select>
+              </div>
+
+              <div>
+                <label class="btn btn-primary btn-sm" style="cursor: pointer; margin: 0; margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
+                  <span>📁</span> Upload New CV (.pdf)
+                  <input type="file" accept=".pdf,.doc,.docx" style="display: none;" onchange="handleCvFileUpload(this)">
+                </label>
+              </div>
+            </div>
+
+            <!-- 2. Direct File Path / URL Input -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="studio-label">Or Enter Direct Document URL / File Path / Cloud Link</label>
+              <div style="display: flex; gap: 10px;">
+                <input type="text" id="edCvUrl" class="studio-input" value="${escapeHTML(p.cvUrl || 'assets/documents/Lucy_Robinson_CV.pdf')}" placeholder="assets/documents/Lucy_Robinson_CV.pdf or https://drive.google.com/..." oninput="document.getElementById('btnTestCurrentCv').href = this.value;">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="switchActiveCvDocument(document.getElementById('edCvUrl').value.trim())" style="white-space: nowrap;">Apply Link</button>
+              </div>
+            </div>
+          </div>
+</div>
+
+          <div class="form-group">
+            <label class="studio-label">Hero Detailed Bio / Paragraph (e.g. 3rd-year MEng student...)</label>
+            <textarea id="edHeroBio" class="studio-textarea" rows="3">${escapeHTML(p.bio || p.subtagline || '')}</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="studio-label">Subtagline (Focus Bar / Quick Title)</label>
+            <input type="text" id="edSubtagline" class="studio-input" value="${escapeHTML(p.subtagline || '')}">
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 20px 0;">
+            <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">🎓 Profile Card Key Highlights (3 Bullet Points)</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+              Update your degree classification, year of study, internships, and awards as you advance:
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              ${(p.highlights || [
+                "🎓 1st Class Honours across Year 1 and Year 2.",
+                "🚆 Summer Intern @ Transport for London (TfL DLR).",
+                "🏆 SELSA Award (Sheffield Engineering Leadership & Service Award)."
+              ]).map((hl, hIdx) => `
+                <div style="display: flex; gap: 8px; align-items: center;">
+                  <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--park-copper); font-weight: 700; width: 60px;">Point ${hIdx + 1}:</span>
+                  <input type="text" id="edHighlight_${hIdx}" class="studio-input" value="${escapeHTML(hl)}">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="studio-label">Hero Dispatch Status Pill Text</label>
+            <input type="text" id="edStatusPill" class="studio-input" value="${p.statusPillText || 'DISPATCH STATUS: ACTIVE // Summer Intern @ TfL DLR'}">
+          </div>
+
+          <div class="form-group">
+            <label class="studio-label">Footer Copyright Line</label>
+            <input type="text" id="edFooterCopy" class="studio-input" value="${p.footerCopy || '© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.'}">
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 20px 0;">
+            <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">📊 4 Hero Highlight Stats</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+              ${(p.personalStats || [
+                { value: "7+", label: "CAD Assemblies" },
+                { value: "1st", label: "Class MEng Year 1 & 2" },
+                { value: "100%", label: "Fail-Safe Focus" },
+                { value: "SELSA", label: "Leadership Award" }
+              ]).map((st, idx) => `
+                <div style="background: var(--bg-surface); padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
+                  <label class="studio-label">Stat #${idx + 1} Number / Value</label>
+                  <input type="text" id="edStatVal_${idx}" class="studio-input" style="font-weight: 700; color: var(--park-copper); margin-bottom: 6px;" value="${st.value}">
+                  <label class="studio-label">Stat #${idx + 1} Label</label>
+                  <input type="text" id="edStatLbl_${idx}" class="studio-input" value="${st.label}">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Hero Spotlight Showcase Picker -->
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--park-copper); margin: 24px 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0; display: flex; align-items: center; gap: 8px;">
+                <span>🌟</span> Highlighted Project or Article at the Top
+              </h3>
+              <span class="badge badge-copper" style="font-size: 0.75rem;">Hero Spotlight</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+              Choose which CAD drawing set, engineering project, or field note article is showcased on the right side of the main hero section at the top of your site.
+            </p>
+
+            <div class="form-group" style="margin-bottom: 14px;">
+              <label class="studio-label">Choose Showcase Item</label>
+              <select id="edSpotlightItemId" class="studio-input" style="font-weight: 600;">
+                <optgroup label="🚀 CAD &amp; Engineering Projects">
+                  ${([...(d.featuredProjects || []), ...(d.universityProjects || [])]).map(proj => `
+                    <option value="${proj.id}" ${((p.heroSpotlight && p.heroSpotlight.itemId === proj.id) || (!p.heroSpotlight && proj.id === 'reaching-aid-cad')) ? 'selected' : ''}>
+                      [Project] ${proj.title} (${proj.category})
+                    </option>
+                  `).join('')}
+                </optgroup>
+                <optgroup label="📝 Field Notes &amp; Observations">
+                  ${(d.diaryEntries || []).map(diary => `
+                    <option value="${diary.id}" ${(p.heroSpotlight && p.heroSpotlight.itemId === diary.id) ? 'selected' : ''}>
+                      [Field Note] ${diary.title} (${diary.category})
+                    </option>
+                  `).join('')}
+                </optgroup>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="studio-label">Badge Label (Top-Left)</label>
+                <input type="text" id="edSpotlightBadge" class="studio-input" value="${(p.heroSpotlight && p.heroSpotlight.customBadge) || 'FEATURED CAD DRAWING SET'}">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="studio-label">Meta / Standard Note (Top-Right)</label>
+                <input type="text" id="edSpotlightMeta" class="studio-input" value="${(p.heroSpotlight && p.heroSpotlight.customMeta) || 'BS 8888 / GD&T'}">
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save Profile &amp; Hero Changes</button>
+        `;
+      } else if (activeSection === 'sectionStory' || activeSection === 'sectionWorkbench') {
+        const story = p.personalStory || {};
+        container.innerHTML = `
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">⚡ Personal Engineering Story &amp; Profile Card</h2>
+          
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 24px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 16px;">🖼️ Profile Identity Card Photo &amp; Location Tag</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;">
+              <div class="form-group">
+                <label class="studio-label">Location Tag (e.g. 📍 Disneyland Paris)</label>
+                <input type="text" id="edAboutLoc" class="studio-input" value="${p.aboutLocationTag || '📍 Disneyland Paris'}">
+              </div>
+              <div class="form-group">
+                <label class="studio-label">Profile Card Badge</label>
+                <input type="text" id="edAboutBadge" class="studio-input" value="${p.aboutCardBadge || 'STUDENT PROFILE'}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="studio-label">Profile Photo Image URL</label>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="edAboutPhoto" class="studio-input" value="${p.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg'}">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="openMediaPickerModal('edAboutPhoto', 'edAboutPhotoPreview')">🖼️ Choose from Media Store</button>
+              </div>
+              <div style="margin-top: 8px;">
+                <img id="edAboutPhotoPreview" src="${p.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg'}" alt="Preview" style="max-height: 110px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light);">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 16px;">📖 "Who Am I" Story Paragraphs</h3>
+
+            <div class="form-group">
+              <label class="studio-label">Story Headline</label>
+              <input type="text" id="edStoryHeadline" class="studio-input" value="${story.headline || ''}">
+            </div>
+
+            <div class="form-group">
+              <label class="studio-label">Paragraph 1 (Introduction &amp; Theme Park Passion)</label>
+              <textarea id="edStoryP1" class="studio-textarea" rows="4">${story.bioParagraph1 || ''}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="studio-label">Paragraph 2 (University, SolidWorks &amp; Kinematics)</label>
+              <textarea id="edStoryP2" class="studio-textarea" rows="4">${story.bioParagraph2 || ''}</textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="studio-label">Paragraph 3 (TfL DLR Placement &amp; Career Aspirations)</label>
+              <textarea id="edStoryP3" class="studio-textarea" rows="4">${story.bioParagraph3 || ''}</textarea>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="margin-top: 20px;" onclick="saveAllStudioChanges()">💾 Save Story &amp; Bio</button>
+        `;
+      } else if (activeSection === 'sectionProjects') {
+        const allProjects = [...(d.featuredProjects || []), ...(d.universityProjects || [])];
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🚀 CAD &amp; Engineering Projects (${allProjects.length})</h2>
+            <button class="btn btn-primary btn-sm" onclick="addNewProjectForm()">➕ Create New Project</button>
+          </div>
+
+          <div id="projectsListContainer">
+            ${allProjects.map((proj, idx) => `
+              <div class="item-list-row">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <img src="${proj.coverImage}" alt="${proj.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+                  <div>
+                    <div style="font-weight: 700; font-size: 1rem; color: var(--text-main);">${proj.title}</div>
+                    <div style="font-size: 0.8rem; color: var(--park-copper); font-family: var(--font-mono);">${proj.subtitle || ''}</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+                      Category: <strong>${proj.category}</strong> • ${proj.timeline || ''} • ${proj.featured ? '⭐ Featured Showcase' : 'University / Technical'} • ${proj.cadGallery ? proj.cadGallery.length : 0} Gallery Drawings
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" onclick="editProjectItem('${proj.id}')">✏️ Edit</button>
+                  <button class="btn btn-secondary btn-sm" style="color: var(--coaster-red);" onclick="deleteProjectItem('${proj.id}')">🗑️</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+            } else if (activeSection === 'sectionCodeEmbed') {
+        const allProjects = [...(d.featuredProjects || []), ...(d.universityProjects || [])];
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">💻 Code &amp; Kinematic Script Embedder</h2>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 22px;">
+            Paste raw Python, MATLAB, C++, or calculation scripts directly from your IDE into any project tab without breaking quotes or manual formatting.
+          </p>
+
+          <div style="background: var(--bg-subtle); padding: 22px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 24px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="studio-label">1. Target Project</label>
+                <select id="embedTargetProject" class="studio-select" onchange="updateCodeEmbedPreview()">
+                  ${allProjects.map(p => `<option value="${p.id}">${p.title} (${p.category})</option>`).join('')}
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="studio-label">2. Target Case Study Tab</label>
+                <select id="embedTargetTab" class="studio-select" onchange="updateCodeEmbedPreview()">
+                  <option value="calcsAndSimulation" selected>Tab 3: Kinematics &amp; Calculations (calcsAndSimulation)</option>
+                  <option value="cadArchitecture">Tab 2: CAD Architecture &amp; Assemblies (cadArchitecture)</option>
+                  <option value="problemStatement">Tab 1: Goal &amp; Requirements (problemStatement)</option>
+                  <option value="prototypingAndTesting">Tab 4: Prototyping &amp; Testing (prototypingAndTesting)</option>
+                  <option value="takeaways">Tab 5: Lessons &amp; Next Steps (takeaways)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="studio-label">3. Programming Language</label>
+                <select id="embedLang" class="studio-select" onchange="updateCodeEmbedPreview()">
+                  <option value="python" selected>🐍 Python (NumPy / Matplotlib)</option>
+                  <option value="matlab">📊 MATLAB / Simulink</option>
+                  <option value="cpp">⚡ C++ / Arduino / Embedded</option>
+                  <option value="latex">📐 LaTeX Math ($$)</option>
+                  <option value="gcode">🖨️ G-Code / CNC</option>
+                  <option value="text">📄 Plain Code / Output</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="studio-label">4. Script Title / Header (Optional)</label>
+                <input type="text" id="embedTitle" class="studio-input" placeholder="e.g. AGV.py - Swerve Kinematics" oninput="updateCodeEmbedPreview()">
+              </div>
+
+              <div class="form-group">
+                <label class="studio-label">5. Action</label>
+                <select id="embedMode" class="studio-select">
+                  <option value="append" selected>Append to Existing Section</option>
+                  <option value="replace">Replace Entire Section</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="studio-label" style="margin: 0;">6. Raw Script Code (Paste directly from IDE / PyCharm / MATLAB)</label>
+                <button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 3px 8px;" onclick="loadCurrentSectionIntoEmbedder()">📥 Load Existing Tab Content</button>
+              </div>
+              <textarea id="embedRawCode" class="studio-textarea" rows="12" style="font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.45; background: #121214; color: #38bdf8; border: 1.5px solid var(--border-medium);" placeholder="Paste your raw Python or MATLAB code here..." oninput="updateCodeEmbedPreview()"></textarea>
+            </div>
+
+            <!-- Live Formatted Preview Box -->
+            <div style="margin-bottom: 20px;">
+              <label class="studio-label">Live Formatted Preview (How it will render on your live website):</label>
+              <div id="embedPreviewContainer" style="background: var(--bg-surface); padding: 16px; border-radius: var(--radius-md); border: 1.5px dashed var(--park-copper);">
+                <em style="color: var(--text-muted);">Paste code above to see live preview...</em>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px;">
+              <button class="btn btn-primary" onclick="applyCodeEmbedToProject()">🚀 Embed Code into Project &amp; Save</button>
+              <button class="btn btn-secondary" onclick="clearCodeEmbedForm()">Clear Form</button>
+            </div>
+          </div>
+        `;
+        setTimeout(updateCodeEmbedPreview, 50);
+} else if (activeSection === 'sectionDiary') {
+        const entries = d.diaryEntries || [];
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">📝 Field Notes &amp; Observations (${entries.length})</h2>
+            <button class="btn btn-primary btn-sm" onclick="addNewDiaryForm()">➕ Add New Field Note</button>
+          </div>
+
+          <div id="diaryListContainer">
+            ${entries.map(e => `
+              <div class="item-list-row">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <img src="${e.coverPhoto || 'assets/images/personal/europa_park_water_coaster.jpg'}" alt="${e.title}" style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+                  <div>
+                    <div style="font-weight: 700; font-size: 1rem; color: var(--text-main);">${e.title}</div>
+                    <div style="font-size: 0.8rem; color: var(--park-copper); font-family: var(--font-mono);">${e.location} • ${e.date} • ${e.category || 'Ride Analysis'}</div>
+                    <div style="font-size: 0.8rem; color: var(--text-body); margin-top: 4px;">${e.summary}</div>
+                  </div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" onclick="editDiaryItem('${e.id}')">✏️ Edit</button>
+                  <button class="btn btn-secondary btn-sm" style="color: var(--coaster-red);" onclick="deleteDiaryItem('${e.id}')">🗑️</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (activeSection === 'sectionCoasters') {
+        const coasters = d.coasterCredits || [];
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🎢 Coaster Log &amp; Engineering Field Credits (${coasters.length})</h2>
+            <button class="btn btn-primary btn-sm" onclick="addNewCoasterCredit()">➕ Add Coaster Credit</button>
+          </div>
+
+          <div id="coasterCreditsList">
+            ${coasters.map((c, idx) => `
+              <div class="item-list-row">
+                <div>
+                  <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-main);">${c.name} — ${c.park}</div>
+                  <div style="font-size: 0.78rem; color: var(--park-copper); font-family: var(--font-mono);">${c.manufacturer} • ${c.type} • ${c.elements || ''}</div>
+                  <div style="font-size: 0.8rem; color: var(--text-body); margin-top: 4px;"><em>Notes:</em> ${c.notes || ''}</div>
+                </div>
+                <button class="btn btn-secondary btn-sm" style="color: var(--coaster-red);" onclick="deleteCoasterCredit(${idx})">🗑️</button>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (activeSection === 'sectionSkills') {
+        const sk = currentStudioData.skills || {};
+        
+        const categories = [
+          { key: 'cadModeling', altKey: 'cad', title: '📐 CAD & 3D Mechanical Design' },
+          { key: 'analysisAndMath', altKey: 'analysis', title: '📈 Kinematics, Analysis & Simulation' },
+          { key: 'rideAndTransit', altKey: 'transit', title: '🎢 Themed Ride & Transit Engineering' },
+          { key: 'fabrication', altKey: 'fab', title: '🔧 Workshop, Prototyping & Fabrication' },
+          { key: 'leadership', altKey: 'leadership', title: '🌟 Engineering Leadership & Activities' }
+        ];
+
+        categories.forEach(c => {
+          if (!sk[c.key] && sk[c.altKey]) sk[c.key] = sk[c.altKey];
+          if (!sk[c.key]) sk[c.key] = [];
+        });
+
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🛠️ Technical Skills &amp; Software Toolkit</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+                Edit text, reorder, add, or delete any skill bullet points across your 5 technical toolkit categories.
+              </p>
+            </div>
+            <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save All Skills</button>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            ${categories.map(cat => {
+              const list = sk[cat.key] || [];
+              return `
+                <div style="background: var(--bg-subtle); padding: 22px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                      <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin: 0;">
+                        ${cat.title} <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); font-family: var(--font-mono);">(${list.length} Skill Points)</span>
+                      </h3>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="addSkillPoint('${cat.key}')">➕ Add Skill Point</button>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 10px;" id="skillsList_${cat.key}">
+                    ${list.map((item, idx) => `
+                      <div style="display: flex; gap: 10px; align-items: center; background: var(--bg-surface); padding: 8px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+                        <span style="font-size: 1rem; user-select: none;">🎢</span>
+                        <input type="text" class="studio-input" style="flex-grow: 1; padding: 7px 12px; font-size: 0.88rem;" value="${escapeHTML(item)}" oninput="updateSkillPoint('${cat.key}', ${idx}, this.value)" placeholder="Enter skill description...">
+                        <div style="display: flex; gap: 4px;">
+                          ${idx > 0 ? `<button type="button" class="btn btn-secondary btn-sm" style="padding: 4px 8px; font-size: 0.72rem;" onclick="moveSkillPoint('${cat.key}', ${idx}, -1)" title="Move Up">↑</button>` : ''}
+                          ${idx < list.length - 1 ? `<button type="button" class="btn btn-secondary btn-sm" style="padding: 4px 8px; font-size: 0.72rem;" onclick="moveSkillPoint('${cat.key}', ${idx}, 1)" title="Move Down">↓</button>` : ''}
+                          <button type="button" class="btn btn-secondary btn-sm" style="padding: 4px 8px; font-size: 0.72rem; color: var(--coaster-red);" onclick="removeSkillPoint('${cat.key}', ${idx})" title="Delete Skill">🗑️</button>
+                        </div>
+                      </div>
+                    `).join('')}
+                    ${list.length === 0 ? `<div style="color: var(--text-muted); font-size: 0.85rem; font-style: italic; padding: 10px;">No skills added in this category yet. Click "Add Skill Point" above.</div>` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <div style="margin-top: 24px; display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save All Skills</button>
+          </div>
+        `;
+      } else if (activeSection === 'sectionCareer') {
+        const exp = d.experience || [];
+        const eduData = d.education || (d.profile && d.profile.education) || {};
+        const courseworkList = eduData.coursework || [
+          "Mechanics of Solids & Stress Analysis",
+          "Machine Elements & Mechanical Design",
+          "Dynamics, Kinematics & Vibrations",
+          "Fluid Dynamics & Aerodynamics",
+          "Thermodynamics & Heat Transfer",
+          "Control Systems, Arduino & Mechatronics",
+          "Materials Science & Manufacturing Processes",
+          "MATLAB & Computational Engineering"
+        ];
+
+        container.innerHTML = `
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">🎓 Education, Coursework &amp; Journey Record</h2>
+
+          <!-- Degree Details -->
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 24px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-bottom: 16px;">University &amp; Degree Details</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label class="studio-label">University / Institution</label>
+                <input type="text" id="edUniv" class="studio-input" value="${eduData.institution || eduData.university || 'University of Sheffield'}">
+              </div>
+              <div class="form-group">
+                <label class="studio-label">Degree Programme</label>
+                <input type="text" id="edDegree" class="studio-input" value="${eduData.degree || 'MEng in Mechanical Engineering with a Year in Industry'}">
+              </div>
+              <div class="form-group">
+                <label class="studio-label">Academic Status / Classification</label>
+                <input type="text" id="edGrade" class="studio-input" value="${eduData.status || eduData.grade || 'Entering Year 3 in Autumn 2026 (1st Class Honours across Years 1 & 2)'}">
+              </div>
+              <div class="form-group">
+                <label class="studio-label">Timeline / Graduation</label>
+                <input type="text" id="edTimeline" class="studio-input" value="${eduData.timeline || '2024 - 2028 / 2029'}">
+              </div>
+            </div>
+          </div>
+
+          <!-- Coursework Modules Interactive Manager -->
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0;">📚 Degree Coursework Modules (${courseworkList.length})</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+              These module badges appear in your Education &amp; Journey section. You can delete existing modules, add new ones, or bulk-edit all modules below.
+            </p>
+
+            <!-- Interactive Module Pills -->
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
+              ${courseworkList.map((mod, idx) => `
+                <span class="pill-tag" style="background: var(--bg-surface); border: 1.5px solid var(--border-medium); padding: 6px 14px; font-size: 0.85rem; border-radius: 20px; display: inline-flex; align-items: center;">
+                  ${mod}
+                  <span style="cursor: pointer; margin-left: 10px; color: var(--coaster-red); font-weight: bold; font-size: 1rem; line-height: 1;" onclick="removeCourseworkModule(${idx})" title="Delete ${mod}">✕</span>
+                </span>
+              `).join('')}
+            </div>
+
+            <!-- Add Single Module -->
+            <div style="display: flex; gap: 10px; margin-bottom: 18px;">
+              <input type="text" id="newModuleInput" class="studio-input" placeholder="Enter new module name (e.g. Kinematics &amp; Machine Dynamics)...">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="addCourseworkModule()" style="white-space: nowrap;">➕ Add Module</button>
+            </div>
+
+            <!-- Bulk Edit Textarea -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="studio-label">Bulk Edit Modules (Comma-separated)</label>
+              <textarea id="edCourseworkBulk" class="studio-textarea" rows="2" placeholder="Module 1, Module 2, Module 3...">${courseworkList.join(', ')}</textarea>
+            </div>
+          </div>
+
+          <!-- Experience & Journey Roles Manager -->
+          <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin: 0;">💼 Career Journey &amp; Experience Roles (${exp.length})</h3>
+                <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px;">Automatically sorted chronologically with most recent at the top</div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="addExperienceRole()" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700;">
+                <span>➕</span> Add New Journey Role
+              </button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              ${exp.map((item, idx) => `
+                <div style="background: var(--bg-surface); border: 1.5px solid var(--border-medium); border-radius: var(--radius-md); padding: 18px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light);">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span class="badge badge-copper" style="font-size: 0.72rem;">#${idx + 1}</span>
+                      <strong style="color: var(--text-main); font-size: 0.95rem;">${item.role || 'New Role'}</strong>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="removeExperienceRole(${idx})" style="color: var(--coaster-red); border-color: rgba(220, 38, 38, 0.3); padding: 4px 10px; font-size: 0.75rem;">
+                      🗑️ Delete
+                    </button>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="studio-label">Role Title</label>
+                      <input type="text" id="edExpRole_${idx}" class="studio-input" value="${item.role || ''}" placeholder="e.g. Mechanical Engineering Summer Intern">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="studio-label">Company / Organisation</label>
+                      <input type="text" id="edExpComp_${idx}" class="studio-input" value="${item.company || ''}" placeholder="e.g. Transport for London (TfL)">
+                    </div>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="studio-label">Division / Team</label>
+                      <input type="text" id="edExpDiv_${idx}" class="studio-input" value="${item.division || ''}" placeholder="e.g. Electrical &amp; Mechanical Engineering">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="studio-label">Time Period / Dates</label>
+                      <input type="text" id="edExpPeriod_${idx}" class="studio-input" value="${item.period || ''}" placeholder="e.g. Summer 2026 (June 2026 - Present)">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="studio-label">Location</label>
+                      <input type="text" id="edExpLoc_${idx}" class="studio-input" value="${item.location || ''}" placeholder="e.g. London, UK">
+                    </div>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="studio-label">1-Sentence Concise Role Summary</label>
+                    <textarea id="edExpSum_${idx}" class="studio-textarea" rows="2" placeholder="Brief summary of hands-on work and engineering focus...">${item.summary || (item.highlights && item.highlights[0]) || ''}</textarea>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save Education &amp; Journey</button>
+        `;
+      } else if (activeSection === 'sectionMedia') {
+        const assets = getAllMediaAssets();
+        container.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🖼️ Central Media Store (${assets.length} Assets)</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
+                Upload photos from your computer, or browse and copy URLs of all project CAD renders and personal photography.
+              </p>
+            </div>
+            <div>
+              <label class="btn btn-primary" style="cursor: pointer; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                <span>📤</span> Upload Computer Photo
+                <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, () => { renderActiveSection(); })">
+              </label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px;">
+            ${assets.map((item, idx) => `
+              <div style="background: var(--bg-surface); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
+                <div style="height: 130px; background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6px;">
+                  <img src="${item.url}" alt="${item.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/images/extracted/image1.png'">
+                </div>
+                <div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; border-top: 1px solid var(--border-light);">
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.82rem; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.name}</div>
+                    <div style="font-size: 0.72rem; color: var(--park-copper); font-family: var(--font-mono); margin-top: 2px;">
+                      ${item.size || 'Local Asset'}
+                    </div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px;">
+                    <span>${(item.category || 'MEDIA').toUpperCase()}</span>
+                    <button class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 0.7rem;" onclick="copyAssetUrlByIndex(${idx})">Copy URL</button>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (activeSection === 'sectionSecurity') {
+        container.innerHTML = `
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">🔐 Collaborator Access &amp; Passkey Settings</h2>
+
+          ${gUser ? `
+            <div style="background: rgba(43, 147, 72, 0.1); border: 1.5px solid rgba(43, 147, 72, 0.3); padding: 16px 20px; border-radius: var(--radius-lg); display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+              <div style="font-size: 1.8rem;">✅</div>
+              <div>
+                <div style="font-weight: 700; color: var(--text-main);">Authenticated Collaborator</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">${gUser.email} (${gUser.name})</div>
+              </div>
+            </div>
+          ` : ''}
+
+          <div style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 20px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Authorized Collaborators</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+              Only the following verified Google accounts have permission to edit this portfolio:
+            </p>
+            <ul style="font-size: 0.88rem; color: var(--text-main); padding-left: 20px; line-height: 1.8;">
+              <li><strong>Lucy Robinson (Owner):</strong> <code>lucyalicerob@gmail.com</code></li>
+              <li><strong>Mat Robinson (Collaborator):</strong> <code>mat.j.robinson@gmail.com</code></li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin-bottom: 20px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Change Private Passkey</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+              Update the private fallback passkey used to unlock the Visual Studio.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="studio-label">New Passkey</label>
+                <input type="password" id="edNewPasskey" class="studio-input" placeholder="Enter new passkey...">
+              </div>
+              <div class="form-group">
+                <label class="studio-label">Confirm New Passkey</label>
+                <input type="password" id="edConfirmPasskey" class="studio-input" placeholder="Confirm new passkey...">
+              </div>
+            </div>
+
+            <div id="edPasskeyMsg" style="font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; display: none;"></div>
+
+            <button class="btn btn-primary" onclick="updateStudioPasskeyFromEditor()">Update Passkey</button>
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">Sign Out &amp; Lock</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">End authenticated session and lock editing mode.</p>
+            </div>
+            <button class="btn btn-secondary" onclick="handleEditorLogout()">🔒 Lock Now</button>
+          </div>
+        `;
+      } else if (activeSection === 'sectionExport') {
+        container.innerHTML = `
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">💾 Save, Backup &amp; Export</h2>
+
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light);">
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">📥 Download Clean portfolio-data.js</h3>
+              <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5; margin-bottom: 16px;">
+                Download your full updated dataset as a clean JavaScript file ready to replace <code>scripts/portfolio-data.js</code> in your folder.
+              </p>
+              <button class="btn btn-primary" onclick="exportPortfolioDataFile()">💾 Download portfolio-data.js</button>
+            </div>
+
+            <div style="background: var(--bg-subtle); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light);">
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">📋 Copy JavaScript Code</h3>
+              <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5; margin-bottom: 16px;">
+                Copy the complete JavaScript code directly to paste into any IDE.
+              </p>
+              <button class="btn btn-secondary" onclick="copyPortfolioDataToClipboard()">📋 Copy Code to Clipboard</button>
+            </div>
+
+            <div style="background: rgba(224, 86, 36, 0.08); padding: 24px; border-radius: var(--radius-lg); border: 1.5px solid rgba(224, 86, 36, 0.3);">
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--park-copper); margin-bottom: 8px;">🔄 Reset to Defaults</h3>
+              <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5; margin-bottom: 16px;">
+                Revert all customizations back to the original default setup.
+              </p>
+              <button class="btn btn-secondary" onclick="resetStudioDataToDefaults()">🔄 Reset to Factory Defaults</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function updateStudioPasskeyFromEditor() {
+      const p1 = document.getElementById('edNewPasskey');
+      const p2 = document.getElementById('edConfirmPasskey');
+      const msg = document.getElementById('edPasskeyMsg');
+      if (!p1 || !p2 || !msg) return;
+
+      const key1 = p1.value.trim();
+      const key2 = p2.value.trim();
+
+      if (!key1) {
+        msg.style.color = 'var(--coaster-red)';
+        msg.textContent = 'Please enter a valid passkey.';
+        msg.style.display = 'block';
+        return;
+      }
+      if (key1 !== key2) {
+        msg.style.color = 'var(--coaster-red)';
+        msg.textContent = 'Passkeys do not match. Please re-enter.';
+        msg.style.display = 'block';
+        return;
+      }
+
+      localStorage.setItem(PASSKEY_STORAGE_KEY, key1);
+      msg.style.color = 'var(--teal-primary)';
+      msg.textContent = '✓ Studio passkey updated successfully!';
+      msg.style.display = 'block';
+      p1.value = '';
+      p2.value = '';
+    }
+
+    function saveAllStudioChanges(notify = true) {
+      try {
+        if (activeEditingProjectId && document.getElementById('pTitle')) {
+          saveProjectItemChanges(activeEditingProjectId, notify);
+          return;
+        }
+        if (activeEditingDiaryId && document.getElementById('dTitle')) {
+          saveDiaryItemChanges(activeEditingDiaryId, notify);
+          return;
+        }
+
+        const d = currentStudioData;
+        const p = d.profile = d.profile || {};
+        p.socials = p.socials || {};
+        p.currentStatus = p.currentStatus || {};
+        p.personalStory = p.personalStory || {};
+        p.education = p.education || {};
+
+        const edCvUrl = document.getElementById('edCvUrl');
+        if (edCvUrl) p.cvUrl = edCvUrl.value.trim();
+        const edName = document.getElementById('edName');
+        if (edName) p.name = edName.value;
+        const edRole = document.getElementById('edRole');
+        if (edRole) p.role = edRole.value;
+                const edTagline = document.getElementById('edTagline');
+        if (edTagline) p.tagline = edTagline.value;
+        const edHeroBio = document.getElementById('edHeroBio');
+        if (edHeroBio) p.bio = edHeroBio.value;
+        const edSubtagline = document.getElementById('edSubtagline');
+        if (edSubtagline) p.subtagline = edSubtagline.value;
+
+        // Save 3 profile card highlights
+        p.highlights = [];
+        for (let h = 0; h < 3; h++) {
+          const hEl = document.getElementById(`edHighlight_${h}`);
+          if (hEl && hEl.value.trim()) {
+            p.highlights.push(hEl.value.trim());
+          }
+        }
+        if (p.highlights.length === 0) delete p.highlights;
+        const edStatusPill = document.getElementById('edStatusPill');
+        if (edStatusPill) p.statusPillText = edStatusPill.value;
+        const edFooterCopy = document.getElementById('edFooterCopy');
+        if (edFooterCopy) p.footerCopy = edFooterCopy.value;
+        const edEmail = document.getElementById('edEmail');
+        if (edEmail) p.socials.email = edEmail.value;
+        const edPhone = document.getElementById('edPhone');
+        if (edPhone) p.socials.phone = edPhone.value;
+        const edCompany = document.getElementById('edCompany');
+        if (edCompany) p.currentStatus.company = edCompany.value;
+        const edDivision = document.getElementById('edDivision');
+        if (edDivision) p.currentStatus.division = edDivision.value;
+
+        // Save 4 Hero Stats if present
+        p.personalStats = p.personalStats || [{}, {}, {}, {}];
+        for (let i = 0; i < 4; i++) {
+          const valEl = document.getElementById(`edStatVal_${i}`);
+          const lblEl = document.getElementById(`edStatLbl_${i}`);
+          if (valEl && lblEl) {
+            p.personalStats[i] = { value: valEl.value, label: lblEl.value };
+          }
+        }
+
+        // Save Hero Spotlight
+        const edSpotlightItemId = document.getElementById('edSpotlightItemId');
+        const edSpotlightBadge = document.getElementById('edSpotlightBadge');
+        const edSpotlightMeta = document.getElementById('edSpotlightMeta');
+        if (edSpotlightItemId) {
+          p.heroSpotlight = {
+            itemId: edSpotlightItemId.value,
+            customBadge: edSpotlightBadge ? edSpotlightBadge.value : "FEATURED CAD DRAWING SET",
+            customMeta: edSpotlightMeta ? edSpotlightMeta.value : "BS 8888 / GD&T"
+          };
+        }
+
+        const edAboutPhoto = document.getElementById('edAboutPhoto');
+        if (edAboutPhoto) p.aboutPhoto = edAboutPhoto.value;
+        const edAboutLoc = document.getElementById('edAboutLoc');
+        if (edAboutLoc) p.aboutLocationTag = edAboutLoc.value;
+        const edAboutBadge = document.getElementById('edAboutBadge');
+        if (edAboutBadge) p.aboutCardBadge = edAboutBadge.value;
+
+        const edStoryHeadline = document.getElementById('edStoryHeadline');
+        if (edStoryHeadline) p.personalStory.headline = edStoryHeadline.value;
+        const edStoryP1 = document.getElementById('edStoryP1');
+        if (edStoryP1) p.personalStory.bioParagraph1 = edStoryP1.value;
+        const edStoryP2 = document.getElementById('edStoryP2');
+        if (edStoryP2) p.personalStory.bioParagraph2 = edStoryP2.value;
+        const edStoryP3 = document.getElementById('edStoryP3');
+        if (edStoryP3) p.personalStory.bioParagraph3 = edStoryP3.value;
+
+        d.education = d.education || {};
+        p.education = p.education || {};
+
+        const edUniv = document.getElementById('edUniv');
+        if (edUniv) {
+          d.education.institution = edUniv.value;
+          d.education.university = edUniv.value;
+          p.education.university = edUniv.value;
+        }
+        const edDegree = document.getElementById('edDegree');
+        if (edDegree) {
+          d.education.degree = edDegree.value;
+          p.education.degree = edDegree.value;
+        }
+        const edGrade = document.getElementById('edGrade');
+        if (edGrade) {
+          d.education.status = edGrade.value;
+          d.education.grade = edGrade.value;
+          p.education.grade = edGrade.value;
+          p.education.status = edGrade.value;
+          if (p.highlights && p.highlights[0]) {
+            if (p.highlights[0].startsWith('🎓')) {
+              p.highlights[0] = '🎓 ' + edGrade.value.replace(/^🎓\s*/, '');
+            }
+          }
+        }
+        const edTimeline = document.getElementById('edTimeline');
+        if (edTimeline) {
+          d.education.timeline = edTimeline.value;
+          p.education.timeline = edTimeline.value;
+        }
+        const edCourseworkBulk = document.getElementById('edCourseworkBulk');
+        if (edCourseworkBulk) {
+          const mods = edCourseworkBulk.value.split(',').map(s => s.trim()).filter(Boolean);
+          d.education.coursework = mods;
+          p.education.coursework = mods;
+        }
+
+        // Save Experience Timeline Roles
+        if (d.experience && Array.isArray(d.experience)) {
+          const updatedExp = [];
+          for (let i = 0; i < d.experience.length; i++) {
+            const rEl = document.getElementById(`edExpRole_${i}`);
+            const cEl = document.getElementById(`edExpComp_${i}`);
+            const dEl = document.getElementById(`edExpDiv_${i}`);
+            const pEl = document.getElementById(`edExpPeriod_${i}`);
+            const lEl = document.getElementById(`edExpLoc_${i}`);
+            const sEl = document.getElementById(`edExpSum_${i}`);
+            if (rEl) {
+              updatedExp.push({
+                role: rEl.value.trim(),
+                company: cEl ? cEl.value.trim() : "",
+                division: dEl ? dEl.value.trim() : "",
+                period: pEl ? pEl.value.trim() : "",
+                location: lEl ? lEl.value.trim() : "",
+                summary: sEl ? sEl.value.trim() : "",
+                photo: d.experience[i] ? d.experience[i].photo : null
+              });
+            } else {
+              updatedExp.push(d.experience[i]);
+            }
+          }
+          d.experience = sortExperienceChronologically(updatedExp);
+        }
+
+        saveStudioData(d, notify);
+      } catch (err) {
+        console.error('saveAllStudioChanges error:', err);
+      }
+    }
+
+    function parseExperienceSortKey(item) {
+      if (!item) return 0;
+      const str = String(item.period || item.timeline || item.dates || '').toLowerCase();
+      
+      const isPresent = str.includes('present') || str.includes('current') || str.includes('now');
+      const years = (str.match(/\b(19\d\d|20\d\d)\b/g) || []).map(Number);
+
+      if (years.length === 0) {
+        return isPresent ? 999900 : 0;
+      }
+
+      let seasonOffset = 0;
+      if (str.includes('winter')) seasonOffset = 0.1;
+      else if (str.includes('spring')) seasonOffset = 0.3;
+      else if (str.includes('summer') || str.includes('june') || str.includes('july') || str.includes('august')) seasonOffset = 0.6;
+      else if (str.includes('autumn') || str.includes('september') || str.includes('october') || str.includes('november')) seasonOffset = 0.8;
+
+      if (isPresent) {
+        const startYear = Math.min(...years);
+        return 300000 + (startYear * 10) + seasonOffset;
+      } else {
+        const endYear = Math.max(...years);
+        return (endYear * 10) + seasonOffset;
+      }
+    }
+
+    function sortExperienceChronologically(expList) {
+      if (!Array.isArray(expList)) return [];
+      return [...expList].sort((a, b) => parseExperienceSortKey(b) - parseExperienceSortKey(a));
+    }
+
+    function addExperienceRole() {
+      currentStudioData.experience = currentStudioData.experience || [];
+      currentStudioData.experience.unshift({
+        role: "New Engineering Placement / Role",
+        company: "Company / Organisation Name",
+        division: "Mechanical Engineering",
+        period: "Summer 2027 (June 2027 - Present)",
+        location: "London, UK",
+        summary: "Hands-on engineering responsibilities, mechanism testing, and system design."
+      });
+      currentStudioData.experience = sortExperienceChronologically(currentStudioData.experience);
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    function removeExperienceRole(idx) {
+      if (!confirm("Are you sure you want to remove this journey entry?")) return;
+      currentStudioData.experience = currentStudioData.experience || [];
+      currentStudioData.experience.splice(idx, 1);
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    function addCourseworkModule() {
+      const input = document.getElementById('newModuleInput');
+      if (!input || !input.value.trim()) return;
+      const mod = input.value.trim();
+      currentStudioData.education = currentStudioData.education || {};
+      currentStudioData.education.coursework = currentStudioData.education.coursework || [];
+      currentStudioData.education.coursework.push(mod);
+      if (currentStudioData.profile && currentStudioData.profile.education) {
+        currentStudioData.profile.education.coursework = currentStudioData.education.coursework;
+      }
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    function removeCourseworkModule(idx) {
+      currentStudioData.education = currentStudioData.education || {};
+      currentStudioData.education.coursework = currentStudioData.education.coursework || [];
+      currentStudioData.education.coursework.splice(idx, 1);
+      if (currentStudioData.profile && currentStudioData.profile.education) {
+        currentStudioData.profile.education.coursework = currentStudioData.education.coursework;
+      }
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    
+
+
+    function updateSkillPoint(catKey, idx, value) {
+      currentStudioData.skills = currentStudioData.skills || {};
+      currentStudioData.skills[catKey] = currentStudioData.skills[catKey] || [];
+      currentStudioData.skills[catKey][idx] = value;
+      if (catKey === 'cadModeling') currentStudioData.skills.cad = currentStudioData.skills[catKey];
+      if (catKey === 'analysisAndMath') currentStudioData.skills.analysis = currentStudioData.skills[catKey];
+      if (catKey === 'rideAndTransit') currentStudioData.skills.transit = currentStudioData.skills[catKey];
+      if (catKey === 'fabrication') currentStudioData.skills.fab = currentStudioData.skills[catKey];
+    }
+
+    function addSkillPoint(catKey) {
+      currentStudioData.skills = currentStudioData.skills || {};
+      currentStudioData.skills[catKey] = currentStudioData.skills[catKey] || [];
+      currentStudioData.skills[catKey].push("New Technical Skill / Tool");
+      if (catKey === 'cadModeling') currentStudioData.skills.cad = currentStudioData.skills[catKey];
+      if (catKey === 'analysisAndMath') currentStudioData.skills.analysis = currentStudioData.skills[catKey];
+      if (catKey === 'rideAndTransit') currentStudioData.skills.transit = currentStudioData.skills[catKey];
+      if (catKey === 'fabrication') currentStudioData.skills.fab = currentStudioData.skills[catKey];
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    function removeSkillPoint(catKey, idx) {
+      currentStudioData.skills = currentStudioData.skills || {};
+      if (currentStudioData.skills[catKey]) {
+        currentStudioData.skills[catKey].splice(idx, 1);
+        if (catKey === 'cadModeling') currentStudioData.skills.cad = currentStudioData.skills[catKey];
+        if (catKey === 'analysisAndMath') currentStudioData.skills.analysis = currentStudioData.skills[catKey];
+        if (catKey === 'rideAndTransit') currentStudioData.skills.transit = currentStudioData.skills[catKey];
+        if (catKey === 'fabrication') currentStudioData.skills.fab = currentStudioData.skills[catKey];
+        saveStudioData(currentStudioData, false);
+        renderActiveSection();
+      }
+    }
+
+    function moveSkillPoint(catKey, idx, direction) {
+      currentStudioData.skills = currentStudioData.skills || {};
+      const list = currentStudioData.skills[catKey];
+      if (!list) return;
+      const targetIdx = idx + direction;
+      if (targetIdx < 0 || targetIdx >= list.length) return;
+      const temp = list[idx];
+      list[idx] = list[targetIdx];
+      list[targetIdx] = temp;
+      if (catKey === 'cadModeling') currentStudioData.skills.cad = list;
+      if (catKey === 'analysisAndMath') currentStudioData.skills.analysis = list;
+      if (catKey === 'rideAndTransit') currentStudioData.skills.transit = list;
+      if (catKey === 'fabrication') currentStudioData.skills.fab = list;
+      saveStudioData(currentStudioData, false);
+      renderActiveSection();
+    }
+
+    
+    /* --------------------------------------------------------------------------
+       MULTI-PHOTO & DRAWING MANAGER HELPERS FOR PROJECT TABS
+       -------------------------------------------------------------------------- */
+    function getTabPhotosArray(p, tabKey) {
+      if (!p || !p.article || !p.article.tabImages) return [];
+      const raw = p.article.tabImages[tabKey];
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw.filter(x => x && (x.url || x.title || x.caption));
+      if (typeof raw === 'object' && raw.url) return [raw];
+      return [];
+    }
+
+    window.addPhotoToTab = function(pId, tabKey) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p) return;
+      p.article = p.article || {};
+      p.article.tabImages = p.article.tabImages || {};
+      
+      let arr = getTabPhotosArray(p, tabKey);
+      arr.push({ url: "", title: `Figure ${arr.length + 1}`, caption: "" });
+      p.article.tabImages[tabKey] = arr;
+      
+      saveProjectFormTempState(pId);
+      editProjectItem(pId);
+      if (typeof showStudioToast === 'function') {
+        showStudioToast(`✓ Added new photo slot to Tab (${tabKey})`);
+      }
+    };
+
+    window.removePhotoFromTab = function(pId, tabKey, photoIdx) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p || !p.article || !p.article.tabImages) return;
+      
+      let arr = getTabPhotosArray(p, tabKey);
+      if (arr[photoIdx]) {
+        arr.splice(photoIdx, 1);
+        p.article.tabImages[tabKey] = arr;
+        saveProjectFormTempState(pId);
+        editProjectItem(pId);
+        if (typeof showStudioToast === 'function') {
+          showStudioToast(`✓ Removed photo from Tab (${tabKey})`);
+        }
+      }
+    };
+
+    window.handleTabPhotoFileUpload = function(fileInput, pId, tabKey, photoIdx) {
+      if (!fileInput || !fileInput.files || !fileInput.files[0]) return;
+      const file = fileInput.files[0];
+      const cleanName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+      
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        let finalUrl = e.target.result;
+        try {
+          const resp = await fetch('/api/upload-document', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ filename: cleanName, dataBase64: finalUrl })
+          });
+          if (resp.ok) {
+            const res = await resp.json();
+            if (res.success && res.url) finalUrl = res.url;
+          }
+        } catch (err) {}
+
+        const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+        const p = allProjects.find(x => x.id === pId);
+        if (p) {
+          p.article = p.article || {};
+          p.article.tabImages = p.article.tabImages || {};
+          let arr = getTabPhotosArray(p, tabKey);
+          if (!arr[photoIdx]) arr[photoIdx] = {};
+          arr[photoIdx].url = finalUrl;
+          if (!arr[photoIdx].title) arr[photoIdx].title = cleanName.replace(/\.[^/.]+$/, '').replace(/_/g, ' ');
+          p.article.tabImages[tabKey] = arr;
+          saveProjectFormTempState(pId);
+          editProjectItem(pId);
+          if (typeof showStudioToast === 'function') {
+            showStudioToast(`✓ Uploaded photo to Tab (${tabKey})`);
+          }
+        }
+      };
+      reader.readAsDataURL(file);
+    };
+
+    function saveProjectFormTempState(pId) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p) return;
+
+      const getVal = (id, fallback) => {
+        const el = document.getElementById(id);
+        return el ? el.value : fallback;
+      };
+
+      p.title = getVal('pTitle', p.title);
+      p.category = getVal('pCategory', p.category);
+      p.badge = getVal('pBadge', p.badge);
+      p.coverImage = getVal('pCover', p.coverImage);
+      p.shortDescription = getVal('pShortDesc', p.shortDescription || p.summary);
+      p.summary = p.shortDescription;
+
+      p.article = p.article || {};
+      p.article.problemStatement = getVal('pArtProblem', p.article.problemStatement || '');
+      p.article.cadArchitecture = getVal('pArtCAD', p.article.cadArchitecture || '');
+      p.article.calcsAndSimulation = getVal('pArtCalcs', p.article.calcsAndSimulation || '');
+      p.article.prototypingAndTesting = getVal('pArtProto', p.article.prototypingAndTesting || '');
+      p.article.takeaways = getVal('pArtTakeaways', p.article.takeaways || '');
+
+      p.article.tabTitles = p.article.tabTitles || {};
+      p.article.tabTitles.problem = getVal('pTabTitle_problem', p.article.tabTitles.problem || '1. The Goal & Requirements');
+      p.article.tabTitles.cad = getVal('pTabTitle_cad', p.article.tabTitles.cad || '2. CAD Architecture & Mechanism Details');
+      p.article.tabTitles.calcs = getVal('pTabTitle_calcs', p.article.tabTitles.calcs || '3. Kinematics, Hand Calculations & Sizing');
+      p.article.tabTitles.prototyping = getVal('pTabTitle_prototyping', p.article.tabTitles.prototyping || '4. Prototyping, 3D Printing & Testing');
+      p.article.tabTitles.takeaways = getVal('pTabTitle_takeaways', p.article.tabTitles.takeaways || '5. What I Learned & Next Steps');
+
+      p.article.tabSubtitles = p.article.tabSubtitles || {};
+      p.article.tabSubtitles.problem = getVal('pTabSubtitle_problem', p.article.tabSubtitles.problem || '');
+      p.article.tabSubtitles.cad = getVal('pTabSubtitle_cad', p.article.tabSubtitles.cad || '');
+      p.article.tabSubtitles.calcs = getVal('pTabSubtitle_calcs', p.article.tabSubtitles.calcs || '');
+      p.article.tabSubtitles.prototyping = getVal('pTabSubtitle_prototyping', p.article.tabSubtitles.prototyping || '');
+      p.article.tabSubtitles.takeaways = getVal('pTabSubtitle_takeaways', p.article.tabSubtitles.takeaways || '');
+
+      // Collect photos for all 5 tabs
+      ['problem', 'cad', 'calcs', 'prototyping', 'takeaways'].forEach(tabKey => {
+        let arr = getTabPhotosArray(p, tabKey);
+        arr.forEach((item, idx) => {
+          item.url = getVal(`pTabImgUrl_${tabKey}_${idx}`, item.url || '');
+          item.title = getVal(`pTabImgTitle_${tabKey}_${idx}`, item.title || '');
+          item.caption = getVal(`pTabImgCaption_${tabKey}_${idx}`, item.caption || '');
+        });
+        p.article.tabImages = p.article.tabImages || {};
+        p.article.tabImages[tabKey] = arr;
+      });
+    }
+
+    function renderTabPhotosManagerSection(p, tabKey, tabLabel) {
+      let photos = getTabPhotosArray(p, tabKey);
+      if (photos.length === 0) {
+        const oldSingle = p.article && p.article.tabImages && p.article.tabImages[tabKey];
+        if (oldSingle && oldSingle.url) {
+          photos = [oldSingle];
+        }
+      }
+
+      return `
+        <div style="background: var(--bg-surface); padding: 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--border-medium); margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--park-copper); text-transform: uppercase;">
+              🖼️ ${tabLabel} Photos &amp; Drawings (${photos.length} Added)
+            </span>
+            <button type="button" class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px;" onclick="addPhotoToTab('${p.id}', '${tabKey}')">
+              <span>➕</span> Add Photo to this Section
+            </button>
+          </div>
+
+          ${photos.length === 0 ? `
+            <div style="padding: 12px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-medium); border-radius: var(--radius-sm); text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+              No photos currently added to this section. Click <strong>"➕ Add Photo to this Section"</strong> above to insert drawings, renders, or test photos!
+            </div>
+          ` : `
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              ${photos.map((item, idx) => `
+                <div style="background: var(--bg-subtle); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 4px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+                      Photo #${idx + 1}
+                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" style="color: var(--coaster-red); font-size: 0.7rem; padding: 2px 6px;" onclick="removePhotoFromTab('${p.id}', '${tabKey}', ${idx})" title="Remove this photo">
+                      🗑️ Remove
+                    </button>
+                  </div>
+                  
+                  <div style="display: grid; grid-template-columns: 70px 1fr 1fr; gap: 10px; align-items: center;">
+                    <img id="pTabImgPreview_${tabKey}_${idx}" src="${formatImageSrc(item.url || p.coverImage || '')}" alt="Photo ${idx + 1}" style="width: 70px; height: 50px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); background: #000;">
+                    <div>
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                        <label style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">Image URL / Path</label>
+                        <div style="display: flex; gap: 4px;">
+                          <button type="button" style="background: none; border: none; color: var(--park-copper); font-size: 0.7rem; cursor: pointer; font-weight: 700;" onclick="openMediaPickerModal('pTabImgUrl_${tabKey}_${idx}', 'pTabImgPreview_${tabKey}_${idx}')">🖼️ Pick</button>
+                          <label style="color: var(--park-copper); font-size: 0.7rem; cursor: pointer; font-weight: 700; margin: 0;">
+                            📁 Upload
+                            <input type="file" accept="image/*" style="display: none;" onchange="handleTabPhotoFileUpload(this, '${p.id}', '${tabKey}', ${idx})">
+                          </label>
+                        </div>
+                      </div>
+                      <input type="text" id="pTabImgUrl_${tabKey}_${idx}" class="studio-input" style="padding: 4px 6px; font-size: 0.78rem;" value="${item.url || ''}" placeholder="assets/images/..." onchange="document.getElementById('pTabImgPreview_${tabKey}_${idx}').src = this.value;">
+                    </div>
+                    <div>
+                      <label style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 2px;">Figure Title</label>
+                      <input type="text" id="pTabImgTitle_${tabKey}_${idx}" class="studio-input" style="padding: 4px 6px; font-size: 0.78rem;" value="${item.title || ''}" placeholder="e.g. Swerve Pod CAD">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 2px;">Figure Caption / Engineering Note</label>
+                    <input type="text" id="pTabImgCaption_${tabKey}_${idx}" class="studio-input" style="padding: 4px 6px; font-size: 0.75rem;" value="${item.caption || ''}" placeholder="e.g. Exploded assembly showing planetary gear mesh and bearing fits...">
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+
+    function editProjectItem(pId) {
+      activeEditingProjectId = pId;
+      activeEditingDiaryId = null;
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p) return;
+
+      const container = document.getElementById('studioEditorContent');
+      container.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">✏️ Edit Project: ${p.title}</h2>
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">ID: ${p.id}</div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary btn-sm" onclick="showSection('sectionProjects')">← Back to Projects</button>
+            <button class="btn btn-primary btn-sm" onclick="saveProjectItemChanges('${p.id}')">💾 Save Project Changes</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="studio-label">Project Title</label>
+            <input type="text" id="pTitle" class="studio-input" value="${p.title}">
+          </div>
+          <div class="form-group">
+            <label class="studio-label">Badge Label</label>
+            <input type="text" id="pBadge" class="studio-input" value="${p.badge || ''}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Subtitle / Focus Line</label>
+          <input type="text" id="pSubtitle" class="studio-input" value="${p.subtitle || ''}">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label class="studio-label">Category</label>
+            <select id="pCategory" class="studio-select">
+              <option value="themed-rides" ${p.category === 'themed-rides' ? 'selected' : ''}>Themed Rides &amp; Coasters</option>
+              <option value="transit-rail" ${p.category === 'transit-rail' ? 'selected' : ''}>Transit &amp; Rolling Stock</option>
+              <option value="university-team" ${p.category === 'university-team' ? 'selected' : ''}>University &amp; Team CAD</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="studio-label">Timeline / Year</label>
+            <input type="text" id="pTimeline" class="studio-input" value="${p.timeline || ''}">
+          </div>
+          <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-top: 24px;">
+            <input type="checkbox" id="pFeatured" style="width: 18px; height: 18px;" ${p.featured ? 'checked' : ''}>
+            <label for="pFeatured" style="font-weight: 600; font-size: 0.9rem; color: var(--text-main); cursor: pointer;">Featured in 1-Row Carousel</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Cover Image Path</label>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="pCover" class="studio-input" value="${p.coverImage || ''}">
+            <button type="button" class="btn btn-secondary btn-sm" style="white-space: nowrap;" onclick="openMediaPickerModal('pCover', 'pCoverPreview')">🖼️ Choose from Media Store</button>
+          </div>
+          <div style="margin-top: 8px;">
+            <img id="pCoverPreview" src="${p.coverImage}" alt="Preview" style="max-height: 100px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Tools &amp; Software Tags (comma-separated)</label>
+          <input type="text" id="pTools" class="studio-input" value="${(p.tools || []).join(', ')}">
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Project Summary Card</label>
+          <textarea id="pSummary" class="studio-textarea" rows="3">${p.summary || ''}</textarea>
+        </div>
+
+        <!-- Key Engineering Stats & Metrics Boxes Manager -->
+        <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 24px 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0;">📊 Key Engineering Stats &amp; Metrics Boxes (${(p.keyMetrics || []).length})</h3>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">These are the highlighted stat boxes displayed at the top of this project's case study modal.</p>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="addProjectMetric('${p.id}')">➕ Add Stat Box</button>
+          </div>
+
+          <div id="projectMetricsList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px;">
+            ${(p.keyMetrics || []).map((m, idx) => `
+              <div style="background: var(--bg-surface); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 12px; position: relative;">
+                <button type="button" class="btn btn-secondary btn-sm" style="position: absolute; top: 6px; right: 6px; padding: 2px 6px; font-size: 0.7rem; color: var(--coaster-red);" onclick="removeProjectMetric('${p.id}', ${idx})">✕</button>
+                <label style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 4px;">Metric Label / Name</label>
+                <input type="text" id="metricLabel_${idx}" class="studio-input" style="padding: 6px 8px; font-size: 0.82rem; margin-bottom: 8px; font-family: var(--font-mono);" value="${m.label}" onchange="updateMetricField('${p.id}', ${idx}, 'label', this.value)" placeholder="e.g. STEER RADIUS">
+                <label style="font-size: 0.72rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 4px;">Metric Value</label>
+                <input type="text" id="metricValue_${idx}" class="studio-input" style="padding: 6px 8px; font-size: 0.85rem; font-weight: 700; color: var(--coaster-red); font-family: var(--font-mono);" value="${m.value}" onchange="updateMetricField('${p.id}', ${idx}, 'value', this.value)" placeholder="e.g. 0.0m (Zero-Turn)">
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Gallery Figures Manager -->
+        <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 24px 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 0;">📐 CAD Drawings &amp; Photo Gallery Figures (${p.cadGallery ? p.cadGallery.length : 0})</h3>
+            <button class="btn btn-secondary btn-sm" onclick="addGalleryFigure('${p.id}')">➕ Add Gallery Drawing</button>
+          </div>
+
+          <div id="galleryFiguresList">
+            ${(p.cadGallery || []).map((fig, idx) => `
+              <div class="gallery-fig-item">
+                <img id="figPreview_${idx}" src="${fig.url}" alt="${fig.title}" style="width: 70px; height: 55px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+                <div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 6px;">
+                    <input type="text" class="studio-input" style="padding: 6px 10px; font-size: 0.85rem;" value="${fig.title}" onchange="updateFigureField('${p.id}', ${idx}, 'title', this.value)" placeholder="Figure Title">
+                    <button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.72rem; padding: 4px 8px; white-space: nowrap;" onclick="openMediaPickerModal('figUrl_${idx}', 'figPreview_${idx}')">🖼️ Pick Photo</button>
+                  </div>
+                  <input type="text" id="figUrl_${idx}" class="studio-input" style="padding: 6px 10px; font-size: 0.82rem; margin-bottom: 6px;" value="${fig.url}" onchange="updateFigureField('${p.id}', ${idx}, 'url', this.value)" placeholder="Image URL">
+                  <textarea class="studio-textarea" rows="2" style="padding: 6px 10px; font-size: 0.8rem;" onchange="updateFigureField('${p.id}', ${idx}, 'caption', this.value)" placeholder="Figure Caption">${fig.caption || ''}</textarea>
+                </div>
+                <button class="btn btn-secondary btn-sm" style="color: var(--coaster-red);" onclick="removeGalleryFigure('${p.id}', ${idx})">🗑️</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- Full 5-Tab Case Study Tabs & Subtext Customization -->
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin: 26px 0 14px;">📖 Case Study 5-Tab Articles &amp; Subtext Customization</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+          Customize the tab button names, subtext / subtitle descriptions, and full markdown body for every tab in this case study.
+        </p>
+
+        <!-- Tab 1 -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+            <div>
+              <label class="studio-label">Tab 1 Button Name / Title</label>
+              <input type="text" id="pTabTitle_problem" class="studio-input" value="${(p.article && p.article.tabTitles && p.article.tabTitles.problem) || '1. The Goal & Requirements'}">
+            </div>
+            <div>
+              <label class="studio-label">Tab 1 Subtext / Subtitle</label>
+              <input type="text" id="pTabSubtitle_problem" class="studio-input" value="${(p.article && p.article.tabSubtitles && p.article.tabSubtitles.problem) || 'Project specifications, design brief & operating constraints'}">
+            </div>
+          </div>
+          ${renderTabPhotosManagerSection(p, 'problem', 'Tab 1 (Goal)')}
+          <div>
+            <label class="studio-label">Tab 1 Article Content (Markdown)</label>
+            <textarea id="pArtProblem" class="studio-textarea" rows="4">${p.article ? p.article.problemStatement || '' : ''}</textarea>
+          </div>
+        </div>
+
+        <!-- Tab 2 -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+            <div>
+              <label class="studio-label">Tab 2 Button Name / Title</label>
+              <input type="text" id="pTabTitle_cad" class="studio-input" value="${(p.article && p.article.tabTitles && p.article.tabTitles.cad) || '2. CAD Architecture & Mechanism Details'}">
+            </div>
+            <div>
+              <label class="studio-label">Tab 2 Subtext / Subtitle</label>
+              <input type="text" id="pTabSubtitle_cad" class="studio-input" value="${(p.article && p.article.tabSubtitles && p.article.tabSubtitles.cad) || 'SolidWorks parametric subassemblies, kinematic joints & tolerance analysis'}">
+            </div>
+          </div>
+          ${renderTabPhotosManagerSection(p, 'cad', 'Tab 2 (CAD)')}
+          <div>
+            <label class="studio-label">Tab 2 Article Content (Markdown)</label>
+            <textarea id="pArtCAD" class="studio-textarea" rows="4">${p.article ? p.article.cadArchitecture || '' : ''}</textarea>
+          </div>
+        </div>
+
+        <!-- Tab 3 -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+            <div>
+              <label class="studio-label">Tab 3 Button Name / Title</label>
+              <input type="text" id="pTabTitle_calcs" class="studio-input" value="${(p.article && p.article.tabTitles && p.article.tabTitles.calcs) || '3. Kinematics, Hand Calculations & Sizing'}">
+            </div>
+            <div>
+              <label class="studio-label">Tab 3 Subtext / Subtitle</label>
+              <input type="text" id="pTabSubtitle_calcs" class="studio-input" value="${(p.article && p.article.tabSubtitles && p.article.tabSubtitles.calcs) || 'Hand calculations, dynamic simulation & motor torque verification'}">
+            </div>
+          </div>
+          ${renderTabPhotosManagerSection(p, 'calcs', 'Tab 3 (Calculations)')}
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label class="studio-label" style="margin: 0;">Tab 3 Article Content &amp; Code (Markdown / Code Block)</label>
+              <button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 4px 10px; color: var(--park-copper); font-weight: 700;" onclick="toggleInlineCodeHelper('pArtCalcs')">⚡ + Insert Code Block</button>
+            </div>
+
+            <div id="inlineCodeHelper_pArtCalcs" style="display: none; background: #121214; padding: 14px; border-radius: var(--radius-md); border: 1.5px solid var(--border-medium); margin-bottom: 12px;">
+              <div style="display: grid; grid-template-columns: 140px 1fr auto; gap: 10px; margin-bottom: 10px; align-items: center;">
+                <select id="inlineCodeLang_pArtCalcs" class="studio-select" style="font-size: 0.8rem; padding: 6px 8px;">
+                  <option value="python">🐍 Python</option>
+                  <option value="matlab">📊 MATLAB</option>
+                  <option value="cpp">⚡ C++</option>
+                  <option value="latex">📐 LaTeX</option>
+                  <option value="text">📄 Plain Code</option>
+                </select>
+                <input type="text" id="inlineCodeTitle_pArtCalcs" class="studio-input" style="font-size: 0.8rem; padding: 6px 10px;" placeholder="Optional Script Title (e.g. S-Curve Sizing Calculator)">
+                <button type="button" class="btn btn-primary btn-sm" style="font-size: 0.78rem; padding: 6px 12px; white-space: nowrap;" onclick="insertInlineCodeToTarget('pArtCalcs')">📥 Insert at End</button>
+              </div>
+              <textarea id="inlineCodeRaw_pArtCalcs" class="studio-textarea" rows="5" style="font-family: var(--font-mono); font-size: 0.8rem; background: #09090b; color: #38bdf8; margin-bottom: 0;" placeholder="Paste raw Python / MATLAB code here..."></textarea>
+            </div>
+
+            <textarea id="pArtCalcs" class="studio-textarea" rows="8" style="font-family: var(--font-mono); font-size: 0.85rem;">${p.article ? p.article.calcsAndSimulation || '' : ''}</textarea>
+          </div>
+        </div>
+
+        <!-- Tab 4 -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+            <div>
+              <label class="studio-label">Tab 4 Button Name / Title</label>
+              <input type="text" id="pTabTitle_prototyping" class="studio-input" value="${(p.article && p.article.tabTitles && p.article.tabTitles.prototyping) || '4. Prototyping, 3D Printing & Testing'}">
+            </div>
+            <div>
+              <label class="studio-label">Tab 4 Subtext / Subtitle</label>
+              <input type="text" id="pTabSubtitle_prototyping" class="studio-input" value="${(p.article && p.article.tabSubtitles && p.article.tabSubtitles.prototyping) || 'Rapid prototyping, additive manufacturing & physical test rig sequence'}">
+            </div>
+          </div>
+          ${renderTabPhotosManagerSection(p, 'prototyping', 'Tab 4 (Prototyping)')}
+          <div>
+            <label class="studio-label">Tab 4 Article Content (Markdown)</label>
+            <textarea id="pArtProto" class="studio-textarea" rows="3">${p.article ? p.article.prototypingAndTesting || '' : ''}</textarea>
+          </div>
+        </div>
+
+        <!-- Tab 5 -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border-light); margin-bottom: 18px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px;">
+            <div>
+              <label class="studio-label">Tab 5 Button Name / Title</label>
+              <input type="text" id="pTabTitle_takeaways" class="studio-input" value="${(p.article && p.article.tabTitles && p.article.tabTitles.takeaways) || '5. What I Learned & Next Steps'}">
+            </div>
+            <div>
+              <label class="studio-label">Tab 5 Subtext / Subtitle</label>
+              <input type="text" id="pTabSubtitle_takeaways" class="studio-input" value="${(p.article && p.article.tabSubtitles && p.article.tabSubtitles.takeaways) || 'Engineering lessons learned, manufacturability review & next milestones'}">
+            </div>
+          </div>
+          ${renderTabPhotosManagerSection(p, 'takeaways', 'Tab 5 (Takeaways)')}
+          <div>
+            <label class="studio-label">Tab 5 Article Content (Markdown)</label>
+            <textarea id="pArtTakeaways" class="studio-textarea" rows="3">${p.article ? p.article.takeaways || '' : ''}</textarea>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; margin-top: 24px;">
+          <button class="btn btn-primary" onclick="saveProjectItemChanges('${p.id}')">💾 Save Project Changes</button>
+          <button class="btn btn-secondary" onclick="showSection('sectionProjects')">Cancel</button>
+        </div>
+      `;
+    }
+
+    function addProjectMetric(pId) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p) return;
+      p.keyMetrics = p.keyMetrics || [];
+      p.keyMetrics.push({ label: "NEW STAT", value: "100 N·m" });
+      saveStudioData(currentStudioData, false);
+      editProjectItem(pId);
+    }
+
+    function removeProjectMetric(pId, idx) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p || !p.keyMetrics) return;
+      p.keyMetrics.splice(idx, 1);
+      saveStudioData(currentStudioData, false);
+      editProjectItem(pId);
+    }
+
+    function updateMetricField(pId, idx, field, val) {
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p || !p.keyMetrics || !p.keyMetrics[idx]) return;
+      p.keyMetrics[idx][field] = val;
+    }
+
+    function addGalleryFigure(pId) {
+      const all = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = all.find(x => x.id === pId);
+      if (!p) return;
+      p.cadGallery = p.cadGallery || [];
+      p.cadGallery.push({
+        url: "assets/images/extracted/image1.png",
+        title: "New CAD Figure",
+        caption: "Technical CAD detail and assembly specification."
+      });
+      saveStudioData(currentStudioData, false);
+      editProjectItem(pId);
+    }
+
+    function removeGalleryFigure(pId, idx) {
+      const all = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = all.find(x => x.id === pId);
+      if (!p || !p.cadGallery) return;
+      p.cadGallery.splice(idx, 1);
+      saveStudioData(currentStudioData, false);
+      editProjectItem(pId);
+    }
+
+    function updateFigureField(pId, idx, field, val) {
+      const all = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = all.find(x => x.id === pId);
+      if (!p || !p.cadGallery || !p.cadGallery[idx]) return;
+      p.cadGallery[idx][field] = val;
+      saveStudioData(currentStudioData, false);
+    }
+
+    function saveProjectItemChanges(pId, notify = true) {
+      try {
+        const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+        const p = allProjects.find(x => x.id === pId);
+        if (!p) {
+          alert('Could not find project with ID: ' + pId);
+          return;
+        }
+
+        if (document.getElementById('pTitle')) p.title = getVal('pTitle', p.title);
+        if (document.getElementById('pSubtitle')) p.subtitle = getVal('pSubtitle', p.subtitle);
+        if (document.getElementById('pBadge')) p.badge = getVal('pBadge', p.badge);
+        if (document.getElementById('pCategory')) p.category = getVal('pCategory', p.category);
+        if (document.getElementById('pTimeline')) p.timeline = getVal('pTimeline', p.timeline);
+        if (document.getElementById('pFeatured')) p.featured = getChecked('pFeatured', p.featured);
+        if (document.getElementById('pCover')) p.coverImage = getVal('pCover', p.coverImage);
+        if (document.getElementById('pSummary')) p.summary = getVal('pSummary', p.summary);
+
+        if (document.getElementById('pTools')) {
+          const toolsInput = getVal('pTools', '');
+          p.tools = toolsInput.split(',').map(s => s.trim()).filter(Boolean);
+        }
+
+        p.article = p.article || {};
+        p.article.tabTitles = p.article.tabTitles || {};
+        p.article.tabTitles.problem = getVal('pTabTitle_problem', p.article.tabTitles.problem || '1. The Goal & Requirements');
+        p.article.tabTitles.cad = getVal('pTabTitle_cad', p.article.tabTitles.cad || '2. CAD Architecture & Mechanism Details');
+        p.article.tabTitles.calcs = getVal('pTabTitle_calcs', p.article.tabTitles.calcs || '3. Kinematics, Hand Calculations & Sizing');
+        p.article.tabTitles.prototyping = getVal('pTabTitle_prototyping', p.article.tabTitles.prototyping || '4. Prototyping, 3D Printing & Testing');
+        p.article.tabTitles.takeaways = getVal('pTabTitle_takeaways', p.article.tabTitles.takeaways || '5. What I Learned & Next Steps');
+
+        p.article.tabSubtitles = p.article.tabSubtitles || {};
+        p.article.tabSubtitles.problem = getVal('pTabSubtitle_problem', p.article.tabSubtitles.problem || '');
+        p.article.tabSubtitles.cad = getVal('pTabSubtitle_cad', p.article.tabSubtitles.cad || '');
+        p.article.tabSubtitles.calcs = getVal('pTabSubtitle_calcs', p.article.tabSubtitles.calcs || '');
+        p.article.tabSubtitles.prototyping = getVal('pTabSubtitle_prototyping', p.article.tabSubtitles.prototyping || '');
+        p.article.tabSubtitles.takeaways = getVal('pTabSubtitle_takeaways', p.article.tabSubtitles.takeaways || '');
+
+        if (document.getElementById('pArtProblem')) p.article.problemStatement = getVal('pArtProblem', p.article.problemStatement || '');
+        if (document.getElementById('pArtCAD')) p.article.cadArchitecture = getVal('pArtCAD', p.article.cadArchitecture || '');
+        if (document.getElementById('pArtCalcs')) p.article.calcsAndSimulation = getVal('pArtCalcs', p.article.calcsAndSimulation || '');
+        if (document.getElementById('pArtProto')) p.article.prototypingAndTesting = getVal('pArtProto', p.article.prototypingAndTesting || '');
+        if (document.getElementById('pArtTakeaways')) p.article.takeaways = getVal('pArtTakeaways', p.article.takeaways || '');
+
+        p.article.tabImages = p.article.tabImages || {};
+        ['problem', 'cad', 'calcs', 'prototyping', 'takeaways'].forEach(tabKey => {
+          let arr = getTabPhotosArray(p, tabKey);
+          arr.forEach((item, idx) => {
+            item.url = getVal(`pTabImgUrl_${tabKey}_${idx}`, item.url || '');
+            item.title = getVal(`pTabImgTitle_${tabKey}_${idx}`, item.title || '');
+            item.caption = getVal(`pTabImgCaption_${tabKey}_${idx}`, item.caption || '');
+          });
+          p.article.tabImages[tabKey] = arr;
+        });
+        saveStudioData(currentStudioData);
+        if (notify && typeof showStudioToast === 'function') {
+          showStudioToast('✓ Project changes saved successfully!');
+        }
+        renderActiveSection();
+      } catch (err) {
+        console.error('Error saving project changes:', err);
+        alert('Error saving project changes: ' + err.message);
+      }
+    }
+
+    function addNewProjectForm() {
+      const newId = 'proj-' + Date.now();
+      const newP = {
+        id: newId,
+        title: "New CAD & Engineering Build",
+        subtitle: "SolidWorks Parametric Model & Mechanical Design",
+        category: "themed-rides",
+        featured: true,
+        badge: "New Build",
+        timeline: "2026",
+        tools: ["SolidWorks", "CAD", "Prototyping"],
+        coverImage: "assets/images/extracted/image1.png",
+        cadGallery: [
+          {
+            url: "assets/images/extracted/image1.png",
+            title: "Assembly CAD Render",
+            caption: "SolidWorks 3D CAD model."
+          }
+        ],
+        summary: "Detailed mechanical design and analysis of the project.",
+        article: {
+          problemStatement: "Project requirements and engineering objectives.",
+          cadArchitecture: "CAD subassemblies and mechanical kinematics.",
+          calcsAndSimulation: "Hand calculations, motor sizing, and stress checks.",
+          prototypingAndTesting: "Prototyping and test sequence.",
+          takeaways: "Key takeaways and next steps."
+        }
+      };
+      currentStudioData.featuredProjects = currentStudioData.featuredProjects || [];
+      currentStudioData.featuredProjects.push(newP);
+      saveStudioData(currentStudioData, false);
+      editProjectItem(newId);
+    }
+
+    let activeEditingDiaryId = null;
+    let activeEditingProjectId = null;
+
+    function editDiaryItem(dId) {
+      activeEditingDiaryId = dId;
+      activeEditingProjectId = null;
+      const entries = currentStudioData.diaryEntries || [];
+      const e = entries.find(x => x.id === dId);
+      if (!e) return;
+
+      const container = document.getElementById('studioEditorContent');
+      container.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">✏️ Edit Field Note: ${e.title}</h2>
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">ID: ${e.id}</div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary btn-sm" onclick="showSection('sectionDiary')">← Back to Field Notes</button>
+            <button class="btn btn-primary btn-sm" onclick="saveDiaryItemChanges('${e.id}')">💾 Save Field Note</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Title</label>
+          <input type="text" id="dTitle" class="studio-input" value="${e.title}">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="studio-label">Location / Park</label>
+            <input type="text" id="dLocation" class="studio-input" value="${e.location || ''}">
+          </div>
+          <div class="form-group">
+            <label class="studio-label">Date</label>
+            <input type="text" id="dDate" class="studio-input" value="${e.date || ''}">
+          </div>
+          <div class="form-group">
+            <label class="studio-label">Category Badge</label>
+            <input type="text" id="dCategory" class="studio-input" value="${e.category || 'Ride Analysis'}">
+          </div>
+          <div class="form-group">
+            <label class="studio-label">Read Time</label>
+            <input type="text" id="dReadTime" class="studio-input" value="${e.readTime || '3 min read'}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Cover Photo Path</label>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="dCover" class="studio-input" value="${e.coverPhoto || ''}">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="openMediaPickerModal('dCover', 'dCoverPreview')">🖼️ Choose from Media Store</button>
+          </div>
+          <div style="margin-top: 8px;">
+            <img id="dCoverPreview" src="${e.coverPhoto || 'assets/images/personal/europa_park_water_coaster.jpg'}" alt="Preview" style="max-height: 100px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+          </div>
+        </div>
+
+        <!-- Embedded Field Photos & Figures -->
+        <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 20px 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin: 0;">📸 Field Photos &amp; Figures (${(e.tripPhotos || []).length})</h3>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="addDiaryTripPhoto('${e.id}')">➕ Add Trip Photo</button>
+          </div>
+
+          <div id="diaryTripPhotosList">
+            ${(e.tripPhotos || []).map((tp, idx) => `
+              <div class="gallery-fig-item">
+                <img id="tpPreview_${idx}" src="${tp.url}" alt="${tp.caption}" style="width: 70px; height: 55px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-medium);">
+                <div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 6px;">
+                    <input type="text" id="tpUrl_${idx}" class="studio-input" style="padding: 6px 10px; font-size: 0.82rem;" value="${tp.url}" onchange="updateTripPhotoField('${e.id}', ${idx}, 'url', this.value)" placeholder="Image URL">
+                    <button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.72rem; padding: 4px 8px; white-space: nowrap;" onclick="openMediaPickerModal('tpUrl_${idx}', 'tpPreview_${idx}')">🖼️ Pick Photo</button>
+                  </div>
+                  <input type="text" class="studio-input" style="padding: 6px 10px; font-size: 0.82rem; margin-bottom: 6px;" value="${tp.caption || ''}" onchange="updateTripPhotoField('${e.id}', ${idx}, 'caption', this.value)" placeholder="Photo Caption">
+                  <input type="text" class="studio-input" style="padding: 6px 10px; font-size: 0.82rem;" value="${tp.tag || ''}" onchange="updateTripPhotoField('${e.id}', ${idx}, 'tag', this.value)" placeholder="Photo Location Tag">
+                </div>
+                <button class="btn btn-secondary btn-sm" style="color: var(--coaster-red);" onclick="removeDiaryTripPhoto('${e.id}', ${idx})">🗑️</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Summary / Snippet</label>
+          <textarea id="dSummary" class="studio-textarea" rows="2">${e.summary || ''}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="studio-label">Full Field Note Body (Markdown / HTML)</label>
+          <textarea id="dContent" class="studio-textarea" rows="8">${e.content || ''}</textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 24px;">
+          <button class="btn btn-primary" onclick="saveDiaryItemChanges('${e.id}')">💾 Save Field Note</button>
+          <button class="btn btn-secondary" onclick="showSection('sectionDiary')">Cancel</button>
+        </div>
+      `;
+    }
+
+    function addDiaryTripPhoto(dId) {
+      const entries = currentStudioData.diaryEntries || [];
+      const e = entries.find(x => x.id === dId);
+      if (!e) return;
+      e.tripPhotos = e.tripPhotos || [];
+      e.tripPhotos.push({
+        url: "assets/images/personal/lucy_disney_mickey.jpg",
+        caption: "Field photo observation.",
+        tag: "Field Study"
+      });
+      saveStudioData(currentStudioData, false);
+      editDiaryItem(dId);
+    }
+
+    function removeDiaryTripPhoto(dId, idx) {
+      const entries = currentStudioData.diaryEntries || [];
+      const e = entries.find(x => x.id === dId);
+      if (!e || !e.tripPhotos) return;
+      e.tripPhotos.splice(idx, 1);
+      saveStudioData(currentStudioData, false);
+      editDiaryItem(dId);
+    }
+
+    function updateTripPhotoField(dId, idx, field, val) {
+      const entries = currentStudioData.diaryEntries || [];
+      const e = entries.find(x => x.id === dId);
+      if (!e || !e.tripPhotos || !e.tripPhotos[idx]) return;
+      e.tripPhotos[idx][field] = val;
+      saveStudioData(currentStudioData, false);
+    }
+
+    function saveDiaryItemChanges(dId, notify = true) {
+      try {
+        const entries = currentStudioData.diaryEntries || [];
+        const e = entries.find(x => x.id === dId);
+        if (!e) {
+          alert('Could not find field note with ID: ' + dId);
+          return;
+        }
+
+        if (document.getElementById('dTitle')) e.title = getVal('dTitle', e.title);
+        if (document.getElementById('dLocation')) e.location = getVal('dLocation', e.location);
+        if (document.getElementById('dDate')) e.date = getVal('dDate', e.date);
+        if (document.getElementById('dCategory')) e.category = getVal('dCategory', e.category);
+        if (document.getElementById('dReadTime')) e.readTime = getVal('dReadTime', e.readTime);
+        if (document.getElementById('dCover')) e.coverPhoto = getVal('dCover', e.coverPhoto);
+        if (document.getElementById('dSummary')) e.summary = getVal('dSummary', e.summary);
+        if (document.getElementById('dContent')) e.content = getVal('dContent', e.content);
+
+        saveStudioData(currentStudioData, notify);
+        showSection('sectionDiary');
+      } catch (err) {
+        console.error('Error saving field note:', err);
+        alert('Error saving field note: ' + err.message);
+      }
+    }
+
+    function deleteDiaryItem(dId) {
+      if (confirm('Are you sure you want to delete this field note?')) {
+        currentStudioData.diaryEntries = (currentStudioData.diaryEntries || []).filter(e => e.id !== dId);
+        saveStudioData(currentStudioData);
+        renderActiveSection();
+      }
+    }
+
+    function addNewDiaryForm() {
+      const newId = 'diary-' + Date.now();
+      const newE = {
+        id: newId,
+        title: "New Field Note & Observation",
+        location: "Europa-Park",
+        date: "2026",
+        readTime: "3 min read",
+        category: "Ride Analysis",
+        coverPhoto: "assets/images/personal/europa_park_water_coaster.jpg",
+        summary: "Field observation of ride mechanics and coaster design.",
+        content: "Detailed observations on track alignment, bogie kinematics, and station dispatch procedures."
+      };
+      currentStudioData.diaryEntries = currentStudioData.diaryEntries || [];
+      currentStudioData.diaryEntries.push(newE);
+      saveStudioData(currentStudioData, false);
+      editDiaryItem(newId);
+    }
+
+    function addNewCoasterCredit() {
+      const name = prompt("Enter Roller Coaster Name:");
+      if (!name) return;
+      const park = prompt("Enter Theme Park:") || "Europa-Park";
+      const mfr = prompt("Enter Manufacturer (e.g. Mack Rides, B&M, Intamin):") || "Mack Rides";
+      const type = prompt("Enter Type (e.g. Water Coaster, Launch Coaster):") || "Steel Coaster";
+      const notes = prompt("Enter Engineering Observation Notes:") || "Track geometry and dispatch observation.";
+
+      currentStudioData.coasterCredits = currentStudioData.coasterCredits || [];
+      currentStudioData.coasterCredits.push({
+        name: name,
+        park: park,
+        manufacturer: mfr,
+        type: type,
+        elements: "Heartline roll, LSM boost",
+        notes: notes
+      });
+      saveStudioData(currentStudioData);
+      renderActiveSection();
+    }
+
+    function deleteCoasterCredit(idx) {
+      if (confirm('Delete this coaster entry?')) {
+        currentStudioData.coasterCredits.splice(idx, 1);
+        saveStudioData(currentStudioData);
+        renderActiveSection();
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       CODE & SCRIPT EMBEDDER SYSTEM FUNCTIONS (GLOBAL WINDOW SCOPE)
+       -------------------------------------------------------------------------- */
+    window.escapeHTML = function(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    };
+
+    window.toggleInlineCodeHelper = function(targetId) {
+      const helper = document.getElementById('inlineCodeHelper_' + targetId);
+      if (helper) {
+        const isHidden = (helper.style.display === 'none' || !helper.style.display);
+        helper.style.display = isHidden ? 'block' : 'none';
+        if (isHidden) {
+          const rawBox = document.getElementById('inlineCodeRaw_' + targetId);
+          if (rawBox) rawBox.focus();
+        }
+      } else {
+        console.warn('inlineCodeHelper_' + targetId + ' element not found in DOM');
+      }
+    };
+
+    window.insertInlineCodeToTarget = function(targetId) {
+      const targetTextarea = document.getElementById(targetId);
+      const rawCodeEl = document.getElementById('inlineCodeRaw_' + targetId);
+      const titleEl = document.getElementById('inlineCodeTitle_' + targetId);
+      const langEl = document.getElementById('inlineCodeLang_' + targetId);
+
+      if (!targetTextarea || !rawCodeEl) return;
+      const rawCode = rawCodeEl.value.trim();
+      const title = titleEl ? titleEl.value.trim() : '';
+      const lang = langEl ? langEl.value : 'python';
+
+      if (!rawCode) {
+        alert('Please paste some code into the box first.');
+        return;
+      }
+
+      let block = '';
+      if (title) {
+        block += '• **' + title + ':**\n';
+      }
+      block += '```' + lang + '\n' + rawCode + '\n```';
+
+      if (targetTextarea.value.trim()) {
+        targetTextarea.value = targetTextarea.value.trim() + '\n\n' + block;
+      } else {
+        targetTextarea.value = block;
+      }
+
+      rawCodeEl.value = '';
+      if (titleEl) titleEl.value = '';
+      window.toggleInlineCodeHelper(targetId);
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('✓ Formatted code block inserted into article!');
+      }
+    };
+
+    window.updateCodeEmbedPreview = function() {
+      const codeEl = document.getElementById('embedRawCode');
+      const titleEl = document.getElementById('embedTitle');
+      const langEl = document.getElementById('embedLang');
+      const previewEl = document.getElementById('embedPreviewContainer');
+      if (!codeEl || !previewEl) return;
+
+      const code = codeEl.value.trim();
+      const title = titleEl ? titleEl.value.trim() : '';
+      const lang = langEl ? langEl.value : 'python';
+
+      if (!code) {
+        previewEl.innerHTML = '<em style="color: var(--text-muted);">Paste code above to see live formatted preview...</em>';
+        return;
+      }
+
+      const langLabel = lang.toUpperCase();
+      previewEl.innerHTML = `
+        <div style="font-weight: 700; color: var(--text-main); margin-bottom: 8px;">${title ? `• <strong>${window.escapeHTML(title)}</strong>` : ''}</div>
+        <div class="code-block-wrapper" style="background: #09090b; border: 1.5px solid var(--border-medium); border-radius: var(--radius-md); overflow: hidden;">
+          <div class="code-block-header" style="background: rgba(255,255,255,0.05); padding: 8px 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); font-family: var(--font-mono); font-size: 0.78rem; color: var(--park-copper);">
+            <span>🐍 ${langLabel} // SCRIPT &amp; CALCULATOR</span>
+            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); font-size: 0.72rem;">Live Copy Preview</span>
+          </div>
+          <pre style="margin: 0; padding: 14px; font-family: var(--font-mono); font-size: 0.82rem; color: #a5f3fc; overflow-x: auto; line-height: 1.45;"><code>${window.escapeHTML(code)}</code></pre>
+        </div>
+      `;
+    };
+
+    window.applyCodeEmbedToProject = function() {
+      const projSelect = document.getElementById('embedTargetProject');
+      const tabSelect = document.getElementById('embedTargetTab');
+      const langEl = document.getElementById('embedLang');
+      const titleEl = document.getElementById('embedTitle');
+      const modeEl = document.getElementById('embedMode');
+      const codeEl = document.getElementById('embedRawCode');
+
+      if (!projSelect || !tabSelect || !codeEl) return;
+      const pId = projSelect.value;
+      const tabField = tabSelect.value;
+      const lang = langEl ? langEl.value : 'python';
+      const title = titleEl ? titleEl.value.trim() : '';
+      const mode = modeEl ? modeEl.value : 'append';
+      const rawCode = codeEl.value.trim();
+
+      if (!rawCode) {
+        alert('Please paste some code into the box first.');
+        return;
+      }
+
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p) {
+        alert('Project not found.');
+        return;
+      }
+
+      p.article = p.article || {};
+      const existingContent = p.article[tabField] || '';
+
+      let formattedBlock = '';
+      if (title) {
+        formattedBlock += '• **' + title + ':**\n';
+      }
+      formattedBlock += '```' + lang + '\n' + rawCode + '\n```';
+
+      if (mode === 'append' && existingContent.trim()) {
+        p.article[tabField] = existingContent.trim() + '\n\n' + formattedBlock;
+      } else {
+        p.article[tabField] = formattedBlock;
+      }
+
+      saveStudioData(currentStudioData, notify);
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('✓ Code successfully embedded into ' + p.title + '!');
+      } else {
+        alert('✓ Code successfully embedded into ' + p.title + '!');
+      }
+      window.clearCodeEmbedForm();
+    };
+
+    window.loadCurrentSectionIntoEmbedder = function() {
+      const projSelect = document.getElementById('embedTargetProject');
+      const tabSelect = document.getElementById('embedTargetTab');
+      const codeEl = document.getElementById('embedRawCode');
+      if (!projSelect || !tabSelect || !codeEl) return;
+
+      const pId = projSelect.value;
+      const tabField = tabSelect.value;
+      const allProjects = [...(currentStudioData.featuredProjects || []), ...(currentStudioData.universityProjects || [])];
+      const p = allProjects.find(x => x.id === pId);
+      if (!p || !p.article || !p.article[tabField]) {
+        alert('No existing content found in this section.');
+        return;
+      }
+
+      codeEl.value = p.article[tabField];
+      window.updateCodeEmbedPreview();
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('✓ Loaded current section text into editor');
+      }
+    };
+
+    window.clearCodeEmbedForm = function() {
+      const codeEl = document.getElementById('embedRawCode');
+      const titleEl = document.getElementById('embedTitle');
+      if (codeEl) codeEl.value = '';
+      if (titleEl) titleEl.value = '';
+      window.updateCodeEmbedPreview();
+    };
+
+  </script>
+</body>
+</html>
+
+<script>
+  window.saveProjectItemChanges = saveProjectItemChanges;
+  window.saveDiaryItemChanges = saveDiaryItemChanges;
+  window.saveAllStudioChanges = saveAllStudioChanges;
+</script>

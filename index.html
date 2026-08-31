@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucy Robinson | Mechanical Engineering &amp; Themed Ride Systems</title>
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Portfolio of Lucy Robinson — Mechanical Engineering (MEng) student at the University of Sheffield and summer intern at TfL DLR, designing mechanical systems for themed entertainment and roller coasters.">
+  <meta name="keywords" content="Lucy Robinson, Mechanical Engineering, University of Sheffield, Themed Entertainment, Ride Systems, SolidWorks CAD, Roller Coasters, Disneyland Paris, Europa-Park">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css?v=20260831_reaching_aid_live">
+  <link rel="stylesheet" href="styles/components.css?v=20260831_reaching_aid_live">
+</head>
+<body>
+
+  <!-- ========================================================================
+       0. TOP COASTER TRACK PROGRESS RAIL
+       ======================================================================== -->
+  <div class="coaster-scroll-track-container">
+    <div class="coaster-scroll-rail" id="coasterScrollRail"></div>
+  </div>
+
+  <!-- ========================================================================
+       1. NAVIGATION BAR (PARK WAYFINDING)
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand" ondblclick="openStudioModal()" title="Lucy Robinson Portfolio">
+        <div class="brand-logo">LR</div>
+        <div class="brand-text">
+          <span class="brand-name" id="brandName">Lucy Robinson</span>
+          <span class="brand-title">MECH ENG STUDENT // UNI OF SHEFFIELD</span>
+        </div>
+      </a>
+
+      <!-- Desktop-Only Nav Menu (Hidden on Mobile) -->
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-list" id="desktopNavMenu">
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#projects" class="nav-link">CAD &amp; Builds</a></li>
+          <li><a href="#diary" class="nav-link">Field Notes</a></li>
+          <li><a href="#skills" class="nav-link">Toolkit</a></li>
+          <li><a href="#experience" class="nav-link">Journey</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Action Controls -->
+      <div class="nav-actions">
+        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="navCvBtn" class="btn btn-secondary btn-sm desktop-only-btn" onclick="openCvDocument(); return false;" title="View / Download CV">📄 CV</a>
+        <button class="btn btn-secondary btn-sm desktop-only-btn" onclick="openBusinessCardModal()" title="Show Digital Card &amp; QR">🪪 QR Card</button>
+        <button id="themeToggleBtn" class="theme-toggle" title="Toggle Light/Dark Mode" aria-label="Toggle theme">☀️</button>
+        <button class="btn btn-primary btn-sm desktop-only-btn" onclick="downloadVCard()">📱 Save Contact</button>
+        <button id="mobileMenuToggle" class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle Menu" type="button">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile-Only Full Dropdown Drawer Overlay -->
+  <div id="mobileNavDrawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-inner">
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-link" onclick="toggleMobileNav(false)">👤 About Me</a></li>
+        <li><a href="#projects" class="mobile-link" onclick="toggleMobileNav(false)">📐 CAD &amp; Machine Builds</a></li>
+        <li><a href="#diary" class="mobile-link" onclick="toggleMobileNav(false)">🎢 Field Notes &amp; Observations</a></li>
+        <li><a href="#skills" class="mobile-link" onclick="toggleMobileNav(false)">🛠️ Technical Toolkit</a></li>
+        <li><a href="#experience" class="mobile-link" onclick="toggleMobileNav(false)">🚆 Engineering Journey</a></li>
+      </ul>
+      <div class="mobile-drawer-actions">
+        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="mobileDrawerCvBtn" class="btn btn-primary btn-lg" onclick="openCvDocument(); toggleMobileNav(false); return false;" style="width: 100%; justify-content: center; margin-bottom: 10px; text-decoration: none;" onclick="toggleMobileNav(false);">📄 Download CV (PDF)</a>
+        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center; margin-bottom: 10px;" onclick="openBusinessCardModal(); toggleMobileNav(false);">🪪 Digital QR Card</button>
+        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center;" onclick="downloadVCard(); toggleMobileNav(false);">📱 Save Contact (.vcf)</button>
+      </div>
+    </div>
+  </div>
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop" onclick="toggleMobileNav(false)"></div>
+  
+
+  <main>
+    <!-- ======================================================================
+         2. HERO SECTION
+         ====================================================================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-status-note">
+            <span class="status-dot"></span>
+            <span id="statusPillText">STUDENT ENGINEER // Summer Intern @ Transport for London (DLR)</span>
+          </div>
+
+          <h1 class="hero-title" id="heroTitle">
+            Hi, I'm Lucy — a Mechanical Engineering student passionate about roller coaster kinematics &amp; themed ride mechanics.
+          </h1>
+
+          <p class="hero-description" id="heroBio">
+            3rd-year MEng student at the University of Sheffield. I love jumping into SolidWorks, running kinematic calculations, and learning how real ride systems and rolling stock operate in practice — from articulated wheel bogies to turntable track switches.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary btn-lg">Explore CAD &amp; Builds →</a>
+            <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="heroCvBtn" class="btn btn-secondary btn-lg" onclick="openCvDocument(); return false;">📄 View CV (PDF)</a>
+            <a href="#diary" class="btn btn-secondary btn-lg">Field Notes</a>
+            <button class="btn btn-secondary btn-lg" onclick="downloadVCard()">📱 Save Contact</button>
+          </div>
+
+          <div class="hero-stats-row" id="heroStatsRow">
+            <!-- Populated from personalStats -->
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-spotlight-card" id="heroSpotlightCard">
+            <div class="spotlight-header">
+              <span class="badge badge-copper" id="heroSpotlightBadge">FEATURED CAD DRAWING SET</span>
+              <span class="mono" id="heroSpotlightMeta" style="font-size: 0.75rem; color: var(--text-muted);">BS 8888 / GD&amp;T</span>
+            </div>
+            <div class="spotlight-img-frame" id="heroSpotlightImgFrame" style="cursor: pointer;" onclick="openProjectArticleModal('reaching-aid-cad')">
+              <img id="heroSpotlightImg" src="assets/images/real-cad/reaching_aid_assembly_drawing.png" alt="Featured Drawing" class="spotlight-img" referrerpolicy="no-referrer">
+            </div>
+            <div class="spotlight-footer">
+              <div>
+                <div id="heroSpotlightTitle" style="font-size: 1rem; font-weight: 700; color: var(--text-main);">1st Year Uni Mechanical Design Task: Reaching Aid</div>
+                <div id="heroSpotlightSubtitle" class="mono" style="font-size: 0.75rem; color: var(--park-copper);">Multi-Body CAD &amp; Linkage</div>
+              </div>
+              <button id="heroSpotlightBtn" class="btn btn-secondary btn-sm" onclick="openProjectArticleModal('reaching-aid-cad')">View Drawing Pack →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subtle Section Divider -->
+    <div class="cad-divider-wrap">
+      <div class="cad-divider-line"></div>
+    </div>
+
+    <!-- ======================================================================
+         3. "WHO AM I" (ENGINEERING PROFILE & STORY)
+         ====================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">From exploring theme park rides to <em>studying mechanical engineering &amp; kinematics</em>.</h2>
+          <p class="section-subtitle">
+            Undergraduate mechanical engineer with a focus on mechanism design, fail-safe calculations, and rolling stock reliability.
+          </p>
+        </div>
+
+        <div class="about-layout-grid">
+          <!-- Left Column: Engineer Profile Card -->
+          <div class="about-left-col">
+            <div class="card about-photo-card" style="padding: 20px; text-align: left; background: var(--bg-card); border: 1.5px solid var(--border-medium);">
+              <div class="about-photo-wrapper" style="height: 340px; position: relative; overflow: hidden; border-radius: var(--radius-md);">
+                <img id="aboutPhotoImg" src="assets/images/personal/lucy_mickey_framed.jpg" alt="Lucy Robinson - Mechanical Engineering Student" class="about-photo-img">
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; margin-top: 6px;">
+                <span id="aboutCardBadge" class="badge badge-copper" style="font-size: 0.72rem;">STUDENT PROFILE</span>
+              </div>
+              <h3 id="aboutEngineerName" style="font-size: 1.4rem; color: var(--text-main); font-weight: 700; margin-bottom: 4px;">Lucy Robinson</h3>
+              <div id="aboutEngineerRole" style="font-size: 0.85rem; color: var(--park-copper); font-weight: 600; margin-bottom: 12px; font-family: var(--font-mono);">
+                MEng Mechanical Engineering • University of Sheffield
+              </div>
+              <div id="aboutEngineerHighlights" style="font-size: 0.84rem; color: var(--text-body); line-height: 1.55; margin-bottom: 0;">
+                <strong>🎓 1st Class Honours</strong> across Year 1 and Year 2.<br>
+                <strong>🚆 Summer Intern</strong> @ TfL Docklands Light Railway (E&amp;M).<br>
+                <strong>🏆 SELSA Award</strong> (Sheffield Engineering Leadership &amp; Service Award).
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Who Am I Story Card -->
+          <div class="about-right-col">
+            <div class="card story-card" style="height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+              <h2 class="story-headline" id="storyHeadline" style="margin-bottom: 24px;">
+                Hooked on the invisible mechanics that make rides feel like magic.
+              </h2>
+              <div class="story-body" id="storyBody">
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ======================================================================
+         5. HARDWARE BUILDS & CAD PROJECTS (FRONT PAGE)
+         ====================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="projects-header-wrapper">
+          <div class="section-header" style="margin-bottom: 0;">
+            <h2 class="section-title">Hardware Builds &amp; <em>SolidWorks CAD</em></h2>
+            <p class="section-subtitle">
+              Physical mechanisms, kinematics, and drawing packs designed with a focus on real-world assembly, coaster safety, and reliability.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="carousel-header-controls" id="featuredCarouselControls">
+              <button class="carousel-nav-btn" onclick="slideCarousel('featuredProjectsGrid', -1)" title="Previous Project" aria-label="Previous">‹</button>
+              <button class="carousel-nav-btn" onclick="slideCarousel('featuredProjectsGrid', 1)" title="Next Project" aria-label="Next">›</button>
+            </div>
+            <!-- Stylised Coaster Track Spline & Bogie Accent -->
+            <div style="width: 140px; height: 60px; opacity: 0.75;" title="Coaster Track Spine & Wheel Bogie">
+              <img src="assets/images/ride-accents/coaster_track_corner.svg" alt="Track Spline Accent" style="width: 100%; height: 100%;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Projects Carousel (1-Row Viewport) -->
+        <div class="carousel-wrapper">
+          <div class="projects-grid carousel-track" id="featuredProjectsGrid">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+        <div class="carousel-dots-wrap" id="featuredProjectsDots"></div>
+
+        <!-- See More Button -->
+        <div class="see-more-container">
+          <button id="btnToggleAllProjects" class="btn btn-secondary btn-lg">
+            See Full Engineering Archive &amp; Machine Design Packs ↓
+          </button>
+        </div>
+
+        <!-- Expanded Full Catalog (Hidden by default) -->
+        <div id="allProjectsSection" style="display: none; margin-top: 48px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+            <h3 style="font-size: 1.4rem;">Full Project Archive</h3>
+            <div class="category-filter-bar">
+              <button class="filter-btn active" data-filter="all">All Projects</button>
+              <button class="filter-btn" data-filter="themed-rides">Themed Rides &amp; Coasters</button>
+              <button class="filter-btn" data-filter="transit-rail">Transit &amp; Rolling Stock</button>
+              <button class="filter-btn" data-filter="university-team">University Mechanisms</button>
+            </div>
+          </div>
+
+          <div class="projects-grid" id="allProjectsGrid">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subtle Section Divider -->
+    <div class="cad-divider-wrap">
+      <div class="cad-divider-line"></div>
+    </div>
+
+    <!-- ======================================================================
+         6. THE RIDE ENGINEER'S LOG (COASTER DIARY & FIELD NOTES)
+         ====================================================================== -->
+    <section class="section" id="diary">
+      <div class="container">
+        <div class="projects-header-wrapper" style="margin-bottom: 24px;">
+          <div class="section-header" style="margin-bottom: 0;">
+            <h2 class="section-title">The <em>Ride Engineer's</em> Log &amp; Field Notes</h2>
+            <p class="section-subtitle">
+              Candid observations and technical photos from theme park visits and transit studies — analysing Europa-Park water coasters, Disneyland Paris mine trains, and rolling stock bogie mechanics.
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="carousel-header-controls" id="diaryCarouselControls">
+              <button class="carousel-nav-btn" onclick="slideCarousel('diaryGrid', -1)" title="Previous Field Note" aria-label="Previous">‹</button>
+              <button class="carousel-nav-btn" onclick="slideCarousel('diaryGrid', 1)" title="Next Field Note" aria-label="Next">›</button>
+            </div>
+            <!-- Anti-Rollback Ratchet Dog Accent -->
+            <div style="width: 120px; height: 50px; opacity: 0.8;" title="Lift Hill Anti-Rollback Dog">
+              <img src="assets/images/ride-accents/lift_chain_dog_accent.svg" alt="Anti-Rollback Dog Accent" style="width: 100%; height: 100%;">
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-wrapper">
+          <div class="diary-grid carousel-track" id="diaryGrid">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+        <div class="carousel-dots-wrap" id="diaryDots"></div>
+      </div>
+    </section>
+
+    <!-- Subtle Section Divider -->
+    <div class="cad-divider-wrap">
+      <div class="cad-divider-line"></div>
+    </div>
+
+    <!-- ======================================================================
+         7. SKILLS & ENGINEERING TOOLKIT
+         ====================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="projects-header-wrapper" style="margin-bottom: 24px;">
+          <div class="section-header" style="margin-bottom: 0;">
+            <h2 class="section-title">Technical Skills &amp; <em>Software</em></h2>
+            <p class="section-subtitle">
+              Tools and techniques I use for CAD modelling, calculations, physical prototyping, and workshop fabrication.
+            </p>
+          </div>
+          <div class="carousel-header-controls" id="skillsCarouselControls">
+            <button class="carousel-nav-btn" onclick="slideCarousel('skillsGridTrack', -1)" title="Previous Skills" aria-label="Previous">‹</button>
+            <button class="carousel-nav-btn" onclick="slideCarousel('skillsGridTrack', 1)" title="Next Skills" aria-label="Next">›</button>
+          </div>
+        </div>
+
+        <div class="carousel-wrapper">
+          <div class="skills-grid carousel-track" id="skillsGridTrack">
+            <div class="card skill-category-card">
+              <div class="skill-cat-title">
+                <span>💻</span> <span>Software &amp; CAD Tools</span>
+              </div>
+              <div id="skillsCAD"></div>
+            </div>
+
+            <div class="card skill-category-card">
+              <div class="skill-cat-title">
+                <span>📐</span> <span>Design &amp; Kinematics</span>
+              </div>
+              <div id="skillsAnalysis"></div>
+            </div>
+
+            <div class="card skill-category-card">
+              <div class="skill-cat-title">
+                <span>🎢</span> <span>Rides &amp; Transit</span>
+              </div>
+              <div id="skillsTransit"></div>
+            </div>
+
+            <div class="card skill-category-card">
+              <div class="skill-cat-title">
+                <span>🛠️</span> <span>Workshop &amp; Fabrication</span>
+              </div>
+              <div id="skillsFab"></div>
+            </div>
+
+            <div class="card skill-category-card">
+              <div class="skill-cat-title">
+                <span>🏆</span> <span>Leadership &amp; SELSA</span>
+              </div>
+              <div id="skillsLeadership"></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots-wrap" id="skillsDots"></div>
+
+        <div class="skills-toggle-wrap">
+          <button class="btn btn-secondary btn-sm" id="btnToggleSkillsGrid" onclick="toggleSkillsLayout()">
+            See All Skill Categories in Full Grid ↓
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subtle Section Divider -->
+    <div class="cad-divider-wrap">
+      <div class="cad-divider-line"></div>
+    </div>
+
+    <!-- ======================================================================
+         8. EXPERIENCE & EDUCATION JOURNEY
+         ====================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience &amp; <em>Education</em></h2>
+          <p class="section-subtitle">
+            My path through mechanical engineering at Sheffield, summer transit placement at TfL DLR, and leadership with SELSA and England Golf.
+          </p>
+        </div>
+
+        <div class="timeline-grid">
+          <div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-main);">Practical Experience &amp; Leadership</h3>
+            <div class="timeline-wrapper" id="experienceTimeline">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-main);">Degree &amp; Coursework</h3>
+            <div class="card" style="padding: 28px;">
+              <div id="eduTimeline" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--park-copper); font-weight: 700; margin-bottom: 4px;">2024 - 2028 / 2029 • ENTERING YEAR 3 (AUTUMN 2026)</div>
+              <h4 id="eduDegreeTitle" style="font-size: 1.25rem; color: var(--text-main); margin-bottom: 4px;">MEng in Mechanical Engineering with a Year in Industry</h4>
+              <p id="eduInstitutionGrade" style="color: var(--text-muted); margin-bottom: 16px;">University of Sheffield • 1st Class Honours (Years 1 &amp; 2)</p>
+              
+              <div style="font-weight: 600; font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px;">
+                Key Completed &amp; Ongoing Modules:
+              </div>
+              <div id="courseworkList" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <!-- Populated by app.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ======================================================================
+         10. CONTACT SECTION
+         ====================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Interested in Discussing <em>Ride Systems</em> &amp; Summer Placements?</h2>
+          <p style="max-width: 580px; margin: 0 auto 24px; color: var(--text-body);">
+            I’m always excited to talk about roller coaster engineering, mechanism design, and summer internship &amp; placement opportunities in themed entertainment and transit!
+          </p>
+
+          <div class="contact-grid">
+            <a id="contactCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-primary btn-lg" style="justify-content: center; text-decoration: none;">
+              📄 Download Full CV (PDF) ↗
+            </a>
+            <button class="btn btn-secondary btn-lg" onclick="downloadVCard()">
+              📱 Save Contact to Phone (.vcf)
+            </button>
+            <button id="contactEmailBtn" class="btn btn-secondary btn-lg" onclick="copyEmailToClipboard()">
+              📋 Copy Email (lucyalicerob@gmail.com)
+            </button>
+            <button class="btn btn-secondary btn-lg" onclick="openBusinessCardModal()">
+              🪪 Digital QR Card
+            </button>
+            <a id="contactLinkedInBtn" href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+              🔗 LinkedIn Profile ↗
+            </a>
+          </div>
+
+          <div id="copyToast" style="display: none; margin-top: 16px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--park-lagoon); font-weight: 700;">
+            ✓ Email copied to clipboard!
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       10. FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        <span id="footerCopyText">© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.</span>
+        <a href="editor.html" style="opacity: 0.35; cursor: pointer; font-size: 0.8rem; margin-left: 12px; transition: opacity 0.2s; color: inherit; text-decoration: none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'" title="Studio Editor">⚙️ Studio Editor</a>
+      </div>
+      <div>
+        <a href="#hero" style="font-size: 0.85rem; color: var(--park-copper); font-weight: 700;">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       11. FULL PROJECT ARTICLE MODAL (CASE STUDY READER WITH REAL CAD)
+       ======================================================================== -->
+  <div id="projectArticleModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-copper" id="modalProjectBadge">Personal Build</span>
+          <h2 id="modalProjectTitle" style="font-size: 1.35rem; margin-top: 4px; color: var(--text-main);">Project Title</h2>
+          <div class="mono" id="modalProjectSubtitle" style="font-size: 0.8rem; color: var(--park-copper);">Subtitle</div>
+        </div>
+        <button id="closeArticleModalBtn" class="modal-close-btn" aria-label="Close Article">✕</button>
+      </div>
+
+      <div class="modal-content-scroll">
+        <!-- Hero Schematic / CAD Banner -->
+        <div class="article-hero-banner">
+          <img id="modalHeroImg" src="" alt="Project Visual" class="article-hero-img">
+        </div>
+
+        <!-- Key Metrics Row -->
+        <div id="modalMetricsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px;"></div>
+
+        <!-- Article Navigation Tabs -->
+        <div class="article-tabs-nav">
+          <button class="article-tab-btn active" data-tab="problem" id="artTabBtn_problem">1. The Goal</button>
+          <button class="article-tab-btn" data-tab="CAD" id="artTabBtn_CAD">2. CAD &amp; Drawings</button>
+          <button class="article-tab-btn" data-tab="calcs" id="artTabBtn_calcs">3. Calculations</button>
+          <button class="article-tab-btn" data-tab="prototyping" id="artTabBtn_prototyping">4. Prototyping &amp; Testing</button>
+          <button class="article-tab-btn" data-tab="takeaways" id="artTabBtn_takeaways">5. Takeaways</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="article-tab-pane active" id="tabPaneProblem"></div>
+        <div class="article-tab-pane" id="tabPaneCAD"></div>
+        <div class="article-tab-pane" id="tabPaneCalcs"></div>
+        <div class="article-tab-pane" id="tabPanePrototyping"></div>
+        <div class="article-tab-pane" id="tabPaneTakeaways"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       12. DIARY READER MODAL
+       ======================================================================== -->
+  <div id="diaryReaderModal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <div class="mono" id="modalDiaryDate" style="font-size: 0.75rem; color: var(--text-muted);">Date</div>
+          <h2 id="modalDiaryTitle" style="font-size: 1.3rem; margin-top: 4px; color: var(--text-main);">Diary Entry</h2>
+          <span class="badge badge-copper" id="modalDiaryCategory" style="margin-top: 6px;">Category</span>
+        </div>
+        <button id="closeDiaryModalBtn" class="modal-close-btn" aria-label="Close Entry">✕</button>
+      </div>
+      <div class="modal-content-scroll" id="modalDiaryContent" style="line-height: 1.75; font-size: 0.95rem;"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       13. DIGITAL BUSINESS CARD & LIVE QR CODE MODAL
+       ======================================================================== -->
+  <div id="businessCardModal" class="modal-backdrop">
+    <div class="modal-dialog qr-modal-dialog">
+      <div class="modal-header">
+        <h3 style="font-size: 1.15rem; color: var(--text-main);">🪪 Digital Business Card &amp; QR</h3>
+        <button id="closeBusinessCardBtn" class="modal-close-btn" aria-label="Close Card">✕</button>
+      </div>
+
+      <div class="qr-card-body">
+        <div>
+          <h4 id="qrCardName" style="font-size: 1.3rem; color: var(--text-main); margin-bottom: 4px;">Lucy Robinson</h4>
+          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--park-copper); font-weight: 700;">MEng Mech Eng @ University of Sheffield | TfL DLR Intern</p>
+        </div>
+
+        <div class="qr-code-box">
+          <img id="businessCardQRImg" src="" alt="Portfolio QR Code" class="qr-code-img">
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 320px;">
+          Scan with any smartphone camera to open my portfolio directly on your phone.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
+          <div style="display: flex; gap: 10px; width: 100%;">
+            <button class="btn btn-primary" style="flex: 1;" onclick="downloadVCard()">📱 Save Contact (.vcf)</button>
+            <a id="qrCardCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">📄 View CV</a>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;" onclick="copyEmailToClipboard()">📋 Copy Email Address</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Google Identity Services & JavaScript Modules -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="scripts/portfolio-data.js?v=20260831_reaching_aid_live"></script>
+  <script src="scripts/cms.js?v=20260831_reaching_aid_live"></script>
+  <script src="scripts/app.js?v=20260831_reaching_aid_live"></script>
+
+
+
+
+
+
+
+</body>
+</html>
