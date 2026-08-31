@@ -1,7 +1,7 @@
 /**
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
- * 100% Local Images (Safari, Mac, iPhone & Android Ready)
+ * Updated: 31 August 2026
  */
 
 const PORTFOLIO_DATA = {
@@ -404,17 +404,17 @@ const PORTFOLIO_DATA = {
         "Motion Analysis",
         "Simulation-FEA"
       ],
-      "coverImage": "assets/images/extracted/smoke_starlight_agv_cad.png",
+      "coverImage": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
       "cadGallery": [
         {
-          "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
-          "title": "Minetrain",
-          "caption": "minetrain overall cad"
+          "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
+          "title": "Articulated 3-Wheel Bogie CAD Assembly",
+          "caption": "SolidWorks 3D model with spherical knuckle articulation."
         },
         {
-          "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
-          "title": "New CAD Figure",
-          "caption": "Technical CAD detail and assembly specification."
+          "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
+          "title": "Bogie Kinematic Articulation Plot",
+          "caption": "Wheel articulation and clearance envelope along 3D track curve."
         }
       ],
       "summary": "You are a smuggler using abandoned rains to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
@@ -457,16 +457,20 @@ const PORTFOLIO_DATA = {
           "takeaways": "Engineering lessons learned, manufacturability review & next milestones"
         },
         "tabImages": {
-          "problem": {
-            "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
-            "title": "Minetrain",
-            "caption": "minetrain overall cad"
-          },
-          "cad": {
-            "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
-            "title": "Wheel Configuration",
-            "caption": "Designed a wheel bogie "
-          },
+          "problem": [
+            {
+              "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
+              "title": "Mine Train Bogie CAD",
+              "caption": "3-wheel cluster bogie chassis."
+            }
+          ],
+          "cad": [
+            {
+              "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
+              "title": "Kinematic Articulation",
+              "caption": "Dual-axis knuckle joints."
+            }
+          ],
           "calcs": {
             "url": "",
             "title": "",
@@ -477,17 +481,19 @@ const PORTFOLIO_DATA = {
             "title": "",
             "caption": ""
           },
-          "takeaways": {
-            "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
-            "title": "Minetrain",
-            "caption": "minetrain overall cad"
-          }
+          "takeaways": [
+            {
+              "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
+              "title": "Final Bogie Assembly",
+              "caption": "Completed SolidWorks CAD model."
+            }
+          ]
         }
       }
     },
     {
       "id": "ride-turntable",
-      "title": "Time-travel Turntable",
+      "title": "Time Machine Turntable",
       "subtitle": "High-Precision Track Switch & Positioning Table (Current Workbench Build)",
       "category": "themed-rides",
       "featured": true,
@@ -503,8 +509,8 @@ const PORTFOLIO_DATA = {
       "cadGallery": [
         {
           "url": "assets/images/extracted/time_machine_turntable_cad.png",
-          "title": "Turntable Kinematic Layout & Capacity Analysis",
-          "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
+          "title": "Motorized Rotary Switch Track CAD Assembly",
+          "caption": "SolidWorks 3D model with slewing ring bearing and shot-pin lock."
         }
       ],
       "summary": "This may seem like a regular turntable but its actually a time machine will you survive the journey? Features a large slewing ring bearing, planetary gear drive, and fail-safe tapered shot-pin locking system for seamless vehicle indexing and station capacity optimization.",
@@ -547,11 +553,13 @@ const PORTFOLIO_DATA = {
           "takeaways": "Engineering lessons learned, manufacturability review & next milestones"
         },
         "tabImages": {
-          "problem": {
-            "url": "assets/images/extracted/time_machine_turntable_cad.png",
-            "title": "Turntable Kinematic Layout & Capacity Analysis",
-            "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
-          },
+          "problem": [
+            {
+              "url": "assets/images/extracted/time_machine_turntable_cad.png",
+              "title": "Turntable CAD",
+              "caption": "Rotary switch mechanism."
+            }
+          ],
           "cad": {
             "url": "",
             "title": "",
@@ -567,17 +575,19 @@ const PORTFOLIO_DATA = {
             "title": "",
             "caption": ""
           },
-          "takeaways": {
-            "url": "assets/images/extracted/time_machine_turntable_cad.png",
-            "title": "Turntable Kinematic Layout & Capacity Analysis",
-            "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
-          }
+          "takeaways": [
+            {
+              "url": "assets/images/extracted/time_machine_turntable_cad.png",
+              "title": "Final Assembly",
+              "caption": "Slewing ring drive system."
+            }
+          ]
         }
       }
     },
     {
       "id": "trackless-vehicle",
-      "title": "Steam and Starlight AGV",
+      "title": "Smoke & Starlight AGV",
       "subtitle": "Autonomous Guided Vehicle with Dual Steer-Drive Kinematics & SolidWorks Chassis",
       "category": "themed-rides",
       "featured": true,
@@ -588,17 +598,17 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
+      "coverImage": "assets/images/extracted/smoke_starlight_agv_cad.png",
       "cadGallery": [
         {
-          "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
-          "title": "SolidWorks Orthographic Packaging Drawing",
-          "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
+          "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
+          "title": "Trackless Dark Ride AGV CAD Assembly",
+          "caption": "Chassis packaging layout with dual independent steer pods."
         },
         {
-          "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
-          "title": "New CAD Figure",
-          "caption": "Technical CAD detail and assembly specification."
+          "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
+          "title": "AGV Kinematics & Steer Simulation",
+          "caption": "Independent swerve pod steering analysis."
         }
       ],
       "summary": "Explore a steampunk observatory in this omnidirectional dark ride. Features a low-profile structural chassis, dual independent steer-drive wheel units, and custom Python steering maths for smooth zero-radius pivot turns.",
@@ -641,16 +651,20 @@ const PORTFOLIO_DATA = {
           "takeaways": "Engineering lessons learned, manufacturability review & next milestones"
         },
         "tabImages": {
-          "problem": {
-            "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
-            "title": "SolidWorks Orthographic Packaging Drawing",
-            "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
-          },
-          "cad": {
-            "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
-            "title": "New CAD Figure",
-            "caption": "Technical CAD detail and assembly specification."
-          },
+          "problem": [
+            {
+              "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
+              "title": "AGV 3D CAD Model",
+              "caption": "Omnidirectional vehicle chassis."
+            }
+          ],
+          "cad": [
+            {
+              "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
+              "title": "Swerve Pod Mechanism",
+              "caption": "Independent steer drive kinematics."
+            }
+          ],
           "calcs": {
             "url": "",
             "title": "",
@@ -661,11 +675,13 @@ const PORTFOLIO_DATA = {
             "title": "",
             "caption": ""
           },
-          "takeaways": {
-            "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
-            "title": "SolidWorks Orthographic Packaging Drawing",
-            "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
-          }
+          "takeaways": [
+            {
+              "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
+              "title": "Final Vehicle Architecture",
+              "caption": "Trackless dark ride vehicle."
+            }
+          ]
         }
       }
     }
@@ -1126,5 +1142,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260831_local_images_all_mac_fixed_v8"
+  "dataVersion": "20260831_v1542_real_images_synced"
 };
