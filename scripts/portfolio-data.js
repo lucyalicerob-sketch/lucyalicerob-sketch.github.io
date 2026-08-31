@@ -1,7 +1,7 @@
 /**
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
- * Auto-Synchronized from Visual Studio Editor: 31 August 2026 at 12:08:56
+ * 100% Local Images (Safari, Mac, iPhone & Android Ready)
  */
 
 const PORTFOLIO_DATA = {
@@ -404,15 +404,15 @@ const PORTFOLIO_DATA = {
         "Motion Analysis",
         "Simulation-FEA"
       ],
-      "coverImage": "https://lh3.googleusercontent.com/d/1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL=w1600",
+      "coverImage": "assets/images/extracted/smoke_starlight_agv_cad.png",
       "cadGallery": [
         {
-          "url": "https://lh3.googleusercontent.com/d/1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL=w1600",
+          "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
           "title": "Minetrain",
           "caption": "minetrain overall cad"
         },
         {
-          "url": "https://lh3.googleusercontent.com/d/14XVvmw2ZBQkrYNz3EPdQ0aFjBLV1MtQq=w1600",
+          "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
           "title": "New CAD Figure",
           "caption": "Technical CAD detail and assembly specification."
         }
@@ -458,12 +458,12 @@ const PORTFOLIO_DATA = {
         },
         "tabImages": {
           "problem": {
-            "url": "https://lh3.googleusercontent.com/d/1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL=w1600",
+            "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
             "title": "Minetrain",
             "caption": "minetrain overall cad"
           },
           "cad": {
-            "url": "https://lh3.googleusercontent.com/d/14XVvmw2ZBQkrYNz3EPdQ0aFjBLV1MtQq=w1600",
+            "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
             "title": "Wheel Configuration",
             "caption": "Designed a wheel bogie "
           },
@@ -478,7 +478,7 @@ const PORTFOLIO_DATA = {
             "caption": ""
           },
           "takeaways": {
-            "url": "https://lh3.googleusercontent.com/d/1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL=w1600",
+            "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
             "title": "Minetrain",
             "caption": "minetrain overall cad"
           }
@@ -499,10 +499,10 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "https://lh3.googleusercontent.com/d/1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-=w1600",
+      "coverImage": "assets/images/extracted/time_machine_turntable_cad.png",
       "cadGallery": [
         {
-          "url": "https://lh3.googleusercontent.com/d/1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-=w1600",
+          "url": "assets/images/extracted/time_machine_turntable_cad.png",
           "title": "Turntable Kinematic Layout & Capacity Analysis",
           "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
         }
@@ -548,7 +548,7 @@ const PORTFOLIO_DATA = {
         },
         "tabImages": {
           "problem": {
-            "url": "https://lh3.googleusercontent.com/d/1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-=w1600",
+            "url": "assets/images/extracted/time_machine_turntable_cad.png",
             "title": "Turntable Kinematic Layout & Capacity Analysis",
             "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
           },
@@ -568,7 +568,7 @@ const PORTFOLIO_DATA = {
             "caption": ""
           },
           "takeaways": {
-            "url": "https://lh3.googleusercontent.com/d/1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-=w1600",
+            "url": "assets/images/extracted/time_machine_turntable_cad.png",
             "title": "Turntable Kinematic Layout & Capacity Analysis",
             "caption": "Station cycle time breakdown demonstrating 6.5-second 90° rotation and throughput boost to 2,050 pph."
           }
@@ -588,15 +588,15 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "https://lh3.googleusercontent.com/d/1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX=w1600",
+      "coverImage": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
       "cadGallery": [
         {
-          "url": "https://lh3.googleusercontent.com/d/1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX=w1600",
+          "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
           "title": "SolidWorks Orthographic Packaging Drawing",
           "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
         },
         {
-          "url": "https://lh3.googleusercontent.com/d/1itERbwDuXtTREaybPI9vDK--5s0y2Qtb=w1600",
+          "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
           "title": "New CAD Figure",
           "caption": "Technical CAD detail and assembly specification."
         }
@@ -642,12 +642,12 @@ const PORTFOLIO_DATA = {
         },
         "tabImages": {
           "problem": {
-            "url": "https://lh3.googleusercontent.com/d/1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX=w1600",
+            "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
             "title": "SolidWorks Orthographic Packaging Drawing",
             "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
           },
           "cad": {
-            "url": "https://lh3.googleusercontent.com/d/1itERbwDuXtTREaybPI9vDK--5s0y2Qtb=w1600",
+            "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
             "title": "New CAD Figure",
             "caption": "Technical CAD detail and assembly specification."
           },
@@ -662,7 +662,7 @@ const PORTFOLIO_DATA = {
             "caption": ""
           },
           "takeaways": {
-            "url": "https://lh3.googleusercontent.com/d/1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX=w1600",
+            "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
             "title": "SolidWorks Orthographic Packaging Drawing",
             "caption": "Top-down layout showing low-centre-of-gravity battery placement, diagonal steer-drive pods, and navigation sensor clearance."
           }
@@ -955,7 +955,7 @@ const PORTFOLIO_DATA = {
       "title": "Roller Coasters vs. Railway Signalling",
       "category": "Safety & Systems",
       "readTime": "5 min read",
-      "coverPhoto": "https://lh3.googleusercontent.com/d/1QSV1DYFn-UABSpRQGboaqUGllYvDOmVw=w1600",
+      "coverPhoto": "assets/images/extracted/disneyland_paris_mine_train_trip.jpg",
       "tripPhotos": [],
       "summary": "Comparing safety-critical railway Communications-Based Train Control (CBTC) moving-blocks with fixed-block systems used on roller coasters.",
       "content": "Signalling is a key system in both theme parks and in large scale transit like the DLR (Docklands Light Railway). There are however key differences between them.\n\n\nFrom my work on the DLR, I learnt about how these vehicles, and most modern railways use moving-block signalling. This means that each moving vehicle is tracked through its journey and creates its own block surrounding it that no other vehicle can enter. This system works incredibly to maintain scheduling of high use routes and to increase the number of units which can be deployed at once. This works by the system continuously tracking every vehicle and calculating safe distances between them to keep separation.\n\n\nRollercoasters on the other hand, use older style fixed block systems. Although they reduce capacity this system is needed for rides that are not continuously controlled. In this system, only one train can enter each fixed area of the track (a block) and another train cannot enter until the block is completely cleared. These blocks are usually set by different areas where a train can be stopped along the layout, for example brake runs or lift hills. Increasing the number of blocks on a layout can be key on popular rides to keep operations smooth and queue times down.\n\n\nEach system is specifically suited to the use case.\n\n\nFor the DLR, capacity is everything, the point of the system is to move large quantities of people from A to B in the shortest possible time. Using moving blocks gives it this capability. More trains per hour is more passengers and better use of existing lines without the need for additional infrastructure. Furthermore, trains are less predictable than rollercoasters. They change weight depending on load they can adhere more or less depending on weather conditions and routes are not fixed within a closed system. These moving blocks allow for higher adaptability in the system.\n\n\nIn rollercoasters, on the other hand, simplicity often means safety. The system of fixed blocks is more suited to this mentality, if you are uncertain at all you have a very wide margin of error to force separation between vehicles. The trains are also more predictable, the route is always the same, the speed is generally the same and the load is set to the number of seats on the ride. They also don’t need the capacity. Most coasters only allow the running of up to 5 trains so is there any point upgrading to a moving block which is far more costly and complex to implement. Another key consideration with these rides is they can’t just stop anywhere; they usually use gravity as a driving force. If you get an error in a location where nothing can be done to stop the motion and accidents happen. Thus, fixed blocks all the way.\n\n\nHopefully this gives a good idea of how different signalling approaches work better\nfor different situations."
@@ -1057,7 +1057,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "DLR Map",
-      "url": "https://lh3.googleusercontent.com/d/1QSV1DYFn-UABSpRQGboaqUGllYvDOmVw=w1600",
+      "url": "assets/images/extracted/disneyland_paris_mine_train_trip.jpg",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "1QSV1DYFn-UABSpRQGboaqUGllYvDOmVw",
@@ -1073,7 +1073,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "Wheel Bogie",
-      "url": "https://lh3.googleusercontent.com/d/14XVvmw2ZBQkrYNz3EPdQ0aFjBLV1MtQq=w1600",
+      "url": "assets/images/extracted/smoke_starlight_swerve_pod.png",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "14XVvmw2ZBQkrYNz3EPdQ0aFjBLV1MtQq",
@@ -1082,7 +1082,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "Trackless Vehicle",
-      "url": "https://lh3.googleusercontent.com/d/1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX=w1600",
+      "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "1aPsaimfXWQa7EjavhTKqG4tHpexdzdqX",
@@ -1091,7 +1091,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "Minetrain",
-      "url": "https://lh3.googleusercontent.com/d/1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL=w1600",
+      "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "1ih3GZk_zLo18EtBwJ20_paufO5vEPKcL",
@@ -1100,7 +1100,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "Turntable",
-      "url": "https://lh3.googleusercontent.com/d/1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-=w1600",
+      "url": "assets/images/extracted/time_machine_turntable_cad.png",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "1eG_FnaOQ3_2uWfNwz78wFZQIvTzh7sE-",
@@ -1109,7 +1109,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "name": "Omnidirectional Wheel",
-      "url": "https://lh3.googleusercontent.com/d/1itERbwDuXtTREaybPI9vDK--5s0y2Qtb=w1600",
+      "url": "assets/images/extracted/smugglers_bogie_assembly_drawing.png",
       "category": "uploaded",
       "source": "google-drive",
       "driveId": "1itERbwDuXtTREaybPI9vDK--5s0y2Qtb",
@@ -1126,5 +1126,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260831_delete_steelkings_v7"
+  "dataVersion": "20260831_local_images_all_mac_fixed_v8"
 };

@@ -227,9 +227,10 @@
           </div>
         </a>
         <div class="nav-actions">
+          <button class="btn btn-secondary btn-sm github-sync-badge" onclick="openGitHubSyncModal()" style="font-family: var(--font-mono); font-size: 0.78rem;">🐙 GitHub Sync</button>
           <a href="index.html" class="btn btn-secondary btn-sm">👁️ View Live Site</a>
-          <button class="btn btn-secondary btn-sm" onclick="handleEditorLogout()">🔒 Lock &amp; Sign Out</button>
-          <button class="btn btn-primary btn-sm" onclick="exportPortfolioDataFile()">💾 Download portfolio-data.js</button>
+          <button class="btn btn-secondary btn-sm" onclick="handleEditorLogout()">🔒 Sign Out</button>
+          <button class="btn btn-primary btn-sm" onclick="exportPortfolioDataFile()">💾 Download JS</button>
         </div>
       </div>
     </header>
@@ -244,7 +245,7 @@
         </div>
         <div style="display: flex; gap: 10px;">
           <button class="btn btn-secondary" onclick="copyPortfolioDataToClipboard()">📋 Copy Code</button>
-          <button class="btn btn-primary" onclick="saveAllStudioChanges()">💾 Save Changes</button>
+          <button class="btn btn-primary" onclick="saveAllStudioChanges()" title="Saves locally and directly commits to GitHub">💾 Save &amp; Push to GitHub 🚀</button>
         </div>
       </div>
 
@@ -297,6 +298,7 @@
         const dId = hash.replace('#edit-diary-', '');
         activeSection = 'sectionDiary';
         checkAuthAndRender();
+      if (typeof updateGitHubSyncStatusIndicator === "function") updateGitHubSyncStatusIndicator();
         setTimeout(() => editDiaryItem(dId), 100);
         return;
       }
@@ -304,10 +306,12 @@
         const pId = hash.replace('#edit-', '');
         activeSection = 'sectionProjects';
         checkAuthAndRender();
+      if (typeof updateGitHubSyncStatusIndicator === "function") updateGitHubSyncStatusIndicator();
         setTimeout(() => editProjectItem(pId), 100);
         return;
       }
       checkAuthAndRender();
+      if (typeof updateGitHubSyncStatusIndicator === "function") updateGitHubSyncStatusIndicator();
     }
 
     if (document.readyState === 'loading') {
@@ -345,6 +349,7 @@
 
       if (authenticateStudio(key)) {
         checkAuthAndRender();
+      if (typeof updateGitHubSyncStatusIndicator === "function") updateGitHubSyncStatusIndicator();
       } else {
         if (errorMsg) errorMsg.style.display = 'block';
         if (passInput) passInput.style.borderColor = 'var(--coaster-red)';
@@ -354,6 +359,7 @@
     function handleEditorLogout() {
       lockStudioSession();
       checkAuthAndRender();
+      if (typeof updateGitHubSyncStatusIndicator === "function") updateGitHubSyncStatusIndicator();
     }
 
     function showSection(sectionId) {
@@ -2439,6 +2445,53 @@
     };
 
   </script>
+
+  <!-- ========================================================================
+       GITHUB DIRECT CLOUD SYNC MODAL
+       ======================================================================== -->
+  <div id="githubSyncModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 10000; align-items: center; justify-content: center; padding: 20px;">
+    <div style="max-width: 540px; width: 100%; background: var(--bg-surface); border: 2px solid var(--border-medium); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-card); position: relative;">
+      <button type="button" onclick="closeGitHubSyncModal()" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted);">✕</button>
+      
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="font-size: 2.2rem;">🐙</div>
+        <div>
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin: 0;">Direct GitHub Cloud Sync</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0 0;">Save edits directly into your GitHub repository &amp; publish live instantly.</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-subtle); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-light); margin-bottom: 18px; font-size: 0.82rem; line-height: 1.5;">
+        <strong>How it works:</strong> When connected, clicking <strong>"💾 Save Changes"</strong> automatically commits your edits to GitHub. GitHub Pages then rebuilds and updates your live portfolio within seconds!
+      </div>
+
+      <div class="form-group">
+        <label class="studio-label">GitHub Personal Access Token (PAT)</label>
+        <input type="password" id="ghTokenInput" class="studio-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="font-family: var(--font-mono); font-size: 0.85rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Need a token? Takes 20 seconds:</span>
+          <a href="https://github.com/settings/tokens/new?scopes=repo&description=Lucy+Portfolio+Editor" target="_blank" style="font-size: 0.75rem; color: var(--park-copper); font-weight: 700; text-decoration: none;">➕ Generate Token on GitHub ↗</a>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin-bottom: 20px;">
+        <div>
+          <label class="studio-label">Repository Name (Owner/Repo)</label>
+          <input type="text" id="ghRepoInput" class="studio-input" value="lucyalicerob-sketch/lucyalicerob-sketch.github.io" style="font-family: var(--font-mono); font-size: 0.85rem;">
+        </div>
+        <div>
+          <label class="studio-label">Branch</label>
+          <input type="text" id="ghBranchInput" class="studio-input" value="main" style="font-family: var(--font-mono); font-size: 0.85rem;">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button type="button" class="btn btn-secondary" onclick="closeGitHubSyncModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveGitHubConfig(document.getElementById('ghTokenInput').value, document.getElementById('ghRepoInput').value, document.getElementById('ghBranchInput').value); closeGitHubSyncModal(); commitToGitHub();">⚡ Connect &amp; Push to GitHub</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 

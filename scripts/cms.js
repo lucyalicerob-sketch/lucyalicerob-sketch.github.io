@@ -1352,3 +1352,171 @@ window.switchActiveCvDocument = function(url, fileName = '') {
     showStudioToast(`✓ Linked CV switched to: ${fileName || url}`);
   }
 };
+
+
+/* --------------------------------------------------------------------------
+   GITHUB CLOUD SYNC & REST API ENGINE (Directly updates repo & GitHub Pages)
+   -------------------------------------------------------------------------- */
+const GITHUB_PAT_KEY = 'lucy_studio_github_pat';
+const GITHUB_REPO_KEY = 'lucy_studio_github_repo';
+const GITHUB_BRANCH_KEY = 'lucy_studio_github_branch';
+const DEFAULT_GITHUB_REPO = 'lucyalicerob-sketch/lucyalicerob-sketch.github.io';
+const DEFAULT_GITHUB_BRANCH = 'main';
+
+window.getGitHubConfig = function() {
+  return {
+    token: localStorage.getItem(GITHUB_PAT_KEY) || '',
+    repo: localStorage.getItem(GITHUB_REPO_KEY) || DEFAULT_GITHUB_REPO,
+    branch: localStorage.getItem(GITHUB_BRANCH_KEY) || DEFAULT_GITHUB_BRANCH
+  };
+};
+
+window.saveGitHubConfig = function(token, repo, branch) {
+  if (token) localStorage.setItem(GITHUB_PAT_KEY, token.trim());
+  localStorage.setItem(GITHUB_REPO_KEY, (repo || DEFAULT_GITHUB_REPO).trim());
+  localStorage.setItem(GITHUB_BRANCH_KEY, (branch || DEFAULT_GITHUB_BRANCH).trim());
+  if (typeof showStudioToast === 'function') {
+    showStudioToast('✓ GitHub Cloud Connection saved!');
+  }
+  updateGitHubSyncStatusIndicator();
+};
+
+window.openGitHubSyncModal = function() {
+  const modal = document.getElementById('githubSyncModal');
+  if (!modal) return;
+  const cfg = getGitHubConfig();
+  const tokenInput = document.getElementById('ghTokenInput');
+  const repoInput = document.getElementById('ghRepoInput');
+  const branchInput = document.getElementById('ghBranchInput');
+  if (tokenInput) tokenInput.value = cfg.token;
+  if (repoInput) repoInput.value = cfg.repo;
+  if (branchInput) branchInput.value = cfg.branch;
+  modal.style.display = 'flex';
+};
+
+window.closeGitHubSyncModal = function() {
+  const modal = document.getElementById('githubSyncModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.updateGitHubSyncStatusIndicator = function() {
+  const cfg = getGitHubConfig();
+  const badges = document.querySelectorAll('.github-sync-badge');
+  badges.forEach(b => {
+    if (cfg.token) {
+      b.innerHTML = `🟢 GitHub: Connected to <strong>${cfg.repo}</strong> (${cfg.branch})`;
+      b.style.borderColor = 'rgba(34, 197, 94, 0.4)';
+      b.style.color = '#22c55e';
+    } else {
+      b.innerHTML = `⚙️ GitHub: Not connected (Click to connect token)`;
+      b.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+      b.style.color = 'var(--park-gold)';
+    }
+  });
+};
+
+/**
+ * Commit PORTFOLIO_DATA directly to GitHub repository via REST API
+ */
+window.commitToGitHub = async function(customMessage = null) {
+  const cfg = getGitHubConfig();
+  if (!cfg.token) {
+    openGitHubSyncModal();
+    return { success: false, reason: 'no_token' };
+  }
+
+  if (typeof showStudioToast === 'function') {
+    showStudioToast('🚀 Syncing & committing directly to GitHub...');
+  }
+
+  const cleanData = currentStudioData || PORTFOLIO_DATA;
+  cleanData.dataVersion = 'gh_' + Date.now();
+
+  const fileContent = `/**
+ * PORTFOLIO DATA SOURCE
+ * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
+ * Auto-Synchronized from Visual Studio Editor to GitHub Repository
+ * Updated: ${new Date().toISOString()}
+ */
+
+const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
+`;
+
+  // UTF-8 to Base64
+  const utf8Bytes = new TextEncoder().encode(fileContent);
+  let binary = '';
+  for (let i = 0; i < utf8Bytes.length; i++) {
+    binary += String.fromCharCode(utf8Bytes[i]);
+  }
+  const base64Content = btoa(binary);
+
+  let filePath = 'scripts/portfolio-data.js';
+  const candidatePaths = ['scripts/portfolio-data.js', 'source/scripts/portfolio-data.js', 'src/scripts/portfolio-data.js'];
+  
+  try {
+    // 1. Detect where portfolio-data.js is located in the GitHub repo (root or /source)
+    let currentSha = null;
+    let targetPath = candidatePaths[0];
+
+    for (const testPath of candidatePaths) {
+      const testUrl = `https://api.github.com/repos/${cfg.repo}/contents/${testPath}?ref=${cfg.branch}`;
+      const getRes = await fetch(testUrl, {
+        headers: {
+          'Authorization': `Bearer ${cfg.token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      if (getRes.ok) {
+        const getData = await getRes.json();
+        currentSha = getData.sha;
+        targetPath = testPath;
+        filePath = testPath;
+        break;
+      } else if (getRes.status === 401 || getRes.status === 403) {
+        alert('GitHub Token Authentication Failed. Please check that your token is valid and has "repo" scope.');
+        openGitHubSyncModal();
+        return { success: false, error: 'auth_failed' };
+      }
+    }
+    console.log(`Targeting GitHub file path: ${filePath}`);
+
+    // 2. Commit file with PUT
+    const commitMsg = customMessage || `Update portfolio data from Visual Studio Editor (${new Date().toLocaleTimeString()})`;
+    const putBody = {
+      message: commitMsg,
+      content: base64Content,
+      branch: cfg.branch
+    };
+    if (currentSha) {
+      putBody.sha = currentSha;
+    }
+
+    const putRes = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${filePath}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${cfg.token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(putBody)
+    });
+
+    if (putRes.ok) {
+      const putData = await putRes.json();
+      console.log('✓ Successfully committed to GitHub:', putData);
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('🎉 Live on GitHub! GitHub Pages is rebuilding your site.');
+      }
+      return { success: true, data: putData };
+    } else {
+      const errData = await putRes.json();
+      console.error('GitHub PUT error:', errData);
+      alert('GitHub API Error: ' + (errData.message || 'Could not commit to repository.'));
+      return { success: false, error: errData };
+    }
+  } catch (err) {
+    console.error('commitToGitHub Exception:', err);
+    alert('Connection error syncing to GitHub: ' + err.message);
+    return { success: false, error: err };
+  }
+};
