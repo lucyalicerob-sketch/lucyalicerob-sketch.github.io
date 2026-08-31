@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="copperFinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c25e2e"/>
+      <stop offset="100%" stop-color="#e07a4b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Vertical Tower Truss Columns -->
+  <line x1="25" y1="10" x2="25" y2="290" stroke="#8f7d6a" stroke-width="2.5"/>
+  <line x1="95" y1="10" x2="95" y2="290" stroke="#8f7d6a" stroke-width="2.5"/>
+
+  <!-- Tower X-Bracing -->
+  <g stroke="#d1c4b2" stroke-width="1.2">
+    <line x1="25" y1="20" x2="95" y2="60"/>
+    <line x1="95" y1="20" x2="25" y2="60"/>
+    <line x1="25" y1="60" x2="95" y2="100"/>
+    <line x1="95" y1="60" x2="25" y2="100"/>
+    <line x1="25" y1="100" x2="95" y2="140"/>
+    <line x1="95" y1="100" x2="25" y2="140"/>
+    <line x1="25" y1="140" x2="95" y2="180"/>
+    <line x1="95" y1="140" x2="25" y2="180"/>
+    <line x1="25" y1="180" x2="95" y2="220"/>
+    <line x1="95" y1="180" x2="25" y2="220"/>
+    <line x1="25" y1="220" x2="95" y2="260"/>
+    <line x1="95" y1="220" x2="25" y2="260"/>
+    <line x1="25" y1="260" x2="95" y2="290"/>
+    <line x1="95" y1="260" x2="25" y2="290"/>
+  </g>
+
+  <!-- Center Copper Magnetic Eddy-Current Brake Fins (Lower Deceleration Zone) -->
+  <g fill="url(#copperFinGrad)" stroke="#a84e24" stroke-width="1">
+    <rect x="52" y="160" width="16" height="18" rx="2"/>
+    <rect x="52" y="185" width="16" height="18" rx="2"/>
+    <rect x="52" y="210" width="16" height="18" rx="2"/>
+    <rect x="52" y="235" width="16" height="18" rx="2"/>
+    <rect x="52" y="260" width="16" height="18" rx="2"/>
+  </g>
+
+  <!-- Moving Drop Vehicle Gondola (Top Zone) -->
+  <g transform="translate(15, 65)">
+    <!-- Vehicle Chassis Frame -->
+    <rect x="0" y="0" width="90" height="24" rx="4" fill="#211d19" stroke="#c25e2e" stroke-width="1.8"/>
+    <!-- Guide Wheel Clamps -->
+    <circle cx="10" cy="12" r="5" fill="#fef8eb" stroke="#c25e2e" stroke-width="1.5"/>
+    <circle cx="80" cy="12" r="5" fill="#fef8eb" stroke="#c25e2e" stroke-width="1.5"/>
+    <!-- Permanent Magnet Array Slot (Engages Copper Fin) -->
+    <rect x="37" y="14" width="16" height="18" rx="2" fill="#d97706" stroke="#211d19" stroke-width="1"/>
+  </g>
+
+  <!-- Technical Callout Label -->
+  <text x="60" y="295" font-family="'Space Mono', monospace" font-size="7" fill="#8f7d6a" text-anchor="middle" font-weight="700">EDDY BRAKE ZONE</text>
+</svg>

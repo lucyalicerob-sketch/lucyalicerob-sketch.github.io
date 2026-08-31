@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 60" width="100%" height="45" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="divTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e04733" stop-opacity="0.1"/>
+      <stop offset="25%" stop-color="#e04733" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#f39c12" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#e04733" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#e04733" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ties -->
+  <g stroke="#d35400" stroke-width="2.5" opacity="0.6">
+    <line x1="100" y1="20" x2="100" y2="40"/>
+    <line x1="180" y1="14" x2="180" y2="34"/>
+    <line x1="260" y1="10" x2="260" y2="30"/>
+    <line x1="340" y1="12" x2="340" y2="32"/>
+    <line x1="420" y1="22" x2="420" y2="42"/>
+    <line x1="500" y1="30" x2="500" y2="50"/>
+    <line x1="580" y1="26" x2="580" y2="46"/>
+    <line x1="660" y1="14" x2="660" y2="34"/>
+    <line x1="740" y1="8" x2="740" y2="28"/>
+    <line x1="820" y1="12" x2="820" y2="32"/>
+    <line x1="900" y1="22" x2="900" y2="42"/>
+  </g>
+
+  <!-- Upper Rail -->
+  <path d="M 0,35 Q 250,0 500,40 T 1000,20" fill="none" stroke="url(#divTrackGrad)" stroke-width="4"/>
+  <!-- Lower Rail -->
+  <path d="M 0,45 Q 250,10 500,50 T 1000,30" fill="none" stroke="url(#divTrackGrad)" stroke-width="4"/>
+
+  <!-- Mini Coaster Train rolling on the hill -->
+  <g transform="translate(730, -4)">
+    <rect x="0" y="0" width="22" height="10" rx="3" fill="#e04733" stroke="#fff" stroke-width="1"/>
+    <circle cx="5" cy="11" r="2.5" fill="#f39c12"/>
+    <circle cx="17" cy="11" r="2.5" fill="#f39c12"/>
+  </g>
+</svg>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lucy Robinson - Mechanical Engineering & Themed Ride Systems CV</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    @page {
+      size: A4;
+      margin: 14mm 14mm 14mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      font-size: 9.2pt;
+      line-height: 1.42;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .header-table {
+      width: 100%;
+      border-bottom: 2px solid #c25e2e;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .candidate-name {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .candidate-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #c25e2e;
+      margin-top: 3px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-bar {
+      font-size: 8.5pt;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
+    .contact-bar a {
+      color: #c25e2e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 800;
+      color: #111827;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 3px;
+      margin-top: 10px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .summary-text {
+      font-size: 8.8pt;
+      color: #374151;
+      line-height: 1.45;
+      text-align: justify;
+      margin-bottom: 8px;
+    }
+
+    .summary-text strong {
+      color: #111827;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-size: 9.3pt;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .item-subtitle {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: #c25e2e;
+    }
+
+    .item-date {
+      font-size: 8pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #6b7280;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 12px;
+      font-size: 8.7pt;
+      color: #374151;
+      margin-bottom: 2px;
+      line-height: 1.38;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: #c25e2e;
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+      margin-top: 4px;
+    }
+
+    .skill-category {
+      background: #f9fafb;
+      border: 1px solid #f3f4f6;
+      border-radius: 4px;
+      padding: 6px 8px;
+    }
+
+    .skill-cat-name {
+      font-size: 8.2pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #c25e2e;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .skill-items {
+      font-size: 8.2pt;
+      color: #374151;
+      line-height: 1.35;
+    }
+
+    .badge-pill {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      display: inline-block;
+      margin-left: 6px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-table">
+    <div class="candidate-name">Lucy Robinson</div>
+    <div class="candidate-title">Mechanical Engineering (MEng) • Themed Entertainment &amp; Ride Systems</div>
+    <div class="contact-bar">
+      📍 Sheffield &amp; London, UK &nbsp;|&nbsp; 
+      📱 +44 7491 232212 &nbsp;|&nbsp; 
+      ✉️ <a href="mailto:lucyalicerob@gmail.com">lucyalicerob@gmail.com</a> &nbsp;|&nbsp; 
+      🌐 <a href="http://localhost:8000/index.html">lucyrobinson.engineering</a> &nbsp;|&nbsp; 
+      🔗 <a href="https://linkedin.com">LinkedIn Profile</a>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="summary-text">
+    <strong>Royal Academy of Engineering Leaders Scholar [RAEng ELS]</strong> and <strong>1st Class MEng Mechanical Engineering</strong> student at the University of Sheffield with hands-on transit rolling stock placement experience at Transport for London (TfL DLR). Combines rigorous structural calculations, SolidWorks mechanism design, and life-safety standards (ASTM F24 / EN 13814) with creative showmanship to engineer high-capacity dark rides, precision turntables, and roller coaster bogies.
+  </div>
+
+  <!-- EDUCATION & HONOURS -->
+  <div class="section-title">🎓 Education &amp; Academic Honors</div>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">University of Sheffield</span> — <span class="item-subtitle">MEng Mechanical Engineering with a Year in Industry</span>
+      <span class="badge-pill">1st Class Honours (Years 1 &amp; 2)</span>
+    </div>
+    <div class="item-date">2024 – 2029</div>
+  </div>
+  <ul class="bullet-list">
+    <li><strong>Honors &amp; Awards:</strong> Royal Academy of Engineering Leaders Scholar (RAEng ELS), Sheffield Engineering Leadership &amp; Service Award (SELSA).</li>
+    <li><strong>Relevant Modules:</strong> Mechanics of Solids, Kinematics &amp; Dynamics, Machine Elements, Fluid Dynamics, Thermodynamics, Mechatronics &amp; Arduino, Materials Science &amp; Manufacturing, Computational Engineering (MATLAB &amp; Python).</li>
+  </ul>
+
+  <div class="item-header" style="margin-top: 4px;">
+    <div>
+      <span class="item-title">Birchwood High School</span> — <span class="item-subtitle">Bishop’s Stortford</span>
+    </div>
+    <div class="item-date">2017 – 2024</div>
+  </div>
+  <ul class="bullet-list">
+    <li><strong>A-Levels:</strong> Mathematics (<strong>A*</strong>), Further Mathematics (<strong>A</strong>), Physics (<strong>A</strong>), German (<strong>B</strong>) — <em>Intermediate German Proficiency</em>.</li>
+    <li><strong>GCSEs (10 Grade 9–8):</strong> Including Maths (9), Physics (9), Chemistry (9), Biology (9), German (9), Geography (9), Design &amp; Technology (8), FSMQ Additional Maths (A).</li>
+  </ul>
+
+  <!-- THEMED ENTERTAINMENT & MECHANICAL ENGINEERING PROJECTS -->
+  <div class="section-title">🎢 Themed Entertainment &amp; CAD Engineering Projects</div>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">Smoke &amp; Starlight AGV — Omnidirectional Trackless Dark Ride</span>
+      <span class="badge-pill">SolidWorks 3D &bull; Python &bull; FEA</span>
+    </div>
+    <div class="item-date">2025 – 2026</div>
+  </div>
+  <ul class="bullet-list">
+    <li>Designed a compact omnidirectional ride chassis in SolidWorks featuring independent dual swerve-drive wheel pods for 360° yaw rotation and simulated celestial drift.</li>
+    <li>Programmed trajectory kinematic solvers in Python (NumPy/Matplotlib) to compute angular acceleration and G-force envelopes, ensuring passenger compliance with <strong>ASTM F24 standards</strong>.</li>
+    <li>Validated structural chassis safety under emergency deceleration and collision load cases using <strong>SolidWorks Simulation (Linear Static FEA)</strong> (Safety Factor &gt; 3.5).</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">Time Machine Turntable — Subterranean Spatial Illusion Switch Track</span>
+      <span class="badge-pill">SolidWorks &bull; MATLAB &bull; FMEA</span>
+    </div>
+    <div class="item-date">2025 – 2026</div>
+  </div>
+  <ul class="bullet-list">
+    <li>Engineered a motorized rotary switch track mechanism utilizing a slewing ring bearing and positive shot-pin locking system to re-align vehicles during vertical drop transitions.</li>
+    <li>Conducted first-principles torque, gear reduction, and rotational inertia sizing in MATLAB to achieve smooth 180° rotation in under 4.0s with sub-millimeter indexing repeatability.</li>
+    <li>Developed Failure Modes &amp; Effects Analysis (<strong>FMEA</strong>) to ensure fail-safe mechanical interlocks upon loss of electrical power or pneumatic pressure.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">The Smugglers Mine Train — Articulated 3-Wheel Coaster Bogie</span>
+      <span class="badge-pill">SolidWorks &bull; Hand Calcs &bull; EN 13814</span>
+    </div>
+    <div class="item-date">2025 – 2026</div>
+  </div>
+  <ul class="bullet-list">
+    <li>Designed an articulated 3-wheel bogie cluster (road, side-friction, and upstop wheels) with dual-axis spherical knuckles to eliminate rail-binding on tight mountain switchbacks.</li>
+    <li>Calculated beam bending, pin shear, and dynamic wheel load distributions under maximum lateral/vertical G-load cases compliant with <strong>EN 13814 / ASTM F24 standards</strong>.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">Assistive Reaching Aid &amp; Para Ice Hockey Equipment — 1st Year Uni Mechanical Design Task</span>
+      <span class="badge-pill">SolidWorks &bull; BS 8888 GD&amp;T &bull; Prototyping</span>
+    </div>
+    <div class="item-date">2024 – 2026</div>
+  </div>
+  <ul class="bullet-list">
+    <li>Led a multidisciplinary engineering team to design, prototype, and present custom assistive mechanical devices for individuals with limited mobility.</li>
+    <li>Produced complete manufacturing drawing packs to <strong>BS 8888 standards</strong> with Geometric Dimensioning &amp; Tolerancing (GD&amp;T) and tolerance stack-up analysis.</li>
+  </ul>
+
+  <!-- PAGE BREAK FOR CLEAN 2-PAGE FORMAT -->
+  <div class="page-break"></div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section-title">💼 Engineering &amp; Professional Experience</div>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">Transport for London (TfL) — Docklands Light Railway (DLR)</span> — <span class="item-subtitle">London, UK</span>
+    </div>
+    <div class="item-date">Summer 2026 – Present</div>
+  </div>
+  <div style="font-size: 8.6pt; font-weight: 700; color: #374151; margin-bottom: 2px;">Mechanical Engineering Summer Intern — Electrical &amp; Mechanical Engineering</div>
+  <ul class="bullet-list">
+    <li>Engineered thermal and HVAC load calculation models for depot facilities and station building renovations to support fleet operations.</li>
+    <li>Conducted lighting and safety compliance audits across passenger station networks to ensure strict life-safety and emergency egress standards.</li>
+    <li>Collaborated with senior rolling stock and infrastructure engineers, gaining deep perspective on preventive maintenance and high-reliability systems.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">SELSA Leadership Programme — Faculty of Engineering</span> — <span class="item-subtitle">Sheffield, UK</span>
+    </div>
+    <div class="item-date">Sep 2025 – Present</div>
+  </div>
+  <ul class="bullet-list">
+    <li>Selected for competitive leadership programme; leading the <strong>Vulcan to the Sky Trust</strong> STEM engagement project for the 'Get Up To Speed' fair (March 2026).</li>
+    <li>Engaged in industry networking, ethical engineering leadership workshops, and multidisciplinary problem-solving challenges.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">36th Sheffield Scout Group</span> — <span class="item-subtitle">Sheffield, UK</span>
+    </div>
+    <div class="item-date">Nov 2025 – Present</div>
+  </div>
+  <div style="font-size: 8.6pt; font-weight: 700; color: #374151; margin-bottom: 2px;">Beaver Scout Leader</div>
+  <ul class="bullet-list">
+    <li>Plan and deliver safe, engaging weekly STEM, teamwork, and outdoor activities for 20+ children aged 6–8, fostering curiosity and resilience.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">England Golf &amp; Golf Foundation</span> — <span class="item-subtitle">United Kingdom</span>
+    </div>
+    <div class="item-date">2022 – 2024</div>
+  </div>
+  <div style="font-size: 8.6pt; font-weight: 700; color: #374151; margin-bottom: 2px;">National Young Ambassador &bull; Recipient of the National Hero's Handshake Award</div>
+  <ul class="bullet-list">
+    <li>Represented junior golfers nationally at PGA and outreach events; promoted Equality, Diversity &amp; Inclusion (ED&amp;I) through the 'Golf Girls Rocks' initiative.</li>
+    <li>Authored articles for national publications and attended strategic advisory workshops on youth engagement.</li>
+  </ul>
+
+  <div class="item-header">
+    <div>
+      <span class="item-title">Cantate Youth Choir</span> — <span class="item-subtitle">Bishop’s Stortford &amp; London</span>
+    </div>
+    <div class="item-date">2014 – 2024</div>
+  </div>
+  <ul class="bullet-list">
+    <li>10-year committed ensemble member, performing in high-profile concerts and competitive choral festivals across the UK.</li>
+  </ul>
+
+  <!-- TECHNICAL TOOLKIT & SKILLS MATRIX -->
+  <div class="section-title">🛠️ Technical Toolkit &amp; Competencies</div>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-name">💻 Software &amp; Computational Tools</div>
+      <div class="skill-items">
+        SolidWorks 3D (Assemblies, Mates, FEA Simulation), Autodesk Fusion 360, Autodesk Inventor, AutoCAD, DraftSight, Python (NumPy, Matplotlib), MATLAB &amp; Simulink, Arduino IDE.
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-name">📐 Mechanical &amp; Ride Engineering</div>
+      <div class="skill-items">
+        Dynamic Bogie Kinematics, Mechanism Articulation, First-Principles Stress Sizing, GD&amp;T (BS 8888 / ASME Y14.5), FMEA / Safety Margins, ASTM F24 &amp; EN 13814 Awareness, COTS Sizing (SKF Bearings, Festo Pneumatics).
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-name">🛠️ Workshop &amp; Fabrication</div>
+      <div class="skill-items">
+        Rapid Prototyping (FDM / SLA 3D Printing), Manual Lathe &amp; Milling, Precision Drilling, Sheet Metal Bending &amp; Laser Cutting, Fastener Torquing &amp; Metrology (Verniers/Micrometers).
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-name">🌐 Languages &amp; Leadership</div>
+      <div class="skill-items">
+        <strong>German:</strong> Intermediate Proficiency (A-Level Qualification) &bull; <strong>Leadership:</strong> RAEng Scholar, SELSA, Project Management, Technical Documentation, STEM Mentoring.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

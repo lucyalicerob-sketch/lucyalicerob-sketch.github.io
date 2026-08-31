@@ -1,0 +1,1 @@
+const PORTFOLIO_DATA =')\n            while pos != -1:\n                end_pos = line.find('};

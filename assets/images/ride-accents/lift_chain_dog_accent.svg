@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="100%" height="100%">
+  <!-- Cast Steel Ratchet Rack (Center of Track) -->
+  <path d="M 10,50 L 30,50 L 40,35 L 50,50 L 70,50 L 80,35 L 90,50 L 110,50 L 120,35 L 130,50 L 150,50 L 160,35 L 170,50 L 190,50" fill="rgba(194, 94, 46, 0.1)" stroke="#c25e2e" stroke-width="2"/>
+
+  <!-- Mechanical Anti-Rollback Dog (Gravity Pawl) -->
+  <g transform="translate(105, 12)">
+    <!-- Pivot Pin -->
+    <circle cx="10" cy="10" r="4" fill="#211d19" stroke="#8f7d6a" stroke-width="1.5"/>
+    <!-- Pawl Body engaging ratchet tooth -->
+    <path d="M 10,10 L 22,28 L 15,30 L 6,14 Z" fill="#d97706" stroke="#211d19" stroke-width="1.5"/>
+    <!-- Return Spring -->
+    <path d="M 10,6 C 14,2 18,2 20,6 C 22,10 24,10 26,6" fill="none" stroke="#8f7d6a" stroke-width="1.2"/>
+  </g>
+
+  <!-- Technical Annotation -->
+  <text x="100" y="70" font-family="'Space Mono', monospace" font-size="7" fill="#8f7d6a" text-anchor="middle" font-weight="700">ANTI-ROLLBACK SAFETY DOG</text>
+</svg>

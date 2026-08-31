@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1724"/>
+      <stop offset="100%" stop-color="#19283f"/>
+    </linearGradient>
+    <linearGradient id="gearBronze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGear)"/>
+
+  <text x="30" y="40" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">MACHINE DESIGN // TWO-STAGE SPUR GEARBOX ASSEMBLY</text>
+  <text x="580" y="40" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">SOLIDWORKS &amp; AGMA STANDARDS</text>
+  <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+
+  <!-- Gearbox Internal Cutaway Schematic -->
+  <g transform="translate(380, 240)">
+    <!-- Split Casing Profile -->
+    <rect x="-240" y="-130" width="480" height="260" rx="12" fill="#1e293b" stroke="#64748b" stroke-width="2.5"/>
+    <rect x="-220" y="-110" width="440" height="220" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Shaft 1: High-Speed Input (Pinion 1) -->
+    <line x1="-250" y1="-70" x2="-30" y2="-70" stroke="#94a3b8" stroke-width="10"/>
+    <circle cx="-120" cy="-70" r="32" fill="url(#gearBronze)" stroke="#fbbf24" stroke-width="2"/>
+    <text x="-140" y="-70" fill="#000000" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">z1=18</text>
+
+    <!-- Shaft 2: Intermediate (Gear 1 & Pinion 2) -->
+    <line x1="-160" y1="10" x2="160" y2="10" stroke="#94a3b8" stroke-width="12"/>
+    <!-- Gear 2 (Meshes with Pinion 1) -->
+    <circle cx="-120" cy="10" r="50" fill="url(#gearBronze)" stroke="#fbbf24" stroke-width="2"/>
+    <text x="-140" y="15" fill="#000000" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">z2=45</text>
+    <!-- Pinion 2 -->
+    <circle cx="80" cy="10" r="34" fill="url(#gearBronze)" stroke="#fbbf24" stroke-width="2"/>
+    <text x="65" y="15" fill="#000000" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">z3=20</text>
+
+    <!-- Shaft 3: Low-Speed Output (Gear 3) -->
+    <line x1="30" y1="80" x2="250" y2="80" stroke="#94a3b8" stroke-width="14"/>
+    <circle cx="80" cy="80" r="60" fill="url(#gearBronze)" stroke="#fbbf24" stroke-width="2"/>
+    <text x="60" y="85" fill="#000000" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold">z4=50</text>
+
+    <!-- Bearing Callouts -->
+    <rect x="-230" y="-80" width="16" height="20" fill="#38bdf8"/>
+    <rect x="-40" y="-80" width="16" height="20" fill="#38bdf8"/>
+    <rect x="-170" y="0" width="16" height="20" fill="#38bdf8"/>
+    <rect x="150" y="0" width="16" height="20" fill="#38bdf8"/>
+    <rect x="20" y="70" width="16" height="20" fill="#38bdf8"/>
+    <rect x="230" y="70" width="16" height="20" fill="#38bdf8"/>
+    <text x="140" y="-70" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">DEEP GROOVE BEARINGS</text>
+  </g>
+
+  <rect x="30" y="445" width="280" height="28" rx="4" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="1"/>
+  <text x="40" y="463" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11">✓ AGMA BENDING &amp; PITTING FOS > 2.2</text>
+</svg>

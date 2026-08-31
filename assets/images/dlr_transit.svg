@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgDLR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a101d"/>
+      <stop offset="100%" stop-color="#111c2e"/>
+    </linearGradient>
+    <linearGradient id="dlrTurquoise" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00A4A7"/>
+      <stop offset="100%" stop-color="#00C4C8"/>
+    </linearGradient>
+    <pattern id="gridDLR" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <circle cx="0" cy="0" r="1.5" fill="rgba(0,164,167,0.2)"/>
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgDLR)"/>
+  <rect width="100%" height="100%" fill="url(#gridDLR)"/>
+
+  <text x="30" y="40" fill="#00C4C8" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">TRANSPORT FOR LONDON // DOCKLANDS LIGHT RAILWAY (DLR)</text>
+  <text x="570" y="40" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">DIVISION: ELECTRICAL &amp; MECHANICAL (E&amp;M)</text>
+  <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(0,196,200,0.2)" stroke-width="1"/>
+
+  <!-- DLR Train Profile Outline -->
+  <g transform="translate(100, 110)">
+    <!-- Aerodynamic Cab Front & Body -->
+    <path d="M 0 160 L 50 40 L 550 40 L 550 160 Z" fill="#1e293b" stroke="#00C4C8" stroke-width="2.5"/>
+    <path d="M 0 160 L 50 100 L 550 100 L 550 160 Z" fill="#0f172a"/>
+    <!-- DLR Turquoise Livery Stripe -->
+    <rect x="35" y="100" width="515" height="24" fill="url(#dlrTurquoise)"/>
+
+    <!-- Cab Windshield & Passenger Windows -->
+    <polygon points="12,150 45,55 90,55 90,150" fill="#0284c7" opacity="0.8" stroke="#38bdf8" stroke-width="1"/>
+    <rect x="110" y="55" width="70" height="40" rx="3" fill="#0284c7" opacity="0.6"/>
+    <rect x="200" y="55" width="70" height="40" rx="3" fill="#0284c7" opacity="0.6"/>
+    <rect x="310" y="55" width="70" height="40" rx="3" fill="#0284c7" opacity="0.6"/>
+    <rect x="400" y="55" width="70" height="40" rx="3" fill="#0284c7" opacity="0.6"/>
+
+    <!-- Passenger Double Doors -->
+    <line x1="290" y1="50" x2="290" y2="160" stroke="#f59e0b" stroke-width="2"/>
+
+    <!-- Primary Bogie 1 (Underbody Front Wheelset) -->
+    <g transform="translate(130, 160)">
+      <rect x="-60" y="0" width="120" height="22" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+      <circle cx="-35" cy="22" r="22" fill="#475569" stroke="#00C4C8" stroke-width="2"/>
+      <circle cx="-35" cy="22" r="10" fill="#0f172a"/>
+      <circle cx="35" cy="22" r="22" fill="#475569" stroke="#00C4C8" stroke-width="2"/>
+      <circle cx="35" cy="22" r="10" fill="#0f172a"/>
+      <line x1="-35" y1="22" x2="35" y2="22" stroke="#f59e0b" stroke-width="3"/>
+      <!-- Chevron Suspension & Brake Caliper Callout -->
+      <path d="M -35 0 L -25 -12 L -15 0" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    </g>
+
+    <!-- Primary Bogie 2 (Underbody Rear Wheelset) -->
+    <g transform="translate(450, 160)">
+      <rect x="-60" y="0" width="120" height="22" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+      <circle cx="-35" cy="22" r="22" fill="#475569" stroke="#00C4C8" stroke-width="2"/>
+      <circle cx="-35" cy="22" r="10" fill="#0f172a"/>
+      <circle cx="35" cy="22" r="22" fill="#475569" stroke="#00C4C8" stroke-width="2"/>
+      <circle cx="35" cy="22" r="10" fill="#0f172a"/>
+      <line x1="-35" y1="22" x2="35" y2="22" stroke="#f59e0b" stroke-width="3"/>
+    </g>
+
+    <!-- Steel Running Rails & Guideway -->
+    <line x1="-30" y1="204" x2="590" y2="204" stroke="#94a3b8" stroke-width="5"/>
+    <line x1="-30" y1="210" x2="590" y2="210" stroke="#334155" stroke-width="3"/>
+    <!-- Bottom Contact 3rd Rail Power Conductor -->
+    <line x1="-30" y1="220" x2="590" y2="220" stroke="#f59e0b" stroke-width="4"/>
+    <text x="480" y="240" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10">750V DC 3RD RAIL</text>
+  </g>
+
+  <!-- Inspection Callout Annotations -->
+  <g transform="translate(190, 340)">
+    <line x1="0" y1="0" x2="40" y2="35" stroke="#00C4C8" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="4" fill="#00C4C8"/>
+    <text x="48" y="40" fill="#00C4C8" font-family="'JetBrains Mono', monospace" font-size="11">BOGIE WHEELSET &amp; BRAKE CALIPER INSPECTION</text>
+  </g>
+
+  <rect x="30" y="445" width="280" height="28" rx="4" fill="rgba(0,196,200,0.1)" stroke="#00C4C8" stroke-width="1"/>
+  <text x="40" y="463" fill="#00C4C8" font-family="'JetBrains Mono', monospace" font-size="11">✓ SAFETY-CRITICAL PREVENTATIVE MAINTENANCE</text>
+</svg>

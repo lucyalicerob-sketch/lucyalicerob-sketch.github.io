@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgBogie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#152033"/>
+    </linearGradient>
+    <linearGradient id="railSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="polyurethane" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <pattern id="cadGrid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <circle cx="0" cy="0" r="1.5" fill="rgba(245,158,11,0.2)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgBogie)"/>
+  <rect width="100%" height="100%" fill="url(#cadGrid2)"/>
+
+  <!-- Title & Specs -->
+  <text x="30" y="40" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">SOLIDWORKS ASSEMBLY // 3-WHEEL COASTER BOGIE CLUSTER</text>
+  <text x="560" y="40" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">ARTICULATION: DUAL-AXIS KNUCKLE</text>
+  <line x1="30" y1="50" x2="770" y2="50" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+
+  <!-- Tubular Rail (Cross-Section & Track Beam) -->
+  <g transform="translate(420, 260)">
+    <!-- Rail Tube -->
+    <circle cx="0" cy="0" r="45" fill="url(#railSteel)" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="0" cy="0" r="33" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+    <line x1="-55" y1="0" x2="55" y2="0" stroke="rgba(56,189,248,0.4)" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="0" y1="-55" x2="0" y2="55" stroke="rgba(56,189,248,0.4)" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="-35" y="70" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">TUBULAR RAIL Ø90mm</text>
+
+    <!-- 1. Road Wheel (Top - Vertical Load Carrier) -->
+    <g transform="translate(0, -95)">
+      <rect x="-42" y="-25" width="84" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="-36" y="-20" width="72" height="40" rx="4" fill="url(#polyurethane)"/>
+      <circle cx="0" cy="0" r="12" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+      <!-- Dimension arrow -->
+      <line x1="60" y1="0" x2="120" y2="0" stroke="#f59e0b" stroke-width="1"/>
+      <text x="130" y="4" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11">ROAD WHEEL (+4.5G PEAK)</text>
+    </g>
+
+    <!-- 2. Side-Friction / Guide Wheel (Left - Lateral Tracking) -->
+    <g transform="translate(-95, 0)">
+      <rect x="-25" y="-38" width="50" height="76" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+      <rect x="-20" y="-32" width="40" height="64" rx="4" fill="url(#polyurethane)"/>
+      <circle cx="0" cy="0" r="10" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="3" fill="#38bdf8"/>
+      <!-- Label -->
+      <line x1="0" y1="50" x2="-140" y2="90" stroke="#38bdf8" stroke-width="1"/>
+      <text x="-260" y="105" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11">GUIDE WHEEL (LATERAL)</text>
+    </g>
+
+    <!-- 3. Upstop Wheel (Bottom - Negative G Retention) -->
+    <g transform="translate(0, 95)">
+      <rect x="-38" y="-22" width="76" height="44" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <rect x="-32" y="-18" width="64" height="36" rx="4" fill="url(#polyurethane)"/>
+      <circle cx="0" cy="0" r="10" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="3" fill="#10b981"/>
+      <!-- Label -->
+      <line x1="50" y1="0" x2="120" y2="0" stroke="#10b981" stroke-width="1"/>
+      <text x="130" y="4" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">UPSTOP WHEEL (-1.5G RETENTION)</text>
+    </g>
+
+    <!-- Bogie Carrier Bracket (CNC 7075-T6 C-Frame) -->
+    <path d="M -95 -95 L -95 95 L -20 95 L -20 -95 Z" fill="none" stroke="#e2e8f0" stroke-width="3" opacity="0.7"/>
+    <path d="M -95 -95 L 0 -95 M -95 95 L 0 95" stroke="#e2e8f0" stroke-width="3" opacity="0.7"/>
+
+    <!-- Articulation Knuckle to Mine Train Chassis -->
+    <g transform="translate(-160, -20)">
+      <rect x="-20" y="-30" width="40" height="60" rx="6" fill="#334155" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="0" cy="0" r="8" fill="#f59e0b"/>
+      <text x="-120" y="-45" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10">SPHERICAL CLEVIS</text>
+      <text x="-120" y="-30" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">PITCH ±10° / YAW ±15°</text>
+    </g>
+  </g>
+
+  <!-- Mine Car Silhouette in Background -->
+  <path d="M 80 180 L 220 180 L 250 240 L 70 240 Z" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="90" y="215" fill="#d97706" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="bold">MINE CAR CHASSIS</text>
+
+  <!-- Footer Tag -->
+  <rect x="30" y="445" width="260" height="28" rx="4" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="1"/>
+  <text x="40" y="463" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11">✓ ASTM F24 SAFETY FACTOR > 3.0</text>
+</svg>

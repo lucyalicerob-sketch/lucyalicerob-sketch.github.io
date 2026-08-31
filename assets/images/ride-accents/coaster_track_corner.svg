@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="trackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c25e2e" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#c25e2e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Welded Triangular Cross-Ties -->
+  <g stroke="#8f7d6a" stroke-width="1.8" opacity="0.6">
+    <line x1="40" y1="95" x2="40" y2="70"/>
+    <line x1="80" y1="80" x2="80" y2="55"/>
+    <line x1="120" y1="65" x2="120" y2="40"/>
+    <line x1="160" y1="52" x2="160" y2="27"/>
+    <line x1="200" y1="44" x2="200" y2="19"/>
+    <line x1="240" y1="40" x2="240" y2="15"/>
+  </g>
+
+  <!-- Central Spine Pipe -->
+  <path d="M 10,110 Q 130,90 250,30" fill="none" stroke="#8f7d6a" stroke-width="4.5" opacity="0.4"/>
+
+  <!-- Lower Running Rail -->
+  <path d="M 10,95 Q 130,75 250,15" fill="none" stroke="url(#trackGrad)" stroke-width="3.5"/>
+  <!-- Upper Running Rail -->
+  <path d="M 10,70 Q 130,50 250,-10" fill="none" stroke="url(#trackGrad)" stroke-width="3.5"/>
+
+  <!-- Wheel Bogie Cluster Gripping Rail -->
+  <g transform="translate(185, 20)">
+    <!-- Road Wheel -->
+    <circle cx="15" cy="0" r="7" fill="#fef8eb" stroke="#c25e2e" stroke-width="2"/>
+    <!-- Guide Wheel -->
+    <circle cx="28" cy="12" r="5" fill="#fef8eb" stroke="#d97706" stroke-width="1.5"/>
+    <!-- Upstop Wheel -->
+    <circle cx="15" cy="22" r="5" fill="#fef8eb" stroke="#16a085" stroke-width="1.5"/>
+    <!-- Articulation Joint -->
+    <circle cx="15" cy="11" r="3" fill="#211d19"/>
+  </g>
+</svg>

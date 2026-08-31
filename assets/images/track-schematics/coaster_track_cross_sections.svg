@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="100%" height="100%">
+  <defs>
+    <pattern id="cadGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(214, 199, 182, 0.25)" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="900" height="240" fill="transparent"/>
+  <rect width="900" height="240" fill="url(#cadGrid)"/>
+
+  <!-- ====================================================================
+       PROFILE 1: B&M STYLE BOX-GIRDER TRACK PROFILE
+       ==================================================================== -->
+  <g transform="translate(60, 30)">
+    <!-- Dimension & Datum Lines -->
+    <line x1="110" y1="0" x2="110" y2="175" stroke="#968370" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="115" y="15" fill="#c25e2e" font-family="'Space Mono', monospace" font-size="9" font-weight="700">℄ TRACK DATUM</text>
+
+    <!-- Hollow Box Girder Spine -->
+    <rect x="70" y="55" width="80" height="70" rx="2" fill="rgba(194, 94, 46, 0.08)" stroke="#c25e2e" stroke-width="2.5"/>
+    <rect x="78" y="63" width="64" height="54" rx="1" fill="none" stroke="#c25e2e" stroke-width="1" stroke-dasharray="2,2"/>
+
+    <!-- Structural Triangular Ties / Outriggers -->
+    <path d="M 70,70 L 20,40 L 25,60 L 70,105 Z" fill="rgba(84, 75, 68, 0.1)" stroke="#544b44" stroke-width="1.8"/>
+    <path d="M 150,70 L 200,40 L 195,60 L 150,105 Z" fill="rgba(84, 75, 68, 0.1)" stroke="#544b44" stroke-width="1.8"/>
+
+    <!-- Left Running Rail (Tubular Steel Ø140mm) -->
+    <circle cx="20" cy="40" r="14" fill="#ffffff" stroke="#c25e2e" stroke-width="2.5"/>
+    <circle cx="20" cy="40" r="9" fill="none" stroke="#c25e2e" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="6" y1="40" x2="34" y2="40" stroke="#c25e2e" stroke-width="0.8"/>
+    <line x1="20" y1="26" x2="20" y2="54" stroke="#c25e2e" stroke-width="0.8"/>
+
+    <!-- Right Running Rail (Tubular Steel Ø140mm) -->
+    <circle cx="200" cy="40" r="14" fill="#ffffff" stroke="#c25e2e" stroke-width="2.5"/>
+    <circle cx="200" cy="40" r="9" fill="none" stroke="#c25e2e" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="186" y1="40" x2="214" y2="40" stroke="#c25e2e" stroke-width="0.8"/>
+    <line x1="200" y1="26" x2="200" y2="54" stroke="#c25e2e" stroke-width="0.8"/>
+
+    <!-- Track Gauge Dimension Callout -->
+    <line x1="20" y1="18" x2="200" y2="18" stroke="#544b44" stroke-width="1"/>
+    <line x1="20" y1="12" x2="20" y2="24" stroke="#544b44" stroke-width="1"/>
+    <line x1="200" y1="12" x2="200" y2="24" stroke="#544b44" stroke-width="1"/>
+    <text x="80" y="14" fill="#544b44" font-family="'Space Mono', monospace" font-size="9" font-weight="700">GAUGE: 1200mm</text>
+
+    <!-- Label -->
+    <text x="110" y="155" fill="#24201d" font-family="'Space Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">TYPE A: BOX-GIRDER SPINE</text>
+    <text x="110" y="168" fill="#857b70" font-family="'Space Mono', monospace" font-size="8" text-anchor="middle">HIGH TORSIONAL STIFFNESS</text>
+  </g>
+
+  <!-- ====================================================================
+       PROFILE 2: TRI-CHORD SPACE-FRAME TRUSS PROFILE
+       ==================================================================== -->
+  <g transform="translate(360, 30)">
+    <!-- Dimension Centerline -->
+    <line x1="105" y1="0" x2="105" y2="175" stroke="#968370" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <!-- Lower Backbone Chord Tube -->
+    <circle cx="105" cy="115" r="16" fill="#ffffff" stroke="#16a085" stroke-width="2.5"/>
+    <circle cx="105" cy="115" r="11" fill="none" stroke="#16a085" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="105" y="145" fill="#16a085" font-family="'Space Mono', monospace" font-size="8" text-anchor="middle">Ø160 SPINE</text>
+
+    <!-- Diagonal Tubular Lacing / Web Members -->
+    <line x1="25" y1="40" x2="105" y2="115" stroke="#544b44" stroke-width="2"/>
+    <line x1="185" y1="40" x2="105" y2="115" stroke="#544b44" stroke-width="2"/>
+    <line x1="25" y1="40" x2="185" y2="40" stroke="#544b44" stroke-width="2"/>
+
+    <!-- Left Running Rail -->
+    <circle cx="25" cy="40" r="13" fill="#ffffff" stroke="#16a085" stroke-width="2.5"/>
+    <!-- Right Running Rail -->
+    <circle cx="185" cy="40" r="13" fill="#ffffff" stroke="#16a085" stroke-width="2.5"/>
+
+    <!-- Weld Callout -->
+    <path d="M 65,75 L 45,95 L 15,95" fill="none" stroke="#968370" stroke-width="1"/>
+    <text x="15" y="90" fill="#968370" font-family="'Space Mono', monospace" font-size="8">AWS D1.1 WELD</text>
+
+    <!-- Label -->
+    <text x="105" y="165" fill="#24201d" font-family="'Space Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">TYPE B: 3-CHORD TRUSS</text>
+    <text x="105" y="178" fill="#857b70" font-family="'Space Mono', monospace" font-size="8" text-anchor="middle">LIGHTWEIGHT DYNAMIC LATTICE</text>
+  </g>
+
+  <!-- ====================================================================
+       PROFILE 3: 4-RAIL DUAL SPINE HIGH-SPEED TRACK
+       ==================================================================== -->
+  <g transform="translate(640, 30)">
+    <!-- Dimension Centerline -->
+    <line x1="105" y1="0" x2="105" y2="175" stroke="#968370" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <!-- Dual Lower Chords -->
+    <circle cx="65" cy="115" r="13" fill="#ffffff" stroke="#2980b9" stroke-width="2.2"/>
+    <circle cx="145" cy="115" r="13" fill="#ffffff" stroke="#2980b9" stroke-width="2.2"/>
+    <line x1="65" y1="115" x2="145" y2="115" stroke="#544b44" stroke-width="2"/>
+
+    <!-- Cross K-Brace Webbing -->
+    <line x1="25" y1="40" x2="65" y2="115" stroke="#544b44" stroke-width="2"/>
+    <line x1="185" y1="40" x2="145" y2="115" stroke="#544b44" stroke-width="2"/>
+    <line x1="25" y1="40" x2="145" y2="115" stroke="#544b44" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <line x1="185" y1="40" x2="65" y2="115" stroke="#544b44" stroke-width="1.2" stroke-dasharray="3,2"/>
+
+    <!-- Left & Right Running Rails -->
+    <circle cx="25" cy="40" r="13" fill="#ffffff" stroke="#2980b9" stroke-width="2.5"/>
+    <circle cx="185" cy="40" r="13" fill="#ffffff" stroke="#2980b9" stroke-width="2.5"/>
+
+    <!-- Label -->
+    <text x="105" y="165" fill="#24201d" font-family="'Space Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">TYPE C: 4-CHORD LATTICE</text>
+    <text x="105" y="178" fill="#857b70" font-family="'Space Mono', monospace" font-size="8" text-anchor="middle">HIGH-SPEED LAUNCH FORCES</text>
+  </g>
+</svg>

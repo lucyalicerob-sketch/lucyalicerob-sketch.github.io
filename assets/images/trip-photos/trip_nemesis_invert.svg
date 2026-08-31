@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c111c"/>
+      <stop offset="50%" stop-color="#141c2b"/>
+      <stop offset="100%" stop-color="#0c111c"/>
+    </linearGradient>
+    <linearGradient id="trackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="spineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="50%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="amberAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Blueprint Grid -->
+  <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Location & Camera Metadata Header -->
+  <rect x="30" y="24" width="740" height="40" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <circle cx="50" cy="44" r="6" fill="#f59e0b"/>
+  <text x="68" y="49" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">FIELD PHOTO // ALTON TOWERS PARK VISIT</text>
+  <text x="560" y="49" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">B&amp;M INVERTED ROLLER COASTER</text>
+
+  <!-- Giant B&M Box Girder Spine -->
+  <g transform="translate(100, 100)">
+    <!-- Main Spine Box -->
+    <rect x="80" y="140" width="440" height="120" rx="6" fill="url(#spineGrad)" stroke="#f59e0b" stroke-width="2"/>
+    <text x="100" y="170" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold">SAND-FILLED ACOUSTIC DAMPING BOX SPINE</text>
+    
+    <!-- Cross Tie Ribs -->
+    <path d="M 80,140 L 40,80 L 10,80 L 50,140 Z" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+    <path d="M 520,140 L 560,80 L 590,80 L 550,140 Z" fill="#27272a" stroke="#52525b" stroke-width="1.5"/>
+
+    <!-- Tubular Running Rails (Top Rails) -->
+    <circle cx="25" cy="80" r="28" fill="url(#trackGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+    <circle cx="25" cy="80" r="14" fill="#0c111c" stroke="#38bdf8" stroke-width="1"/>
+    <circle cx="575" cy="80" r="28" fill="url(#trackGrad)" stroke="#38bdf8" stroke-width="2.5"/>
+    <circle cx="575" cy="80" r="14" fill="#0c111c" stroke="#38bdf8" stroke-width="1"/>
+
+    <!-- Wheel Assembly on Left Rail -->
+    <!-- Road Wheel (Top) -->
+    <ellipse cx="25" cy="22" rx="28" ry="18" fill="url(#amberAccent)" stroke="#f8fafc" stroke-width="2"/>
+    <circle cx="25" cy="22" r="8" fill="#18181b"/>
+
+    <!-- Side Friction / Guide Wheel -->
+    <ellipse cx="78" cy="80" rx="18" ry="24" fill="url(#amberAccent)" stroke="#f8fafc" stroke-width="2"/>
+    <circle cx="78" cy="80" r="6" fill="#18181b"/>
+
+    <!-- Upstop Wheel (Bottom) -->
+    <ellipse cx="25" cy="138" rx="24" ry="16" fill="url(#amberAccent)" stroke="#f8fafc" stroke-width="2"/>
+    <circle cx="25" cy="138" r="6" fill="#18181b"/>
+
+    <!-- Articulation Knuckle Clevis & Spherical Joint -->
+    <rect x="-35" y="60" width="40" height="40" rx="6" fill="#334155" stroke="#f8fafc" stroke-width="1.5"/>
+    <circle cx="-15" cy="80" r="8" fill="#f59e0b" filter="url(#glow)"/>
+
+    <!-- Annotations & Callouts -->
+    <g font-family="'JetBrains Mono', monospace" font-size="11" fill="#94a3b8">
+      <!-- Callout: Road Wheel -->
+      <line x1="55" y1="22" x2="160" y2="22" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="170" y="26" fill="#f8fafc" font-weight="600">Road Wheel: 95A Polyurethane Compound</text>
+
+      <!-- Callout: Guide Wheel -->
+      <line x1="100" y1="80" x2="190" y2="80" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="200" y="84" fill="#f8fafc" font-weight="600">Spring-Preloaded Guide Wheel</text>
+
+      <!-- Callout: Upstop Wheel -->
+      <line x1="55" y1="138" x2="160" y2="138" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="170" y="142" fill="#f8fafc" font-weight="600">Upstop Wheel (-G Rail Retention)</text>
+
+      <!-- Callout: Knuckle Clevis -->
+      <line x1="-15" y1="105" x2="-15" y2="170" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <line x1="-15" y1="170" x2="60" y2="170" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="70" y="210" fill="#38bdf8" font-weight="600">Dual-Axis Articulation Knuckle (Spherical Bearing)</text>
+    </g>
+  </g>
+
+  <!-- Bottom Observation Caption Bar -->
+  <rect x="30" y="425" width="740" height="50" rx="8" fill="rgba(19,26,40,0.9)" stroke="rgba(245,158,11,0.3)"/>
+  <text x="50" y="455" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">
+    📸 <tspan font-weight="bold">Field Observation:</tspan> Inspected wheel wear patterns, acoustic sand damping inside the box spine, and zero-scrub knuckle articulation.
+  </text>
+</svg>
