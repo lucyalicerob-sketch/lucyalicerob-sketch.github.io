@@ -1,7 +1,8 @@
 /**
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
- * Updated with official LinkedIn URL: 31 August 2026
+ * Auto-Synchronized from Visual Studio Editor to GitHub Repository
+ * Updated: 2026-08-31T15:07:52.968Z
  */
 
 const PORTFOLIO_DATA = {
@@ -9,7 +10,7 @@ const PORTFOLIO_DATA = {
     "name": "Lucy Robinson",
     "preferredName": "Lucy",
     "role": "Mechanical Engineering Student (MEng) :",
-    "tagline": "Hi, I'm Lucy! I am a Mechanical Engineering student and Royal Academy Scholar with a passion for ride engineering and design!",
+    "tagline": "A Mechanical Engineering student and Royal Academy of Engineering Scholar with a passion for ride engineering and design!",
     "subtagline": "University of Sheffield • Summer Intern @ TfL DLR ",
     "currentStatus": {
       "active": true,
@@ -346,7 +347,12 @@ const PORTFOLIO_DATA = {
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
-    }
+    },
+    "highlights": [
+      "🎓 1st Class Honours across Year 1 and Year 2.",
+      "🚆 Summer Intern @ Transport for London (TfL DLR).",
+      "🏆 SELSA Award (Sheffield Engineering Leadership & Service Award)."
+    ]
   },
   "skills": {
     "cadModeling": [
@@ -1146,5 +1152,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260831_linkedin_updated_v9"
+  "dataVersion": "gh_1788188872968"
 };
