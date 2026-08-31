@@ -9,8 +9,8 @@
   <meta name="keywords" content="Lucy Robinson, Mechanical Engineering, University of Sheffield, Themed Entertainment, Ride Systems, SolidWorks CAD, Roller Coasters, Disneyland Paris, Europa-Park">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=20260831_v1532_force_refresh">
-  <link rel="stylesheet" href="styles/components.css?v=20260831_v1532_force_refresh">
+  <link rel="stylesheet" href="styles/main.css?v=20260831_cache_reset_v1">
+  <link rel="stylesheet" href="styles/components.css?v=20260831_cache_reset_v1">
 </head>
 <body>
 
@@ -444,7 +444,10 @@
         <span id="footerCopyText">© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.</span>
         <a href="editor.html" style="opacity: 0.35; cursor: pointer; font-size: 0.8rem; margin-left: 12px; transition: opacity 0.2s; color: inherit; text-decoration: none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'" title="Studio Editor">⚙️ Studio Editor</a>
       </div>
-      <div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" class="btn btn-secondary btn-sm" style="font-size: 0.74rem; padding: 4px 10px; border-radius: var(--radius-full); font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 4px;" onclick="forceClearCacheAndReload()" title="Clear cache & reload newest portfolio build">
+          <span>🔄</span> Reset Cache &amp; Reload
+        </button>
         <a href="#hero" style="font-size: 0.85rem; color: var(--park-copper); font-weight: 700;">Back to Top ↑</a>
       </div>
     </div>
@@ -548,15 +551,28 @@
 
   <!-- Google Identity Services & JavaScript Modules -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="scripts/portfolio-data.js?v=20260831_v1532_force_refresh"></script>
-  <script src="scripts/cms.js?v=20260831_v1532_force_refresh"></script>
-  <script src="scripts/app.js?v=20260831_v1532_force_refresh"></script>
+  <script src="scripts/portfolio-data.js?v=20260831_cache_reset_v1"></script>
+  <script src="scripts/cms.js?v=20260831_cache_reset_v1"></script>
+  <script src="scripts/app.js?v=20260831_cache_reset_v1"></script>
 
 
 
 
 
 
+
+
+  <!-- ========================================================================
+       LIVE UPDATE BANNER & RESET CACHE ACTION
+       ======================================================================== -->
+  <div id="liveUpdateBanner" class="live-update-banner" style="display: none;">
+    <div class="update-banner-content">
+      <span class="update-pulse-dot"></span>
+      <span id="updateBannerText">✨ <strong>New portfolio updates available!</strong></span>
+      <button type="button" class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 4px 12px;" onclick="forceClearCacheAndReload()">🔄 Load Updates</button>
+      <button type="button" class="update-banner-close" onclick="dismissUpdateBanner()" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
 
 </body>
 </html>

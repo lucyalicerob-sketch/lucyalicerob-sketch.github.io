@@ -1113,3 +1113,68 @@ window.openLightboxModal = function(imgUrl, title, caption) {
   modal.classList.add('open');
   modal.style.display = 'flex';
 };
+
+
+/* --------------------------------------------------------------------------
+   CACHE RESET & LIVE UPDATE DETECTION ENGINE
+   -------------------------------------------------------------------------- */
+window.forceClearCacheAndReload = function() {
+  try {
+    localStorage.removeItem('lucy_portfolio_studio_data');
+    localStorage.removeItem('lucy_portfolio_data_version');
+    sessionStorage.clear();
+  } catch(e) {}
+
+  const banner = document.getElementById('liveUpdateBanner');
+  if (banner) banner.style.display = 'none';
+
+  // Floating confirmation toast
+  const toast = document.createElement('div');
+  toast.style.position = 'fixed';
+  toast.style.top = '24px';
+  toast.style.left = '50%';
+  toast.style.transform = 'translateX(-50%)';
+  toast.style.background = '#22c55e';
+  toast.style.color = '#ffffff';
+  toast.style.fontWeight = '700';
+  toast.style.padding = '10px 20px';
+  toast.style.borderRadius = '9999px';
+  toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+  toast.style.zIndex = '100000';
+  toast.style.fontSize = '0.9rem';
+  toast.textContent = '🔄 Cache cleared! Downloading newest portfolio updates...';
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    window.location.href = window.location.pathname + '?reload=' + Date.now();
+  }, 450);
+};
+
+window.dismissUpdateBanner = function() {
+  const banner = document.getElementById('liveUpdateBanner');
+  if (banner) banner.style.display = 'none';
+  sessionStorage.setItem('lucy_update_banner_dismissed', 'true');
+};
+
+function checkLiveSiteVersionAndNotify() {
+  if (sessionStorage.getItem('lucy_update_banner_dismissed') === 'true') return;
+  const currentVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : 'v1';
+  const savedVersion = localStorage.getItem('lucy_portfolio_data_version');
+
+  const banner = document.getElementById('liveUpdateBanner');
+  if (!banner) return;
+
+  // If this is a returning visitor whose cached version was older
+  if (savedVersion && savedVersion !== currentVersion) {
+    banner.style.display = 'block';
+  }
+}
+
+// Attach version check to initApp
+if (typeof initApp === 'function') {
+  const originalInitApp = initApp;
+  initApp = function() {
+    originalInitApp();
+    checkLiveSiteVersionAndNotify();
+  };
+}
