@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-08-31T14:45:26.360Z
+ * Updated: 2026-08-31T14:48:30.530Z
  */
 
 const PORTFOLIO_DATA = {
@@ -10,7 +10,7 @@ const PORTFOLIO_DATA = {
     "name": "Lucy Robinson",
     "preferredName": "Lucy",
     "role": "Mechanical Engineering Student (MEng) :",
-    "tagline": "Hi, I'm Lucy! I am a Mechanical Engineering student and Royal Academy Scholar with a passion for ride engineering and design!",
+    "tagline": "A Mechanical Engineering student and Royal Academy Scholar with a passion for ride engineering and design!",
     "subtagline": "University of Sheffield • Summer Intern @ TfL DLR ",
     "currentStatus": {
       "active": true,
@@ -1155,5 +1155,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1788187526360"
+  "dataVersion": "gh_1788187710530"
 };
