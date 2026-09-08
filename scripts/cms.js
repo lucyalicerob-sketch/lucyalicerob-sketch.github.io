@@ -104,8 +104,6 @@ function authenticateStudio(key) {
   }
   return false;
 }
-  return false;
-}
 
 function authenticateWithGoogleAccount(googleUser) {
   const email = (googleUser.email || '').toLowerCase().trim();
@@ -250,6 +248,7 @@ function getWorkingData() {
 
 // Global active working data
 let currentStudioData = getWorkingData();
+window.currentStudioData = currentStudioData;
 currentStudioData.mediaLibrary = currentStudioData.mediaLibrary || [];
 
 // Sync loaded data with live app if present (Deep Merge to ensure all edited fields take effect)
@@ -1595,9 +1594,7 @@ Tip: You can also click "Export File" in the sync dialog to download portfolio-d
     }
   } catch (err) {
     console.error('commitToGitHub Exception:', err);
-    alert('Connection error syncing to GitHub: ' + err.message + '
-
-Tip: Use "Export File" in the sync dialog to download portfolio-data.js directly.');
+    alert(`Connection error syncing to GitHub: ${err.message}\n\nTip: Use "Export File" in the sync dialog to download portfolio-data.js directly.`);
     return { success: false, error: err };
   }
 };
@@ -1703,3 +1700,29 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
     showStudioToast('✓ Downloaded portfolio-data.js (Replace in scripts/ to publish)');
   }
 };
+
+// Explicit Window Exports for CMS and Editor
+window.isStudioAuthenticated = isStudioAuthenticated;
+window.getWorkingData = getWorkingData;
+window.saveStudioData = saveStudioData;
+window.authenticateStudio = authenticateStudio;
+window.lockStudioSession = lockStudioSession;
+window.getAuthenticatedGoogleUser = getAuthenticatedGoogleUser;
+window.getActivePasskey = getActivePasskey;
+window.updateStudioPasskey = updateStudioPasskey;
+window.showStudioToast = showStudioToast;
+window.openStudioModal = openStudioModal;
+window.closeStudioModal = closeStudioModal;
+window.openPasskeyPromptModal = openPasskeyPromptModal;
+window.closePasskeyModal = closePasskeyModal;
+window.openMediaPickerModal = openMediaPickerModal;
+window.closeMediaPickerModal = closeMediaPickerModal;
+window.filterMediaPicker = filterMediaPicker;
+window.selectMediaItem = selectMediaItem;
+window.handleMediaUpload = handleMediaUpload;
+window.getAllMediaAssets = getAllMediaAssets;
+window.copyPortfolioDataToClipboard = copyPortfolioDataToClipboard;
+window.exportPortfolioDataFile = exportPortfolioDataFile;
+window.downloadPortfolioDataFile = exportPortfolioDataFile;
+window.resetStudioDataToDefaults = resetStudioDataToDefaults;
+window.togglePasskeyVisibility = togglePasskeyVisibility;

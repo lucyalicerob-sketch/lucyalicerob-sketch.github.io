@@ -277,8 +277,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260908_v17_editor_perfect"></script>
-  <script src="scripts/cms.js?v=20260908_v17_editor_perfect"></script>
+  <script src="scripts/portfolio-data.js?v=20260908_v19_studio_perfect"></script>
+  <script src="scripts/cms.js?v=20260908_v19_studio_perfect"></script>
   <script>
     function escapeHTML(str) {
   if (!str) return '';
@@ -290,6 +290,27 @@
     .replace(/'/g, '&#039;');
 }
 window.escapeHTML = escapeHTML;
+
+    
+    function copyAssetUrlByIndex(idx) {
+      const assets = (typeof getAllMediaAssets === 'function') ? getAllMediaAssets() : [];
+      if (assets[idx] && assets[idx].url) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(assets[idx].url).then(() => {
+            if (typeof showStudioToast === 'function') {
+              showStudioToast('Copied URL: ' + assets[idx].url);
+            } else {
+              alert('Copied asset URL: ' + assets[idx].url);
+            }
+          }).catch(() => {
+            prompt('Copy URL:', assets[idx].url);
+          });
+        } else {
+          prompt('Copy URL:', assets[idx].url);
+        }
+      }
+    }
+    window.copyAssetUrlByIndex = copyAssetUrlByIndex;
 
     function formatImageSrc(src) { return src || ""; }
     function getVal(id, fallback = '') {
@@ -2498,7 +2519,53 @@ window.escapeHTML = escapeHTML;
     window.handleEditorLogin = handleEditorLogin;
     window.handleEditorLogout = handleEditorLogout;
     window.renderActiveSection = renderActiveSection;
-    window.checkAuthAndRender = checkAuthAndRender;
+    
+    // Explicit Window Bindings for all Editor & CMS actions
+    window.showSection = typeof showSection === 'function' ? showSection : null;
+    window.renderActiveSection = typeof renderActiveSection === 'function' ? renderActiveSection : null;
+    window.saveAllStudioChanges = typeof saveAllStudioChanges === 'function' ? saveAllStudioChanges : null;
+    window.editProjectItem = typeof editProjectItem === 'function' ? editProjectItem : null;
+    window.addNewProjectForm = typeof addNewProjectForm === 'function' ? addNewProjectForm : null;
+    window.deleteProjectItem = typeof deleteProjectItem === 'function' ? deleteProjectItem : null;
+    window.saveProjectItemChanges = typeof saveProjectItemChanges === 'function' ? saveProjectItemChanges : null;
+    window.editDiaryItem = typeof editDiaryItem === 'function' ? editDiaryItem : null;
+    window.addNewDiaryForm = typeof addNewDiaryForm === 'function' ? addNewDiaryForm : null;
+    window.deleteDiaryItem = typeof deleteDiaryItem === 'function' ? deleteDiaryItem : null;
+    window.saveDiaryItemChanges = typeof saveDiaryItemChanges === 'function' ? saveDiaryItemChanges : null;
+    window.addSkillPoint = typeof addSkillPoint === 'function' ? addSkillPoint : null;
+    window.removeSkillPoint = typeof removeSkillPoint === 'function' ? removeSkillPoint : null;
+    window.moveSkillPoint = typeof moveSkillPoint === 'function' ? moveSkillPoint : null;
+    window.updateSkillPoint = typeof updateSkillPoint === 'function' ? updateSkillPoint : null;
+    window.addNewCoasterCredit = typeof addNewCoasterCredit === 'function' ? addNewCoasterCredit : null;
+    window.deleteCoasterCredit = typeof deleteCoasterCredit === 'function' ? deleteCoasterCredit : null;
+    window.addExperienceRole = typeof addExperienceRole === 'function' ? addExperienceRole : null;
+    window.removeExperienceRole = typeof removeExperienceRole === 'function' ? removeExperienceRole : null;
+    window.addCourseworkModule = typeof addCourseworkModule === 'function' ? addCourseworkModule : null;
+    window.removeCourseworkModule = typeof removeCourseworkModule === 'function' ? removeCourseworkModule : null;
+    window.addGalleryFigure = typeof addGalleryFigure === 'function' ? addGalleryFigure : null;
+    window.removeGalleryFigure = typeof removeGalleryFigure === 'function' ? removeGalleryFigure : null;
+    window.updateFigureField = typeof updateFigureField === 'function' ? updateFigureField : null;
+    window.addProjectMetric = typeof addProjectMetric === 'function' ? addProjectMetric : null;
+    window.removeProjectMetric = typeof removeProjectMetric === 'function' ? removeProjectMetric : null;
+    window.updateMetricField = typeof updateMetricField === 'function' ? updateMetricField : null;
+    window.addDiaryTripPhoto = typeof addDiaryTripPhoto === 'function' ? addDiaryTripPhoto : null;
+    window.removeDiaryTripPhoto = typeof removeDiaryTripPhoto === 'function' ? removeDiaryTripPhoto : null;
+    window.updateTripPhotoField = typeof updateTripPhotoField === 'function' ? updateTripPhotoField : null;
+    window.addPhotoToTab = typeof addPhotoToTab === 'function' ? addPhotoToTab : null;
+    window.removePhotoFromTab = typeof removePhotoFromTab === 'function' ? removePhotoFromTab : null;
+    window.handleTabPhotoFileUpload = typeof handleTabPhotoFileUpload === 'function' ? handleTabPhotoFileUpload : null;
+    window.applyCodeEmbedToProject = typeof applyCodeEmbedToProject === 'function' ? applyCodeEmbedToProject : null;
+    window.clearCodeEmbedForm = typeof clearCodeEmbedForm === 'function' ? clearCodeEmbedForm : null;
+    window.insertInlineCodeToTarget = typeof insertInlineCodeToTarget === 'function' ? insertInlineCodeToTarget : null;
+    window.loadCurrentSectionIntoEmbedder = typeof loadCurrentSectionIntoEmbedder === 'function' ? loadCurrentSectionIntoEmbedder : null;
+    window.toggleInlineCodeHelper = typeof toggleInlineCodeHelper === 'function' ? toggleInlineCodeHelper : null;
+    window.updateCodeEmbedPreview = typeof updateCodeEmbedPreview === 'function' ? updateCodeEmbedPreview : null;
+    window.updateStudioPasskeyFromEditor = typeof updateStudioPasskeyFromEditor === 'function' ? updateStudioPasskeyFromEditor : null;
+    window.copyAssetUrlByIndex = typeof copyAssetUrlByIndex === 'function' ? copyAssetUrlByIndex : null;
+    window.handleEditorLogin = typeof handleEditorLogin === 'function' ? handleEditorLogin : null;
+    window.handleEditorLogout = typeof handleEditorLogout === 'function' ? handleEditorLogout : null;
+    window.checkAuthAndRender = typeof checkAuthAndRender === 'function' ? checkAuthAndRender : null;
+
 
   </script>
 
