@@ -364,11 +364,10 @@ function getWorkingData() {
   const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : 'v1';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
-  // If disk dataset has a new version, automatically clear stale cache and sync fresh disk data
-  if (savedVersion !== currentDiskVersion) {
+  if (!savedVersion || savedVersion !== currentDiskVersion) {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.setItem(DATA_VERSION_KEY, currentDiskVersion);
-    return JSON.parse(JSON.stringify(PORTFOLIO_DATA));
+    return (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -379,7 +378,7 @@ function getWorkingData() {
       console.error('Error parsing saved studio data:', e);
     }
   }
-  return JSON.parse(JSON.stringify(PORTFOLIO_DATA));
+  return (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
 }
 
 // Global active working data

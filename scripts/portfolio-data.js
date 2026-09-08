@@ -1210,5 +1210,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1788857063963"
+  "dataVersion": "20260908_v11_live"
 };

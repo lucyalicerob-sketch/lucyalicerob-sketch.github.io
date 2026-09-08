@@ -276,8 +276,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260831_v1532_force_refresh"></script>
-  <script src="scripts/cms.js?v=20260831_v1532_force_refresh"></script>
+  <script src="scripts/portfolio-data.js?v=20260908_v11_live"></script>
+  <script src="scripts/cms.js?v=20260908_v11_live"></script>
   <script>
     function formatImageSrc(src) { return src || ""; }
     function getVal(id, fallback = '') {
@@ -413,9 +413,10 @@
             </div>
           </div>
 
-          <div cl          <div class="form-group">
+          <div class="form-group">
             <label class="studio-label">Tagline (Main Hero Headline)</label>
             <input type="text" id="edTagline" class="studio-input" value="${escapeHTML(p.tagline || '')}">
+          </div>
           
             <!-- CV / Resume Document Switcher Card -->
           <div style="background: var(--bg-subtle); padding: 20px; border-radius: var(--radius-lg); border: 1.5px solid var(--park-copper); margin: 20px 0;">
@@ -1171,7 +1172,7 @@
         if (edName) p.name = edName.value;
         const edRole = document.getElementById('edRole');
         if (edRole) p.role = edRole.value;
-                const edTagline = document.getElementById('edTagline');
+        const edTagline = document.getElementById('edTagline');
         if (edTagline) p.tagline = edTagline.value;
         const edHeroBio = document.getElementById('edHeroBio');
         if (edHeroBio) p.bio = edHeroBio.value;
@@ -1258,11 +1259,6 @@
           d.education.grade = edGrade.value;
           p.education.grade = edGrade.value;
           p.education.status = edGrade.value;
-          if (p.highlights && p.highlights[0]) {
-            if (p.highlights[0].startsWith('🎓')) {
-              p.highlights[0] = '🎓 ' + edGrade.value.replace(/^🎓\s*/, '');
-            }
-          }
         }
         const edTimeline = document.getElementById('edTimeline');
         if (edTimeline) {
@@ -1304,6 +1300,14 @@
         }
 
         saveStudioData(d, notify);
+
+        // Auto-Push directly to GitHub
+        const ghCfg = typeof getGitHubConfig === 'function' ? getGitHubConfig() : null;
+        if (ghCfg && ghCfg.token && typeof commitToGitHub === 'function') {
+          commitToGitHub();
+        } else {
+          openGitHubSyncModal();
+        }
       } catch (err) {
         console.error('saveAllStudioChanges error:', err);
       }
