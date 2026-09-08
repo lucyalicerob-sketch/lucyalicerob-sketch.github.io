@@ -102,8 +102,6 @@ function authenticateStudio(key) {
   }
   return false;
 }
-  return false;
-}
 
 function authenticateWithGoogleAccount(googleUser) {
   const email = (googleUser.email || '').toLowerCase().trim();
