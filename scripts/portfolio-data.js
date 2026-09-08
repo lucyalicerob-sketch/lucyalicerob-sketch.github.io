@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Official LinkedIn Profile: https://www.linkedin.com/in/lucy-robinson-a6128838b
- * Updated: 8 September 2026
+ * Central Media Store Updated: 8 September 2026
  */
 
 const PORTFOLIO_DATA = {
@@ -1136,6 +1136,101 @@ const PORTFOLIO_DATA = {
       "driveId": "1itERbwDuXtTREaybPI9vDK--5s0y2Qtb",
       "date": "16/08/2026",
       "size": "Google Drive"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155035",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155035.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155149",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155149.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155235",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155235.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155258",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155258.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155306",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155306.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155353",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155353.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 16 155400",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-16 155400.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 164943",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 164943.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165051",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165051.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165119",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165119.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165421",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165421.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165837",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165837.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165848",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165848.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165908",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165908.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165942",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165942.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 17 165948",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-17 165948.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 31 111120",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-31 111120.png",
+      "category": "cad"
+    },
+    {
+      "name": "Google Drive Upload 2026 08 31 111213",
+      "url": "assets/images/gdrive-photos/Screenshot 2026-08-31 111213.png",
+      "category": "cad"
+    },
+    {
+      "name": "Dlr Route Map",
+      "url": "assets/images/gdrive-photos/dlr-route-map.gif",
+      "category": "trips"
     }
   ],
   "coasterCredits": [],
@@ -1147,5 +1242,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260908_linkedin_bulletproof_v10"
+  "dataVersion": "20260908_gdrive_photos_imported_v11"
 };
