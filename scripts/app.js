@@ -329,6 +329,12 @@ window.openBusinessCardModal = function() {
   const nameEl = document.getElementById('qrCardName');
   if (nameEl) nameEl.textContent = PORTFOLIO_DATA.profile.name;
 
+  const taglineEl = document.getElementById('qrCardTagline');
+  if (taglineEl) {
+    const prof = PORTFOLIO_DATA.profile || {};
+    taglineEl.textContent = prof.subtagline || prof.role || 'University of Sheffield • Summer Intern @ TfL DLR';
+  }
+
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 };
