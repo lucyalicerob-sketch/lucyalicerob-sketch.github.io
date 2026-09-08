@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-08T09:35:57.291Z
+ * Updated: 2026-09-08T09:36:08.778Z
  */
 
 const PORTFOLIO_DATA = {
@@ -583,7 +583,7 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/extracted/smoke_starlight_agv_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155149.png",
       "cadGallery": [
         {
           "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
@@ -650,16 +650,8 @@ const PORTFOLIO_DATA = {
               "caption": "Independent steer drive kinematics."
             }
           ],
-          "calcs": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "prototyping": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
+          "calcs": [],
+          "prototyping": [],
           "takeaways": [
             {
               "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
@@ -1222,5 +1214,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1788860157290"
+  "dataVersion": "gh_1788860168778"
 };
