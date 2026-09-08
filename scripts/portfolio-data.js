@@ -343,7 +343,7 @@ const PORTFOLIO_DATA = {
     "aboutLocationTag": "\ud83d\udccd Disneyland Paris",
     "aboutCardBadge": "About Me",
     "cvUrl": "assets/documents/Lucy_Robinson_CV.pdf",
-    "cvFileName": "CV__oct_25_PDF.pdf",
+    "cvFileName": "assets/documents/Lucy_Robinson_CV.pdf",
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
@@ -1236,8 +1236,8 @@ const PORTFOLIO_DATA = {
   "coasterCredits": [],
   "documents": [
     {
-      "name": "CV__oct_25_PDF.pdf",
-      "url": "assets/documents/Lucy_Robinson_CV_Document.pdf",
+      "name": "assets/documents/Lucy_Robinson_CV.pdf",
+      "url": "assets/documents/Lucy_Robinson_CV.pdf",
       "size": "235.9 KB",
       "dateAdded": "2026-08-18"
     }
