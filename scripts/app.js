@@ -146,7 +146,7 @@ function renderProfileInfo() {
 
   const linkedinBtn = document.getElementById('contactLinkedInBtn');
   if (linkedinBtn && p.socials && p.socials.linkedin) {
-    linkedinBtn.href = p.socials.linkedin;
+    linkedinBtn.href = p.socials?.linkedin || p.social?.linkedin || p.linkedin || 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
   }
 
   const statsContainer = document.getElementById('heroStatsRow');
@@ -795,7 +795,7 @@ function renderTimeline() {
 
   const rawExp = PORTFOLIO_DATA.experience || [];
   const exp = sortExperienceChronologically(rawExp);
-  const linkedinUrl = (PORTFOLIO_DATA.profile && PORTFOLIO_DATA.profile.socials && PORTFOLIO_DATA.profile.socials.linkedin) || 'https://www.linkedin.com';
+  const linkedinUrl = (PORTFOLIO_DATA.profile && PORTFOLIO_DATA.profile.socials && PORTFOLIO_DATA.profile.socials.linkedin) || 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
 
   container.innerHTML = `
     ${exp.map(e => `

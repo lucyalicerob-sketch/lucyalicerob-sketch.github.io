@@ -1,7 +1,8 @@
 /**
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
- * Updated with official LinkedIn URL: 31 August 2026
+ * Official LinkedIn Profile: https://www.linkedin.com/in/lucy-robinson-a6128838b
+ * Updated: 8 September 2026
  */
 
 const PORTFOLIO_DATA = {
@@ -306,7 +307,7 @@ const PORTFOLIO_DATA = {
     "socials": {
       "email": "lucyalicerob@gmail.com",
       "phone": "+44 7491 232212",
-      "linkedin": "https://www.linkedin.com"
+      "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
     },
     "title": "",
     "email": "",
@@ -1146,5 +1147,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260831_linkedin_updated_v9"
+  "dataVersion": "20260908_linkedin_verified_profile"
 };
