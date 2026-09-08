@@ -1574,6 +1574,36 @@ window.updateGitHubSyncStatusIndicator = function() {
 /**
  * Commit PORTFOLIO_DATA directly to GitHub repository via REST API
  */
+/**
+ * Helper to fetch fresh file SHA directly from GitHub with zero caching
+ */
+async function getFreshGitHubSha(repo, filePath, branch, token) {
+  const authHeader = token.startsWith('ghp_') ? `token ${token}` : `Bearer ${token}`;
+  const url = `https://api.github.com/repos/${repo}/contents/${filePath}?ref=${encodeURIComponent(branch)}&_ts=${Date.now()}`;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': authHeader,
+        'Accept': 'application/vnd.github.v3+json',
+        'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
+        'Pragma': 'no-cache'
+      },
+      cache: 'no-store'
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.sha;
+    }
+  } catch (e) {
+    console.warn('Could not fetch latest SHA:', e);
+  }
+  return null;
+}
+
+/**
+ * Commit PORTFOLIO_DATA directly to GitHub repository via REST API
+ * Fully handles SHA mismatch conflicts with automatic re-sync and retry
+ */
 window.commitToGitHub = async function(customMessage = null) {
   const cfg = getGitHubConfig();
   if (!cfg.token) {
@@ -1606,38 +1636,29 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
   }
   const base64Content = btoa(binary);
 
+  const authHeader = cfg.token.startsWith('ghp_') ? `token ${cfg.token}` : `Bearer ${cfg.token}`;
   let filePath = 'scripts/portfolio-data.js';
-  const candidatePaths = ['scripts/portfolio-data.js', 'source/scripts/portfolio-data.js', 'src/scripts/portfolio-data.js'];
-  
-  try {
-    // 1. Detect where portfolio-data.js is located in the GitHub repo (root or /source)
-    let currentSha = null;
-    let targetPath = candidatePaths[0];
 
-    for (const testPath of candidatePaths) {
-      const testUrl = `https://api.github.com/repos/${cfg.repo}/contents/${testPath}?ref=${cfg.branch}`;
-      const getRes = await fetch(testUrl, {
-        headers: {
-          'Authorization': cfg.token.startsWith('ghp_') ? `token ${cfg.token}` : `Bearer ${cfg.token}`,
-          'Accept': 'application/vnd.github.v3+json'
+  try {
+    // 1. Always fetch the freshest SHA right before committing
+    let currentSha = await getFreshGitHubSha(cfg.repo, filePath, cfg.branch, cfg.token);
+    
+    // If not found in scripts/, check candidate paths
+    if (!currentSha) {
+      const candidates = ['source/scripts/portfolio-data.js', 'src/scripts/portfolio-data.js'];
+      for (const cand of candidates) {
+        currentSha = await getFreshGitHubSha(cfg.repo, cand, cfg.branch, cfg.token);
+        if (currentSha) {
+          filePath = cand;
+          break;
         }
-      });
-      if (getRes.ok) {
-        const getData = await getRes.json();
-        currentSha = getData.sha;
-        targetPath = testPath;
-        filePath = testPath;
-        break;
-      } else if (getRes.status === 401 || getRes.status === 403) {
-        alert('GitHub Token Authentication Failed. Please check that your token is valid and has "repo" scope.');
-        openGitHubSyncModal();
-        return { success: false, error: 'auth_failed' };
       }
     }
-    console.log(`Targeting GitHub file path: ${filePath}`);
 
-    // 2. Commit file with PUT
-    const commitMsg = customMessage || `Update portfolio data from Visual Studio Editor (${new Date().toLocaleTimeString()})`;
+    console.log(`Targeting GitHub file path: ${filePath} (SHA: ${currentSha || 'new file'})`);
+
+    // 2. Prepare PUT payload
+    const commitMsg = customMessage || `Update portfolio data from Visual Studio Editor (${new Date().toLocaleTimeString('en-GB')})`;
     const putBody = {
       message: commitMsg,
       content: base64Content,
@@ -1647,32 +1668,70 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
       putBody.sha = currentSha;
     }
 
-    const putRes = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${filePath}`, {
+    let putRes = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${filePath}`, {
       method: 'PUT',
       headers: {
-        'Authorization': cfg.token.startsWith('ghp_') ? `token ${cfg.token}` : `Bearer ${cfg.token}`,
+        'Authorization': authHeader,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(putBody)
     });
 
+    // 3. Automatic Conflict Resolution: If 409 SHA mismatch, re-fetch SHA and retry once
+    if (putRes.status === 409) {
+      console.warn('GitHub SHA mismatch (409). Fetching latest branch SHA and retrying commit...');
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('🔄 Resolving GitHub branch sync and retrying...');
+      }
+      const freshSha = await getFreshGitHubSha(cfg.repo, filePath, cfg.branch, cfg.token);
+      if (freshSha) {
+        putBody.sha = freshSha;
+        putRes = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${filePath}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': authHeader,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(putBody)
+        });
+      }
+    }
+
     if (putRes.ok) {
       const putData = await putRes.json();
       console.log('✓ Successfully committed to GitHub:', putData);
+      closeGitHubSyncModal();
       if (typeof showStudioToast === 'function') {
         showStudioToast('🎉 Live on GitHub! GitHub Pages is rebuilding your site.');
       }
       return { success: true, data: putData };
     } else {
-      const errData = await putRes.json();
-      console.error('GitHub PUT error:', errData);
-      alert('GitHub API Error: ' + (errData.message || 'Could not commit to repository.'));
-      return { success: false, error: errData };
+      const errData = await putRes.json().catch(() => ({}));
+      console.error('GitHub PUT error:', putRes.status, errData);
+      
+      let friendlyMsg = 'Could not push to GitHub.';
+      if (putRes.status === 401) {
+        friendlyMsg = 'Token authentication failed. Please verify your GitHub Personal Access Token.';
+      } else if (putRes.status === 403 || putRes.status === 404) {
+        friendlyMsg = `Permission denied (${putRes.status}). Please verify that your token has "repo" scope for ${cfg.repo}.`;
+      } else if (putRes.status === 409) {
+        friendlyMsg = 'Version conflict with GitHub. Please try clicking "Connect & Push" once more or use "Export File".';
+      } else if (errData.message) {
+        friendlyMsg = `GitHub API: ${errData.message}`;
+      }
+      
+      alert(`⚠️ ${friendlyMsg}
+
+Tip: You can also click "Export File" in the sync dialog to download portfolio-data.js directly.`);
+      return { success: false, error: errData, status: putRes.status };
     }
   } catch (err) {
     console.error('commitToGitHub Exception:', err);
-    alert('Connection error syncing to GitHub: ' + err.message);
+    alert('Connection error syncing to GitHub: ' + err.message + '
+
+Tip: Use "Export File" in the sync dialog to download portfolio-data.js directly.');
     return { success: false, error: err };
   }
 };
