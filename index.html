@@ -9,8 +9,8 @@
   <meta name="keywords" content="Lucy Robinson, Mechanical Engineering, University of Sheffield, Themed Entertainment, Ride Systems, SolidWorks CAD, Roller Coasters, Disneyland Paris, Europa-Park">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=20260908_clean_hero_tagline">
-  <link rel="stylesheet" href="styles/components.css?v=20260908_clean_hero_tagline">
+  <link rel="stylesheet" href="styles/main.css?v=20260908_linkedin_bulletproof_v10">
+  <link rel="stylesheet" href="styles/components.css?v=20260908_linkedin_bulletproof_v10">
 </head>
 <body>
 
@@ -422,7 +422,7 @@
             <button class="btn btn-secondary btn-lg" onclick="openBusinessCardModal()">
               🪪 Digital QR Card
             </button>
-            <a id="contactLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+            <a id="contactLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener noreferrer" onclick="window.open('https://www.linkedin.com/in/lucy-robinson-a6128838b', '_blank'); return false;" class="btn btn-secondary btn-lg">
               🔗 LinkedIn Profile ↗
             </a>
           </div>
@@ -541,7 +541,7 @@
             <button class="btn btn-primary" style="flex: 1;" onclick="downloadVCard()">📱 Save Contact (.vcf)</button>
             <a id="qrCardCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">📄 View CV</a>
           </div>
-          <button class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center;" onclick="copyEmailToClipboard()">📋 Copy Email Address</button>
+          <div style="display: flex; gap: 10px; width: 100%;"><a id="qrCardLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">🔗 LinkedIn Profile</a><button class="btn btn-secondary" style="flex: 1; justify-content: center;" onclick="copyEmailToClipboard()">📋 Copy Email</button></div>
         </div>
       </div>
     </div>
@@ -551,9 +551,9 @@
 
   <!-- Google Identity Services & JavaScript Modules -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="scripts/portfolio-data.js?v=20260908_clean_hero_tagline"></script>
-  <script src="scripts/cms.js?v=20260908_clean_hero_tagline"></script>
-  <script src="scripts/app.js?v=20260908_clean_hero_tagline"></script>
+  <script src="scripts/portfolio-data.js?v=20260908_linkedin_bulletproof_v10"></script>
+  <script src="scripts/cms.js?v=20260908_linkedin_bulletproof_v10"></script>
+  <script src="scripts/app.js?v=20260908_linkedin_bulletproof_v10"></script>
 
 
 

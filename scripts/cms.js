@@ -1,4 +1,16 @@
 
+function sanitizeProfileData(prof) {
+  if (!prof) return;
+  if (!prof.linkedin || !prof.linkedin.includes('lucy-robinson')) prof.linkedin = 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
+  if (prof.socials) {
+    if (!prof.socials.linkedin || !prof.socials.linkedin.includes('lucy-robinson')) prof.socials.linkedin = 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
+  }
+  if (prof.social) {
+    if (!prof.social.linkedin || !prof.social.linkedin.includes('lucy-robinson')) prof.social.linkedin = 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
+  }
+}
+
+
 window.formatImageSrc = function(src) {
   if (!src) return '';
   return src;
@@ -259,7 +271,7 @@ if (typeof PORTFOLIO_DATA !== 'undefined') {
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
-      if (parsed.profile) PORTFOLIO_DATA.profile = Object.assign(PORTFOLIO_DATA.profile || {}, parsed.profile);
+      if (parsed.profile) { sanitizeProfileData(parsed.profile); PORTFOLIO_DATA.profile = Object.assign(PORTFOLIO_DATA.profile || {}, parsed.profile); sanitizeProfileData(PORTFOLIO_DATA.profile); }
       if (parsed.skills) PORTFOLIO_DATA.skills = Object.assign(PORTFOLIO_DATA.skills || {}, parsed.skills);
       if (parsed.education) PORTFOLIO_DATA.education = Object.assign(PORTFOLIO_DATA.education || {}, parsed.education);
       

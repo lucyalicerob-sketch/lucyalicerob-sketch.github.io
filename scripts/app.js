@@ -145,8 +145,15 @@ function renderProfileInfo() {
   }
 
   const linkedinBtn = document.getElementById('contactLinkedInBtn');
-  if (linkedinBtn && p.socials && p.socials.linkedin) {
-    linkedinBtn.href = p.socials?.linkedin || p.social?.linkedin || p.linkedin || 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
+  if (linkedinBtn) {
+    linkedinBtn.href = 'https://www.linkedin.com/in/lucy-robinson-a6128838b';
+    linkedinBtn.target = '_blank';
+    linkedinBtn.rel = 'noopener noreferrer';
+    linkedinBtn.onclick = function(e) {
+      e.stopPropagation();
+      window.open('https://www.linkedin.com/in/lucy-robinson-a6128838b', '_blank', 'noopener,noreferrer');
+      return false;
+    };
   }
 
   const statsContainer = document.getElementById('heroStatsRow');

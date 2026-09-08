@@ -1147,5 +1147,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260908_clean_hero_tagline_v1"
+  "dataVersion": "20260908_linkedin_bulletproof_v10"
 };
