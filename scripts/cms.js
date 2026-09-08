@@ -1445,6 +1445,9 @@ window.updateGitHubSyncStatusIndicator = function() {
 /**
  * Helper to fetch fresh file SHA directly from GitHub with zero caching and multi-tier fallbacks
  */
+/**
+ * Helper to fetch fresh file SHA directly from GitHub with zero caching and CORS-compliant standard headers
+ */
 async function getFreshGitHubSha(repo, filePath, branch, token) {
   const cleanRepo = (repo || DEFAULT_GITHUB_REPO).trim();
   const cleanBranch = (branch || DEFAULT_GITHUB_BRANCH).trim();
@@ -1464,18 +1467,16 @@ async function getFreshGitHubSha(repo, filePath, branch, token) {
   }
   authHeaders.push(null); // Unauthenticated fallback for public repos
 
-  // Tier 1: Direct Contents API with cache-busting
+  // Tier 1: Direct Contents API with timestamp cache buster
   for (const auth of authHeaders) {
     try {
       const headers = {
-        'Accept': 'application/vnd.github.v3+json',
-        'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate',
-        'Pragma': 'no-cache'
+        'Accept': 'application/vnd.github.v3+json'
       };
       if (auth) headers['Authorization'] = auth;
 
       const url = `https://api.github.com/repos/${cleanRepo}/contents/${cleanPath}?ref=${encodeURIComponent(cleanBranch)}&_ts=${Date.now()}`;
-      const res = await fetch(url, { headers, cache: 'no-store' });
+      const res = await fetch(url, { headers });
       if (res.ok) {
         const data = await res.json();
         if (data && data.sha) {
@@ -1492,14 +1493,12 @@ async function getFreshGitHubSha(repo, filePath, branch, token) {
   for (const auth of authHeaders) {
     try {
       const headers = {
-        'Accept': 'application/vnd.github.v3+json',
-        'Cache-Control': 'no-cache, no-store, max-age=0',
-        'Pragma': 'no-cache'
+        'Accept': 'application/vnd.github.v3+json'
       };
       if (auth) headers['Authorization'] = auth;
 
       const treeUrl = `https://api.github.com/repos/${cleanRepo}/git/trees/${encodeURIComponent(cleanBranch)}?recursive=1&_ts=${Date.now()}`;
-      const res = await fetch(treeUrl, { headers, cache: 'no-store' });
+      const res = await fetch(treeUrl, { headers });
       if (res.ok) {
         const data = await res.json();
         if (data && Array.isArray(data.tree)) {
