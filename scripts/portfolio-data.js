@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-08T09:35:01.084Z
+ * Updated: 2026-09-08T09:35:57.291Z
  */
 
 const PORTFOLIO_DATA = {
@@ -502,7 +502,7 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "assets/images/extracted/time_machine_turntable_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155035.png",
       "cadGallery": [
         {
           "url": "assets/images/extracted/time_machine_turntable_cad.png",
@@ -557,21 +557,9 @@ const PORTFOLIO_DATA = {
               "caption": "Rotary switch mechanism."
             }
           ],
-          "cad": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "calcs": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "prototyping": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
+          "cad": [],
+          "calcs": [],
+          "prototyping": [],
           "takeaways": [
             {
               "url": "assets/images/extracted/time_machine_turntable_cad.png",
@@ -1234,5 +1222,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1788860101084"
+  "dataVersion": "gh_1788860157290"
 };
