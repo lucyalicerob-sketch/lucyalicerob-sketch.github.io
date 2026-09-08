@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-08T09:36:08.778Z
+ * Updated: 2026-09-08T09:36:58.719Z
  */
 
 const PORTFOLIO_DATA = {
@@ -422,7 +422,7 @@ const PORTFOLIO_DATA = {
           "caption": "Wheel articulation and clearance envelope along 3D track curve."
         }
       ],
-      "summary": "You are a smuggler using abandoned rains to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
+      "summary": "You are a smuggler using abandoned rails to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
       "keyMetrics": [
         {
           "label": "Wheel Configuration",
@@ -1214,5 +1214,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1788860168778"
+  "dataVersion": "gh_1788860218719"
 };
