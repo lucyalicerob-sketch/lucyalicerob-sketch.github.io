@@ -1618,7 +1618,7 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
       const testUrl = `https://api.github.com/repos/${cfg.repo}/contents/${testPath}?ref=${cfg.branch}`;
       const getRes = await fetch(testUrl, {
         headers: {
-          'Authorization': `Bearer ${cfg.token}`,
+          'Authorization': cfg.token.startsWith('ghp_') ? `token ${cfg.token}` : `Bearer ${cfg.token}`,
           'Accept': 'application/vnd.github.v3+json'
         }
       });
@@ -1650,7 +1650,7 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
     const putRes = await fetch(`https://api.github.com/repos/${cfg.repo}/contents/${filePath}`, {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${cfg.token}`,
+        'Authorization': cfg.token.startsWith('ghp_') ? `token ${cfg.token}` : `Bearer ${cfg.token}`,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json'
       },
@@ -1674,5 +1674,107 @@ const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
     console.error('commitToGitHub Exception:', err);
     alert('Connection error syncing to GitHub: ' + err.message);
     return { success: false, error: err };
+  }
+};
+
+
+window.testGitHubTokenConnection = async function() {
+  const token = (document.getElementById('ghTokenInput')?.value || getGitHubConfig().token || '').trim();
+  const repo = (document.getElementById('ghRepoInput')?.value || getGitHubConfig().repo || '').trim();
+  const branch = (document.getElementById('ghBranchInput')?.value || getGitHubConfig().branch || 'main').trim();
+  const statusBox = document.getElementById('ghTestStatusBox');
+
+  if (!token) {
+    if (statusBox) {
+      statusBox.style.display = 'block';
+      statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+      statusBox.style.border = '1px solid #ef4444';
+      statusBox.style.color = '#ef4444';
+      statusBox.innerHTML = '⚠️ Please enter a GitHub Personal Access Token first.';
+    }
+    return;
+  }
+
+  if (statusBox) {
+    statusBox.style.display = 'block';
+    statusBox.style.background = 'rgba(245, 158, 11, 0.15)';
+    statusBox.style.border = '1px solid #f59e0b';
+    statusBox.style.color = '#f59e0b';
+    statusBox.innerHTML = '🔄 Testing connection to GitHub...';
+  }
+
+  const authHeader = token.startsWith('ghp_') ? `token ${token}` : `Bearer ${token}`;
+
+  try {
+    const testUrl = `https://api.github.com/repos/${repo}/contents/scripts/portfolio-data.js?ref=${branch}`;
+    const res = await fetch(testUrl, {
+      headers: {
+        'Authorization': authHeader,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    if (res.ok) {
+      if (statusBox) {
+        statusBox.style.background = 'rgba(34, 197, 94, 0.15)';
+        statusBox.style.border = '1px solid #22c55e';
+        statusBox.style.color = '#22c55e';
+        statusBox.innerHTML = '✅ <strong>Connection Successful!</strong> Your token has full read/write access to this repository.';
+      }
+    } else if (res.status === 401) {
+      if (statusBox) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#ef4444';
+        statusBox.innerHTML = '❌ <strong>Authentication Failed (401):</strong> Token is invalid or expired. Generate a new Classic Token with "repo" permission.';
+      }
+    } else if (res.status === 403 || res.status === 404) {
+      if (statusBox) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#ef4444';
+        statusBox.innerHTML = '❌ <strong>Permission Denied (' + res.status + '):</strong> Token lacks "repo" / "Contents: Read & Write" permission for <code>' + repo + '</code>.';
+      }
+    } else {
+      if (statusBox) {
+        statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+        statusBox.style.border = '1px solid #ef4444';
+        statusBox.style.color = '#ef4444';
+        statusBox.innerHTML = `⚠️ GitHub returned HTTP ${res.status}. Check repository name & branch.`;
+      }
+    }
+  } catch (err) {
+    if (statusBox) {
+      statusBox.style.background = 'rgba(239, 68, 68, 0.15)';
+      statusBox.style.border = '1px solid #ef4444';
+      statusBox.style.color = '#ef4444';
+      statusBox.innerHTML = `❌ Connection Error: ${err.message}`;
+    }
+  }
+};
+
+window.downloadPortfolioDataFile = function() {
+  const cleanData = currentStudioData || PORTFOLIO_DATA;
+  cleanData.dataVersion = 'export_' + Date.now();
+  const fileContent = `/**
+ * PORTFOLIO DATA SOURCE
+ * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
+ * Exported from Visual Studio Editor
+ * Date: ${new Date().toISOString()}
+ */
+
+const PORTFOLIO_DATA = ${JSON.stringify(cleanData, null, 2)};
+`;
+  const blob = new Blob([fileContent], { type: 'application/javascript;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'portfolio-data.js';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  if (typeof showStudioToast === 'function') {
+    showStudioToast('✓ Downloaded portfolio-data.js (Replace in scripts/ to publish)');
   }
 };

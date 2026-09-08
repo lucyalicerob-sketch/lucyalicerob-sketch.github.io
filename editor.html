@@ -2470,8 +2470,9 @@
         <input type="password" id="ghTokenInput" class="studio-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="font-family: var(--font-mono); font-size: 0.85rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
           <span style="font-size: 0.72rem; color: var(--text-muted);">Need a token? Takes 20 seconds:</span>
-          <a href="https://github.com/settings/tokens/new?scopes=repo&description=Lucy+Portfolio+Editor" target="_blank" style="font-size: 0.75rem; color: var(--park-copper); font-weight: 700; text-decoration: none;">➕ Generate Token on GitHub ↗</a>
+          <a href="https://github.com/settings/tokens/new?scopes=repo&description=Lucy+Portfolio+Editor" target="_blank" style="font-size: 0.75rem; color: var(--park-copper); font-weight: 700; text-decoration: none;">➕ Generate Classic Token on GitHub ↗</a>
         </div>
+        <div id="ghTestStatusBox" style="display: none; margin-top: 10px; padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; line-height: 1.4;"></div>
       </div>
 
       <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 12px; margin-bottom: 20px;">
@@ -2485,9 +2486,13 @@
         </div>
       </div>
 
-      <div style="display: flex; gap: 10px; justify-content: flex-end;">
-        <button type="button" class="btn btn-secondary" onclick="closeGitHubSyncModal()">Cancel</button>
-        <button type="button" class="btn btn-primary" onclick="saveGitHubConfig(document.getElementById('ghTokenInput').value, document.getElementById('ghRepoInput').value, document.getElementById('ghBranchInput').value); closeGitHubSyncModal(); commitToGitHub();">⚡ Connect &amp; Push to GitHub</button>
+      <div style="display: flex; gap: 8px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="testGitHubTokenConnection()" style="font-size: 0.78rem;">🧪 Test Connection</button>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="downloadPortfolioDataFile()" style="font-size: 0.78rem;" title="Download portfolio-data.js directly without token">💾 Export File</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeGitHubSyncModal()">Cancel</button>
+          <button type="button" class="btn btn-primary btn-sm" onclick="saveGitHubConfig(document.getElementById('ghTokenInput').value, document.getElementById('ghRepoInput').value, document.getElementById('ghBranchInput').value); closeGitHubSyncModal(); commitToGitHub();">⚡ Connect &amp; Push</button>
+        </div>
       </div>
     </div>
   </div>
