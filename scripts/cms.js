@@ -1,3 +1,14 @@
+function escapeHTML(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+window.escapeHTML = escapeHTML;
+
 
 function sanitizeProfileData(prof) {
   if (!prof) return;
@@ -72,7 +83,7 @@ function getActivePasskey() {
 
 // Check session authentication status
 function isStudioAuthenticated() {
-  return sessionStorage.getItem(AUTH_SESSION_KEY) === 'true';
+  return sessionStorage.getItem(AUTH_SESSION_KEY) === 'true' || localStorage.getItem(AUTH_SESSION_KEY) === 'true';
 }
 
 function getAuthenticatedGoogleUser() {
@@ -86,8 +97,11 @@ function getAuthenticatedGoogleUser() {
 function authenticateStudio(key) {
   if (key === getActivePasskey()) {
     sessionStorage.setItem(AUTH_SESSION_KEY, 'true');
+    localStorage.setItem(AUTH_SESSION_KEY, 'true');
     return true;
   }
+  return false;
+}
   return false;
 }
 
