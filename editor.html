@@ -169,7 +169,7 @@
   <!-- ========================================================================
        LOCK SCREEN (SHOWN WHEN NOT AUTHENTICATED)
        ======================================================================== -->
-  <div id="studioLockScreen" class="lock-screen-container" style="display: none;">
+  <div id="studioLockScreen" class="lock-screen-container">
     <div class="lock-card">
       <div style="font-size: 2.8rem; margin-bottom: 12px;">🔐</div>
       <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Collaborator Studio Login</h2>
@@ -276,8 +276,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260908_v13_editor_fix"></script>
-  <script src="scripts/cms.js?v=20260908_v13_editor_fix"></script>
+  <script src="scripts/portfolio-data.js?v=20260908_v14_editor_bulletproof"></script>
+  <script src="scripts/cms.js?v=20260908_v14_editor_bulletproof"></script>
   <script>
     function escapeHTML(str) {
   if (!str) return '';
@@ -2459,6 +2459,11 @@ window.escapeHTML = escapeHTML;
       window.updateCodeEmbedPreview();
     };
 
+  
+    window.saveProjectItemChanges = typeof saveProjectItemChanges === 'function' ? saveProjectItemChanges : null;
+    window.saveDiaryItemChanges = typeof saveDiaryItemChanges === 'function' ? saveDiaryItemChanges : null;
+    window.saveAllStudioChanges = typeof saveAllStudioChanges === 'function' ? saveAllStudioChanges : null;
+
   </script>
 
   <!-- ========================================================================
@@ -2514,9 +2519,3 @@ window.escapeHTML = escapeHTML;
 
 </body>
 </html>
-
-<script>
-  window.saveProjectItemChanges = saveProjectItemChanges;
-  window.saveDiaryItemChanges = saveDiaryItemChanges;
-  window.saveAllStudioChanges = saveAllStudioChanges;
-</script>
