@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T11:09:06.130Z
+ * Updated: 20260912_v34_no_update_popups
  */
 
 const PORTFOLIO_DATA = {
@@ -11,7 +11,7 @@ const PORTFOLIO_DATA = {
     "preferredName": "Lucy",
     "role": "Mechanical Engineering Student (MEng) :",
     "tagline": "A Mechanical Engineering student and Royal Academy Scholar with a passion for ride engineering and design!",
-    "subtagline": "RAEng ELS Scholar • Mechanical Engineering at University of Sheffield • Summer Intern at TfL DLR",
+    "subtagline": "RAEng ELS Scholar \u2022 Mechanical Engineering at University of Sheffield \u2022 Summer Intern at TfL DLR",
     "currentStatus": {
       "active": true,
       "role": "Mechanical Engineering Summer Intern",
@@ -21,7 +21,7 @@ const PORTFOLIO_DATA = {
     },
     "personalStory": {
       "headline": "Hooked on the mechanics of making you feel.",
-      "bioParagraph1": "Hi, I'm Lucy! Ever since I rode my first coaster, I’ve been fascinated by what’s happening behind the scenes! How wheel bogies articulate around banked curves, how switch tracks lock in split seconds, and how mechanical fail-safes guarantee safety without interrupting the thrill. Rollercoasters are my safe space. When I am on a ride I feel free and they make me buzz with excitement and adrenaline , my dream would be to share that feeling with as many people as possible in the only way I know how: storytelling through engineering!",
+      "bioParagraph1": "Hi, I'm Lucy! Ever since I rode my first coaster, I\u2019ve been fascinated by what\u2019s happening behind the scenes! How wheel bogies articulate around banked curves, how switch tracks lock in split seconds, and how mechanical fail-safes guarantee safety without interrupting the thrill. Rollercoasters are my safe space. When I am on a ride I feel free and they make me buzz with excitement and adrenaline , my dream would be to share that feeling with as many people as possible in the only way I know how: storytelling through engineering!",
       "bioParagraph2": "I'm entering my 3rd year studying Mechanical Engineering (MEng) at the University of Sheffield, where I have achieved 1st Class Honours across both Year 1 and Year 2. I love the physical, hands-on side of engineering: opening SolidWorks or Fusion 360, running the maths on bearing loads and linkages, and heading straight to my piles of carboard to start modelling right away. But I also long how an engineering project can impact people around it, and make them feel a particular way or tell them a particular story.",
       "bioParagraph3": "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering. "
     },
@@ -90,7 +90,7 @@ const PORTFOLIO_DATA = {
           "park": "Europa-Park",
           "manufacturer": "Mack Rides",
           "type": "Stryker Coaster",
-          "elements": "105° Beyond-Vertical Launch, 7 Inversions",
+          "elements": "105\u00b0 Beyond-Vertical Launch, 7 Inversions",
           "engNote": "Multi-axis turntable switch track, 4 LSM launch zones, and articulating chassis bogies with dynamic brake monitoring."
         },
         {
@@ -130,7 +130,7 @@ const PORTFOLIO_DATA = {
           "park": "Europa-Park",
           "manufacturer": "Mack Rides",
           "type": "Spinning Coaster",
-          "elements": "Trommel Drum Spiral Lift, 360° Rotations",
+          "elements": "Trommel Drum Spiral Lift, 360\u00b0 Rotations",
           "engNote": "Central spiral lift drum mechanism with powered yaw indexing transitioning to gravity-induced spinning."
         },
         {
@@ -146,7 +146,7 @@ const PORTFOLIO_DATA = {
           "park": "Disneyland Paris",
           "manufacturer": "Vekoma",
           "type": "Launched Custom Looper",
-          "elements": "32° Catapult Launch, Tongue Inversion",
+          "elements": "32\u00b0 Catapult Launch, Tongue Inversion",
           "engNote": "Linear pusher catapult uphill launch into enclosed acoustic dome; synchronized onboard multi-channel audio transducer system."
         },
         {
@@ -178,8 +178,8 @@ const PORTFOLIO_DATA = {
           "park": "Phantasialand",
           "manufacturer": "Vekoma",
           "type": "Flying Launch Coaster",
-          "elements": "Dual LSM Flying Launch, 360° Inline Rolls",
-          "engNote": "Patented 90° rotating chassis seats transition riders from sideways load station to prone aerodynamic flight position."
+          "elements": "Dual LSM Flying Launch, 360\u00b0 Inline Rolls",
+          "engNote": "Patented 90\u00b0 rotating chassis seats transition riders from sideways load station to prone aerodynamic flight position."
         },
         {
           "name": "Black Mamba",
@@ -202,7 +202,7 @@ const PORTFOLIO_DATA = {
           "park": "Alton Towers",
           "manufacturer": "B&M",
           "type": "Dive Coaster",
-          "elements": "180 ft 87° Drop into Underground Tunnel",
+          "elements": "180 ft 87\u00b0 Drop into Underground Tunnel",
           "engNote": "Holding brake mechanism with pneumatic caliper lock before drop; dual-row wide train chassis with heavy upstop clamping."
         },
         {
@@ -219,7 +219,7 @@ const PORTFOLIO_DATA = {
           "manufacturer": "B&M",
           "type": "Flying Coaster",
           "elements": "Lie-Flat Lift, Fly-to-Lie, Inline Twist",
-          "engNote": "Dual-pivot vest restraint mechanism tilting riders 90° into prone position with dual mechanical locking pins."
+          "engNote": "Dual-pivot vest restraint mechanism tilting riders 90\u00b0 into prone position with dual mechanical locking pins."
         },
         {
           "name": "Th13teen",
@@ -234,7 +234,7 @@ const PORTFOLIO_DATA = {
           "park": "Blackpool Pleasure Beach",
           "manufacturer": "Arrow Dynamics",
           "type": "Hyper Coaster (213 ft)",
-          "elements": "65° First Drop, High-Speed Coastal Turnaround",
+          "elements": "65\u00b0 First Drop, High-Speed Coastal Turnaround",
           "engNote": "Classic tubular steel rail with fabricated tubular lattice supports engineered for severe Irish Sea coastal wind loads."
         },
         {
@@ -284,7 +284,7 @@ const PORTFOLIO_DATA = {
       },
       {
         "title": "Engineering for Real People",
-        "desc": "Whether it’s an articulated coaster train or an assistive device, good mechanical design makes complex motion feel effortless, safe, and comfortable."
+        "desc": "Whether it\u2019s an articulated coaster train or an assistive device, good mechanical design makes complex motion feel effortless, safe, and comfortable."
       }
     ],
     "recruiterBrief": {
@@ -312,7 +312,7 @@ const PORTFOLIO_DATA = {
     "title": "",
     "email": "",
     "phone": "",
-    "bio": "RAEng ELS Scholar • Mechanical Engineering at University of Sheffield • Summer Intern at TfL DLR ",
+    "bio": "RAEng ELS Scholar \u2022 Mechanical Engineering at University of Sheffield \u2022 Summer Intern at TfL DLR ",
     "storyHeadline": "Who am I?",
     "story": [],
     "education": {
@@ -333,21 +333,26 @@ const PORTFOLIO_DATA = {
       "award": ""
     },
     "statusPillText": "ACTIVE // Summer Intern @ TfL DLR",
-    "footerCopy": "© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
+    "footerCopy": "\u00a9 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
     "heroSpotlight": {
       "itemId": "trackless-vehicle",
       "customBadge": "Highlight",
       "customMeta": "Solidworks"
     },
     "aboutPhoto": "assets/images/user-photos/PXL_20240113_124440168_4.jpg",
-    "aboutLocationTag": "📍 Disneyland Paris",
+    "aboutLocationTag": "\ud83d\udccd Disneyland Paris",
     "aboutCardBadge": "About Me",
     "cvUrl": "assets/documents/Lucy_Robinson_CV.pdf",
     "cvFileName": "assets/documents/Lucy_Robinson_CV.pdf",
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
-    }
+    },
+    "highlights": [
+      "\ud83c\udf93 1st Class Honours across Year 1 and Year 2.",
+      "\ud83d\ude86 Summer Intern @ Transport for London (TfL DLR).",
+      "\ud83c\udfc6 Engineering Leaders Scholar @ Royal Academy of Engineering"
+    ]
   },
   "skills": {
     "cadModeling": [
@@ -409,7 +414,7 @@ const PORTFOLIO_DATA = {
         "Motion Analysis",
         "Simulation-FEA"
       ],
-      "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155235.png",
+      "coverImage": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
       "cadGallery": [
         {
           "title": "The Smugglers Mine Train Articulated Bogie Assembly",
@@ -463,15 +468,13 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Smugglers Mine Train Bogie CAD",
-              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
             }
           ],
           "cad": [
             {
               "title": "Bogie Assembly Drawing",
-              "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png"
             }
           ],
           "calcs": [],
@@ -479,8 +482,7 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Smugglers Mine Train Kinematic Review",
-              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
             }
           ]
         }
@@ -500,7 +502,7 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155035.png",
+      "coverImage": "assets/images/real-cad/time_machine_turntable_cad.png",
       "cadGallery": [
         {
           "title": "Time Machine Rotary Track Switch & Turntable Mechanism",
@@ -515,7 +517,7 @@ const PORTFOLIO_DATA = {
         },
         {
           "label": "Indexing Accuracy",
-          "value": "±0.5 mm Alignment"
+          "value": "\u00b10.5 mm Alignment"
         },
         {
           "label": "Locking System",
@@ -527,10 +529,10 @@ const PORTFOLIO_DATA = {
         }
       ],
       "article": {
-        "problemStatement": "You enter a normal looking room but slowly your vehicles descend into a dark space, lights begin to flash and you notice you are rotating. You breathe a sigh of relieve as you are lifted out again, but you realise something has changed! You are no longer in present day, you have traveled into the future!\n\nIn themed dark rides and roller coasters, turntables and switch tracks are used for dual-loading stations, drop-track sequences, and vehicle redirection without interrupting continuous dispatch block flow.  But they can also be used as elements which help to progress the story telling of the ride. The challenge of this build is achieving rapid 90°/180° rotation with rigid structural locking that can withstand dynamic vehicle transfer loads and maintaining a fun rider experience. \n\nWith this mechanism there are lots of elements that must be considered to maintain a safe environment for the riders and to project the infrastructure. One of these being the safety envelope around the ride vehicle which makes sure no mechanical or dangerous components come too close to passengers. another safety-critical system is the pneumatic shot pins which keep the track perfectly aligned when a rotation has happened.",
-        "cadArchitecture": "Currently modelling the complete mechanical assembly in SolidWorks:\n\n• **Slewing Ring & Base:** Incorporates an external gear slewing ring bearing mounted to a stiff fabricated base frame.\n• **Drive Mechanism:** Electric motor with planetary gearbox driving a high-torque pinion gear directly engaging the slewing ring teeth.\n• **Tapered Shot-Pin Interlock:** Dual pneumatic shot-pins with hardened tool-steel tapered locating bushings to physically lock the turntable in position before track continuity signals are sent to the ride control system.",
-        "calcsAndSimulation": "• **Rotational Mass Moment of Inertia:** Calculated total rotational inertia of the loaded turntable platform to determine required acceleration torque and decelerating braking torque.\n• **Shot-Pin Shear Sizing:** Sized locking pin diameter under dynamic vehicle entry impact load, applying safety factor FOS > 4.0.\n• **Supplementary Python Sizing Script:** Created a parameter script to test various motor gearbox reduction ratios (30:1 to 100:1) to balance rotation speed with motor thermal duty cycle.",
-        "prototypingAndTesting": "• Currently modelling 3D printed mechanical indexing prototype to test mechanical limit switch engagement and locking pin geometry.\n• Planning test sequence to evaluate shot-pin engagement repeatability and backlash under simulated side loads.",
+        "problemStatement": "You enter a normal looking room but slowly your vehicles descend into a dark space, lights begin to flash and you notice you are rotating. You breathe a sigh of relieve as you are lifted out again, but you realise something has changed! You are no longer in present day, you have traveled into the future!\n\nIn themed dark rides and roller coasters, turntables and switch tracks are used for dual-loading stations, drop-track sequences, and vehicle redirection without interrupting continuous dispatch block flow.  But they can also be used as elements which help to progress the story telling of the ride. The challenge of this build is achieving rapid 90\u00b0/180\u00b0 rotation with rigid structural locking that can withstand dynamic vehicle transfer loads and maintaining a fun rider experience. \n\nWith this mechanism there are lots of elements that must be considered to maintain a safe environment for the riders and to project the infrastructure. One of these being the safety envelope around the ride vehicle which makes sure no mechanical or dangerous components come too close to passengers. another safety-critical system is the pneumatic shot pins which keep the track perfectly aligned when a rotation has happened.",
+        "cadArchitecture": "Currently modelling the complete mechanical assembly in SolidWorks:\n\n\u2022 **Slewing Ring & Base:** Incorporates an external gear slewing ring bearing mounted to a stiff fabricated base frame.\n\u2022 **Drive Mechanism:** Electric motor with planetary gearbox driving a high-torque pinion gear directly engaging the slewing ring teeth.\n\u2022 **Tapered Shot-Pin Interlock:** Dual pneumatic shot-pins with hardened tool-steel tapered locating bushings to physically lock the turntable in position before track continuity signals are sent to the ride control system.",
+        "calcsAndSimulation": "\u2022 **Rotational Mass Moment of Inertia:** Calculated total rotational inertia of the loaded turntable platform to determine required acceleration torque and decelerating braking torque.\n\u2022 **Shot-Pin Shear Sizing:** Sized locking pin diameter under dynamic vehicle entry impact load, applying safety factor FOS > 4.0.\n\u2022 **Supplementary Python Sizing Script:** Created a parameter script to test various motor gearbox reduction ratios (30:1 to 100:1) to balance rotation speed with motor thermal duty cycle.",
+        "prototypingAndTesting": "\u2022 Currently modelling 3D printed mechanical indexing prototype to test mechanical limit switch engagement and locking pin geometry.\n\u2022 Planning test sequence to evaluate shot-pin engagement repeatability and backlash under simulated side loads.",
         "takeaways": "Working on this active build has bridged mechanical component sizing with system safety logic (why hardware interlocks must always mechanically prevent motion before software allows dispatch).",
         "tabTitles": {
           "problem": "1. The Goal ",
@@ -550,8 +552,7 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Time Machine Turntable CAD",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
             }
           ],
           "cad": [],
@@ -560,8 +561,7 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Rotary Track Switch Assembly",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
             }
           ]
         }
@@ -580,7 +580,7 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155149.png",
+      "coverImage": "assets/images/real-cad/smoke_starlight_agv_cad.png",
       "cadGallery": [
         {
           "title": "Smoke & Starlight Autonomous Guided Vehicle (AGV) 3D Chassis",
@@ -613,9 +613,9 @@ const PORTFOLIO_DATA = {
       "article": {
         "problemStatement": "Ever wanted to explore space through the eyes of a steampunk inventor? In this ride you can! Explore the libraries, get flung around black holes and maybe meet a few new friends along the way. This omnidirectional trackless dark ride takes you into the observatory of Professor Elizabeth Starling, who is known for her creativity not her technical skills, and explores what happens when astronomical inventions start to go wrong. I'm sure it'll be fine.\n\n\nModern dark ride attractions (like Rise of the Resistance or Ratatouille) rely on trackless vehicles that can spin, slide, and navigate without a visible floor track. I wanted to challenge myself to design an AGV chassis from scratch that could handle smooth translation and zero-radius pivot turns while keeping all heavy electronics low to the floor for stability. The main focus of this project for me was the wheel pods, I wanted to learn how they work and have a go at writing some code which could control them.\n\nAs with all rides there are constraints to the movements of the vehicle and paths in rooms need to be mapped carefully, this is something I have attempted for the black hole room which will be featured in a different tab. This helped me to learn about the safety envelopes around a vehicle as it travels and to explore mapping a room in python script.\n\nAs with all of my designs, I wanted the mechanisms to be cohesive with the emotional storytelling of the ride.",
         "cadArchitecture": "The wheel module is constructed with a mixture of sourced parts and parts I have designed myself. For this model, I wanted to practice assembling the pod and figuring out which parts go together to make the system work. Therefore, designing every element from scratch was not my priority.\n\nThe parts I modelled myself were the yoke and the brackets which connect the yoke to the slewing bearing. The slewing bearing, wheel an gears were all sourced components.\n\nI modelled the full chassis in SolidWorks as simple shapes to form panels and boxes. As part of the overall assembly, I included a lap bar restraint and a seat configuration which seats 2 people and provides ample leg room ( a fact which I had not initially considered but later realised was an issue). The seat itself sits a slight recline as this is more comfortable for riders rather being sat vertically upright. Other than these operational features and boxes which bloc out space for control systems and batteries, the design is much more aesthetic than practical.\n",
-        "calcsAndSimulation": "I wanted to use this project as a chance to expand my knowledge of python as a programming language so I created a simple script which controls a wheel in two scenarios. One if a slow forward movement and the other is a vehicle rotation. I then linked them together to create a forward-to-spin transition.\n\n• **Simple Wheel Control:**\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom fontTools.misc.cython import returns\n\nLX = 0.525\nLY = 0.575\nWHEEL_RADIUS = 0.080\n\npod_positions = {\n    \"Front_Left\": [LX, LY],\n    \"Front_Right\": [LX, -LY],\n    \"Rear_Left\": [-LX, LY],\n    \"Rear_Right\": [-LX, -LY]\n}\n\ndef calculate_swerve_kinematics (Vx, Vy, omega):\n    results = {}\n    for name, pos in pod_positions.items():\n        x_i = pos[0]\n        y_i = pos[1]\n\n        v_pod_x = Vx - (omega * y_i)\n        v_pod_y = Vy + (omega * x_i)\n\n        target_velocity = np.sqrt(v_pod_x ** 2 + v_pod_y ** 2)\n        target_angle_rad = np.arctan2(v_pod_y, v_pod_x)\n\n        motor_rpm = (target_velocity / WHEEL_RADIUS) * (60.0 / 2.0 * np.pi)\n\n        results[name] = {\n            \"speed_mps\" : target_velocity,\n            \"steer_drag\" : np.degrees(target_angle_rad),\n            \"motor_rpm\" : motor_rpm\n        }\n\n    return results\n\n\n\n\nprint(\"Scenario 1: Pure Forward (Vx=1.5 m/s) \")\nscen_1 = calculate_swerve_kinematics(Vx=1.5, Vy=0, omega=0)\nfor pod, data in scen_1.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\nprint(\"Scenario 2: Spin-on-the-Spot (omega=1.0 rad/s) \")\nscen_2 = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\nfor pod, data in scen_2.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\n\ntime_array = np.linspace(0, 5, 100)\nfl_angles = []\n\nfor t in time_array:\n    if t < 2.0:\n        frame = calculate_swerve_kinematics(Vx=1, Vy=0, omega=0)\n    else:\n        frame = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\n    fl_angles.append(frame[\"Front_Left\"][\"steer_drag\"])\n\nplt.figure(figsize = (8.0,4.0))\nplt.plot(time_array, fl_angles, label=\"Front Left Pod Angle\", color=\"red\", linewidth=2.0)\nplt.title(\"AGV Steering Actuation Profile: Forward-to-Spin Transition\")\nplt.xlabel(\"Time (s)\")\nplt.ylabel(\"Steering Target Angle (Degrees)\")\nplt.grid(True, linestyle = \"--\", alpha = 0.6)\nplt.legend()\nplt.show()\n```",
+        "calcsAndSimulation": "I wanted to use this project as a chance to expand my knowledge of python as a programming language so I created a simple script which controls a wheel in two scenarios. One if a slow forward movement and the other is a vehicle rotation. I then linked them together to create a forward-to-spin transition.\n\n\u2022 **Simple Wheel Control:**\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom fontTools.misc.cython import returns\n\nLX = 0.525\nLY = 0.575\nWHEEL_RADIUS = 0.080\n\npod_positions = {\n    \"Front_Left\": [LX, LY],\n    \"Front_Right\": [LX, -LY],\n    \"Rear_Left\": [-LX, LY],\n    \"Rear_Right\": [-LX, -LY]\n}\n\ndef calculate_swerve_kinematics (Vx, Vy, omega):\n    results = {}\n    for name, pos in pod_positions.items():\n        x_i = pos[0]\n        y_i = pos[1]\n\n        v_pod_x = Vx - (omega * y_i)\n        v_pod_y = Vy + (omega * x_i)\n\n        target_velocity = np.sqrt(v_pod_x ** 2 + v_pod_y ** 2)\n        target_angle_rad = np.arctan2(v_pod_y, v_pod_x)\n\n        motor_rpm = (target_velocity / WHEEL_RADIUS) * (60.0 / 2.0 * np.pi)\n\n        results[name] = {\n            \"speed_mps\" : target_velocity,\n            \"steer_drag\" : np.degrees(target_angle_rad),\n            \"motor_rpm\" : motor_rpm\n        }\n\n    return results\n\n\n\n\nprint(\"Scenario 1: Pure Forward (Vx=1.5 m/s) \")\nscen_1 = calculate_swerve_kinematics(Vx=1.5, Vy=0, omega=0)\nfor pod, data in scen_1.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\nprint(\"Scenario 2: Spin-on-the-Spot (omega=1.0 rad/s) \")\nscen_2 = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\nfor pod, data in scen_2.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\n\ntime_array = np.linspace(0, 5, 100)\nfl_angles = []\n\nfor t in time_array:\n    if t < 2.0:\n        frame = calculate_swerve_kinematics(Vx=1, Vy=0, omega=0)\n    else:\n        frame = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\n    fl_angles.append(frame[\"Front_Left\"][\"steer_drag\"])\n\nplt.figure(figsize = (8.0,4.0))\nplt.plot(time_array, fl_angles, label=\"Front Left Pod Angle\", color=\"red\", linewidth=2.0)\nplt.title(\"AGV Steering Actuation Profile: Forward-to-Spin Transition\")\nplt.xlabel(\"Time (s)\")\nplt.ylabel(\"Steering Target Angle (Degrees)\")\nplt.grid(True, linestyle = \"--\", alpha = 0.6)\nplt.legend()\nplt.show()\n```",
         "prototypingAndTesting": "One of the story elements I wanted to include was a room where Professor Starling has created what she thinks is a secure black hole containment facility. However, the black hole is not secure and starts to cause the vehicles to orbit it slowly easing towards the centre before being thrust out of the room through 3 different exits.\n\nI modelled this room in python with a few variations. Because this was a task about envelopes and mapping the route the vehicle would take I simulated a room with only one exit where the vehicle circles the hole then accelerates out.\n\n",
-        "takeaways": "This project taught me so much about spatial packaging in mechatronic systems — especially how early mathematical modelling in Python directly prevents headaches when sizing motors in CAD.",
+        "takeaways": "This project taught me so much about spatial packaging in mechatronic systems \u2014 especially how early mathematical modelling in Python directly prevents headaches when sizing motors in CAD.",
         "tabTitles": {
           "problem": "1. The Goal",
           "cad": "2. CAD Architecture",
@@ -634,15 +634,13 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Smoke & Starlight AGV CAD",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
             }
           ],
           "cad": [
             {
               "title": "Swerve Pod Assembly",
-              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
             }
           ],
           "calcs": [],
@@ -650,8 +648,7 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Omnidirectional AGV Chassis",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
-              "caption": ""
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
             }
           ]
         }
@@ -755,10 +752,10 @@ const PORTFOLIO_DATA = {
             }
           ]
         },
-        "problemStatement": "**1st Year University Design Task**\nThis was an individual Year 1 Mechanical Engineering project at the University of Sheffield. The objective was to develop an assistive mechanical reaching tool designed to help users pick up objects with minimal hand effort.\n\nThe project brief challenged us to take a set of standard mechanical base components, assemble them into a working CAD model, and design our own custom gripper mechanism. The goal was to bridge the gap between digital 3D CAD modeling, physical manufacturing, and practical mechanical testing — taking a design from initial CAD mates all the way to a physical working prototype.",
+        "problemStatement": "**1st Year University Design Task**\nThis was an individual Year 1 Mechanical Engineering project at the University of Sheffield. The objective was to develop an assistive mechanical reaching tool designed to help users pick up objects with minimal hand effort.\n\nThe project brief challenged us to take a set of standard mechanical base components, assemble them into a working CAD model, and design our own custom gripper mechanism. The goal was to bridge the gap between digital 3D CAD modeling, physical manufacturing, and practical mechanical testing \u2014 taking a design from initial CAD mates all the way to a physical working prototype.",
         "cadArchitecture": "**CAD Assembly & Custom Gripper Design**\nWorking in SolidWorks, I assembled the base reaching aid subassemblies from the provided standard component parts, establishing accurate mechanical mates to ensure realistic linear and rotational movement through the linkages.\n\nBeyond assembling the standard components, I personally designed the **custom gripper jaw mechanism**. Key design considerations included:\n* **Linkage Kinematics:** Sizing the pivot pin positions and lever arms to maximize mechanical advantage so a gentle squeeze on the handle creates sufficient gripping force at the jaws.\n* **Gripper Geometry:** Shaping the jaw profile to securely hold objects of varying sizes and diameters without slipping.\n* **BS 8888 2D Drawing Package:** Created complete engineering drawings with standard projections, section views, tolerances, and dimensional callouts following BS 8888 guidelines.",
         "calcsAndSimulation": "**Force Transfer & Stress Visualization**\nTo ensure the gripper could handle intended loads, I analyzed the mechanical advantage through the trigger-to-jaw linkage:\n* **Mechanical Advantage:** Evaluated the lever ratios across the four-bar linkage so the input pull force from the actuation rod translates into a firm closing clamping force at the jaw tips.\n* **Beam Bending & Shear:** Calculated the bending moments ($M/I = \\sigma/y$) acting along the slender extension arm and shear stresses across the pivot pins when supporting a load at full reach.\n* **Stress Concentrations:** Identified high-stress regions around the laser-cut pivot holes and notch radii where tensile and shear stresses peak under load.",
-        "prototypingAndTesting": "**Laser Cut MDF Prototyping & Destructive Workshop Testing**\nTo truly visualize and feel the mechanical forces for ourselves, we manufactured our designs:\n* **Laser Cutting in MDF:** Exported the 2D CAD profiles to laser cut the gripper jaws, linkages, and frame components from MDF sheet.\n* **Hands-on Assembly:** Built and assembled the physical prototype by hand, checking pivot fits, friction, and smooth mechanical motion through the actuation rod.\n* **Workshop Limit Testing (Testing to Failure):** In the university engineering workshop, technicians and instructors put our physical prototypes under test rigs and pushed them to their absolute structural limits. By applying progressively higher loads until the mechanism broke, we were able to directly observe in person how and where the material failed — seeing real-world shear tear-out at the pin holes and bending fracture in the MDF arms.",
+        "prototypingAndTesting": "**Laser Cut MDF Prototyping & Destructive Workshop Testing**\nTo truly visualize and feel the mechanical forces for ourselves, we manufactured our designs:\n* **Laser Cutting in MDF:** Exported the 2D CAD profiles to laser cut the gripper jaws, linkages, and frame components from MDF sheet.\n* **Hands-on Assembly:** Built and assembled the physical prototype by hand, checking pivot fits, friction, and smooth mechanical motion through the actuation rod.\n* **Workshop Limit Testing (Testing to Failure):** In the university engineering workshop, technicians and instructors put our physical prototypes under test rigs and pushed them to their absolute structural limits. By applying progressively higher loads until the mechanism broke, we were able to directly observe in person how and where the material failed \u2014 seeing real-world shear tear-out at the pin holes and bending fracture in the MDF arms.",
         "takeaways": "**What I Learned & Real-World Takeaways**\nPhysically building and breaking our designs was an incredible learning experience that went far beyond pure computer simulation:\n1. **Seeing Failure in Person:** Watching the MDF prototype fail under extreme load in the workshop gave me a deep, practical intuition for stress concentrations, notch sensitivity, and why hole edge margins matter in mechanical design.\n2. **CAD vs. Physical Reality:** It demonstrated firsthand how manufacturing tolerances, pin friction, and material stiffness affect real-world mechanism performance compared to theoretical CAD models.\n3. **Foundation for Mechanism Design:** This project formed a strong foundation for my later, more complex ride mechanism designs (such as coaster bogies and turntable switch tracks) where understanding physical load paths and failure modes is essential for passenger safety."
       }
     },
@@ -811,8 +808,8 @@ const PORTFOLIO_DATA = {
       "article": {
         "problemStatement": "Rapid passenger train door cycling causes high impact stresses on door pocket linkages and pneumatic actuators. The objective was to design a compact, retrofit energy absorber.",
         "cadArchitecture": "Modelled a progressive dual-chamber pneumatic cushion with internal metering needle in SolidWorks.",
-        "calcsAndSimulation": "• Calculated door kinetic energy at impact ($E_k = \\frac{1}{2} m v^2$) and sized orifice flow area for smooth constant-deceleration damping.",
-        "prototypingAndTesting": "• Verified mounting geometry against rolling stock door frame CAD data.",
+        "calcsAndSimulation": "\u2022 Calculated door kinetic energy at impact ($E_k = \\frac{1}{2} m v^2$) and sized orifice flow area for smooth constant-deceleration damping.",
+        "prototypingAndTesting": "\u2022 Verified mounting geometry against rolling stock door frame CAD data.",
         "takeaways": "Strengthened my understanding of dynamic damping, fatigue mitigation, and rolling stock maintenance design."
       }
     },
@@ -870,8 +867,8 @@ const PORTFOLIO_DATA = {
       "article": {
         "problemStatement": "Heritage rail and transit stations often present significant step-free accessibility barriers where traditional civil ramps cannot fit. The design goal was to engineer a compact, high-reliability electro-mechanical scissor lift that folds flush with the platform edge.",
         "cadArchitecture": "Modelled full 3D CAD assemblies including welded base frame, dual scissor linkage arms, synchronized ball-screw actuator, and safety edge pressure sensors.",
-        "calcsAndSimulation": "• Calculated instantaneous actuation force throughout the scissor lift extension stroke ($F = W / (2 \tan \theta)$).\n• Performed pin shear stress and beam deflection checks in SolidWorks Simulation.",
-        "prototypingAndTesting": "• Verified kinematic folding envelope to guarantee zero gauge clearance infringement on passing trains.",
+        "calcsAndSimulation": "\u2022 Calculated instantaneous actuation force throughout the scissor lift extension stroke ($F = W / (2 \tan \theta)$).\n\u2022 Performed pin shear stress and beam deflection checks in SolidWorks Simulation.",
+        "prototypingAndTesting": "\u2022 Verified kinematic folding envelope to guarantee zero gauge clearance infringement on passing trains.",
         "takeaways": "Gained valuable experience packaging safety-critical mechanisms in tight spatial envelopes with strict accessibility guidelines.",
         "tabTitles": {
           "problem": "1. The Goal & Requirements",
@@ -946,7 +943,7 @@ const PORTFOLIO_DATA = {
       "coverPhoto": "assets/images/gdrive-photos/dlr-route-map.gif",
       "tripPhotos": [],
       "summary": "Comparing safety-critical railway Communications-Based Train Control (CBTC) moving-blocks with fixed-block systems used on roller coasters.",
-      "content": "Signalling is a key system in both theme parks and in large scale transit like the DLR (Docklands Light Railway). There are however key differences between them.\n\n\nFrom my work on the DLR, I learnt about how these vehicles, and most modern railways use moving-block signalling. This means that each moving vehicle is tracked through its journey and creates its own block surrounding it that no other vehicle can enter. This system works incredibly to maintain scheduling of high use routes and to increase the number of units which can be deployed at once. This works by the system continuously tracking every vehicle and calculating safe distances between them to keep separation.\n\n\nRollercoasters on the other hand, use older style fixed block systems. Although they reduce capacity this system is needed for rides that are not continuously controlled. In this system, only one train can enter each fixed area of the track (a block) and another train cannot enter until the block is completely cleared. These blocks are usually set by different areas where a train can be stopped along the layout, for example brake runs or lift hills. Increasing the number of blocks on a layout can be key on popular rides to keep operations smooth and queue times down.\n\n\nEach system is specifically suited to the use case.\n\n\nFor the DLR, capacity is everything, the point of the system is to move large quantities of people from A to B in the shortest possible time. Using moving blocks gives it this capability. More trains per hour is more passengers and better use of existing lines without the need for additional infrastructure. Furthermore, trains are less predictable than rollercoasters. They change weight depending on load they can adhere more or less depending on weather conditions and routes are not fixed within a closed system. These moving blocks allow for higher adaptability in the system.\n\n\nIn rollercoasters, on the other hand, simplicity often means safety. The system of fixed blocks is more suited to this mentality, if you are uncertain at all you have a very wide margin of error to force separation between vehicles. The trains are also more predictable, the route is always the same, the speed is generally the same and the load is set to the number of seats on the ride. They also don’t need the capacity. Most coasters only allow the running of up to 5 trains so is there any point upgrading to a moving block which is far more costly and complex to implement. Another key consideration with these rides is they can’t just stop anywhere; they usually use gravity as a driving force. If you get an error in a location where nothing can be done to stop the motion and accidents happen. Thus, fixed blocks all the way.\n\n\nHopefully this gives a good idea of how different signalling approaches work better\nfor different situations."
+      "content": "Signalling is a key system in both theme parks and in large scale transit like the DLR (Docklands Light Railway). There are however key differences between them.\n\n\nFrom my work on the DLR, I learnt about how these vehicles, and most modern railways use moving-block signalling. This means that each moving vehicle is tracked through its journey and creates its own block surrounding it that no other vehicle can enter. This system works incredibly to maintain scheduling of high use routes and to increase the number of units which can be deployed at once. This works by the system continuously tracking every vehicle and calculating safe distances between them to keep separation.\n\n\nRollercoasters on the other hand, use older style fixed block systems. Although they reduce capacity this system is needed for rides that are not continuously controlled. In this system, only one train can enter each fixed area of the track (a block) and another train cannot enter until the block is completely cleared. These blocks are usually set by different areas where a train can be stopped along the layout, for example brake runs or lift hills. Increasing the number of blocks on a layout can be key on popular rides to keep operations smooth and queue times down.\n\n\nEach system is specifically suited to the use case.\n\n\nFor the DLR, capacity is everything, the point of the system is to move large quantities of people from A to B in the shortest possible time. Using moving blocks gives it this capability. More trains per hour is more passengers and better use of existing lines without the need for additional infrastructure. Furthermore, trains are less predictable than rollercoasters. They change weight depending on load they can adhere more or less depending on weather conditions and routes are not fixed within a closed system. These moving blocks allow for higher adaptability in the system.\n\n\nIn rollercoasters, on the other hand, simplicity often means safety. The system of fixed blocks is more suited to this mentality, if you are uncertain at all you have a very wide margin of error to force separation between vehicles. The trains are also more predictable, the route is always the same, the speed is generally the same and the load is set to the number of seats on the ride. They also don\u2019t need the capacity. Most coasters only allow the running of up to 5 trains so is there any point upgrading to a moving block which is far more costly and complex to implement. Another key consideration with these rides is they can\u2019t just stop anywhere; they usually use gravity as a driving force. If you get an error in a location where nothing can be done to stop the motion and accidents happen. Thus, fixed blocks all the way.\n\n\nHopefully this gives a good idea of how different signalling approaches work better\nfor different situations."
     },
     {
       "id": "diary-1786899334341",
@@ -964,7 +961,7 @@ const PORTFOLIO_DATA = {
   "experience": [
     {
       "role": "Mechanical Engineering Summer Intern",
-      "company": "Transport for London (TfL) — Docklands Light Railway",
+      "company": "Transport for London (TfL) \u2014 Docklands Light Railway",
       "division": "Electrical & Mechanical Engineering",
       "period": "Summer 2026 (June 2026 - Present)",
       "location": "London, UK",
@@ -980,7 +977,7 @@ const PORTFOLIO_DATA = {
     },
     {
       "role": "Sheffield Engineering Leadership & Service Award (SELSA)",
-      "company": "University of Sheffield — Faculty of Engineering",
+      "company": "University of Sheffield \u2014 Faculty of Engineering",
       "division": "Leadership & Professional Development Programme",
       "period": "2025 - Present",
       "location": "Sheffield, UK",
@@ -1165,5 +1162,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789211346130"
+  "dataVersion": "20260912_v34_no_update_popups"
 };
