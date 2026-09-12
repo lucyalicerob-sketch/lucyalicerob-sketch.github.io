@@ -268,17 +268,6 @@ function getWorkingData() {
   return fallback;
 }
 
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
-    try {
-      return JSON.parse(saved);
-    } catch (e) {
-      console.error('Error parsing saved studio data:', e);
-    }
-  }
-  return (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
-}
-
 // Global active working data
 let currentStudioData = getWorkingData();
 window.currentStudioData = currentStudioData;
