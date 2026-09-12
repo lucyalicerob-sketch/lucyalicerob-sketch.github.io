@@ -225,10 +225,11 @@ function renderHeroSpotlight() {
     if (badgeEl) badgeEl.textContent = spotlight.customBadge || proj.badge || "FEATURED SHOWCASE";
     if (metaEl) metaEl.textContent = spotlight.customMeta || proj.timeline || "SolidWorks CAD";
     if (imgEl) {
-      const cover = (proj.cadGallery && proj.cadGallery[0] && proj.cadGallery[0].url) || proj.coverImage;
+      const cover = proj.coverImage || (proj.cadGallery && proj.cadGallery[0] && proj.cadGallery[0].url);
       imgEl.src = formatImageSrc(cover);
       imgEl.alt = proj.title;
       imgEl.setAttribute('referrerpolicy', 'no-referrer');
+      imgEl.onerror = function() { handleImgError(this, cover); };
     }
     if (titleEl) titleEl.textContent = proj.title;
     if (subEl) subEl.textContent = proj.subtitle || proj.category;

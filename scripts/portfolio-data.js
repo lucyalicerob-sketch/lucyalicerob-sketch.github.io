@@ -1219,5 +1219,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260912_v27_lucy_exact_data"
+  "dataVersion": "20260912_v28_spotlight_match"
 };
