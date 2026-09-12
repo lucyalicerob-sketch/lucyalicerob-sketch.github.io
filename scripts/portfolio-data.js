@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T09:51:12.457Z
+ * Updated: 2026-09-12T09:51:42.022Z
  */
 
 const PORTFOLIO_DATA = {
@@ -347,12 +347,7 @@ const PORTFOLIO_DATA = {
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
-    },
-    "highlights": [
-      "🎓 1st Class Honours across Year 1 and Year 2.",
-      "🚆 Summer Intern @ Transport for London (TfL DLR).",
-      "🏆 Engineering Leaders Scholar @ Royal Academy of Engineering"
-    ]
+    }
   },
   "skills": {
     "cadModeling": [
@@ -953,7 +948,7 @@ const PORTFOLIO_DATA = {
       "title": "Roller Coasters vs. Railway Signalling",
       "category": "Safety & Systems",
       "readTime": "5 min read",
-      "coverPhoto": "assets/images/extracted/disneyland_paris_mine_train_trip.jpg",
+      "coverPhoto": "assets/images/gdrive-photos/dlr-route-map.gif",
       "tripPhotos": [],
       "summary": "Comparing safety-critical railway Communications-Based Train Control (CBTC) moving-blocks with fixed-block systems used on roller coasters.",
       "content": "Signalling is a key system in both theme parks and in large scale transit like the DLR (Docklands Light Railway). There are however key differences between them.\n\n\nFrom my work on the DLR, I learnt about how these vehicles, and most modern railways use moving-block signalling. This means that each moving vehicle is tracked through its journey and creates its own block surrounding it that no other vehicle can enter. This system works incredibly to maintain scheduling of high use routes and to increase the number of units which can be deployed at once. This works by the system continuously tracking every vehicle and calculating safe distances between them to keep separation.\n\n\nRollercoasters on the other hand, use older style fixed block systems. Although they reduce capacity this system is needed for rides that are not continuously controlled. In this system, only one train can enter each fixed area of the track (a block) and another train cannot enter until the block is completely cleared. These blocks are usually set by different areas where a train can be stopped along the layout, for example brake runs or lift hills. Increasing the number of blocks on a layout can be key on popular rides to keep operations smooth and queue times down.\n\n\nEach system is specifically suited to the use case.\n\n\nFor the DLR, capacity is everything, the point of the system is to move large quantities of people from A to B in the shortest possible time. Using moving blocks gives it this capability. More trains per hour is more passengers and better use of existing lines without the need for additional infrastructure. Furthermore, trains are less predictable than rollercoasters. They change weight depending on load they can adhere more or less depending on weather conditions and routes are not fixed within a closed system. These moving blocks allow for higher adaptability in the system.\n\n\nIn rollercoasters, on the other hand, simplicity often means safety. The system of fixed blocks is more suited to this mentality, if you are uncertain at all you have a very wide margin of error to force separation between vehicles. The trains are also more predictable, the route is always the same, the speed is generally the same and the load is set to the number of seats on the ride. They also don’t need the capacity. Most coasters only allow the running of up to 5 trains so is there any point upgrading to a moving block which is far more costly and complex to implement. Another key consideration with these rides is they can’t just stop anywhere; they usually use gravity as a driving force. If you get an error in a location where nothing can be done to stop the motion and accidents happen. Thus, fixed blocks all the way.\n\n\nHopefully this gives a good idea of how different signalling approaches work better\nfor different situations."
@@ -1219,5 +1214,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789206672457"
+  "dataVersion": "gh_1789206702022"
 };
