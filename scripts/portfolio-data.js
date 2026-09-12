@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T11:34:23.361Z
+ * Updated: 2026-09-12T11:36:01.783Z
  */
 
 const PORTFOLIO_DATA = {
@@ -330,7 +330,8 @@ const PORTFOLIO_DATA = {
         "MATLAB & Computational Engineering",
         "Robotics"
       ],
-      "award": ""
+      "award": "",
+      "status": "Entering Year 3 in Autumn 2026 (Working at 1st Class)"
     },
     "statusPillText": "ACTIVE // Summer Intern @ TfL DLR",
     "footerCopy": "© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
@@ -963,14 +964,6 @@ const PORTFOLIO_DATA = {
   ],
   "experience": [
     {
-      "role": "Mechanical Engineering Summer Intern",
-      "company": "Transport for London (TfL) — Docklands Light Railway",
-      "division": "Electrical & Mechanical Engineering",
-      "period": "Summer 2026 (June 2026 - Present)",
-      "location": "London, UK",
-      "summary": "Worked on lighting requirements across the network and built a heating and cooling model for a new building renovation. Gained an appreciation for safety systems in buildings."
-    },
-    {
       "role": "Beaver Scout Leader",
       "company": "Scouts",
       "division": "Children",
@@ -993,6 +986,14 @@ const PORTFOLIO_DATA = {
       "period": "2024 - Present",
       "location": "Sheffield, UK",
       "summary": "Achieved 1st Class Honours across both Year 1 and Year 2. Modules such as Solid Mechanics, Dynamics, Design Projects, and Mathematics."
+    },
+    {
+      "role": "Mechanical Engineering Summer Intern",
+      "company": "Transport for London (TfL) — Docklands Light Railway",
+      "division": "Electrical & Mechanical Engineering",
+      "period": "Summer 2026",
+      "location": "London, UK",
+      "summary": "Worked on lighting requirements across the network and built a heating and cooling model for a new building renovation. Gained an appreciation for safety systems in buildings."
     },
     {
       "role": "National Young Ambassador",
@@ -1165,5 +1166,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789212863361"
+  "dataVersion": "gh_1789212961783"
 };
