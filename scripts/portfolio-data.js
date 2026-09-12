@@ -351,7 +351,6 @@ const PORTFOLIO_DATA = {
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
-    }
     },
     "highlights": [
       "🎓 1st Class Honours across Year 1 and Year 2.",
