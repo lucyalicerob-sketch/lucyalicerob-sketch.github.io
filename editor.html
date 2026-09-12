@@ -277,8 +277,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260912_v29_spotlight_perfect"></script>
-  <script src="scripts/cms.js?v=20260912_v29_spotlight_perfect"></script>
+  <script src="scripts/portfolio-data.js?v=20260912_v30_spotlight_synced"></script>
+  <script src="scripts/cms.js?v=20260912_v30_spotlight_synced"></script>
   <script>
     function escapeHTML(str) {
   if (!str) return '';
@@ -599,7 +599,7 @@ window.escapeHTML = escapeHTML;
               <select id="edSpotlightItemId" class="studio-input" style="font-weight: 600;">
                 <optgroup label="🚀 CAD &amp; Engineering Projects">
                   ${([...(d.featuredProjects || []), ...(d.universityProjects || [])]).map(proj => `
-                    <option value="${proj.id}" ${((p.heroSpotlight && p.heroSpotlight.itemId === proj.id) || (!p.heroSpotlight && proj.id === 'reaching-aid-cad')) ? 'selected' : ''}>
+                    <option value="${proj.id}" ${((p.heroSpotlight && p.heroSpotlight.itemId === proj.id) || (!p.heroSpotlight && proj.id === 'trackless-vehicle')) ? 'selected' : ''}>
                       [Project] ${proj.title} (${proj.category})
                     </option>
                   `).join('')}

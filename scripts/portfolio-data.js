@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260912_v29_spotlight_perfect
+ * Updated: 20260912_v30_spotlight_synced
  */
 
 const PORTFOLIO_DATA = {
@@ -1206,5 +1206,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260912_v29_spotlight_perfect"
+  "dataVersion": "20260912_v30_spotlight_synced"
 };

@@ -204,8 +204,8 @@ function renderProfileInfo() {
 
 function renderHeroSpotlight() {
   const p = PORTFOLIO_DATA.profile || {};
-  const spotlight = p.heroSpotlight || { itemId: "reaching-aid-cad", customBadge: "FEATURED CAD DRAWING SET", customMeta: "BS 8888 / GD&T" };
-  const targetId = spotlight.itemId || "reaching-aid-cad";
+  const spotlight = p.heroSpotlight || { itemId: "trackless-vehicle", customBadge: "Highlight", customMeta: "Solidworks" };
+  const targetId = spotlight.itemId || "trackless-vehicle";
 
   const allProjects = [...(PORTFOLIO_DATA.featuredProjects || []), ...(PORTFOLIO_DATA.universityProjects || [])];
   const allDiaries = PORTFOLIO_DATA.diaryEntries || [];
