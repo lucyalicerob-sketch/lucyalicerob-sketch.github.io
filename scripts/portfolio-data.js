@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T10:53:09.274Z
+ * Updated: 2026-09-12T10:53:54.763Z
  */
 
 const PORTFOLIO_DATA = {
@@ -409,7 +409,7 @@ const PORTFOLIO_DATA = {
         "Motion Analysis",
         "Simulation-FEA"
       ],
-      "coverImage": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155235.png",
       "cadGallery": [
         {
           "title": "The Smugglers Mine Train Articulated Bogie Assembly",
@@ -463,13 +463,15 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Smugglers Mine Train Bogie CAD",
-              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
+              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
+              "caption": ""
             }
           ],
           "cad": [
             {
               "title": "Bogie Assembly Drawing",
-              "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png"
+              "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png",
+              "caption": ""
             }
           ],
           "calcs": [],
@@ -477,7 +479,8 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Smugglers Mine Train Kinematic Review",
-              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
+              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png",
+              "caption": ""
             }
           ]
         }
@@ -497,7 +500,7 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "assets/images/real-cad/time_machine_turntable_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155035.png",
       "cadGallery": [
         {
           "title": "Time Machine Rotary Track Switch & Turntable Mechanism",
@@ -547,7 +550,8 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Time Machine Turntable CAD",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
+              "caption": ""
             }
           ],
           "cad": [],
@@ -556,7 +560,8 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Rotary Track Switch Assembly",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
+              "caption": ""
             }
           ]
         }
@@ -575,7 +580,7 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155149.png",
       "cadGallery": [
         {
           "title": "Smoke & Starlight Autonomous Guided Vehicle (AGV) 3D Chassis",
@@ -629,13 +634,15 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Smoke & Starlight AGV CAD",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+              "caption": ""
             }
           ],
           "cad": [
             {
               "title": "Swerve Pod Assembly",
-              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
+              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png",
+              "caption": ""
             }
           ],
           "calcs": [],
@@ -643,7 +650,8 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Omnidirectional AGV Chassis",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+              "caption": ""
             }
           ]
         }
@@ -1208,5 +1216,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789210389274"
+  "dataVersion": "gh_1789210434763"
 };
