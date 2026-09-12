@@ -277,8 +277,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260912_v30_spotlight_synced"></script>
-  <script src="scripts/cms.js?v=20260912_v30_spotlight_synced"></script>
+  <script src="scripts/portfolio-data.js?v=20260912_v31_cleared_media_store"></script>
+  <script src="scripts/cms.js?v=20260912_v31_cleared_media_store"></script>
   <script>
     function escapeHTML(str) {
   if (!str) return '';
@@ -1046,12 +1046,17 @@ window.escapeHTML = escapeHTML;
         container.innerHTML = `
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
             <div>
-              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🖼️ Central Media Store (${assets.length} Assets)</h2>
+              <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin: 0;">🖼️ Central Picture Store (${assets.length} Pictures)</h2>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-                Upload photos from your computer, or browse and copy URLs of all project CAD renders and personal photography.
+                Upload photos from your computer, browse your assets, or copy image URLs directly into projects and field notes.
               </p>
             </div>
-            <div>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              ${assets.length > 0 ? `
+                <button type="button" class="btn btn-secondary btn-sm" onclick="clearPictureStore()" style="color: var(--coaster-red); border-color: rgba(220,53,69,0.35); font-size: 0.82rem;">
+                  🗑️ Clear All Pictures
+                </button>
+              ` : ''}
               <label class="btn btn-primary" style="cursor: pointer; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
                 <span>📤</span> Upload Computer Photo
                 <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, () => { renderActiveSection(); })">
@@ -1059,27 +1064,41 @@ window.escapeHTML = escapeHTML;
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px;">
-            ${assets.map((item, idx) => `
-              <div style="background: var(--bg-surface); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
-                <div style="height: 130px; background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6px;">
-                  <img src="${item.url}" alt="${item.name}" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/images/extracted/image1.png'">
-                </div>
-                <div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; border-top: 1px solid var(--border-light);">
-                  <div>
-                    <div style="font-weight: 700; font-size: 0.82rem; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.name}</div>
-                    <div style="font-size: 0.72rem; color: var(--park-copper); font-family: var(--font-mono); margin-top: 2px;">
-                      ${item.size || 'Local Asset'}
+          ${assets.length === 0 ? `
+            <div style="background: var(--bg-surface); border: 2px dashed var(--border-light); border-radius: var(--radius-lg); padding: 48px 24px; text-align: center; margin-top: 16px;">
+              <div style="font-size: 2.5rem; margin-bottom: 12px; opacity: 0.6;">🖼️</div>
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Picture Store is Empty</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 480px; margin: 0 auto 20px;">
+                All pictures have been cleared. You can upload new photos and CAD screenshots anytime using the button below.
+              </p>
+              <label class="btn btn-primary btn-sm" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                <span>📤</span> Upload Computer Photo
+                <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, () => { renderActiveSection(); })">
+              </label>
+            </div>
+          ` : `
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px;">
+              ${assets.map((item, idx) => `
+                <div style="background: var(--bg-surface); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column;">
+                  <div style="height: 130px; background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6px;">
+                    <img src="${item.url}" alt="${escapeHTML(item.name)}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                  </div>
+                  <div style="padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; border-top: 1px solid var(--border-light);">
+                    <div>
+                      <div style="font-weight: 700; font-size: 0.82rem; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHTML(item.name)}</div>
+                      <div style="font-size: 0.72rem; color: var(--park-copper); font-family: var(--font-mono); margin-top: 2px;">
+                        ${item.size || 'Local Asset'}
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 10px; gap: 6px;">
+                      <button class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 0.7rem; flex: 1;" onclick="copyAssetUrlByIndex(${idx})">Copy URL</button>
+                      <button class="btn btn-secondary btn-sm" style="padding: 2px 6px; font-size: 0.7rem; color: var(--coaster-red);" title="Delete Picture" onclick="deleteMediaItemByIndex(${idx})">🗑️</button>
                     </div>
                   </div>
-                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px;">
-                    <span>${(item.category || 'MEDIA').toUpperCase()}</span>
-                    <button class="btn btn-secondary btn-sm" style="padding: 2px 8px; font-size: 0.7rem;" onclick="copyAssetUrlByIndex(${idx})">Copy URL</button>
-                  </div>
                 </div>
-              </div>
-            `).join('')}
-          </div>
+              `).join('')}
+            </div>
+          `}
         `;
       } else if (activeSection === 'sectionSecurity') {
         container.innerHTML = `

@@ -45,36 +45,7 @@ const AUTHORIZED_COLLABORATORS = [
 ];
 
 // Default Central Media Assets Library
-const DEFAULT_MEDIA_LIBRARY = [
-  {
-    "name": "Screenshot 2026-08-31 111120",
-    "url": "assets/images/user-photos/Screenshot_2026_08_31_111120_0.png",
-    "category": "uploaded",
-    "date": "31/08/2026",
-    "size": "465 KB"
-  },
-  {
-    "name": "Picture of me",
-    "url": "assets/images/user-photos/Picture_of_me_2.jpg",
-    "category": "uploaded",
-    "date": "31/08/2026",
-    "size": "207 KB"
-  },
-  {
-    "name": "DLR Map",
-    "url": "assets/images/extracted/disneyland_paris_map_overview.png",
-    "category": "gdrive",
-    "date": "16/08/2026",
-    "size": "Google Drive"
-  },
-  {
-    "name": "Workshop Inspection",
-    "url": "assets/images/user-photos/PXL_20240113_124440168_4.jpg",
-    "category": "uploaded",
-    "date": "31/08/2026",
-    "size": "1.9 MB"
-  }
-];
+const DEFAULT_MEDIA_LIBRARY = [];
 
 // Helper to get active passkey
 function getActivePasskey() {
@@ -226,7 +197,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v30_spotlight_synced';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v31_cleared_media_store';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // If new disk version detected, clear stale local storage and load fresh code version
@@ -376,6 +347,52 @@ function saveStudioData(data, notify = true) {
 /**
  * Central Media Store Functions
  */
+
+/**
+ * Delete a specific picture from the central store by index
+ */
+function deleteMediaItemByIndex(idx) {
+  currentStudioData.mediaLibrary = currentStudioData.mediaLibrary || [];
+  if (idx >= 0 && idx < currentStudioData.mediaLibrary.length) {
+    const item = currentStudioData.mediaLibrary[idx];
+    const name = item ? (item.name || 'this picture') : 'this picture';
+    if (confirm(`Are you sure you want to remove "${name}" from your Picture Store?`)) {
+      currentStudioData.mediaLibrary.splice(idx, 1);
+      saveStudioData(currentStudioData, false);
+      if (typeof showStudioToast === 'function') {
+        showStudioToast('🗑️ Picture removed from store');
+      }
+      if (typeof renderActiveSection === 'function') {
+        renderActiveSection();
+      }
+      if (document.getElementById('centralMediaPickerModal') && document.getElementById('centralMediaPickerModal').style.display !== 'none') {
+        renderMediaPickerGrid('all');
+      }
+    }
+  }
+}
+window.deleteMediaItemByIndex = deleteMediaItemByIndex;
+
+/**
+ * Clear all pictures from the central picture store
+ */
+function clearPictureStore() {
+  if (confirm('Are you sure you want to clear all pictures in the store? This will empty the Central Picture Store.')) {
+    currentStudioData.mediaLibrary = [];
+    saveStudioData(currentStudioData, false);
+    if (typeof showStudioToast === 'function') {
+      showStudioToast('🧹 Picture Store cleared!');
+    }
+    if (typeof renderActiveSection === 'function') {
+      renderActiveSection();
+    }
+    if (document.getElementById('centralMediaPickerModal') && document.getElementById('centralMediaPickerModal').style.display !== 'none') {
+      renderMediaPickerGrid('all');
+    }
+  }
+}
+window.clearPictureStore = clearPictureStore;
+
 function getAllMediaAssets() {
   const userUploads = currentStudioData.mediaLibrary || [];
   return [...userUploads, ...DEFAULT_MEDIA_LIBRARY];
@@ -539,6 +556,17 @@ function renderMediaPickerGrid(category) {
   }
 
   window.currentPickerAssetList = assets;
+
+  if (!assets || assets.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 48px 20px; color: var(--text-muted); background: var(--bg-surface); border: 2px dashed var(--border-light); border-radius: var(--radius-md);">
+        <div style="font-size: 2.2rem; margin-bottom: 8px; opacity: 0.5;">🖼️</div>
+        <div style="font-weight: 700; color: var(--text-main); font-size: 1rem; margin-bottom: 4px;">Picture Store is Empty</div>
+        <div style="font-size: 0.82rem;">Use "Upload Computer Photo" above to add new images or CAD screenshots.</div>
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = `
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px;">
