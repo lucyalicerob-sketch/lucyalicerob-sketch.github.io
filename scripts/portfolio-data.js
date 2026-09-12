@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T09:51:01.817Z
+ * Updated: 2026-09-12T09:51:08.556Z
  */
 
 const PORTFOLIO_DATA = {
@@ -335,7 +335,7 @@ const PORTFOLIO_DATA = {
     "statusPillText": "ACTIVE // Summer Intern @ TfL DLR",
     "footerCopy": "© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
     "heroSpotlight": {
-      "itemId": "mine-train-bogie",
+      "itemId": "trackless-vehicle",
       "customBadge": "Highlight",
       "customMeta": "Solidworks"
     },
@@ -1219,5 +1219,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789206661817"
+  "dataVersion": "gh_1789206668556"
 };
