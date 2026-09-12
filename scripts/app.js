@@ -11,6 +11,16 @@ let currentCategoryFilter = 'all';
 let isAllProjectsExpanded = false;
 
 function initApp() {
+  // Synchronize live working data from Studio / local storage
+  if (typeof getWorkingData === 'function') {
+    const active = getWorkingData();
+    if (active && active.profile) {
+      if (typeof PORTFOLIO_DATA !== 'undefined') {
+        Object.assign(PORTFOLIO_DATA, active);
+      }
+    }
+  }
+
   renderProfileInfo();
   renderPersonalStory();
   renderFeaturedProjects();

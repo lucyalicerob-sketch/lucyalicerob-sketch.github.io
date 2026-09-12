@@ -224,16 +224,49 @@ window.handleGenericGoogleSignIn = function(onSuccessCallback) {
 // Version key to detect updates on disk
 const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
-// Load stored data or default to PORTFOLIO_DATA with automatic disk version sync
+// Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : 'v1';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v25_harmonized_sync';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
+  // If new disk version detected, clear stale local storage and load fresh code version
   if (!savedVersion || savedVersion !== currentDiskVersion) {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.setItem(DATA_VERSION_KEY, currentDiskVersion);
-    return (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
+    const fresh = (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
+    if (fresh.profile) {
+      fresh.profile.aboutPhoto = fresh.profile.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg';
+      if (fresh.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
+        fresh.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
+      }
+    }
+    return fresh;
   }
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.profile) {
+        // Repair any broken paths from older studio sessions
+        if (!parsed.profile.aboutPhoto || parsed.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
+          parsed.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
+        }
+        return parsed;
+      }
+    } catch (e) {
+      console.error('Error parsing saved studio data:', e);
+    }
+  }
+  const fallback = (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
+  if (fallback.profile) {
+    fallback.profile.aboutPhoto = fallback.profile.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg';
+    if (fallback.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
+      fallback.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
+    }
+  }
+  return fallback;
+}
 
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
