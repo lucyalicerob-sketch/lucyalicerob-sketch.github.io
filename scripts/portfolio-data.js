@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260912_v26_complete_sync
+ * Updated: 20260912_v27_lucy_exact_data
  */
 
 const PORTFOLIO_DATA = {
@@ -20,10 +20,10 @@ const PORTFOLIO_DATA = {
       "location": "London, UK"
     },
     "personalStory": {
-      "headline": "Hooked on the invisible mechanics that make rides feel like magic.",
+      "headline": "Hooked on the mechanics of making you feel.",
       "bioParagraph1": "Hi, I'm Lucy! Ever since I rode my first coaster, I\u2019ve been fascinated by what\u2019s happening behind the scenes! How wheel bogies articulate around banked curves, how switch tracks lock in split seconds, and how mechanical fail-safes guarantee safety without interrupting the thrill. Rollercoasters are my safe space. When I am on a ride I feel free and they make me buzz with excitement and adrenaline , my dream would be to share that feeling with as many people as possible in the only way I know how: storytelling through engineering!",
       "bioParagraph2": "I'm entering my 3rd year studying Mechanical Engineering (MEng) at the University of Sheffield, where I have achieved 1st Class Honours across both Year 1 and Year 2. I love the physical, hands-on side of engineering: opening SolidWorks or Fusion 360, running the maths on bearing loads and linkages, and heading straight to my piles of carboard to start modelling right away. But I also long how an engineering project can impact people around it, and make them feel a particular way or tell them a particular story.",
-      "bioParagraph3": "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering."
+      "bioParagraph3": "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering. "
     },
     "workbenchLive": {
       "currentBuild": "Ride Vehicle Rotary Turntable & Track Switch",
@@ -335,11 +335,11 @@ const PORTFOLIO_DATA = {
     "statusPillText": "ACTIVE // Summer Intern @ TfL DLR",
     "footerCopy": "\u00a9 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
     "heroSpotlight": {
-      "itemId": "mine-train-bogie",
+      "itemId": "trackless-vehicle",
       "customBadge": "Highlight",
       "customMeta": "Solidworks"
     },
-    "aboutPhoto": "assets/images/personal/lucy_mickey_framed.jpg",
+    "aboutPhoto": "assets/images/user-photos/lucy_about_photo.jpg",
     "aboutLocationTag": "\ud83d\udccd Disneyland Paris",
     "aboutCardBadge": "About Me",
     "cvUrl": "assets/documents/Lucy_Robinson_CV.pdf",
@@ -347,7 +347,12 @@ const PORTFOLIO_DATA = {
     "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
-    }
+    },
+    "highlights": [
+      "\ud83c\udf93 1st Class Honours across Year 1 and Year 2.",
+      "\ud83d\ude86 Summer Intern @ Transport for London (TfL DLR).",
+      "\ud83c\udfc6 Engineering Leaders Scholar @ Royal Academy of Engineering"
+    ]
   },
   "skills": {
     "cadModeling": [
@@ -409,7 +414,7 @@ const PORTFOLIO_DATA = {
         "Motion Analysis",
         "Simulation-FEA"
       ],
-      "coverImage": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155235.png",
       "cadGallery": [
         {
           "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
@@ -422,7 +427,7 @@ const PORTFOLIO_DATA = {
           "caption": "Wheel articulation and clearance envelope along 3D track curve."
         }
       ],
-      "summary": "You are a smuggler using abandoned rains to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
+      "summary": "You are a smuggler using abandoned rails to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
       "keyMetrics": [
         {
           "label": "Wheel Configuration",
@@ -476,16 +481,8 @@ const PORTFOLIO_DATA = {
               "caption": "Dual-axis knuckle joints."
             }
           ],
-          "calcs": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "prototyping": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
+          "calcs": [],
+          "prototyping": [],
           "takeaways": [
             {
               "url": "assets/images/extracted/smugglers_mine_train_bogie_cad.png",
@@ -510,7 +507,7 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "assets/images/extracted/time_machine_turntable_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155035.png",
       "cadGallery": [
         {
           "url": "assets/images/extracted/time_machine_turntable_cad.png",
@@ -565,21 +562,9 @@ const PORTFOLIO_DATA = {
               "caption": "Rotary switch mechanism."
             }
           ],
-          "cad": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "calcs": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "prototyping": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
+          "cad": [],
+          "calcs": [],
+          "prototyping": [],
           "takeaways": [
             {
               "url": "assets/images/extracted/time_machine_turntable_cad.png",
@@ -603,7 +588,7 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/extracted/smoke_starlight_agv_cad.png",
+      "coverImage": "assets/images/gdrive-photos/Screenshot 2026-08-16 155149.png",
       "cadGallery": [
         {
           "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
@@ -670,16 +655,8 @@ const PORTFOLIO_DATA = {
               "caption": "Independent steer drive kinematics."
             }
           ],
-          "calcs": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
-          "prototyping": {
-            "url": "",
-            "title": "",
-            "caption": ""
-          },
+          "calcs": [],
+          "prototyping": [],
           "takeaways": [
             {
               "url": "assets/images/extracted/smoke_starlight_agv_cad.png",
@@ -976,7 +953,7 @@ const PORTFOLIO_DATA = {
       "title": "Roller Coasters vs. Railway Signalling",
       "category": "Safety & Systems",
       "readTime": "5 min read",
-      "coverPhoto": "assets/images/extracted/disneyland_paris_mine_train_trip.jpg",
+      "coverPhoto": "assets/images/gdrive-photos/dlr-route-map.gif",
       "tripPhotos": [],
       "summary": "Comparing safety-critical railway Communications-Based Train Control (CBTC) moving-blocks with fixed-block systems used on roller coasters.",
       "content": "Signalling is a key system in both theme parks and in large scale transit like the DLR (Docklands Light Railway). There are however key differences between them.\n\n\nFrom my work on the DLR, I learnt about how these vehicles, and most modern railways use moving-block signalling. This means that each moving vehicle is tracked through its journey and creates its own block surrounding it that no other vehicle can enter. This system works incredibly to maintain scheduling of high use routes and to increase the number of units which can be deployed at once. This works by the system continuously tracking every vehicle and calculating safe distances between them to keep separation.\n\n\nRollercoasters on the other hand, use older style fixed block systems. Although they reduce capacity this system is needed for rides that are not continuously controlled. In this system, only one train can enter each fixed area of the track (a block) and another train cannot enter until the block is completely cleared. These blocks are usually set by different areas where a train can be stopped along the layout, for example brake runs or lift hills. Increasing the number of blocks on a layout can be key on popular rides to keep operations smooth and queue times down.\n\n\nEach system is specifically suited to the use case.\n\n\nFor the DLR, capacity is everything, the point of the system is to move large quantities of people from A to B in the shortest possible time. Using moving blocks gives it this capability. More trains per hour is more passengers and better use of existing lines without the need for additional infrastructure. Furthermore, trains are less predictable than rollercoasters. They change weight depending on load they can adhere more or less depending on weather conditions and routes are not fixed within a closed system. These moving blocks allow for higher adaptability in the system.\n\n\nIn rollercoasters, on the other hand, simplicity often means safety. The system of fixed blocks is more suited to this mentality, if you are uncertain at all you have a very wide margin of error to force separation between vehicles. The trains are also more predictable, the route is always the same, the speed is generally the same and the load is set to the number of seats on the ride. They also don\u2019t need the capacity. Most coasters only allow the running of up to 5 trains so is there any point upgrading to a moving block which is far more costly and complex to implement. Another key consideration with these rides is they can\u2019t just stop anywhere; they usually use gravity as a driving force. If you get an error in a location where nothing can be done to stop the motion and accidents happen. Thus, fixed blocks all the way.\n\n\nHopefully this gives a good idea of how different signalling approaches work better\nfor different situations."
@@ -1242,5 +1219,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260912_v26_complete_sync"
+  "dataVersion": "20260912_v27_lucy_exact_data"
 };
