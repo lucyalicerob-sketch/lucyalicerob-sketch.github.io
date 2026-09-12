@@ -651,14 +651,28 @@
 .project-thumb-frame {
   position: relative;
   width: 100%;
-  height: 230px;
-  background: #12151e;
+  height: 220px;
+  background: var(--bg-subtle);
   overflow: hidden;
   border-bottom: 1.5px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.project-thumb {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-normal);
+  border-radius: var(--radius-xs);
+}
+.project-thumb:hover {
+  transform: scale(1.03);
 }
 
 .project-thumb {
@@ -1947,66 +1961,7 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   STRICT VERTICAL STACK ON MOBILE (ZERO HORIZONTAL SCROLLING ACROSS)
-   -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Turn all horizontal carousels into clean, full-width vertical stacks */
-  .carousel-wrapper {
-    overflow: visible !important;
-    width: 100% !important;
-  }
-
-  .carousel-track {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    padding: 0 !important;
-    width: 100% !important;
-  }
-
-  .carousel-track > * {
-    flex: none !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  /* Hide sideways navigation controls on mobile since everything stacks vertically */
-  .carousel-header-controls,
-  .carousel-dots-wrap,
-  .skills-toggle-wrap {
-    display: none !important;
-  }
-
-  /* Case Study Modal Tabs wrap into full width buttons */
-  .article-tabs-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    overflow-x: visible !important;
-    gap: 6px !important;
-    margin-bottom: 20px !important;
-  }
-
-  .article-tab-btn {
-    flex: 1 1 calc(50% - 6px) !important;
-    font-size: 0.78rem !important;
-    padding: 8px 10px !important;
-    white-space: normal !important;
-    text-align: center !important;
-  }
-
-  /* Full width buttons on mobile */
-  .see-more-container .btn {
-    width: 100% !important;
-    white-space: normal !important;
-    text-align: center !important;
-    padding: 12px 16px !important;
-    font-size: 0.9rem !important;
-  }
-}
+/* Unified responsive carousel system active below */
 
 
 /* --------------------------------------------------------------------------
@@ -2502,5 +2457,197 @@
     width: 100%;
     font-size: 0.78rem;
     padding: 6px 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE IMAGE, MODAL & MOBILE CAROUSEL ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+.spotlight-img-frame {
+  width: 100%;
+  height: 240px;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-sizing: border-box;
+}
+
+.spotlight-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.about-photo-wrapper {
+  width: 100%;
+  height: 360px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-subtle);
+  margin-bottom: 12px;
+  border: 1.5px solid var(--border-medium);
+  box-shadow: var(--shadow-subtle);
+}
+
+.about-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.diary-thumb-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: var(--bg-subtle);
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--border-light);
+}
+
+.diary-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--transition-normal);
+}
+
+.cad-figure-img-wrapper {
+  width: 100%;
+  max-height: 520px;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cad-figure-img {
+  max-width: 100%;
+  max-height: 480px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+@media (max-width: 992px) {
+  .about-photo-wrapper {
+    height: 320px;
+  }
+  .spotlight-img-frame {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spotlight-img-frame {
+    height: 200px;
+    padding: 10px;
+  }
+
+  .about-photo-wrapper {
+    height: 280px;
+    border-radius: var(--radius-md);
+  }
+
+  .project-thumb-frame {
+    height: 195px;
+    padding: 10px;
+  }
+
+  .diary-thumb-wrapper {
+    height: 180px;
+  }
+
+  .cad-figure-img-wrapper {
+    padding: 10px;
+    max-height: 360px;
+  }
+
+  .cad-figure-img {
+    max-height: 340px;
+  }
+
+  .carousel-track {
+    display: flex !important;
+    gap: 14px !important;
+    padding: 8px 4px 16px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .carousel-track > * {
+    flex: 0 0 86% !important;
+    min-width: 0 !important;
+    max-width: 86% !important;
+    scroll-snap-align: start !important;
+  }
+
+  .carousel-header-controls {
+    display: flex !important;
+  }
+
+  .carousel-dots-wrap {
+    display: flex !important;
+  }
+
+  .modal-dialog {
+    max-height: 95vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-content-scroll {
+    padding: 16px 14px;
+  }
+
+  .article-tabs-nav {
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .article-tab-btn {
+    flex-shrink: 0 !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-track > * {
+    flex: 0 0 90% !important;
+    max-width: 90% !important;
+  }
+
+  .project-thumb-frame {
+    height: 180px;
+    padding: 8px;
+  }
+
+  .about-photo-wrapper {
+    height: 250px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem !important;
   }
 }

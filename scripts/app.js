@@ -32,8 +32,13 @@ function initApp() {
  * Image URL Formatter & Google Drive / Google Photos CDN Normalizer
  */
 function formatImageSrc(url) {
-  if (!url) return '';
+  if (!url) return 'assets/images/personal/lucy_mickey_framed.jpg';
   url = String(url).trim();
+
+  // If broken 0-byte user-photo path, route to real framed photo
+  if (url.includes('lucy_about_photo.jpg') || url.includes('lucy_about_0.jpg')) {
+    return 'assets/images/personal/lucy_mickey_framed.jpg';
+  }
 
   // 1. Google Drive URLs (file/d/..., open?id=..., uc?id=...)
   const driveMatch = url.match(/(?:\/d\/|id=|file\/d\/|open\?id=)([a-zA-Z0-9_-]{25,})/);
@@ -58,6 +63,14 @@ function formatImageSrc(url) {
 window.handleImgError = function(imgEl, originalSrc) {
   if (!imgEl) return;
   const src = originalSrc || imgEl.getAttribute('data-original-src') || imgEl.src || '';
+  
+  // 1. Personal / Profile photo fallback
+  if (src.includes('about') || src.includes('lucy') || imgEl.id === 'aboutPhotoImg' || (imgEl.className && imgEl.className.includes('about-photo'))) {
+    imgEl.src = 'assets/images/personal/lucy_mickey_framed.jpg';
+    return;
+  }
+
+  // 2. Google Drive fallback sequence
   const driveMatch = src.match(/(?:\/d\/|id=|file\/d\/|open\?id=)([a-zA-Z0-9_-]{25,})/);
   if (driveMatch && driveMatch[1]) {
     const fileId = driveMatch[1];
@@ -71,6 +84,11 @@ window.handleImgError = function(imgEl, originalSrc) {
       imgEl.src = `https://drive.google.com/uc?export=view&id=${fileId}`;
       return;
     }
+  }
+
+  // 3. CAD / Project fallback
+  if (imgEl.classList.contains('project-thumb') || imgEl.classList.contains('spotlight-img') || imgEl.classList.contains('cad-figure-img')) {
+    imgEl.src = 'assets/images/real-cad/smugglers_mine_train_bogie_cad.png';
   }
 };
 
