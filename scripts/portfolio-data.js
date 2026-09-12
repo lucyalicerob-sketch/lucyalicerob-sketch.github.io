@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260912_v25_harmonized_sync
+ * Updated: 20260912_v26_complete_sync
  */
 
 const PORTFOLIO_DATA = {
@@ -20,10 +20,10 @@ const PORTFOLIO_DATA = {
       "location": "London, UK"
     },
     "personalStory": {
-      "headline": "Hooked on the mechanics of making you feel.",
+      "headline": "Hooked on the invisible mechanics that make rides feel like magic.",
       "bioParagraph1": "Hi, I'm Lucy! Ever since I rode my first coaster, I\u2019ve been fascinated by what\u2019s happening behind the scenes! How wheel bogies articulate around banked curves, how switch tracks lock in split seconds, and how mechanical fail-safes guarantee safety without interrupting the thrill. Rollercoasters are my safe space. When I am on a ride I feel free and they make me buzz with excitement and adrenaline , my dream would be to share that feeling with as many people as possible in the only way I know how: storytelling through engineering!",
       "bioParagraph2": "I'm entering my 3rd year studying Mechanical Engineering (MEng) at the University of Sheffield, where I have achieved 1st Class Honours across both Year 1 and Year 2. I love the physical, hands-on side of engineering: opening SolidWorks or Fusion 360, running the maths on bearing loads and linkages, and heading straight to my piles of carboard to start modelling right away. But I also long how an engineering project can impact people around it, and make them feel a particular way or tell them a particular story.",
-      "bioParagraph3": "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering. "
+      "bioParagraph3": "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering."
     },
     "workbenchLive": {
       "currentBuild": "Ride Vehicle Rotary Turntable & Track Switch",
@@ -1242,5 +1242,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260912_v25_harmonized_sync"
+  "dataVersion": "20260912_v26_complete_sync"
 };

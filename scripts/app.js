@@ -260,13 +260,24 @@ function renderHeroSpotlight() {
    -------------------------------------------------------------------------- */
 function renderPersonalStory() {
   const p = PORTFOLIO_DATA.profile || {};
-  const story = p.personalStory || {};
+  const defaultStory = {
+    headline: "Hooked on the invisible mechanics that make rides feel like magic.",
+    bioParagraph1: "Hi, I'm Lucy! Ever since I rode my first coaster, I’ve been fascinated by what’s happening behind the scenes! How wheel bogies articulate around banked curves, how switch tracks lock in split seconds, and how mechanical fail-safes guarantee safety without interrupting the thrill. Rollercoasters are my safe space. When I am on a ride I feel free and they make me buzz with excitement and adrenaline , my dream would be to share that feeling with as many people as possible in the only way I know how: storytelling through engineering!",
+    bioParagraph2: "I'm entering my 3rd year studying Mechanical Engineering (MEng) at the University of Sheffield, where I have achieved 1st Class Honours across both Year 1 and Year 2. I love the physical, hands-on side of engineering: opening SolidWorks or Fusion 360, running the maths on bearing loads and linkages, and heading straight to my piles of carboard to start modelling right away. But I also long how an engineering project can impact people around it, and make them feel a particular way or tell them a particular story.",
+    bioParagraph3: "Alongside my personal projects, I spent my summer between 2nd and 3rd year interning with the building services Electrical & Mechanical engineering team at Transport for London (DLR), gaining valuable perspective on the engineering in the buildings and stations which keep London moving. And learning how to think about the user in everything I do. I have also recently joined the 31st cohort of Engineering Leaders Scholars at the Royal Academy of Engineering."
+  };
+
+  const story = (p.personalStory && typeof p.personalStory === 'object') ? p.personalStory : {};
+  const headline = story.headline || p.storyHeadline || defaultStory.headline;
+  const p1 = story.bioParagraph1 || (Array.isArray(p.story) && p.story[0]) || defaultStory.bioParagraph1;
+  const p2 = story.bioParagraph2 || (Array.isArray(p.story) && p.story[1]) || defaultStory.bioParagraph2;
+  const p3 = story.bioParagraph3 || (Array.isArray(p.story) && p.story[2]) || defaultStory.bioParagraph3;
 
   const aboutPhoto = document.getElementById('aboutPhotoImg');
-  if (aboutPhoto && p.aboutPhoto) {
-    aboutPhoto.src = formatImageSrc(p.aboutPhoto);
+  if (aboutPhoto && (p.aboutPhoto || p.photo)) {
+    aboutPhoto.src = formatImageSrc(p.aboutPhoto || p.photo);
     aboutPhoto.setAttribute('referrerpolicy', 'no-referrer');
-    aboutPhoto.onerror = function() { handleImgError(this, p.aboutPhoto); };
+    aboutPhoto.onerror = function() { handleImgError(this, p.aboutPhoto || p.photo); };
   }
 
   const aboutLoc = document.getElementById('aboutLocationTag');
@@ -276,14 +287,16 @@ function renderPersonalStory() {
   if (aboutBadge && p.aboutCardBadge) aboutBadge.textContent = p.aboutCardBadge;
 
   const storyHeadline = document.getElementById('storyHeadline');
-  if (storyHeadline && story.headline) storyHeadline.textContent = story.headline;
+  if (storyHeadline) {
+    storyHeadline.textContent = headline;
+  }
 
   const storyBody = document.getElementById('storyBody');
-  if (storyBody && story) {
+  if (storyBody) {
     storyBody.innerHTML = `
-      <p>${story.bioParagraph1 || ''}</p>
-      <p>${story.bioParagraph2 || ''}</p>
-      <p>${story.bioParagraph3 || ''}</p>
+      <p>${p1}</p>
+      <p>${p2}</p>
+      <p>${p3}</p>
     `;
   }
 }
