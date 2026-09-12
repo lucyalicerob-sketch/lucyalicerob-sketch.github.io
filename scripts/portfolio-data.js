@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T11:29:38.427Z
+ * Updated: 2026-09-12T11:30:42.953Z
  */
 
 const PORTFOLIO_DATA = {
@@ -332,7 +332,7 @@ const PORTFOLIO_DATA = {
       ],
       "award": ""
     },
-    "statusPillText": "ACTIVE // Summer Intern @ TfL DLR",
+    "statusPillText": "ACTIVE // Mechanical Engineering Student",
     "footerCopy": "© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.",
     "heroSpotlight": {
       "itemId": "trackless-vehicle",
@@ -351,7 +351,7 @@ const PORTFOLIO_DATA = {
     "highlights": [
       "🎓 1st Class Honours across Year 1 and Year 2.",
       "🚆 Summer Intern @ Transport for London (TfL DLR).",
-      "🏆 Engineering Leaders Scholar @ Royal Academy of Engineering"
+      "🏆 SELSA Award (Sheffield Engineering Leadership & Service Award)."
     ]
   },
   "skills": {
@@ -1170,5 +1170,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789212578427"
+  "dataVersion": "gh_1789212642953"
 };
