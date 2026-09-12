@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T11:08:47.573Z
+ * Updated: 2026-09-12T11:09:06.130Z
  */
 
 const PORTFOLIO_DATA = {
@@ -500,7 +500,7 @@ const PORTFOLIO_DATA = {
         "Locking Shot-Pins",
         "Python Sizing"
       ],
-      "coverImage": "assets/images/real-cad/time_machine_turntable_cad.png",
+      "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155035.png",
       "cadGallery": [
         {
           "title": "Time Machine Rotary Track Switch & Turntable Mechanism",
@@ -550,7 +550,8 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Time Machine Turntable CAD",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
+              "caption": ""
             }
           ],
           "cad": [],
@@ -559,7 +560,8 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Rotary Track Switch Assembly",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png",
+              "caption": ""
             }
           ]
         }
@@ -578,7 +580,7 @@ const PORTFOLIO_DATA = {
         "Python Kinematics",
         "Chassis Packaging"
       ],
-      "coverImage": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+      "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155149.png",
       "cadGallery": [
         {
           "title": "Smoke & Starlight Autonomous Guided Vehicle (AGV) 3D Chassis",
@@ -632,13 +634,15 @@ const PORTFOLIO_DATA = {
           "problem": [
             {
               "title": "Smoke & Starlight AGV CAD",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+              "caption": ""
             }
           ],
           "cad": [
             {
               "title": "Swerve Pod Assembly",
-              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
+              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png",
+              "caption": ""
             }
           ],
           "calcs": [],
@@ -646,7 +650,8 @@ const PORTFOLIO_DATA = {
           "takeaways": [
             {
               "title": "Omnidirectional AGV Chassis",
-              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png",
+              "caption": ""
             }
           ]
         }
@@ -1160,5 +1165,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789211327573"
+  "dataVersion": "gh_1789211346130"
 };
