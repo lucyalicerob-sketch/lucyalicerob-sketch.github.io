@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260912_v32_merged_clean
+ * Updated: 20260912_v33_picture_store_populated
  */
 
 const PORTFOLIO_DATA = {
@@ -1018,7 +1018,141 @@ const PORTFOLIO_DATA = {
     "university": "University of Sheffield",
     "grade": "Entering Year 3 in Autumn 2026 (Working at 1st Class)"
   },
-  "mediaLibrary": [],
+  "mediaLibrary": [
+    {
+      "name": "Screenshot 2026-08-16 155035",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155035.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "556.0 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155149",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155149.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "197.5 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155235",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155235.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "1.69 MB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155258",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155258.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "0.2 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155306",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155306.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "405.5 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155353",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155353.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "379.6 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-16 155400",
+      "url": "assets/images/user-photos/Screenshot_2026-08-16_155400.png",
+      "category": "cad",
+      "date": "16/08/2026",
+      "size": "348.0 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 164943",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_164943.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "834.1 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165051",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165051.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "817.5 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165119",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165119.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "768.4 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165421",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165421.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "831.5 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165837",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165837.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "296.2 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165848",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165848.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "379.7 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165908",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165908.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "5.4 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165942",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165942.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "476.2 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-17 165948",
+      "url": "assets/images/user-photos/Screenshot_2026-08-17_165948.png",
+      "category": "cad",
+      "date": "17/08/2026",
+      "size": "5.6 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-31 111120",
+      "url": "assets/images/user-photos/Screenshot_2026-08-31_111120.png",
+      "category": "cad",
+      "date": "31/08/2026",
+      "size": "573.7 KB"
+    },
+    {
+      "name": "Screenshot 2026-08-31 111213",
+      "url": "assets/images/user-photos/Screenshot_2026-08-31_111213.png",
+      "category": "cad",
+      "date": "31/08/2026",
+      "size": "531.8 KB"
+    },
+    {
+      "name": "dlr-route-map",
+      "url": "assets/images/user-photos/dlr-route-map.gif",
+      "category": "trips",
+      "date": "16/08/2026",
+      "size": "503.8 KB"
+    }
+  ],
   "coasterCredits": [],
   "documents": [
     {
@@ -1028,5 +1162,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260912_v32_merged_clean"
+  "dataVersion": "20260912_v33_picture_store_populated"
 };
