@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-12T10:55:10.883Z
+ * Updated: 2026-09-12T10:55:31.270Z
  */
 
 const PORTFOLIO_DATA = {
@@ -339,7 +339,7 @@ const PORTFOLIO_DATA = {
       "customBadge": "Highlight",
       "customMeta": "Solidworks"
     },
-    "aboutPhoto": "assets/images/personal/lucy_mickey_framed.jpg",
+    "aboutPhoto": "assets/images/user-photos/PXL_20240113_124440168_4.jpg",
     "aboutLocationTag": "📍 Disneyland Paris",
     "aboutCardBadge": "About Me",
     "cvUrl": "assets/documents/Lucy_Robinson_CV.pdf",
@@ -1209,5 +1209,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789210510883"
+  "dataVersion": "gh_1789210531270"
 };
