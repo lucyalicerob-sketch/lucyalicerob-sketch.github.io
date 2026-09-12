@@ -1,8 +1,6 @@
 /**
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
- * Official LinkedIn Profile: https://www.linkedin.com/in/lucy-robinson-a6128838b
- * Version: 20260908_v12_ultrafast
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
  * Updated:  * Official LinkedIn Profile: https://www.linkedin.com/in/lucy-robinson-a6128838b
  */
