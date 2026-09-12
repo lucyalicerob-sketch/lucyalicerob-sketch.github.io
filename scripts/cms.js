@@ -54,7 +54,7 @@ function getActivePasskey() {
 
 // Check session authentication status
 function isStudioAuthenticated() {
-  return sessionStorage.getItem(AUTH_SESSION_KEY) === 'true' || localStorage.getItem(AUTH_SESSION_KEY) === 'true';
+  return sessionStorage.getItem(AUTH_SESSION_KEY) === 'true';
 }
 
 function getAuthenticatedGoogleUser() {
@@ -70,9 +70,11 @@ function authenticateStudio(key) {
   const activePass = (getActivePasskey() || DEFAULT_PASSKEY).trim().toLowerCase();
   if (clean === 'lucy2026' || clean === 'lucy' || clean === 'mat2026' || clean === 'admin' || clean === activePass) {
     sessionStorage.setItem(AUTH_SESSION_KEY, 'true');
-    localStorage.setItem(AUTH_SESSION_KEY, 'true');
+    localStorage.removeItem(AUTH_SESSION_KEY);
     return true;
   }
+  return false;
+}
   return false;
 }
 
@@ -92,9 +94,12 @@ function authenticateWithGoogleAccount(googleUser) {
 function lockStudioSession() {
   sessionStorage.removeItem(AUTH_SESSION_KEY);
   sessionStorage.removeItem(GOOGLE_USER_SESSION_KEY);
+  localStorage.removeItem(AUTH_SESSION_KEY);
+  localStorage.removeItem(GOOGLE_USER_SESSION_KEY);
   if (typeof showStudioToast === 'function') {
     showStudioToast('🔒 Studio locked.');
   }
+}
 }
 
 /**
@@ -197,7 +202,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v34_no_update_popups';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v36_rocksolid_editor_lock';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // If new disk version detected, clear stale local storage and load fresh code version
