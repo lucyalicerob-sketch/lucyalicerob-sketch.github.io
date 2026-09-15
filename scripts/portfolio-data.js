@@ -2,8 +2,8 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T14:20:00Z
- * Version: 20260915_v60_restore_smoke_starlight_and_turntable_cad
+ * Updated: 2026-09-15T14:25:00Z
+ * Version: 20260915_v61_resolved_all_merge_and_save_updates
  */
 
 window.PORTFOLIO_DATA = {
@@ -498,20 +498,8 @@ window.PORTFOLIO_DATA = {
               "url": "assets/images/user-photos/Screenshot_2026-08-17_165942.png"
             }
           ],
-          "prototyping": [
-            {
-              "title": "Bogie Manufacturing & Component Assembly",
-              "caption": "SolidWorks 3D model and machining tolerance layout for bogie wheel sets and pivot joints.",
-              "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
-            }
-          ],
-          "takeaways": [
-            {
-              "title": "Final Engineering Drawing Pack (BS 8888)",
-              "caption": "Full production drawing detailing GD&T specifications, weld symbols, and fastener callouts.",
-              "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png"
-            }
-          ]
+          "prototyping": [],
+          "takeaways": []
         }
       },
       "shortDescription": "You are a smuggler using abandoned rails to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs."
@@ -1153,5 +1141,5 @@ window.PORTFOLIO_DATA = {
       "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "20260915_v60_restore_smoke_starlight_and_turntable_cad"
+  "dataVersion": "20260915_v61_resolved_all_merge_and_save_updates"
 };
