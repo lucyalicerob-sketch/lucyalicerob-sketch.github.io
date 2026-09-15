@@ -199,7 +199,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v51_switch_transit_to_featured';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v52_full_device_sync';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // When disk version updates, keep existing storage and synchronize disk dataset
@@ -211,7 +211,7 @@ function getWorkingData() {
       const parsed = JSON.parse(saved);
       if (parsed && parsed.profile) {
         // Repair any broken paths from older studio sessions
-        if (!parsed.profile.aboutPhoto || parsed.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
+        if (!parsed.profile.aboutPhoto || parsed.profile.aboutPhoto.includes('lucy_about_photo.jpg') || parsed.profile.aboutPhoto.startsWith('data:image')) {
           parsed.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
         }
         return parsed;
@@ -241,18 +241,20 @@ function repairImagePaths(targetList, defaultList) {
   targetList.forEach(item => {
     const def = defaultList.find(d => d.id === item.id);
     if (!def) return;
-    if (!item.coverImage || item.coverImage.includes('googleusercontent.com') || item.coverImage.includes('drive.google.com')) {
+    if (!item.coverImage || item.coverImage.includes('googleusercontent.com') || item.coverImage.includes('drive.google.com') || item.coverImage.startsWith('data:image')) {
       item.coverImage = def.coverImage;
     }
-    if (def.cadGallery && (!item.cadGallery || item.cadGallery.length === 0 || item.cadGallery.some(g => g.url && g.url.includes('googleusercontent.com')))) {
+    if (def.cadGallery && (!item.cadGallery || item.cadGallery.length === 0 || item.cadGallery.some(g => !g.url || g.url.includes('googleusercontent.com') || g.url.startsWith('data:image')))) {
       item.cadGallery = def.cadGallery;
     }
     if (def.article && def.article.tabImages) {
       item.article = item.article || {};
-      item.article.tabImages = item.article.tabImages || def.article.tabImages;
+      item.article.tabImages = item.article.tabImages || {};
       for (let key in def.article.tabImages) {
-        if (!item.article.tabImages[key] || !item.article.tabImages[key].url || item.article.tabImages[key].url.includes('googleusercontent.com')) {
-          item.article.tabImages[key] = def.article.tabImages[key];
+        const curTab = item.article.tabImages[key];
+        const defTab = def.article.tabImages[key];
+        if (!curTab || (Array.isArray(curTab) && curTab.length === 0) || (Array.isArray(curTab) && curTab.some(t => !t.url || t.url.startsWith('data:image')))) {
+          item.article.tabImages[key] = defTab;
         }
       }
     }
@@ -607,7 +609,7 @@ function selectMediaItem(url) {
  * Export clean JavaScript file for portfolio-data.js
  */
 function exportPortfolioDataFile() {
-  const jsContent = `/**\n * PORTFOLIO DATA SOURCE\n * Lucy Robinson — Mechanical Engineering & Themed Ride Systems\n * Last Updated: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n */\n\nconst PORTFOLIO_DATA = ${JSON.stringify(currentStudioData, null, 2)};\n`;
+  const jsContent = `/**\n * PORTFOLIO DATA SOURCE\n * Lucy Robinson - Mechanical Engineering & Themed Ride Systems\n * Last Updated: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n */\n\nconst PORTFOLIO_DATA = ${JSON.stringify(currentStudioData, null, 2)};\n`;
   
   const blob = new Blob([jsContent], { type: 'text/javascript' });
   const url = URL.createObjectURL(blob);
@@ -624,7 +626,7 @@ function exportPortfolioDataFile() {
  * Copy portfolio-data.js content to clipboard
  */
 function copyPortfolioDataToClipboard() {
-  const jsContent = `/**\n * PORTFOLIO DATA SOURCE\n * Lucy Robinson — Mechanical Engineering & Themed Ride Systems\n * Last Updated: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n */\n\nconst PORTFOLIO_DATA = ${JSON.stringify(currentStudioData, null, 2)};\n`;
+  const jsContent = `/**\n * PORTFOLIO DATA SOURCE\n * Lucy Robinson - Mechanical Engineering & Themed Ride Systems\n * Last Updated: ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}\n */\n\nconst PORTFOLIO_DATA = ${JSON.stringify(currentStudioData, null, 2)};\n`;
   
   navigator.clipboard.writeText(jsContent).then(() => {
     if (typeof showStudioToast === 'function') {
@@ -1581,7 +1583,7 @@ window.commitToGitHub = async function(customMessage = null) {
 
   const fileContent = `/**
  * PORTFOLIO DATA SOURCE
- * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
+ * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
  * Updated: ${new Date().toISOString()}
  */
@@ -1768,7 +1770,7 @@ window.downloadPortfolioDataFile = function() {
   cleanData.dataVersion = 'export_' + Date.now();
   const fileContent = `/**
  * PORTFOLIO DATA SOURCE
- * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
+ * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Exported from Visual Studio Editor
  * Date: ${new Date().toISOString()}
  */
