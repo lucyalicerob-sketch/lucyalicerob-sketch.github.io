@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T13:33:55.553Z
+ * Updated: 2026-09-15T13:37:04.325Z
  */
 
 const PORTFOLIO_DATA = {
@@ -845,10 +845,6 @@ const PORTFOLIO_DATA = {
       "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155035.png",
       "cadGallery": [
         {
-          "title": "Time Machine Turntable CAD Assembly",
-          "url": "assets/images/real-cad/time_machine_turntable_cad.png"
-        },
-        {
           "title": "Station Turntable 3D Overview",
           "url": "assets/images/user-photos/Screenshot_2026-08-16_155035.png"
         },
@@ -865,7 +861,7 @@ const PORTFOLIO_DATA = {
           "url": "assets/images/project-photos/turntable_mechanism_detail.png"
         }
       ],
-      "summary": "This may seem like a regular turntable, but it is actually a time machine. Will you survive the journey? Features a large slewing ring bearing, planetary gear drive, and fail-safe tapered shot-pin locking system for seamless vehicle indexing and station capacity optimization.",
+      "summary": "This may seem like a regular turntable but its actually a time machine will you survive the journey? Features a large slewing ring bearing, planetary gear drive, and fail-safe tapered shot-pin locking system for seamless vehicle indexing and station capacity optimization.",
       "keyMetrics": [
         {
           "label": "Mechanism Type",
@@ -904,13 +900,7 @@ const PORTFOLIO_DATA = {
               "url": "assets/images/user-photos/Screenshot_2026-08-17_165421.png"
             }
           ],
-          "cad": [
-            {
-              "title": "Time Machine Turntable CAD Assembly",
-              "caption": "SolidWorks CAD model detailing rotational bearing, indexing stops, and base support structure.",
-              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
-            }
-          ],
+          "cad": [],
           "calcs": [
             {
               "title": "Kinematic Analysis & Sizing Calculations",
@@ -1145,5 +1135,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "gh_1789479235553"
+  "dataVersion": "gh_1789479424325"
 };
