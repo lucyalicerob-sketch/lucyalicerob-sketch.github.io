@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T12:14:19.401Z
+ * Updated: 2026-09-15T12:14:46.330Z
  */
 
 const PORTFOLIO_DATA = {
@@ -492,7 +492,7 @@ const PORTFOLIO_DATA = {
       "title": "Time Machine Turntable",
       "subtitle": "Track Switch & Positioning Table (Current Workbench Build)",
       "category": "themed-rides",
-      "featured": true,
+      "featured": false,
       "badge": "On My Workbench",
       "timeline": "2026",
       "tools": [
@@ -746,7 +746,7 @@ const PORTFOLIO_DATA = {
       "title": "Bakerloo Line Accessibility & Usability Enhancements",
       "subtitle": "2-Week Design Sprint: Double Diamond Framework, RVAR 2010 Compliance & Mechanical Solutions for 1972 Tube Stock",
       "category": "transit-rail",
-      "featured": false,
+      "featured": true,
       "badge": "Assessment Centre Task (2-Week Sprint)",
       "timeline": "2-Week Sprint",
       "tools": [
@@ -1180,5 +1180,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789474459401"
+  "dataVersion": "gh_1789474486330"
 };
