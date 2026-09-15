@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T13:50:00.000Z
+ * Updated: 2026-09-15T13:53:00.000Z
  */
 
 const PORTFOLIO_DATA = {
@@ -288,8 +288,8 @@ const PORTFOLIO_DATA = {
       }
     ],
     "recruiterBrief": {
-      "statusLine": "University of Sheffield MEng Mech Eng | TfL DLR Intern | Class of 2028 / 2029",
-      "targetRoles": "Themed Entertainment Internships, Placement Year & Graduate Ride Systems Engineering Roles",
+      "statusLine": "University of Sheffield MEng Mechanical Engineering | TfL DLR Intern | Class of 2028",
+      "targetRoles": "Themed Entertainment, Ride Systems & Mechanical Engineering Roles",
       "keyHighlights": [
         "MEng Mechanical Engineering student at University of Sheffield (1st Class Honours in Year 1 & Year 2).",
         "Modelled & built a physical Trackless Dark Ride AGV in SolidWorks.",
@@ -302,7 +302,7 @@ const PORTFOLIO_DATA = {
     },
     "location": "Sheffield & London, UK",
     "university": "University of Sheffield",
-    "degree": "MEng Mechanical Engineering with a Year in Industry",
+    "degree": "MEng Mechanical Engineering",
     "graduationYear": "Class of 2028 / 2029",
     "socials": {
       "email": "lucyalicerob@gmail.com",
@@ -1088,7 +1088,7 @@ const PORTFOLIO_DATA = {
   "education": {
     "degree": "MEng in Mechanical Engineering",
     "institution": "University of Sheffield",
-    "timeline": "2024 - 2028 / 2029",
+    "timeline": "2024 - 2028",
     "status": "Entering Year 3 in Autumn 2026 (Working at 1st Class)",
     "coursework": [
       "Mechanics of Solids & Stress Analysis",
@@ -1177,5 +1177,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "20260915_v54_beavers_experience_update"
+  "dataVersion": "20260915_v55_remove_placement_seeking"
 };
