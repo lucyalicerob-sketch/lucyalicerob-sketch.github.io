@@ -7,7 +7,7 @@ with open(r'C:\Users\lucy_\PycharmProjects\PythonProject1\Room Mapping.py', 'r',
     room_py_raw = f.read().strip()
 
 full_js_content = """/**
- * LUCY ROBINSON — PORTFOLIO DATA
+ * LUCY ROBINSON  -  PORTFOLIO DATA
  * 
  * Written in a genuine, personal, human voice.
  * Mechanical Engineering (MEng) Student @ University of Sheffield
@@ -31,7 +31,7 @@ const PORTFOLIO_DATA = {
     },
     heroTagline: "Designing the physical mechanisms, bogie articulations, and motion kinematics that make themed rides and transit vehicles thrilling, accessible, and safe.",
     
-    elevatorPitch: "Hi, I'm Lucy! I'm a 2nd year Mechanical Engineering student at the University of Sheffield. I have a lifelong fascination with how complex mechanical systems move — from rollercoaster wheel bogies and track switches to pneumatic door dampening on the London Underground. When I'm not in CAD or running kinematic simulations, you'll probably find me at a theme park analysing track profiling or visiting heritage railways.",
+    elevatorPitch: "Hi, I'm Lucy! I'm a 2nd year Mechanical Engineering student at the University of Sheffield. I have a lifelong fascination with how complex mechanical systems move  -  from rollercoaster wheel bogies and track switches to pneumatic door dampening on the London Underground. When I'm not in CAD or running kinematic simulations, you'll probably find me at a theme park analysing track profiling or visiting heritage railways.",
 
     stats: [
       { value: "1st Class", label: "Year 1 & 2 Average" },
@@ -55,19 +55,19 @@ const PORTFOLIO_DATA = {
         { value: "12", label: "Track Types Analysed" }
       ],
       highlights: [
-        "Hyperia (Thorpe Park) — Mack Rides Hyper Coaster track profiling & outerbank transitions",
-        "Voltron Nevera (Europa-Park) — Stryker Coaster multi-launch & turntable switch mechanisms",
-        "Nemesis Reborn (Alton Towers) — B&M Inverted box-spine track fabrication & wheel bogie dynamics",
-        "Ride to Happiness (Plopsaland) — Mack Xtreme Spinning Coaster controlled rotation kinematics"
+        "Hyperia (Thorpe Park)  -  Mack Rides Hyper Coaster track profiling & outerbank transitions",
+        "Voltron Nevera (Europa-Park)  -  Stryker Coaster multi-launch & turntable switch mechanisms",
+        "Nemesis Reborn (Alton Towers)  -  B&M Inverted box-spine track fabrication & wheel bogie dynamics",
+        "Ride to Happiness (Plopsaland)  -  Mack Xtreme Spinning Coaster controlled rotation kinematics"
       ]
     }
   },
 
   personalStory: {
-    heroQuote: "I don't just want to ride attractions — I want to understand every single bolt, pivot joint, and kinematic equation that makes them move.",
+    heroQuote: "I don't just want to ride attractions  -  I want to understand every single bolt, pivot joint, and kinematic equation that makes them move.",
     bioParagraph1: "My passion for engineering didn't start in a lecture theatre. It started the first time I stood underneath the massive tubular steel supports of a rollercoaster and looked up at how the wheel assemblies negotiate three-dimensional track curves. Where other people see adrenaline, I see a triumph of mechanical engineering: multi-body dynamics, kinematic articulation, structural fatigue analysis, and safety-critical fail-safe design.",
     bioParagraph2: "At the University of Sheffield, I've channeled that obsession into practical mechanical engineering. I've designed and modelled 4-pod swerve drive AGVs from scratch, calculated bearing lifecycles under extreme cyclic G-forces for rollercoaster wheel bogies, and engineered complete manufacturing drawing packs with rigorous BS 8888 geometric tolerancing.",
-    bioParagraph3: "Currently on my placement year with Transport for London (TfL DLR) in Electrical & Mechanical (E&M) Building Services, I work on real station mechanical infrastructure, dynamic ventilation modeling with IESVE, asset maintenance, passenger lifts, and statutory safety compliance. My goal is to build a career in themed entertainment engineering — combining my love of ride mechanics, structural analysis, and accessibility design.",
+    bioParagraph3: "Currently on my placement year with Transport for London (TfL DLR) in Electrical & Mechanical (E&M) Building Services, I work on real station mechanical infrastructure, dynamic ventilation modeling with IESVE, asset maintenance, passenger lifts, and statutory safety compliance. My goal is to build a career in themed entertainment engineering  -  combining my love of ride mechanics, structural analysis, and accessibility design.",
     principles: [
       {
         icon: "📐",
@@ -597,7 +597,7 @@ __ROOM_PY_CODE__
           caption: "Alton Towers B&M inverted box-spine track fabrication and wheel bogie dynamics."
         }
       ],
-      excerpt: "Why coaster wheel bogies are kinematic masterpieces — how multi-axis articulation prevents track binding, scrubs friction, and withstands extreme cyclic G-forces.",
+      excerpt: "Why coaster wheel bogies are kinematic masterpieces  -  how multi-axis articulation prevents track binding, scrubs friction, and withstands extreme cyclic G-forces.",
       content: `Whenever I visit a theme park, my eyes go straight to the mechanical wheel bogies beneath the coaster train. 
 
 A roller coaster train doesn't just travel along a straight path; it negotiates complex three-dimensional curves with simultaneous pitch, roll, and yaw. If the wheel assemblies were rigidly mounted to the car chassis, the polyurethane wheels would violently bind against the tubular steel rails during tight turns.
@@ -609,7 +609,7 @@ Each bogie cluster consists of three distinct sets of wheels:
 3. **Upstop (Capture) Wheels:** Lock the vehicle onto the track during negative-G airtime moments.
 
 ### Dual-Axis Knuckle Articulation
-The magic happens at the articulation knuckle — a dual-axis machined joint connecting each bogie carrier to the chassis crossbeam. This allows **±15° of yaw** (steering through corners) and **±10° of pitch** (negotiating crests and valleys) while constraining roll to keep the wheels locked squarely to the tubular rail profile.
+The magic happens at the articulation knuckle  -  a dual-axis machined joint connecting each bogie carrier to the chassis crossbeam. This allows **±15° of yaw** (steering through corners) and **±10° of pitch** (negotiating crests and valleys) while constraining roll to keep the wheels locked squarely to the tubular rail profile.
 
 Seeing this in person on rides like *Nemesis Reborn* and *Big Thunder Mountain* reinforces everything I love about mechanical design: pure geometric problem-solving to make extreme dynamics feel effortless.`
     },
@@ -694,7 +694,7 @@ Water provides an incredible non-contact braking medium. The kinetic energy diss
 
 $$E_k = \\\\frac{1}{2} m (v_{\\\\text{entry}}^2 - v_{\\\\text{exit}}^2)$$
 
-For a 4,500 kg loaded boat entering the pool at 20 m/s and decelerating to 4 m/s over 35 meters, the water channel dissipates **over 860 kJ of energy in under 2.5 seconds** — producing the iconic splash plume while maintaining comfortable, progressive deceleration for riders.
+For a 4,500 kg loaded boat entering the pool at 20 m/s and decelerating to 4 m/s over 35 meters, the water channel dissipates **over 860 kJ of energy in under 2.5 seconds**  -  producing the iconic splash plume while maintaining comfortable, progressive deceleration for riders.
 
 ### Mechanical Maintenance Considerations
 Water coaster bogies face extreme environmental conditions: continuous cycles of submerged water exposure followed by high-speed air friction. This requires stainless steel 316 / 4140 axle pins, double-lip nitrile bearing seals, and composite friction pads to eliminate corrosion and guarantee long service lifecycles.`
