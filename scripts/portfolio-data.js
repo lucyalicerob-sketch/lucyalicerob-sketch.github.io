@@ -1,8 +1,8 @@
 /**
  * PORTFOLIO DATA SOURCE
- * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
+ * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260915_v51_switch_transit_to_featured
+ * Updated: 2026-09-15T12:22:25.651Z
  */
 
 const PORTFOLIO_DATA = {
@@ -350,12 +350,7 @@ const PORTFOLIO_DATA = {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
     },
     "contactHeading": "Interested in Connecting or <em>Working Together</em>?",
-    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!",
-    "highlights": [
-      "🎓 1st Class Honours across Year 1 and Year 2.",
-      "🚆 Summer Intern @ Transport for London (TfL DLR).",
-      "🏆 Engineering Leaders Scholar @ Royal Academy of Engineering"
-    ]
+    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!"
   },
   "skills": {
     "cadModeling": [
@@ -539,7 +534,7 @@ const PORTFOLIO_DATA = {
           "caption": "Journey study documenting station platform-to-train vertical steps and low doorway geometry on 1972 Tube Stock."
         }
       ],
-      "summary": "Delivered within an intensive 2-week Assessment Centre design brief. Applied the Double Diamond engineering framework to develop two mechanical retrofit solutions for the London Underground Bakerloo line: an electric 'Lift in a Box' providing step-free platform boarding (RVAR 2010 compliant), and a motorized rotating padded doorway cushion to prevent passenger head collisions.",
+      "summary": "Delivered within an intensive 2-week Assessment Centre design brief. Applied the Double Diamond engineering framework to develop two mechanical retrofit solutions for the London Underground Bakerloo line.",
       "keyMetrics": [
         {
           "label": "Timeframe",
@@ -1197,5 +1192,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260915_v51_switch_transit_to_featured"
+  "dataVersion": "gh_1789474945651"
 };
