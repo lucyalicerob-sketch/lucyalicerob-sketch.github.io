@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T13:30:00.000Z
+ * Updated: 2026-09-15T13:40:00.000Z
  */
 
 const PORTFOLIO_DATA = {
@@ -1173,9 +1173,9 @@ const PORTFOLIO_DATA = {
     {
       "name": "assets/documents/Lucy_Robinson_CV.pdf",
       "url": "assets/documents/Lucy_Robinson_CV.pdf",
-      "size": "235.9 KB",
-      "dateAdded": "2026-08-18"
+      "size": "172.9 KB",
+      "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "20260915_v52_full_device_sync"
+  "dataVersion": "20260915_v53_updated_cv_aug_26"
 };
