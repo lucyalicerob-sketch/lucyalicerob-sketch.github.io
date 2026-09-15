@@ -199,7 +199,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v56_resolved_merge_conflict';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v57_restore_nice_headshot_photo';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // When disk version updates, keep existing storage and synchronize disk dataset
@@ -211,8 +211,8 @@ function getWorkingData() {
       const parsed = JSON.parse(saved);
       if (parsed && parsed.profile) {
         // Repair any broken paths from older studio sessions
-        if (!parsed.profile.aboutPhoto || parsed.profile.aboutPhoto.includes('lucy_about_photo.jpg') || parsed.profile.aboutPhoto.startsWith('data:image')) {
-          parsed.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
+        if (!parsed.profile.aboutPhoto || parsed.profile.aboutPhoto.includes('lucy_about_photo.jpg') || parsed.profile.aboutPhoto.includes('mickey') || parsed.profile.aboutPhoto.startsWith('data:image')) {
+          parsed.profile.aboutPhoto = 'assets/images/personal/lucy_headshot.jpg';
         }
         return parsed;
       }
@@ -222,9 +222,9 @@ function getWorkingData() {
   }
   const fallback = (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
   if (fallback.profile) {
-    fallback.profile.aboutPhoto = fallback.profile.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg';
+    fallback.profile.aboutPhoto = fallback.profile.aboutPhoto || 'assets/images/personal/lucy_headshot.jpg';
     if (fallback.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
-      fallback.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
+      fallback.profile.aboutPhoto = 'assets/images/personal/lucy_headshot.jpg';
     }
   }
   return fallback;

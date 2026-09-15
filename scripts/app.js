@@ -42,12 +42,12 @@ function initApp() {
  * Image URL Formatter & Google Drive / Google Photos CDN Normalizer
  */
 function formatImageSrc(url) {
-  if (!url) return 'assets/images/personal/lucy_mickey_framed.jpg';
+  if (!url) return 'assets/images/personal/lucy_headshot.jpg';
   url = String(url).trim();
 
   // If broken 0-byte user-photo path, route to real framed photo
   if (url.includes('lucy_about_photo.jpg') || url.includes('lucy_about_0.jpg')) {
-    return 'assets/images/personal/lucy_mickey_framed.jpg';
+    return 'assets/images/personal/lucy_headshot.jpg';
   }
 
   // 1. Google Drive URLs (file/d/..., open?id=..., uc?id=...)
@@ -76,7 +76,7 @@ window.handleImgError = function(imgEl, originalSrc) {
   
   // 1. Personal / Profile photo fallback
   if (src.includes('about') || src.includes('lucy') || imgEl.id === 'aboutPhotoImg' || (imgEl.className && imgEl.className.includes('about-photo'))) {
-    imgEl.src = 'assets/images/personal/lucy_mickey_framed.jpg';
+    imgEl.src = 'assets/images/personal/lucy_headshot.jpg';
     return;
   }
 
