@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T11:10:25.334Z
+ * Updated: 2026-09-15T11:13:03.000Z
  */
 
 const PORTFOLIO_DATA = {
@@ -487,16 +487,14 @@ const PORTFOLIO_DATA = {
     {
       "id": "ride-turntable",
       "title": "Time Machine Turntable",
-      "subtitle": "High-Precision Track Switch & Positioning Table (Current Workbench Build)",
+      "subtitle": "Track Switch & Positioning Table (Current Workbench Build)",
       "category": "themed-rides",
       "featured": true,
       "badge": "On My Workbench",
-      "timeline": "2026 (Active Build)",
+      "timeline": "2026",
       "tools": [
         "SolidWorks",
-        "Slewing Bearings",
-        "Locking Shot-Pins",
-        "Python Sizing"
+        "Slewing Bearings"
       ],
       "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155035.png",
       "cadGallery": [],
@@ -516,7 +514,7 @@ const PORTFOLIO_DATA = {
         "cadArchitecture": "This simple CAD assembly has:\n\nA base plate: the area which the turntable drops down to to connect with the slewing gear\n\nA Slewing: A large planetary gear set up which consists of a outside toothed sun with a single pinion gear attached which rotates around it to create motion.\n\nA load platform: The platform which has the track segment attached which houses the vehicle that will be lowered.\n\nA stationary platform: The platform which supports the entry and exit track segments.   ",
         "calcsAndSimulation": "The design is build such that the ride vehicle lowers to the base plate. Rotates 180 degrees and then raises back up. \n\nThis is demonstrated in the diagram.\n\n",
         "prototypingAndTesting": "As it is the mechanism moves but it doesn't consider many safety features that are vital for connecting and disconnecting track segments. \n\nIn reality, it would require shock pins which connect the track sections together smoothly and ensure that they are aligned properly. The track sections would also be fitted with sensors that can detect in the alignment in off and sloow or stop the ride to maintain safety.\n\nThere would also need to be a brake and lock system on the the rack which the train sits on to ensure it doesn't slip while in transit. I would also add some kind of launch such as LSM which can force the movement of the train following the scene in this room. ",
-        "takeaways": "Working on this active build has bridged mechanical component sizing with system safety logic (why hardware interlocks must always mechanically prevent motion before software allows dispatch).",
+        "takeaways": "Working on this build has given me deeper understanding of how to use mates in Solidworks to achieve a required motion while limiting other components from moving.\n\nI hope to further develop this and add some of the additional safety and other features in the future. ",
         "tabTitles": {
           "problem": "1. The Goal ",
           "cad": "2. CAD",
@@ -1171,5 +1169,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789470625334"
+  "dataVersion": "gh_1789470783000"
 };
