@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260915_v39_bakerloo_combined
+ * Updated: 20260915_v40_bakerloo_assessment_note
  */
 
 const PORTFOLIO_DATA = {
@@ -764,11 +764,11 @@ const PORTFOLIO_DATA = {
     {
       "id": "bakerloo-enhancements",
       "title": "Bakerloo Line Accessibility & Usability Enhancements",
-      "subtitle": "Double Diamond Design Process, RVAR 2010 Compliance & Mechanical Solutions for 1972 Tube Stock",
+      "subtitle": "2-Week Design Sprint: Double Diamond Framework, RVAR 2010 Compliance & Mechanical Solutions for 1972 Tube Stock",
       "category": "transit-rail",
       "featured": false,
-      "badge": "TfL Transit Study",
-      "timeline": "Summer 2026",
+      "badge": "Assessment Centre Task (2-Week Sprint)",
+      "timeline": "2-Week Sprint",
       "tools": [
         "SolidWorks",
         "Double Diamond Design",
@@ -809,8 +809,12 @@ const PORTFOLIO_DATA = {
           "caption": "Journey study documenting station platform-to-train vertical steps and low doorway geometry on 1972 Tube Stock."
         }
       ],
-      "summary": "Applied the Double Diamond engineering framework to develop two mechanical retrofit solutions for the London Underground Bakerloo line: an electric 'Lift in a Box' providing step-free platform boarding (RVAR 2010 compliant), and a motorized rotating padded doorway cushion to prevent passenger head collisions.",
+      "summary": "Delivered within an intensive 2-week Assessment Centre design brief. Applied the Double Diamond engineering framework to develop two mechanical retrofit solutions for the London Underground Bakerloo line: an electric 'Lift in a Box' providing step-free platform boarding (RVAR 2010 compliant), and a motorized rotating padded doorway cushion to prevent passenger head collisions.",
       "keyMetrics": [
+        {
+          "label": "Timeframe",
+          "value": "2-Week Rapid Sprint"
+        },
         {
           "label": "Lift Working Load",
           "value": "300 kg (RVAR 2010)"
@@ -822,10 +826,6 @@ const PORTFOLIO_DATA = {
         {
           "label": "Stowed Enclosure",
           "value": "100 mm Thickness"
-        },
-        {
-          "label": "Max Ramp Gradient",
-          "value": "8% Max (5% Preferred)"
         },
         {
           "label": "Design Framework",
@@ -841,7 +841,7 @@ const PORTFOLIO_DATA = {
           "takeaways": "5. Process & Key Takeaways"
         },
         "tabSubtitles": {
-          "problem": "London Underground 1972 Tube Stock accessibility research & stakeholder power-interest matrix",
+          "problem": "2-week assessment centre brief: London Underground 1972 Tube Stock accessibility research & stakeholder power-interest matrix",
           "cad": "RVAR 2010 specifications, Pugh matrix ideation & rack-and-pinion folding 'Lift in a Box'",
           "calcs": "Doorway clearance restrictions, concept assessment & motorized rotating padded bar mechanism",
           "prototyping": "Multi-stakeholder consultations, material selection, carriage retrofitting & operational training",
@@ -899,11 +899,11 @@ const PORTFOLIO_DATA = {
             }
           ]
         },
-        "problemStatement": "**Identifying Accessibility & Usability Challenges on the Bakerloo Line**\nDuring my research into London Underground deep-level rolling stock (specifically the 1972 Tube Stock operating on the Bakerloo line), I identified two critical passenger usability and safety challenges:\n\n1. **Lack of Step-Free Access:** Substantial height and gap variations between curved station platforms and train floors prevent unassisted boarding for wheelchair users, parents with prams, and mobility-impaired passengers.\n2. **Low Doorway Head Clearance:** Due to the deep-level circular tunnel bore constraints, 1972 Tube Stock carriage doors are significantly lower than standard modern trains, leading to frequent and painful passenger head collisions with top door frame headers during boarding and alighting.\n\n**Stakeholder Power-Interest Analysis**\nTo guide the engineering design, I mapped key stakeholders across a power-interest matrix:\n* **High Interest / High Power:** Primary transit users (wheelchair users, diverse height demographics), Train Drivers, Station Staff, and TfL Leadership.\n* **High Power / Lower Direct Daily Use:** Funding Bodies (UK Government, Greater London Authority), Rolling Stock Engineers & Designers.\n* **Operational Stakeholders:** Maintenance Teams and Parts Suppliers.",
+        "problemStatement": "**Assessment Centre Brief (2-Week Rapid Design Sprint)**\nThis project was developed as an intensive individual engineering task for an Assessment Centre, completed within a strict **2-week delivery timeframe** from initial brief to final presentation. The challenge was to rapidly identify real-world transit engineering problems on the London Underground Bakerloo line (1972 Tube Stock), formulate quantified specifications against regulatory standards, evaluate competing concepts, and present viable mechanical CAD solutions.\n\n**Identifying Key Accessibility & Usability Challenges:**\nDuring my research into deep-level circular tube stock, I focused on two critical passenger safety and accessibility issues:\n1. **Lack of Step-Free Access:** Substantial height and gap variations between curved station platforms and train floors prevent unassisted boarding for wheelchair users, parents with prams, and mobility-impaired passengers.\n2. **Low Doorway Head Clearance:** Due to deep-level circular tunnel bore constraints, 1972 Tube Stock carriage doors are significantly lower than standard modern trains, leading to frequent passenger head collisions with top door frame headers during boarding and alighting.\n\n**Stakeholder Power-Interest Analysis:**\nTo guide the engineering design under the 2-week timeframe, I structured a stakeholder power-interest matrix:\n* **High Interest / High Power:** Primary transit users (wheelchair users, diverse height demographics), Train Drivers, Station Staff, and TfL Leadership.\n* **High Power / Lower Direct Daily Use:** Funding Bodies (UK Government, Greater London Authority), Rolling Stock Engineers & Designers.\n* **Operational Stakeholders:** Maintenance Teams and Parts Suppliers.",
         "cadArchitecture": "**Design 1: Step-Free Platform 'Lift in a Box'**\n\n**1. Technical Specification (RVAR 2010 Compliance):**\nDeveloped in strict accordance with the *Rail Vehicle Accessibility (Non-Interoperable Rail System) Regulations 2010*:\n* **Minimum Safe Working Load:** 300 kg\n* **Maximum Operating Speed:** 150 mm/s\n* **Platform Geometry:** Minimum 750 mm width × 1200 mm usable length\n* **Maximum Ramp Gradient:** 8% maximum (5% preferred operating target)\n* **Cycle Time & Safety:** Maximum 20-second deployment; non-slip surface; staff-operated interlock; height-adjustable across all Bakerloo line platforms.\n\n**2. Concept Ideation & Pugh Matrix Selection:**\nAssessed four candidate architectures across cost, size, weight, usability, deployment time, implementation speed, and car modification requirements:\n* *Embedded Ramp:* 146 pts | *External Ramp:* 166 pts | *Embedded Lift:* 135 pts | **External Lift ('Lift in a Box'): 173 pts (Selected)**\n\n**3. Final Mechanism Architecture:**\nA compact electric rack-and-pinion elevation system chosen for high power efficiency, low acoustic footprint, and minimal maintenance overhead. Features four hinged folding panels (two forming transition ramps) that fold down into a compact **100 mm thick wall-mounted enclosure** positioned adjacent to double doors inside the carriage. Incorporates a **50 mm high-visibility contrasting perimeter outline** and high-friction textured surface for regulatory compliance.",
         "calcsAndSimulation": "**Design 2: Motorized Rotating Doorway Head Clearance Cushion**\n\n**1. Technical Specification:**\n* **Bar Geometry:** 30 mm – 40 mm diameter hollow aluminium tube\n* **Span Length:** 1300 mm (double doorway) / 650 mm (single doorway)\n* **Clearance & Cycle Time:** Minimum 40 mm clearance; maximum 20-second operation; zero interference with sliding pocket door mechanisms; failsafe manual override.\n\n**2. Concept Ideation & Selection Matrix:**\nEvaluated four protective concepts across manufacturing cost, passenger disruption, safety factor, impact effectiveness, and installation complexity:\n* *Static Warning Banner:* 120 pts | **Emerging / Rotating Bar: 151 pts (Selected)** | *Automated Audio Announcement:* 147 pts | *Free-Swinging Bar:* 105 pts\n\n**3. Final Mechanism Architecture:**\nA motorized pivoting padded bar installed above the interior door header inside the carriage:\n* **Lightweight Construction:** Extruded hollow aluminium alloy tubing supported by compact structural pivot brackets.\n* **Contrasting Impact Padding:** High-density foam padding in contrasting visual colours for immediate visibility.\n* **Synchronized Kinematics & Dual Functionality:** When carriage doors open at stations, a compact geared stepper motor rotates the bar downward directly beneath the door frame edge. Once in transit, the bar locks securely into an upper position, serving as an auxiliary passenger grab handle to optimize interior space.",
         "prototypingAndTesting": "**Stakeholder Consultations & Phased Implementation Roadmap**\n\nTo ensure practical viability and seamless integration into London Underground operations, I structured a four-part consultation and implementation framework:\n\n**1. Four Key User & Business Consultations:**\n* **Wheelchair Users & Passengers of Diverse Heights:** Verifying platform transition comfort, ramp gradient ease, and visual noticeability.\n* **Station Operations Staff:** Evaluating dwell-time impact, ease of manual override, and operational ergonomics.\n* **TfL Leadership:** Reviewing capital expenditure, fleet retrofitting schedules, and network-wide accessibility goals.\n* **Rolling Stock Systems Engineers:** Validating electrical power draw, carriage structural mounting interfaces, and fail-safe interlocks.\n\n**2. Implementation Roadmap:**\n* **Material Selection & Sizing:** Specifying lightweight, fire-safe (BS 6853 / EN 45545 transit fire standards) aluminium alloys and closed-cell elastomer foam.\n* **Carriage Modifications:** Designing minimal-footprint structural bracket mounts to attach directly to carriage sidewall frames without compromising passenger capacity.\n* **Signage & Multi-Sensory Cues:** Integrating high-contrast visual demarcations and synchronized audio chime warnings.\n* **Operational Training:** Creating concise operating procedures and training modules for station dispatch staff.\n* **Physical Load & Impact Testing:** Conducting static proof load tests (300 kg) on the lift platform and dynamic impact attenuation testing on the doorway foam buffers.",
-        "takeaways": "**Engineering Process Reflection & Key Takeaways**\n\n**The Double Diamond Framework:**\nThroughout this project, I applied an iterative Double Diamond engineering methodology:\n1. **Research & Discover:** Uncovered root-cause platform height disparities and doorway geometry constraints on heritage 1972 Tube Stock.\n2. **Specify & Define:** Translated regulatory frameworks (RVAR 2010, British railway standards) into quantified numerical restrictions.\n3. **Generate & Assess:** Developed multiple kinematic concepts and evaluated them objectively using weighted Pugh decision matrices.\n4. **Iterate & Refine:** Refined mechanical folding geometry, motor drive choices, and spatial packaging.\n5. **Finalise:** Delivered complete 3D CAD assemblies and structured implementation workflows for both systems.\n\n**Real-World Engineering Insights:**\n* **Human-Centred Transit Design:** Good engineering isn't just about moving parts — it's about deeply understanding the passenger journey, from wheelchair access to physical head clearance.\n* **Packaging in Heritage Envelopes:** Retrofitting modern accessibility solutions into 50+ year-old tube stock requires extreme spatial discipline (collapsing a lift into 100 mm thickness and dual-purposing safety bars as grab handles).\n* **Regulatory Discipline:** Designing to formal standards (RVAR 2010) early in the ideation phase prevents costly redesigns and ensures real-world manufacturability."
+        "takeaways": "**Engineering Process Reflection & Key Takeaways**\n\n**The Double Diamond Framework:**\nThroughout this 2-week rapid project, I applied an iterative Double Diamond engineering methodology:\n1. **Research & Discover:** Uncovered root-cause platform height disparities and doorway geometry constraints on heritage 1972 Tube Stock.\n2. **Specify & Define:** Translated regulatory frameworks (RVAR 2010, British railway standards) into quantified numerical restrictions.\n3. **Generate & Assess:** Developed multiple kinematic concepts and evaluated them objectively using weighted Pugh decision matrices.\n4. **Iterate & Refine:** Refined mechanical folding geometry, motor drive choices, and spatial packaging.\n5. **Finalise:** Delivered complete 3D CAD assemblies and structured implementation workflows for both systems.\n\n**Key Real-World Engineering Insights:**\n* **Rapid 2-Week Sprint Discipline:** Delivering two complete, specification-backed mechanical concepts with full Pugh matrices and CAD assemblies within a 2-week window demonstrated the power of a structured Double Diamond framework under tight project deadlines.\n* **Human-Centred Transit Design:** Good engineering isn't just about moving parts — it's about deeply understanding the passenger journey, from wheelchair access to physical head clearance.\n* **Packaging in Heritage Envelopes:** Retrofitting modern accessibility solutions into 50+ year-old tube stock requires extreme spatial discipline (collapsing a lift into 100 mm thickness and dual-purposing safety bars as grab handles).\n* **Regulatory Discipline:** Designing to formal standards (RVAR 2010) early in the ideation phase prevents costly redesigns and ensures real-world manufacturability."
       }
     }
   ],
@@ -1155,5 +1155,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260915_v39_bakerloo_combined"
+  "dataVersion": "20260915_v40_bakerloo_assessment_note"
 };
