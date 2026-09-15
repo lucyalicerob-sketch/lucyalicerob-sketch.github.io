@@ -199,22 +199,11 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v40_bakerloo_assessment_note';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v41_all_edits_restored';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
-  // If new disk version detected, clear stale local storage and load fresh code version
-  if (!savedVersion || savedVersion !== currentDiskVersion) {
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.setItem(DATA_VERSION_KEY, currentDiskVersion);
-    const fresh = (typeof PORTFOLIO_DATA !== 'undefined') ? JSON.parse(JSON.stringify(PORTFOLIO_DATA)) : {};
-    if (fresh.profile) {
-      fresh.profile.aboutPhoto = fresh.profile.aboutPhoto || 'assets/images/personal/lucy_mickey_framed.jpg';
-      if (fresh.profile.aboutPhoto.includes('lucy_about_photo.jpg')) {
-        fresh.profile.aboutPhoto = 'assets/images/personal/lucy_mickey_framed.jpg';
-      }
-    }
-    return fresh;
-  }
+  // When disk version updates, keep existing storage and synchronize disk dataset
+  localStorage.setItem(DATA_VERSION_KEY, currentDiskVersion);
 
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
