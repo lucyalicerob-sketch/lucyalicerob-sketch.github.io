@@ -142,6 +142,15 @@ function renderProfileInfo() {
     footerCopy.textContent = p.footerCopy;
   }
 
+  const contactHeading = document.getElementById('contactHeadline');
+  if (contactHeading && p.contactHeading) {
+    contactHeading.innerHTML = p.contactHeading;
+  }
+  const contactMsg = document.getElementById('contactMessage');
+  if (contactMsg && p.contactMessage) {
+    contactMsg.innerHTML = p.contactMessage;
+  }
+
   const engName = document.getElementById('aboutEngineerName');
   if (engName && p.name) engName.textContent = p.name;
 

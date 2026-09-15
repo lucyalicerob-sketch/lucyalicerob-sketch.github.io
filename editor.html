@@ -277,8 +277,8 @@
   <div id="studioToast" style="position: fixed; bottom: 28px; right: 28px; background: var(--bg-surface); color: var(--text-main); border: 1.5px solid var(--park-copper); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); z-index: 10000; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; display: none;"></div>
 
   <!-- Scripts -->
-  <script src="scripts/portfolio-data.js?v=20260912_v37_editor_syntax_fixed"></script>
-  <script src="scripts/cms.js?v=20260912_v37_editor_syntax_fixed"></script>
+  <script src="scripts/portfolio-data.js?v=20260915_v38_generic_contact_card"></script>
+  <script src="scripts/cms.js?v=20260915_v38_generic_contact_card"></script>
   <script>
     function escapeHTML(str) {
   if (!str) return '';
@@ -567,6 +567,18 @@ window.escapeHTML = escapeHTML;
           <div class="form-group">
             <label class="studio-label">Footer Copyright Line</label>
             <input type="text" id="edFooterCopy" class="studio-input" value="${p.footerCopy || '© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.'}">
+          </div>
+
+          <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 20px 0;">
+            <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">📫 Contact Card Text</h3>
+            <div class="form-group">
+              <label class="studio-label">Contact Card Headline</label>
+              <input type="text" id="edContactHeading" class="studio-input" value="${escapeHTML(p.contactHeading || 'Interested in Connecting or <em>Working Together</em>?')}">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="studio-label">Contact Card Message / Subtitle</label>
+              <textarea id="edContactMessage" class="studio-textarea" rows="2">${escapeHTML(p.contactMessage || 'I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!')}</textarea>
+            </div>
           </div>
 
           <div style="background: var(--bg-subtle); padding: 18px; border-radius: var(--radius-lg); border: 1.5px solid var(--border-light); margin: 20px 0;">
@@ -1268,6 +1280,10 @@ window.escapeHTML = escapeHTML;
         if (edStatusPill) p.statusPillText = edStatusPill.value;
         const edFooterCopy = document.getElementById('edFooterCopy');
         if (edFooterCopy) p.footerCopy = edFooterCopy.value;
+        const edContactHeading = document.getElementById('edContactHeading');
+        if (edContactHeading) p.contactHeading = edContactHeading.value;
+        const edContactMessage = document.getElementById('edContactMessage');
+        if (edContactMessage) p.contactMessage = edContactMessage.value;
         const edEmail = document.getElementById('edEmail');
         if (edEmail) p.socials.email = edEmail.value;
         const edPhone = document.getElementById('edPhone');

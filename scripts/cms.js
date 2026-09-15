@@ -199,7 +199,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260912_v37_editor_syntax_fixed';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v38_generic_contact_card';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // If new disk version detected, clear stale local storage and load fresh code version
