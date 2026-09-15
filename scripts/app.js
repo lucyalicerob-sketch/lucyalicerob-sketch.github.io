@@ -171,7 +171,7 @@ function renderProfileInfo() {
       engHighlights.innerHTML = `
         <div style="margin-bottom: 6px;"><strong>🎓 ${edu.status || edu.grade || '1st Class Honours across Year 1 & 2'}</strong></div>
         <div style="margin-bottom: 6px;"><strong>🚆 Summer Intern</strong> @ ${cStat.company || 'Transport for London (TfL DLR)'} (${cStat.division || 'E&M Building Services'})</div>
-        <div style="margin-bottom: 6px;"><strong>🏆 SELSA Award</strong> (Sheffield Engineering Leadership &amp; Service Award)</div>
+        <div style="margin-bottom: 6px;"><strong>🏆 Engineering Leaders Scholar</strong> @ Royal Academy of Engineering</div>
       `;
     }
   }

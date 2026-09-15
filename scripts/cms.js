@@ -199,7 +199,7 @@ const DATA_VERSION_KEY = 'lucy_portfolio_data_version';
 
 // Load stored data or default to PORTFOLIO_DATA with automatic disk version sync & asset repair
 function getWorkingData() {
-  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v49_generic_fieldnotes_subtitle';
+  const currentDiskVersion = (typeof PORTFOLIO_DATA !== 'undefined' && PORTFOLIO_DATA.dataVersion) ? PORTFOLIO_DATA.dataVersion : '20260915_v50_raeng_highlight_in_about_card';
   const savedVersion = localStorage.getItem(DATA_VERSION_KEY);
 
   // When disk version updates, keep existing storage and synchronize disk dataset
