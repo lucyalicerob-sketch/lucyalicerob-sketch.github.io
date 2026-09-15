@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260915_v42_bakerloo_cad_cover
+ * Updated: 20260915_v43_hyperia_thorpe_park_photo
  */
 
 const PORTFOLIO_DATA = {
@@ -938,10 +938,26 @@ const PORTFOLIO_DATA = {
       "date": "",
       "readTime": "3 min read",
       "category": "Ride Analysis",
-      "coverPhoto": "assets/images/personal/europa_park_water_coaster.jpg",
+      "coverPhoto": "assets/images/personal/hyperia_thorpe_park.jpg",
       "summary": "Hyperia was extremely anticipated among the UK enthusiast community and I followed its journey from the start",
       "content": "Walking down Monks Walk on a cold, muddy afternoon may not seem like everyone's preferred activity, but during 2023 and 2024 I was one of many who were excited to visit this seemingly random footpath. Why? Hyperia was being build at Thorp Park and this was one of the best spots to keep up with the construction firsthand and have a rear opportunity to watch a coaster being built. \n\nHyperia is the UK's tallest and fastest rollercoaster standing at an incredible 236 feet and reaching top speeds of 81 mph. And I have to say I think it's one of our best.\n\nIn terms of the track layout, the ride is short but punchy. Immediately after leaving the station you are displayed to all the anxious queuers in an outer banked turn, and that's before you even hit the lift hill. The lift hill its self can feel long and is deliberately loud, this builds even more anticipation before you hit that first drop (arguably the rides best element). a 236 foot drop, matching the overall height of the coaster, is a brilliant start to a short ride. The force from the drop pulls the rider into their seat ready to be floated out over the inverting and non-inverting elements.\n\nThe ride layout contains one of my personal favourite elements the non-inverting Immelman. This has for a long time been on of my preferred elements due to the twist, you think you are going to loop but at the last moment you are flipped and never actually invert. Pair that with outer banks and a dive loop and the thrill is there. It has very few rides that can even attempt to compete and that's what makes it so pivotal in the UK enthusiast community.\n\nOne thing I have always noticed about it, is the prominent and loud motor which controls the chain lift. Is it purposefully disruptive? I think so!  Having a roaring motor right in the ride queue creates the ultimate sense of anticipation for the hyper-coaster you are about to ride. I do, however, as someone who is neurodivergent, find it quite jarring and often over-stimmulating which can be hard when the queue can reach an hour easily. I personally don't feel like I need to use a ride access queue as I am capable of waiting but this one feature does make me wonder if I should?\n\nOverall, it's a coaster which has put the UK on the map as a place worth visiting for coasters and proves the skill of Mack Rides to develop incredible experiences. (Not that you need more proof if you have been to Europa Park)",
-      "tripPhotos": []
+      "tripPhotos": [
+        {
+          "url": "assets/images/personal/hyperia_thorpe_park.jpg",
+          "caption": "Hyperia (236 ft Mack Rides Hypercoaster) operating at Thorpe Park.",
+          "tag": "Thorpe Park"
+        },
+        {
+          "url": "assets/images/personal/hyperia_construction_monks_walk.jpg",
+          "caption": "Tracking Hyperia's structural construction firsthand from the Monks Walk footpath.",
+          "tag": "Monks Walk Construction"
+        },
+        {
+          "url": "assets/images/personal/hyperia_thorpe_park_bridge.jpg",
+          "caption": "Hyperia's 236 ft lift hill and splashdown turn viewed from the park bridge.",
+          "tag": "Thorpe Park Bridge View"
+        }
+      ]
     }
   ],
   "experience": [
@@ -1151,6 +1167,20 @@ const PORTFOLIO_DATA = {
       "category": "trips",
       "date": "16/08/2026",
       "size": "503.8 KB"
+    },
+    {
+      "name": "Hyperia at Thorpe Park",
+      "url": "assets/images/personal/hyperia_thorpe_park.jpg",
+      "category": "theme-parks",
+      "date": "15/09/2026",
+      "size": "950 KB"
+    },
+    {
+      "name": "Hyperia Monks Walk Construction",
+      "url": "assets/images/personal/hyperia_construction_monks_walk.jpg",
+      "category": "theme-parks",
+      "date": "15/09/2026",
+      "size": "2.8 MB"
     }
   ],
   "coasterCredits": [],
@@ -1162,5 +1192,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260915_v42_bakerloo_cad_cover"
+  "dataVersion": "20260915_v43_hyperia_thorpe_park_photo"
 };
