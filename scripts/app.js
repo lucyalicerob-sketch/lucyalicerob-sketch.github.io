@@ -724,7 +724,7 @@ function renderDiaryEntries() {
       <div class="diary-card-body">
         <div class="diary-header-row">
           <span class="badge badge-red">${entry.category}</span>
-          <span class="diary-date">${entry.date} • ${entry.readTime}</span>
+          <span class="diary-date">${entry.date ? entry.date + " • " : ""}${entry.readTime}</span>
         </div>
         <h3 class="diary-title">${entry.title}</h3>
         <p class="diary-snippet">${entry.summary}</p>
@@ -756,7 +756,7 @@ window.openDiaryModal = function(entryId) {
   if (!entry) return;
 
   const modal = document.getElementById('diaryReaderModal');
-  document.getElementById('modalDiaryDate').textContent = `${entry.date} • ${entry.readTime}`;
+  document.getElementById('modalDiaryDate').textContent = `${entry.date ? entry.date + " • " : ""}${entry.readTime}`;
   document.getElementById('modalDiaryCategory').textContent = entry.category;
   document.getElementById('modalDiaryTitle').textContent = entry.title;
 

@@ -2571,3 +2571,13 @@
     font-size: 1.75rem !important;
   }
 }
+
+#modalDiaryContent h3 {
+  color: var(--text-main, #ffffff);
+  margin: 20px 0 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+#modalDiaryContent p {
+  margin-bottom: 14px;
+}
