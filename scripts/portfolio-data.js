@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T11:54:50.116Z
+ * Updated: 2026-09-15T11:57:02.430Z
  */
 
 const PORTFOLIO_DATA = {
@@ -328,7 +328,8 @@ const PORTFOLIO_DATA = {
         "Thermodynamics & Heat Transfer",
         "Arduino & Mechatronics",
         "MATLAB & Computational Engineering",
-        "Robotics"
+        "Robotics",
+        "Advanced German"
       ],
       "award": "",
       "status": "Entering Year 3 in Autumn 2026 (Working at 1st Class)"
@@ -350,12 +351,7 @@ const PORTFOLIO_DATA = {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
     },
     "contactHeading": "Interested in Connecting or <em>Working Together</em>?",
-    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!",
-    "highlights": [
-      "🎓 1st Class Honours across Year 1 and Year 2.",
-      "🚆 Summer Intern @ Transport for London (TfL DLR).",
-      "🏆 Engineering Leaders Scholar @ Royal Academy of Engineering"
-    ]
+    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!"
   },
   "skills": {
     "cadModeling": [
@@ -1020,7 +1016,8 @@ const PORTFOLIO_DATA = {
       "Thermodynamics & Heat Transfer",
       "Arduino & Mechatronics",
       "MATLAB & Computational Engineering",
-      "Robotics"
+      "Robotics",
+      "Advanced German"
     ],
     "university": "University of Sheffield",
     "grade": "Entering Year 3 in Autumn 2026 (Working at 1st Class)"
@@ -1197,5 +1194,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "gh_1789473290116"
+  "dataVersion": "gh_1789473422430"
 };
