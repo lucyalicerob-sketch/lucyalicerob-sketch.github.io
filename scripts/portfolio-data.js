@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260915_v47_remove_bogie_and_dog_accents
+ * Updated: 20260915_v48_skills_matching_icons
  */
 
 const PORTFOLIO_DATA = {
@@ -1192,5 +1192,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260915_v47_remove_bogie_and_dog_accents"
+  "dataVersion": "20260915_v48_skills_matching_icons"
 };

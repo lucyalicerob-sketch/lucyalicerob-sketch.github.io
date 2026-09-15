@@ -794,7 +794,7 @@ window.openDiaryModal = function(entryId) {
 function renderSkills() {
   const s = PORTFOLIO_DATA.skills || {};
 
-  const renderList = (items, targetId) => {
+  const renderList = (items, targetId, icon = '🛠️') => {
     const el = document.getElementById(targetId);
     if (!el || !items || !Array.isArray(items)) return;
 
@@ -802,7 +802,7 @@ function renderSkills() {
       <ul class="skill-bullet-list">
         ${items.map(item => `
           <li class="skill-bullet-item">
-            
+            <span class="icon" style="font-size: 0.95rem; line-height: 1.4; user-select: none;">${icon}</span>
             <span>${item}</span>
           </li>
         `).join('')}
@@ -810,11 +810,11 @@ function renderSkills() {
     `;
   };
 
-  renderList(s.cadModeling || s.cad, 'skillsCAD');
-  renderList(s.analysisAndMath || s.analysis, 'skillsAnalysis');
-  renderList(s.rideAndTransit || s.transit, 'skillsTransit');
-  renderList(s.fabrication || s.fab, 'skillsFab');
-  renderList(s.leadership, 'skillsLeadership');
+  renderList(s.cadModeling || s.cad, 'skillsCAD', '💻');
+  renderList(s.analysisAndMath || s.analysis, 'skillsAnalysis', '📐');
+  renderList(s.rideAndTransit || s.transit, 'skillsTransit', '🎢');
+  renderList(s.fabrication || s.fab, 'skillsFab', '🛠️');
+  renderList(s.leadership, 'skillsLeadership', '🏆');
 }
 
 /* --------------------------------------------------------------------------
