@@ -169,9 +169,9 @@ function renderProfileInfo() {
       const edu = PORTFOLIO_DATA.education || (p && p.education) || {};
       const cStat = p.currentStatus || {};
       engHighlights.innerHTML = `
-        <div style="margin-bottom: 6px;"><strong>${edu.status || edu.grade || '1st Class Honours across Year 1 & 2'}</strong></div>
-        <div style="margin-bottom: 6px;"><strong>Summer Intern</strong> @ ${cStat.company || 'Transport for London (TfL DLR)'} (${cStat.division || 'E&M Building Services'})</div>
-        <div style="margin-bottom: 6px;"><strong>SELSA Award</strong> (Sheffield Engineering Leadership &amp; Service Award)</div>
+        <div style="margin-bottom: 6px;"><strong>🎓 ${edu.status || edu.grade || '1st Class Honours across Year 1 & 2'}</strong></div>
+        <div style="margin-bottom: 6px;"><strong>🚆 Summer Intern</strong> @ ${cStat.company || 'Transport for London (TfL DLR)'} (${cStat.division || 'E&M Building Services'})</div>
+        <div style="margin-bottom: 6px;"><strong>🏆 SELSA Award</strong> (Sheffield Engineering Leadership &amp; Service Award)</div>
       `;
     }
   }
@@ -256,7 +256,7 @@ function renderHeroSpotlight() {
       imgEl.setAttribute('referrerpolicy', 'no-referrer');
     }
     if (titleEl) titleEl.textContent = diary.title;
-    if (subEl) subEl.textContent = diary.location ? diary.location : diary.category;
+    if (subEl) subEl.textContent = diary.location ? `📍 ${diary.location}` : diary.category;
     if (btnEl) btnEl.textContent = "Read Field Notes →";
 
     const clickHandler = () => openDiaryModal(diary.id);
@@ -585,7 +585,7 @@ window.openProjectArticleModal = function(projectId) {
             <span class="cad-figure-title" style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--park-copper); text-transform: uppercase;">
               ${fig.title || 'Technical CAD / Figure'}
             </span>
-            <span class="badge badge-red" style="font-size: 0.7rem; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">Enlarge ↗</span>
+            <span class="badge badge-red" style="font-size: 0.7rem; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">🔍 Enlarge ↗</span>
           </div>
           <div class="cad-figure-img-wrapper" style="background: #09090b; display: flex; justify-content: center; align-items: center; padding: 12px; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">
             <img src="${formatImageSrc(fig.url)}" alt="${fig.title || 'Figure'}" class="cad-figure-img" style="max-height: 400px; width: 100%; object-fit: contain; border-radius: var(--radius-sm);" loading="lazy" referrerpolicy="no-referrer" onerror="handleImgError(this, '${fig.url}')">
@@ -599,7 +599,7 @@ window.openProjectArticleModal = function(projectId) {
     return `
       <div class="tab-figures-gallery" style="margin: 22px 0;">
         <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--park-copper); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-light); padding-bottom: 6px;">
-          <span>Section Drawings &amp; Photo Gallery (${figures.length} Figures)</span>
+          <span>🖼️ Section Drawings &amp; Photo Gallery (${figures.length} Figures)</span>
           <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: none;">Click any image to view full screen</span>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
@@ -613,7 +613,7 @@ window.openProjectArticleModal = function(projectId) {
                   <span class="cad-figure-title" style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--park-copper); text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;">
                     Fig ${idx + 1}: ${fig.title || 'CAD Drawing'}
                   </span>
-                  <span class="badge badge-red" style="font-size: 0.65rem; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">View ↗</span>
+                  <span class="badge badge-red" style="font-size: 0.65rem; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">🔍 View ↗</span>
                 </div>
                 <div class="cad-figure-img-wrapper" style="background: #09090b; display: flex; justify-content: center; align-items: center; padding: 10px; flex: 1; min-height: 180px; cursor: pointer;" onclick="openLightboxModal('${fig.url}', '${safeTitle}', '${safeCaption}')">
                   <img src="${formatImageSrc(fig.url)}" alt="${fig.title || 'Figure'}" class="cad-figure-img" style="max-height: 240px; width: 100%; object-fit: contain; border-radius: var(--radius-sm);" loading="lazy" referrerpolicy="no-referrer" onerror="handleImgError(this, '${fig.url}')">
@@ -765,13 +765,13 @@ window.openDiaryModal = function(entryId) {
     galleryHTML = `
       <div class="modal-trip-gallery">
         <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--coaster-red); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">
-          Field Photos &amp; Annotations:
+          📸 Field Photos &amp; Annotations:
         </div>
         ${entry.tripPhotos.map(photo => `
           <div class="trip-photo-figure">
             <img src="${formatImageSrc(photo.url)}" alt="${photo.caption}" class="trip-photo-img" loading="lazy" referrerpolicy="no-referrer" onerror="handleImgError(this, '${photo.url}')">
             <div class="trip-photo-caption">
-              <span>${photo.caption}</span>
+              <span style="color: var(--coaster-red);">📍</span> <span>${photo.caption}</span>
             </div>
           </div>
         `).join('')}
@@ -876,7 +876,7 @@ function renderTimeline() {
         ${e.photo ? `
           <div class="timeline-photo-card" style="margin-top: 10px;">
             <img src="${formatImageSrc(e.photo.url)}" alt="${e.photo.caption}" class="timeline-photo-img" loading="lazy" referrerpolicy="no-referrer" onerror="handleImgError(this, '${e.photo.url}')">
-            <div class="timeline-photo-caption">${e.photo.caption}</div>
+            <div class="timeline-photo-caption">📍 ${e.photo.caption}</div>
           </div>
         ` : ''}
       </div>
@@ -887,7 +887,7 @@ function renderTimeline() {
         For full role history &amp; project breakdowns:
       </div>
       <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--park-copper); font-size: 0.825rem; padding: 6px 14px;">
-        View on LinkedIn →
+        <span>💼</span> View on LinkedIn →
       </a>
     </div>
   `;

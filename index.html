@@ -9,8 +9,8 @@
   <meta name="keywords" content="Lucy Robinson, Mechanical Engineering, University of Sheffield, Themed Entertainment, Ride Systems, SolidWorks CAD, Roller Coasters, Disneyland Paris, Europa-Park">
   
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css?v=20260915_v46_clean_no_icons">
-  <link rel="stylesheet" href="styles/components.css?v=20260915_v46_clean_no_icons">
+  <link rel="stylesheet" href="styles/main.css?v=20260915_v47_remove_bogie_and_dog_accents">
+  <link rel="stylesheet" href="styles/components.css?v=20260915_v47_remove_bogie_and_dog_accents">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
       <!-- Desktop-Only Nav Menu (Hidden on Mobile) -->
       <nav class="desktop-nav">
         <ul class="desktop-nav-list" id="desktopNavMenu">
-          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#about" class="nav-link">👤 About Me</a></li>
           <li><a href="#projects" class="nav-link">CAD &amp; Builds</a></li>
           <li><a href="#diary" class="nav-link">Field Notes</a></li>
           <li><a href="#skills" class="nav-link">Toolkit</a></li>
@@ -47,10 +47,10 @@
 
       <!-- Right Action Controls -->
       <div class="nav-actions">
-        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="navCvBtn" class="btn btn-secondary btn-sm desktop-only-btn" onclick="openCvDocument(); return false;" title="View / Download CV">CV</a>
-        <button class="btn btn-secondary btn-sm desktop-only-btn" onclick="openBusinessCardModal()" title="Show Digital Card &amp; QR">QR Card</button>
+        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="navCvBtn" class="btn btn-secondary btn-sm desktop-only-btn" onclick="openCvDocument(); return false;" title="View / Download CV">📄 CV</a>
+        <button class="btn btn-secondary btn-sm desktop-only-btn" onclick="openBusinessCardModal()" title="Show Digital Card &amp; QR">🪪 QR Card</button>
         <button id="themeToggleBtn" class="theme-toggle" title="Toggle Light/Dark Mode" aria-label="Toggle theme">☀️</button>
-        <button class="btn btn-primary btn-sm desktop-only-btn" onclick="downloadVCard()">Save Contact</button>
+        <button class="btn btn-primary btn-sm desktop-only-btn" onclick="downloadVCard()">📱 Save Contact</button>
         <button id="mobileMenuToggle" class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle Menu" type="button">☰</button>
       </div>
     </div>
@@ -60,16 +60,16 @@
   <div id="mobileNavDrawer" class="mobile-nav-drawer">
     <div class="mobile-nav-inner">
       <ul class="mobile-nav-links">
-        <li><a href="#about" class="mobile-link" onclick="toggleMobileNav(false)">About Me</a></li>
-        <li><a href="#projects" class="mobile-link" onclick="toggleMobileNav(false)">CAD &amp; Machine Builds</a></li>
-        <li><a href="#diary" class="mobile-link" onclick="toggleMobileNav(false)">Field Notes &amp; Observations</a></li>
-        <li><a href="#skills" class="mobile-link" onclick="toggleMobileNav(false)">Technical Toolkit</a></li>
-        <li><a href="#experience" class="mobile-link" onclick="toggleMobileNav(false)">Engineering Journey</a></li>
+        <li><a href="#about" class="mobile-link" onclick="toggleMobileNav(false)">👤 About Me</a></li>
+        <li><a href="#projects" class="mobile-link" onclick="toggleMobileNav(false)">📐 CAD &amp; Machine Builds</a></li>
+        <li><a href="#diary" class="mobile-link" onclick="toggleMobileNav(false)">🎢 Field Notes &amp; Observations</a></li>
+        <li><a href="#skills" class="mobile-link" onclick="toggleMobileNav(false)">🛠️ Technical Toolkit</a></li>
+        <li><a href="#experience" class="mobile-link" onclick="toggleMobileNav(false)">🚆 Engineering Journey</a></li>
       </ul>
       <div class="mobile-drawer-actions">
-        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="mobileDrawerCvBtn" class="btn btn-primary btn-lg" onclick="openCvDocument(); toggleMobileNav(false); return false;" style="width: 100%; justify-content: center; margin-bottom: 10px; text-decoration: none;" onclick="toggleMobileNav(false);">Download CV (PDF)</a>
-        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center; margin-bottom: 10px;" onclick="openBusinessCardModal(); toggleMobileNav(false);">Digital QR Card</button>
-        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center;" onclick="downloadVCard(); toggleMobileNav(false);">Save Contact (.vcf)</button>
+        <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="mobileDrawerCvBtn" class="btn btn-primary btn-lg" onclick="openCvDocument(); toggleMobileNav(false); return false;" style="width: 100%; justify-content: center; margin-bottom: 10px; text-decoration: none;" onclick="toggleMobileNav(false);">📄 Download CV (PDF)</a>
+        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center; margin-bottom: 10px;" onclick="openBusinessCardModal(); toggleMobileNav(false);">🪪 Digital QR Card</button>
+        <button class="btn btn-secondary btn-lg" style="width: 100%; justify-content: center;" onclick="downloadVCard(); toggleMobileNav(false);">📱 📱 Save Contact (.vcf)</button>
       </div>
     </div>
   </div>
@@ -98,9 +98,9 @@
 
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary btn-lg">Explore CAD &amp; Builds →</a>
-            <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="heroCvBtn" class="btn btn-secondary btn-lg" onclick="openCvDocument(); return false;">View CV (PDF)</a>
+            <a href="assets/documents/Lucy_Robinson_CV.pdf" target="_blank" id="heroCvBtn" class="btn btn-secondary btn-lg" onclick="openCvDocument(); return false;">📄 View CV (PDF)</a>
             <a href="#diary" class="btn btn-secondary btn-lg">Field Notes</a>
-            <button class="btn btn-secondary btn-lg" onclick="downloadVCard()">Save Contact</button>
+            <button class="btn btn-secondary btn-lg" onclick="downloadVCard()">📱 Save Contact</button>
           </div>
 
           <div class="hero-stats-row" id="heroStatsRow">
@@ -161,9 +161,9 @@
                 MEng Mechanical Engineering • University of Sheffield
               </div>
                             <div id="aboutEngineerHighlights" style="font-size: 0.84rem; color: var(--text-body); line-height: 1.55; margin-bottom: 0;">
-                <div style="margin-bottom: 6px;"><strong>1st Class Honours across Year 1 and Year 2.</strong></div>
-                <div style="margin-bottom: 6px;"><strong>Summer Intern @ Transport for London (TfL DLR).</strong></div>
-                <div style="margin-bottom: 6px;"><strong>Engineering Leaders Scholar @ Royal Academy of Engineering</strong></div>
+                <div style="margin-bottom: 6px;"><strong>🎓 1st Class Honours across Year 1 and Year 2.</strong></div>
+                <div style="margin-bottom: 6px;"><strong>🚆 Summer Intern @ Transport for London (TfL DLR).</strong></div>
+                <div style="margin-bottom: 6px;"><strong>🏆 Engineering Leaders Scholar @ Royal Academy of Engineering</strong></div>
               </div>
             </div>
           </div>
@@ -204,10 +204,7 @@
               <button class="carousel-nav-btn" onclick="slideCarousel('featuredProjectsGrid', -1)" title="Previous Project" aria-label="Previous">‹</button>
               <button class="carousel-nav-btn" onclick="slideCarousel('featuredProjectsGrid', 1)" title="Next Project" aria-label="Next">›</button>
             </div>
-            <!-- Stylised Coaster Track Spline & Bogie Accent -->
-            <div style="width: 140px; height: 60px; opacity: 0.75;" title="Coaster Track Spine & Wheel Bogie">
-              <img src="assets/images/ride-accents/coaster_track_corner.svg" alt="Track Spline Accent" style="width: 100%; height: 100%;">
-            </div>
+            
           </div>
         </div>
 
@@ -267,10 +264,7 @@
               <button class="carousel-nav-btn" onclick="slideCarousel('diaryGrid', -1)" title="Previous Field Note" aria-label="Previous">‹</button>
               <button class="carousel-nav-btn" onclick="slideCarousel('diaryGrid', 1)" title="Next Field Note" aria-label="Next">›</button>
             </div>
-            <!-- Anti-Rollback Ratchet Dog Accent -->
-            <div style="width: 120px; height: 50px; opacity: 0.8;" title="Lift Hill Anti-Rollback Dog">
-              <img src="assets/images/ride-accents/lift_chain_dog_accent.svg" alt="Anti-Rollback Dog Accent" style="width: 100%; height: 100%;">
-            </div>
+            
           </div>
         </div>
 
@@ -310,35 +304,35 @@
           <div class="skills-grid carousel-track" id="skillsGridTrack">
             <div class="card skill-category-card">
               <div class="skill-cat-title">
-                <span>Software &amp; CAD Tools</span>
+                <span>💻</span> <span>Software &amp; CAD Tools</span>
               </div>
               <div id="skillsCAD"></div>
             </div>
 
             <div class="card skill-category-card">
               <div class="skill-cat-title">
-                <span>Design &amp; Kinematics</span>
+                <span>📐</span> <span>Design &amp; Kinematics</span>
               </div>
               <div id="skillsAnalysis"></div>
             </div>
 
             <div class="card skill-category-card">
               <div class="skill-cat-title">
-                <span>Rides &amp; Transit</span>
+                <span>🎢</span> <span>Rides &amp; Transit</span>
               </div>
               <div id="skillsTransit"></div>
             </div>
 
             <div class="card skill-category-card">
               <div class="skill-cat-title">
-                <span>Workshop &amp; Fabrication</span>
+                <span>🛠️</span> <span>Workshop &amp; Fabrication</span>
               </div>
               <div id="skillsFab"></div>
             </div>
 
             <div class="card skill-category-card">
               <div class="skill-cat-title">
-                <span>Leadership</span>
+                <span>🏆</span> <span>Leadership</span>
               </div>
               <div id="skillsLeadership"></div>
             </div>
@@ -413,19 +407,19 @@
 
           <div class="contact-grid">
             <a id="contactCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-primary btn-lg" style="justify-content: center; text-decoration: none;">
-              Download Full CV (PDF) ↗
+              📄 Download Full CV (PDF) ↗
             </a>
             <button class="btn btn-secondary btn-lg" onclick="downloadVCard()">
-              Save Contact to Phone (.vcf)
+              📱 Save Contact to Phone (.vcf)
             </button>
             <button id="contactEmailBtn" class="btn btn-secondary btn-lg" onclick="copyEmailToClipboard()">
-              Copy Email (lucyalicerob@gmail.com)
+              📋 Copy Email (lucyalicerob@gmail.com)
             </button>
             <button class="btn btn-secondary btn-lg" onclick="openBusinessCardModal()">
-              Digital QR Card
+              🪪 Digital QR Card
             </button>
             <a id="contactLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener noreferrer" onclick="window.open('https://www.linkedin.com/in/lucy-robinson-a6128838b', '_blank'); return false;" class="btn btn-secondary btn-lg">
-              LinkedIn Profile ↗
+              🔗 LinkedIn Profile ↗
             </a>
           </div>
 
@@ -444,7 +438,7 @@
     <div class="container footer-content">
       <div class="footer-copy">
         <span id="footerCopyText">© 2026 Lucy Robinson. Mechanical Engineering (MEng), University of Sheffield.</span>
-        <a href="editor.html" style="opacity: 0.35; cursor: pointer; font-size: 0.8rem; margin-left: 12px; transition: opacity 0.2s; color: inherit; text-decoration: none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'" title="Studio Editor">Studio Editor</a>
+        <a href="editor.html" style="opacity: 0.35; cursor: pointer; font-size: 0.8rem; margin-left: 12px; transition: opacity 0.2s; color: inherit; text-decoration: none;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.35'" title="Studio Editor">⚙️ Studio Editor</a>
       </div>
       <div style="display: flex; align-items: center; gap: 12px;">
         
@@ -518,7 +512,7 @@
   <div id="businessCardModal" class="modal-backdrop">
     <div class="modal-dialog qr-modal-dialog">
       <div class="modal-header">
-        <h3 style="font-size: 1.15rem; color: var(--text-main);">Digital Business Card &amp; QR</h3>
+        <h3 style="font-size: 1.15rem; color: var(--text-main);">🪪 Digital Business Card &amp; QR</h3>
         <button id="closeBusinessCardBtn" class="modal-close-btn" aria-label="Close Card">✕</button>
       </div>
 
@@ -538,10 +532,10 @@
 
         <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
           <div style="display: flex; gap: 10px; width: 100%;">
-            <button class="btn btn-primary" style="flex: 1;" onclick="downloadVCard()">Save Contact (.vcf)</button>
-            <a id="qrCardCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">View CV</a>
+            <button class="btn btn-primary" style="flex: 1;" onclick="downloadVCard()">📱 📱 Save Contact (.vcf)</button>
+            <a id="qrCardCvBtn" href="#" onclick="openCvDocument(); return false;" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">📄 View CV</a>
           </div>
-          <div style="display: flex; gap: 10px; width: 100%;"><a id="qrCardLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">LinkedIn Profile</a><button class="btn btn-secondary" style="flex: 1; justify-content: center;" onclick="copyEmailToClipboard()">Copy Email</button></div>
+          <div style="display: flex; gap: 10px; width: 100%;"><a id="qrCardLinkedInBtn" href="https://www.linkedin.com/in/lucy-robinson-a6128838b" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">🔗 LinkedIn Profile</a><button class="btn btn-secondary" style="flex: 1; justify-content: center;" onclick="copyEmailToClipboard()">📋 Copy Email</button></div>
         </div>
       </div>
     </div>
@@ -551,9 +545,9 @@
 
   <!-- Google Identity Services & JavaScript Modules -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="scripts/portfolio-data.js?v=20260915_v46_clean_no_icons"></script>
-  <script src="scripts/cms.js?v=20260915_v46_clean_no_icons"></script>
-  <script src="scripts/app.js?v=20260915_v46_clean_no_icons"></script>
+  <script src="scripts/portfolio-data.js?v=20260915_v47_remove_bogie_and_dog_accents"></script>
+  <script src="scripts/cms.js?v=20260915_v47_remove_bogie_and_dog_accents"></script>
+  <script src="scripts/app.js?v=20260915_v47_remove_bogie_and_dog_accents"></script>
 
 
 
