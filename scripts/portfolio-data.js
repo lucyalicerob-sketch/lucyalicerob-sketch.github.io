@@ -2,11 +2,10 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T14:25:00Z
- * Version: 20260915_v61_resolved_all_merge_and_save_updates
+ * Updated: 2026-09-15T13:31:01.772Z
  */
 
-window.PORTFOLIO_DATA = {
+const PORTFOLIO_DATA = {
   "profile": {
     "name": "Lucy Robinson",
     "preferredName": "Lucy",
@@ -416,14 +415,6 @@ window.PORTFOLIO_DATA = {
       "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155235.png",
       "cadGallery": [
         {
-          "title": "Smugglers Mine Train Bogie 3D CAD",
-          "url": "assets/images/real-cad/smugglers_mine_train_bogie_cad.png"
-        },
-        {
-          "title": "Bogie Assembly Drawing Pack (BS 8888)",
-          "url": "assets/images/real-cad/smugglers_bogie_assembly_drawing.png"
-        },
-        {
           "title": "Kinematic Turning & Articulation Studies",
           "url": "assets/images/user-photos/Screenshot_2026-08-17_165848.png"
         },
@@ -432,7 +423,7 @@ window.PORTFOLIO_DATA = {
           "url": "assets/images/user-photos/Screenshot_2026-08-17_165942.png"
         }
       ],
-      "summary": "You are a smuggler using abandoned rails to escape the law. Will you get away in time? Features include a themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), a simple coupling system, chain lift hitch, and anti-rollback dogs.",
+      "summary": "You are a smuggler using abandoned rails to escape the law, will you get away in time? Features include themed car, overhead restraints, precision 3-wheel bogie assemblies (road, side guide, and upstop wheels), simple coupling system, chain lift hitch and anti-rollback dogs.",
       "keyMetrics": [
         {
           "label": "Wheel Configuration",
@@ -663,7 +654,16 @@ window.PORTFOLIO_DATA = {
         "Chassis Packaging"
       ],
       "coverImage": "assets/images/user-photos/Screenshot_2026-08-16_155149.png",
-      "cadGallery": [],
+      "cadGallery": [
+        {
+          "title": "Smoke & Starlight Autonomous Guided Vehicle (AGV) 3D Chassis",
+          "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+        },
+        {
+          "title": "Dual Steer-Drive Independent Swerve Pod Assembly",
+          "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
+        }
+      ],
       "summary": "Explore a steampunk observatory in this omnidirectional dark ride. Features a low-profile structural chassis, dual independent steer-drive wheel units, and custom Python steering maths for smooth zero-radius pivot turns.",
       "keyMetrics": [
         {
@@ -684,11 +684,11 @@ window.PORTFOLIO_DATA = {
         }
       ],
       "article": {
-        "problemStatement": "Ever wanted to explore space through the eyes of a steampunk inventor? In this ride you can! Explore the libraries, get flung around black holes and maybe meet a few new friends along the way. This omnidirectional trackless dark ride takes you into the observatory of Professor Elizabeth Starling, who is known for her creativity not her technical skills, and explores what happens when astronomical inventions start to go wrong. I'm sure it'll be fine.\n\n\nModern dark ride attractions (like Rise of the Resistance or Ratatouille) rely on trackless vehicles that can spin, slide, and navigate without a visible floor track. I wanted to challenge myself to design an AGV chassis from scratch that could handle smooth translation and zero-radius pivot turns while keeping all heavy electronics low to the floor for stability. The main focus of this project for me was the wheel pods, I wanted to learn how they work and have a go at writing some code which could control them.\n\nAs with all rides there are constraints to the movements of the vehicle and paths in rooms need to be mapped carefully, this is something I have attempted for the black hole room which will be featured in a different tab. This helped me to learn about the safety envelopes around a vehicle as it travels and to explore mapping a room in python script.\n\nAs with all of my designs, I wanted the mechanisms to be cohesive with the emotional storytelling of the ride.",
-        "cadArchitecture": "The wheel module is constructed with a mixture of sourced parts and parts I have designed myself. For this model, I wanted to practice assembling the pod and figuring out which parts go together to make the system work. Therefore, designing every element from scratch was not my priority.\n\nThe parts I modelled myself were the yoke and the brackets which connect the yoke to the slewing bearing. The slewing bearing, wheel an gears were all sourced components.\n\nI modelled the full chassis in SolidWorks as simple shapes to form panels and boxes. As part of the overall assembly, I included a lap bar restraint and a seat configuration which seats 2 people and provides ample leg room ( a fact which I had not initially considered but later realised was an issue). The seat itself sits a slight recline as this is more comfortable for riders rather being sat vertically upright. Other than these operational features and boxes which bloc out space for control systems and batteries, the design is much more aesthetic than practical.\n",
-        "calcsAndSimulation": "I wanted to use this project as a chance to expand my knowledge of python as a programming language so I created a simple script which controls a wheel in two scenarios. One if a slow forward movement and the other is a vehicle rotation. I then linked them together to create a forward-to-spin transition.\n\n• **Simple Wheel Control:**\n```python\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom fontTools.misc.cython import returns\n\nLX = 0.525\nLY = 0.575\nWHEEL_RADIUS = 0.080\n\npod_positions = {\n    \"Front_Left\": [LX, LY],\n    \"Front_Right\": [LX, -LY],\n    \"Rear_Left\": [-LX, LY],\n    \"Rear_Right\": [-LX, -LY]\n}\n\ndef calculate_swerve_kinematics (Vx, Vy, omega):\n    results = {}\n    for name, pos in pod_positions.items():\n        x_i = pos[0]\n        y_i = pos[1]\n\n        v_pod_x = Vx - (omega * y_i)\n        v_pod_y = Vy + (omega * x_i)\n\n        target_velocity = np.sqrt(v_pod_x ** 2 + v_pod_y ** 2)\n        target_angle_rad = np.arctan2(v_pod_y, v_pod_x)\n\n        motor_rpm = (target_velocity / WHEEL_RADIUS) * (60.0 / 2.0 * np.pi)\n\n        results[name] = {\n            \"speed_mps\" : target_velocity,\n            \"steer_drag\" : np.degrees(target_angle_rad),\n            \"motor_rpm\" : motor_rpm\n        }\n\n    return results\n\n\n\n\nprint(\"Scenario 1: Pure Forward (Vx=1.5 m/s) \")\nscen_1 = calculate_swerve_kinematics(Vx=1.5, Vy=0, omega=0)\nfor pod, data in scen_1.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\nprint(\"Scenario 2: Spin-on-the-Spot (omega=1.0 rad/s) \")\nscen_2 = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\nfor pod, data in scen_2.items():\n    print(f\"{pod} : Angle = {data['steer_drag']:.1f}deg | Motor = {data['motor_rpm']:.1f} rpm\")\n\n\ntime_array = np.linspace(0, 5, 100)\nfl_angles = []\n\nfor t in time_array:\n    if t < 2.0:\n        frame = calculate_swerve_kinematics(Vx=1, Vy=0, omega=0)\n    else:\n        frame = calculate_swerve_kinematics(Vx=0, Vy=0, omega=1.0)\n    fl_angles.append(frame[\"Front_Left\"][\"steer_drag\"])\n\nplt.figure(figsize = (8.0,4.0))\nplt.plot(time_array, fl_angles, label=\"Front Left Pod Angle\", color=\"red\", linewidth=2.0)\nplt.title(\"AGV Steering Actuation Profile: Forward-to-Spin Transition\")\nplt.xlabel(\"Time (s)\")\nplt.ylabel(\"Steering Target Angle (Degrees)\")\nplt.grid(True, linestyle = \"--\", alpha = 0.6)\nplt.legend()\nplt.show()\n```",
-        "prototypingAndTesting": "One of the story elements I wanted to include was a room where Professor Starling has created what she thinks is a secure black hole containment facility. However, the black hole is not secure and starts to cause the vehicles to orbit it slowly easing towards the centre before being thrust out of the room through 3 different exits.\n\nI modelled this room in python with a few variations. Because this was a task about envelopes and mapping the route the vehicle would take I simulated a room with only one exit where the vehicle circles the hole then accelerates out.\n\n",
-        "takeaways": "This project taught me so much about spatial packaging in mechatronic systems  -  especially how early mathematical modelling in Python directly prevents headaches when sizing motors in CAD.",
+        "problemStatement": "**Story**\nEver wanted to explore space through the eyes of a steampunk inventor? In this ride you can! Explore celestial libraries, get flung around black holes, and meet a few new friends along the way. This omnidirectional trackless dark ride takes you into the observatory of Professor Elizabeth Starling, who is known for her creativity, not her technical skills, and explores what happens when astronomical inventions start to go wrong. I'm sure it will be fine!\n\n**Engineering Context**\nModern dark ride attractions (such as Rise of the Resistance and Ratatouille) rely on trackless automated guided vehicles (AGVs) that can spin, slide, and navigate without a visible floor track. I wanted to challenge myself to design an AGV chassis from scratch that could handle smooth translation and zero-radius pivot turns while keeping heavy electronics low to the floor for stability. The main focus of this project was the swerve-drive wheel pods: learning how they work mechanically and writing Python code to coordinate their steering angles.\n\nAs with all dark rides, vehicle kinematics and spatial clearance envelopes must be carefully mapped. I used Python to model the trajectory and dynamic envelopes for the black hole sequence, ensuring that the vehicles can perform synchronized spins without intruding on scenic elements or other vehicles.\n\nAs with all of my designs, I wanted the mechanical solutions to be cohesive with the emotional storytelling of the ride.",
+        "cadArchitecture": "The wheel module is constructed with a combination of custom-designed brackets and standard components. For this build, my goal was to assemble the pod mechanism and understand how the parts interact, rather than fabricating every component from scratch.\n\nThe custom parts I modelled include the main wheel yoke and the mounting brackets connecting the yoke to the slewing bearing. The slewing bearing, drive wheel, and gears were selected standard components.\n\nI modelled the full chassis in SolidWorks using structured sheet metal and box enclosures. As part of the overall assembly, I included a lap bar restraint and a dual-passenger seat with generous legroom (a detail I refined after initial ergonomic checks). The seats are set at a slight recline for passenger comfort during rotation, and internal volumes are allocated for battery packs, motor controllers, and onboard guidance electronics.",
+        "calcsAndSimulation": "I used this project to deepen my knowledge of Python by writing a swerve-drive kinematics script that calculates individual wheel steering angles and motor RPM across two scenarios: pure linear translation and spin-on-the-spot rotation. I then combined them to model a smooth forward-to-spin transition.",
+        "prototypingAndTesting": "For the ride's climax, riders enter what Professor Starling believes is a secure black hole containment lab. As the containment fails, gravitational forces draw the vehicles into an inward spiral before launching them through exit portals.\n\nI scripted the vehicle path in Python to verify clearance boundaries, simulating how an AGV can orbit a central focal point while independently yawing to face show elements before accelerating into the next block.",
+        "takeaways": "This project taught me so much about spatial packaging in mechatronic systems, especially how early mathematical modelling in Python directly prevents headaches when sizing motors and packaging gearboxes in CAD.",
         "tabTitles": {
           "problem": "1. The Goal",
           "cad": "2. CAD Architecture",
@@ -704,26 +704,43 @@ window.PORTFOLIO_DATA = {
           "takeaways": "Engineering lessons learned, manufacturability review & next milestones"
         },
         "tabImages": {
-          "problem": [],
+          "problem": [
+            {
+              "title": "Smoke & Starlight AGV CAD",
+              "caption": "CAD assembly of the omnidirectional AGV chassis with low center-of-gravity battery bay.",
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+            }
+          ],
           "cad": [
             {
-              "url": "assets/images/user-photos/Screenshot_2026-08-16_155353.png",
-              "title": "Figure 1",
-              "caption": ""
+              "title": "Swerve Pod Assembly",
+              "caption": "Independent steering and drive module packaging planetary gearbox and brushless motor.",
+              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
             }
           ],
           "calcs": [
             {
-              "url": "assets/images/user-photos/Screenshot_2026-08-16_155400.png",
-              "title": "Figure 1",
-              "caption": ""
+              "title": "Swerve Pod Drive & Steering Calculations",
+              "caption": "Motor torque sizing, planetary gearbox reduction ratios, and steering slew bearing loads.",
+              "url": "assets/images/real-cad/smoke_starlight_swerve_pod.png"
             }
           ],
-          "prototyping": [],
-          "takeaways": []
+          "prototyping": [
+            {
+              "title": "Chassis Packaging & Component Integration",
+              "caption": "Independent swerve pod placement and low-profile battery/controller bay layout.",
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+            }
+          ],
+          "takeaways": [
+            {
+              "title": "Omnidirectional AGV Chassis",
+              "caption": "Final SolidWorks CAD model prepared for fabrication and motion profile simulation.",
+              "url": "assets/images/real-cad/smoke_starlight_agv_cad.png"
+            }
+          ]
         }
-      },
-      "shortDescription": "Explore a steampunk observatory in this omnidirectional dark ride. Features a low-profile structural chassis, dual independent steer-drive wheel units, and custom Python steering maths for smooth zero-radius pivot turns."
+      }
     }
   ],
   "universityProjects": [
@@ -913,7 +930,13 @@ window.PORTFOLIO_DATA = {
               "url": "assets/images/user-photos/Screenshot_2026-08-17_165421.png"
             }
           ],
-          "cad": [],
+          "cad": [
+            {
+              "title": "Time Machine Turntable CAD Assembly",
+              "caption": "SolidWorks CAD model detailing rotational bearing, indexing stops, and base support structure.",
+              "url": "assets/images/real-cad/time_machine_turntable_cad.png"
+            }
+          ],
           "calcs": [
             {
               "title": "Kinematic Analysis & Sizing Calculations",
@@ -1141,5 +1164,5 @@ window.PORTFOLIO_DATA = {
       "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "20260915_v61_resolved_all_merge_and_save_updates"
+  "dataVersion": "gh_1789479061772"
 };
