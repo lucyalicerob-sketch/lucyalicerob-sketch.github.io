@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-09-15T13:40:00.000Z
+ * Updated: 2026-09-15T13:50:00.000Z
  */
 
 const PORTFOLIO_DATA = {
@@ -1050,7 +1050,7 @@ const PORTFOLIO_DATA = {
       "division": "Children",
       "period": "2025 - present",
       "location": "Sheffield, UK",
-      "summary": "Volunteering with 36th Sheffield Beavers while studying at university. Always cheered up by an energetic group of 6 to 8 year olds!"
+      "summary": "Volunteering with 36th Sheffield Beavers while studying at university. Always cheered up by an energetic group of 6 to 8 year olds! It is fantastic for developing clear communication, quick problem-solving, and patience when explaining ideas, while building leadership skills and encouraging curiosity and teamwork in young people."
     },
     {
       "role": "Sheffield Engineering Leadership & Service Award (SELSA)",
@@ -1177,5 +1177,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-26"
     }
   ],
-  "dataVersion": "20260915_v53_updated_cv_aug_26"
+  "dataVersion": "20260915_v54_beavers_experience_update"
 };
