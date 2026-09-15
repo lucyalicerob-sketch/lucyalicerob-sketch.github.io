@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson — Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 20260915_v41_all_edits_restored
+ * Updated: 20260915_v42_bakerloo_cad_cover
  */
 
 const PORTFOLIO_DATA = {
@@ -769,7 +769,7 @@ const PORTFOLIO_DATA = {
         "Pugh Matrix Evaluation",
         "Mechanism Kinematics"
       ],
-      "coverImage": "assets/images/project-photos/bakerloo_step_free_lift_cad.png",
+      "coverImage": "assets/images/project-photos/bakerloo_door_cushion_cad.png",
       "cadGallery": [
         {
           "url": "assets/images/project-photos/bakerloo_step_free_lift_cad.png",
@@ -1162,5 +1162,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-08-18"
     }
   ],
-  "dataVersion": "20260915_v41_all_edits_restored"
+  "dataVersion": "20260915_v42_bakerloo_cad_cover"
 };
