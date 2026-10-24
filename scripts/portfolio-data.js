@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-10-24T12:02:43.254Z
+ * Updated: 2026-10-24T21:14:11.926Z
  */
 
 const PORTFOLIO_DATA = {
@@ -720,6 +720,37 @@ const PORTFOLIO_DATA = {
         }
       },
       "shortDescription": "Explore a steampunk observatory in this omnidirectional dark ride. Features a low-profile structural chassis, dual independent steer-drive wheel units, and custom Python steering maths for smooth zero-radius pivot turns."
+    },
+    {
+      "id": "proj-1792843370365",
+      "title": "New CAD & Engineering Build",
+      "subtitle": "SolidWorks Parametric Model & Mechanical Design",
+      "category": "themed-rides",
+      "featured": true,
+      "badge": "New Build",
+      "timeline": "2026",
+      "tools": [
+        "SolidWorks",
+        "CAD",
+        "Prototyping"
+      ],
+      "coverImage": "assets/images/extracted/image1.png",
+      "cadGallery": [
+        {
+          "url": "assets/images/extracted/image1.png",
+          "title": "Assembly CAD Render",
+          "caption": "SolidWorks 3D CAD model."
+        }
+      ],
+      "summary": "Detailed mechanical design and analysis of the project.",
+      "article": {
+        "problemStatement": "Project requirements and engineering objectives.",
+        "cadArchitecture": "CAD subassemblies and mechanical kinematics.",
+        "calcsAndSimulation": "Hand calculations, motor sizing, and stress checks.",
+        "prototypingAndTesting": "Prototyping and test sequence.",
+        "takeaways": "Key takeaways and next steps."
+      },
+      "keyMetrics": []
     }
   ],
   "universityProjects": [
@@ -990,6 +1021,17 @@ const PORTFOLIO_DATA = {
           "tag": "Thorpe Park Bridge View"
         }
       ]
+    },
+    {
+      "id": "diary-1792876386984",
+      "title": "New Field Note & Observation",
+      "location": "Europa-Park",
+      "date": "2026",
+      "readTime": "3 min read",
+      "category": "Ride Analysis",
+      "coverPhoto": "assets/images/personal/europa_park_water_coaster.jpg",
+      "summary": "Field observation of ride mechanics and coaster design.",
+      "content": "Detailed observations on track alignment, bogie kinematics, and station dispatch procedures."
     }
   ],
   "experience": [
@@ -1152,5 +1194,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-09-24"
     }
   ],
-  "dataVersion": "gh_1792843363254"
+  "dataVersion": "gh_1792876451926"
 };
