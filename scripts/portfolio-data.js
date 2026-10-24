@@ -2,7 +2,7 @@
  * PORTFOLIO DATA SOURCE
  * Lucy Robinson - Mechanical Engineering & Themed Ride Systems
  * Auto-Synchronized from Visual Studio Editor to GitHub Repository
- * Updated: 2026-10-24T22:23:12.294Z
+ * Updated: 2026-10-24T22:29:00.034Z
  */
 
 const PORTFOLIO_DATA = {
@@ -350,12 +350,7 @@ const PORTFOLIO_DATA = {
       "linkedin": "https://www.linkedin.com/in/lucy-robinson-a6128838b"
     },
     "contactHeading": "Interested in Connecting or <em>Working Together</em>?",
-    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!",
-    "highlights": [
-      "🎓 1st Class Honours across Year 1 and Year 2.",
-      "🚆 Summer Intern @ Transport for London (TfL DLR).",
-      "🏆 Engineering Leaders Scholar @ Royal Academy of Engineering"
-    ]
+    "contactMessage": "I’m always open to discussing new engineering opportunities, creative collaborations, or simply connecting with fellow engineers and designers. Feel free to reach out!"
   },
   "skills": {
     "cadModeling": [
@@ -1226,5 +1221,5 @@ const PORTFOLIO_DATA = {
       "dateAdded": "2026-09-24"
     }
   ],
-  "dataVersion": "gh_1792880592294"
+  "dataVersion": "gh_1792880940033"
 };
